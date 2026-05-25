@@ -40,3 +40,9 @@ Error and learning review:
 - Classify failures, identify recurrence, and propose updates only after repeated patterns or high-severity safety issues.
 - Do not automatically edit skills after a one-off error.
 - Completion reports should include a Learning Review section with errors, category, routing lesson, proposed improvement, apply-now/backlog decision, and whether sanitized docs are safe to sync.
+
+User response ledger:
+- During iterative work, classify task-relevant user responses and append a short sanitized entry to `.ai-task/user-response-ledger.md` when feedback changes direction, approves/rejects work, reports a bug, gives a style/content/workflow preference, or creates a reusable rule candidate.
+- Do not log every tiny user message and do not store full conversations.
+- Signal types: approval, correction, modification_request, style_preference, rejection, bug_report, scope_change, decision, reusable_rule_candidate, blocked_or_unclear.
+- Promote repeated or explicit reusable-rule feedback into a skill/doc/memory candidate only after review.

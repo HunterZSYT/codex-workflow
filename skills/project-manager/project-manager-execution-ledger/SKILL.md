@@ -38,3 +38,13 @@ For medium/large/risky tasks, capture failed commands, wrong tool choices, weak 
 Do not automatically rewrite skills after a one-off error. Log one-off errors only. For repeated patterns, create improvement candidates. For high-severity safety issues, immediately propose a safety update and require user approval before applying it.
 
 Completion reports should include a Learning Review: errors encountered, mistake category, tool/skill routing lesson, proposed improvement, apply now or backlog, and whether sanitized lessons are safe to sync to `codex-workflow`.
+
+## User Response Ledger
+
+During iterative work, classify task-relevant user responses and append a short sanitized entry to `.ai-task/user-response-ledger.md` when the response changes direction, approves work, rejects work, reports a bug, gives a style/content/workflow preference, or creates a reusable rule candidate.
+
+Do not log every tiny user message. Do not store full conversations. Record only summarized feedback, a short sanitized phrase, interpreted action, next action, status, reusable preference candidate, and verification after change.
+
+Signal types: approval, correction, modification_request, style_preference, rejection, bug_report, scope_change, decision, reusable_rule_candidate, blocked_or_unclear.
+
+Promote repeated or explicit reusable-rule feedback into a skill/doc/memory candidate only after review. Do not automatically rewrite skills from one response.
