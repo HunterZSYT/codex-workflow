@@ -2,6 +2,12 @@ $ErrorActionPreference = "Stop"
 
 $RepoRoot = Split-Path -Parent $PSScriptRoot
 $ExpectedRemote = "https://github.com/HunterZSYT/codex-workflow.git"
+$LogPath = Join-Path $RepoRoot "manifests/auto-sync-last-run.log"
+
+Start-Transcript -Path $LogPath -Force | Out-Null
+
+try {
+Write-Host "Auto sync started: $(Get-Date -Format o)"
 
 $origin = git -C $RepoRoot remote get-url origin
 if ($origin -ne $ExpectedRemote) {
@@ -35,3 +41,8 @@ if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
 git -C $RepoRoot push origin main
 exit $LASTEXITCODE
+}
+finally {
+  Write-Host "Auto sync finished: $(Get-Date -Format o)"
+  Stop-Transcript | Out-Null
+}
