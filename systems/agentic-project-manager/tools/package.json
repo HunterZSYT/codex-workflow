@@ -1,0 +1,15 @@
+{
+  "name": "codex-agentic-project-manager-tools",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Global project manager, execution ledger, routing, verification, and improvement tools for Codex.",
+  "scripts": {
+    "health": "node project-manager-health-check.mjs",
+    "classify": "node pm-classify-task.mjs",
+    "init": "node pm-init-task.mjs",
+    "roadmap": "node pm-create-roadmap.mjs",
+    "next": "node pm-next-packet.mjs",
+    "sync": "node pm-capability-sync.mjs"
+  }
+}

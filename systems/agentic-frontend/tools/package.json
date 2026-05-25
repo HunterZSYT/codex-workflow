@@ -1,0 +1,21 @@
+{
+  "name": "codex-agentic-frontend-tools",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Reusable global frontend inspection, accessibility, performance, and codebase intelligence tools for Codex.",
+  "scripts": {
+    "health": "node agentic-health-check.mjs",
+    "inspect": "node frontend-inspect.mjs",
+    "a11y": "node accessibility-check.mjs",
+    "perf": "node performance-check.mjs",
+    "scan": "node project-capability-scan.mjs",
+    "map": "node component-map.mjs",
+    "mcp": "node mcp-status-check.mjs"
+  },
+  "dependencies": {
+    "@axe-core/playwright": "latest",
+    "lighthouse": "latest",
+    "playwright": "latest"
+  }
+}

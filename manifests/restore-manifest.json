@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "restoreTargets": [
+    {
+      "repoFolder": "systems/agentic-frontend",
+      "destination": "C:\\Users\\acer\\.codex\\agentic-frontend",
+      "postRestore": "npm install in tools folder if package.json exists"
+    },
+    {
+      "repoFolder": "systems/agentic-backend-database",
+      "destination": "C:\\Users\\acer\\.codex\\agentic-backend-database",
+      "postRestore": "npm install in tools folder if package.json exists"
+    },
+    {
+      "repoFolder": "systems/agentic-project-manager",
+      "destination": "C:\\Users\\acer\\.codex\\agentic-project-manager",
+      "postRestore": "npm install in tools folder if package.json exists"
+    },
+    {
+      "repoFolder": "skills",
+      "destination": "C:\\Users\\acer\\.codex\\skills",
+      "postRestore": "review installed skills and restart Codex"
+    }
+  ],
+  "manualSteps": [
+    "Sign in to Codex manually",
+    "Create real config.toml manually from codex/config.template.toml",
+    "Configure MCP credentials manually",
+    "Configure SSH keys and ~/.ssh/config outside Git",
+    "Configure Figma, GitHub, Supabase/Postgres auth manually"
+  ]
+}

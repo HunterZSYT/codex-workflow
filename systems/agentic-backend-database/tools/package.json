@@ -1,0 +1,27 @@
+{
+  "name": "codex-agentic-backend-database-tools",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Reusable global backend, database, API, SSH, and production-safety tools for Codex.",
+  "scripts": {
+    "health": "node backend-db-health-check.mjs",
+    "scan": "node project-capability-scan.mjs",
+    "routes": "node api-route-map.mjs",
+    "openapi": "node openapi-inspect.mjs",
+    "db": "node db-engine-detect.mjs",
+    "schema": "node db-schema-map.mjs",
+    "migrations": "node migration-safety-check.mjs",
+    "sql": "node sql-safety-check.mjs",
+    "env": "node env-secret-audit.mjs",
+    "deps": "node dependency-risk-scan.mjs",
+    "logs": "node log-error-summarizer.mjs",
+    "ssh": "node remote-ssh-inventory.mjs",
+    "mcp": "node mcp-status-check.mjs"
+  },
+  "dependencies": {
+    "ajv": "latest",
+    "dotenv": "latest",
+    "yaml": "latest"
+  }
+}

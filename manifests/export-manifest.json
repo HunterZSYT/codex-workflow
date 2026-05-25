@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "lastSyncTimestamp": null,
+  "sources": [
+    {
+      "source": "C:\\Users\\acer\\.codex\\agentic-frontend",
+      "destination": "systems/agentic-frontend"
+    },
+    {
+      "source": "C:\\Users\\acer\\.codex\\agentic-backend-database",
+      "destination": "systems/agentic-backend-database"
+    },
+    {
+      "source": "C:\\Users\\acer\\.codex\\agentic-project-manager",
+      "destination": "systems/agentic-project-manager"
+    },
+    {
+      "source": "C:\\Users\\acer\\.codex\\skills",
+      "destination": "skills"
+    }
+  ],
+  "allowedFilePatterns": [
+    "README.md",
+    "safety-policy.md",
+    "workflow-policy.md",
+    "manual-auth-needed.md",
+    "improvement-notes.md",
+    "SKILL.md",
+    "skill-prompts/*.md",
+    "templates/*.md",
+    "tools/*.mjs",
+    "tools/*.js",
+    "tools/*.sh",
+    "tools/package.json"
+  ],
+  "excludedFilePatterns": [
+    "auth.json",
+    "config.toml",
+    "config.toml.*",
+    "node_modules/**",
+    ".ai-task/**",
+    "qa/**",
+    "*.log",
+    "*.png",
+    "*.jpg",
+    "*.jpeg",
+    "*.webp",
+    "*.gif",
+    "*.pem",
+    "*.key",
+    ".env",
+    ".env.*"
+  ]
+}

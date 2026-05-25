@@ -1,0 +1,29 @@
+# Safe Codex config template.
+# Copy to the real Codex config location manually and add credentials outside Git.
+# Do not commit real tokens, auth state, database URLs, private keys, or passwords.
+
+# [mcp_servers.context7]
+# command = "npx"
+# args = ["-y", "@upstash/context7-mcp"]
+
+# [mcp_servers.playwright]
+# command = "npx"
+# args = ["-y", "@playwright/mcp@latest"]
+
+# [mcp_servers.chrome-devtools]
+# command = "npx"
+# args = ["-y", "chrome-devtools-mcp@latest"]
+
+# [mcp_servers.github]
+# command = "npx"
+# args = ["-y", "@modelcontextprotocol/server-github"]
+# Real GitHub auth must be configured manually outside this repo.
+
+# [mcp_servers.figma]
+# Figma MCP usually requires manual desktop app / Dev Mode setup.
+
+# [mcp_servers.supabase]
+# Configure manually with safe project-scoped credentials only.
+
+# [mcp_servers.postgres]
+# Configure manually with local/dev credentials only. Do not commit production URLs.

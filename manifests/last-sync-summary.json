@@ -1,0 +1,24 @@
+﻿{
+    "timestamp":  "2026-05-26T03:13:11.5029630+06:00",
+    "filesCopied":  202,
+    "warnings":  [
+
+                 ],
+    "sources":  [
+                    {
+                        "name":  "agentic-frontend",
+                        "source":  "C:\\Users\\acer\\.codex\\agentic-frontend",
+                        "destination":  "systems/agentic-frontend"
+                    },
+                    {
+                        "name":  "agentic-backend-database",
+                        "source":  "C:\\Users\\acer\\.codex\\agentic-backend-database",
+                        "destination":  "systems/agentic-backend-database"
+                    },
+                    {
+                        "name":  "agentic-project-manager",
+                        "source":  "C:\\Users\\acer\\.codex\\agentic-project-manager",
+                        "destination":  "systems/agentic-project-manager"
+                    }
+                ]
+}
