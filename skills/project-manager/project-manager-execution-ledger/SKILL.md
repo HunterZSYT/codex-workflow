@@ -30,3 +30,11 @@ Use Understand Anything for big-picture architecture, onboarding/explanation, bu
 Escalation budget: small tasks use direct inspection only unless search fails; medium tasks run capability scan first and at most one intelligence tool if needed; large/risky/unknown tasks use Project Manager tracking, capability scan, one best intelligence tool, and log why. Avoid running multiple heavy tools unless the first fails or the task needs both high-level explanation and precise symbol tracing.
 
 When `.ai-task` tracking is active, log tool chosen, why chosen, alternatives considered, whether it reduced search/read loops, whether it found the needed context, whether it was overkill, and whether routing rules should change.
+
+## Error and Failure Learning
+
+For medium/large/risky tasks, capture failed commands, wrong tool choices, weak verification, loop failures, safety risks, and environment failures with `pm-log-error.mjs`. Review `.ai-task/error-ledger.md`, `.ai-task/failed-commands.md`, and `.ai-task/decision-review.md` at completion.
+
+Do not automatically rewrite skills after a one-off error. Log one-off errors only. For repeated patterns, create improvement candidates. For high-severity safety issues, immediately propose a safety update and require user approval before applying it.
+
+Completion reports should include a Learning Review: errors encountered, mistake category, tool/skill routing lesson, proposed improvement, apply now or backlog, and whether sanitized lessons are safe to sync to `codex-workflow`.

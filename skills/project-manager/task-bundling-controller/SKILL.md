@@ -6,3 +6,5 @@ description: Use to decide what can be bundled and what must be isolated. Bundle
 # Task Bundling Controller
 
 Bundle only when same work type, same files/area, same verification method, low risk, and easy rollback. Do not bundle visual with backend/database, screenshot tasks with API test tasks, security/database/server/deployment tasks, shared component changes, exact single-issue requests, or tasks with different risk levels.
+
+Log bundling mistakes with `pm-log-error.mjs` when Project Manager tracking is active: over-bundled risky tasks, mixed verification tasks bundled incorrectly, and under-bundled easy same-area tasks. Repeated bundling mistakes should become skill update candidates, not automatic edits.

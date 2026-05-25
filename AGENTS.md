@@ -105,6 +105,8 @@ Relevant skills:
 
 For medium/large or unknown codebase tasks, let Project Manager choose the appropriate codebase intelligence tool. Do not run heavy recon tools for tiny localized edits.
 
+After medium/large/risky tasks, run Project Manager completion review. Log failed commands, wrong tool choices, weak verification, and recurring mistakes. Propose skill/tool updates from repeated patterns, not one-off failures.
+
 ## Verification Rules
 
 Choose verification based on task type.

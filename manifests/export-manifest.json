@@ -29,6 +29,13 @@
     "SKILL.md",
     "skill-prompts/*.md",
     "templates/*.md",
+    "learning/error-patterns.md",
+    "learning/routing-lessons.md",
+    "learning/tool-failure-patterns.md",
+    "learning/verification-mistakes.md",
+    "learning/skill-update-candidates.md",
+    "learning/resolved-lessons.md",
+    "learning/learning-policy.md",
     "tools/*.mjs",
     "tools/*.js",
     "tools/*.sh",
@@ -50,6 +57,7 @@
     "*.pem",
     "*.key",
     ".env",
-    ".env.*"
+    ".env.*",
+    "learning/recurring-failures.jsonl"
   ]
 }

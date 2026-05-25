@@ -96,6 +96,21 @@ foreach ($file in $Files) {
     elseif ($line -match "(?i)(DATABASE_URL|POSTGRES_URL|MYSQL_URL)\s*[:=]\s*['""]?\w+://[^'""\s]+:[^'""\s]+@") {
       Add-Finding $relative $lineNumber "Database URL with embedded password"
     }
+    elseif ($line -match "(?i)\b(Bearer|Basic)\s+[A-Za-z0-9._~+/=-]{16,}") {
+      Add-Finding $relative $lineNumber "Auth header/token value"
+    }
+    elseif ($line -match "(?i)(cookie|set-cookie|authorization)\s*[:=]\s*[^`r`n]+") {
+      Add-Finding $relative $lineNumber "Cookie/auth header"
+    }
+    elseif ($line -match "(?i)(email|user(name)?).*(password|pwd|pass)\s*[:=]") {
+      Add-Finding $relative $lineNumber "Email/password pair"
+    }
+    elseif ($line -match "(?i)(prod|production)[A-Za-z0-9.-]+\.(com|net|org|io|bd)\b") {
+      Add-Finding $relative $lineNumber "Potential production hostname"
+    }
+    elseif ($line -match "(?i)(env|environment).*(password|secret|token|key)\s*[:=]\s*[^`r`n]+") {
+      Add-Finding $relative $lineNumber "Stack trace or env line with secret-like value"
+    }
     elseif ($line -match "ssh-ed25519\s+[A-Za-z0-9+/=]{50,}\s*$" -and $line -notmatch "\.pub|public key") {
       Add-Finding $relative $lineNumber "SSH key material"
     }

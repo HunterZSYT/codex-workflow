@@ -28,6 +28,31 @@ ${await read("inefficiency-log.md")}
 
 ## Recommended Improvements
 ${await read("improvement-backlog.md")}
+
+## Learning Review
+Errors encountered:
+${await read("error-ledger.md")}
+
+Failed commands:
+${await read("failed-commands.md")}
+
+Decision review:
+${await read("decision-review.md")}
+
+Mistake category:
+Review the error ledger categories.
+
+Tool/skill routing lesson:
+Review decision-review.md and tool-skill-usage.md.
+
+Proposed improvement:
+Use pm-suggest-skill-update.mjs for repeated patterns; do not auto-apply one-off lessons.
+
+Apply now or backlog:
+Backlog unless user explicitly approves or the task requested setup/update work.
+
+Safe to sync to codex-workflow:
+Only sanitized learning docs, never raw recurring-failures.jsonl or .ai-task logs.
 `;
 const out = path.join(dir, "completion-report.md");
 await fs.writeFile(out, md);

@@ -33,3 +33,10 @@ Routing: frontend visual/layout -> frontend-tool-orchestrator plus visual skills
 Verification: copy-only no screenshot by default; frontend visual requires rendered evidence; mobile claims require mobile emulation; backend/API uses tests/build/typecheck/smoke test; database uses read-only inspection and safety checks; VPS/server uses read-only inspection and command preview before changes.
 
 Tool usage logging should include tool chosen, why chosen, alternatives considered, whether it reduced search/read loops, whether it found needed context, whether it was overkill, and whether routing rules should change.
+
+Error and learning review:
+- Use `pm-log-error.mjs` for failed commands, wrong tool choices, weak verification, loop failures, safety risks, and environment failures.
+- At completion for medium/large/risky tasks, review `.ai-task/error-ledger.md`, `.ai-task/failed-commands.md`, and `.ai-task/decision-review.md`.
+- Classify failures, identify recurrence, and propose updates only after repeated patterns or high-severity safety issues.
+- Do not automatically edit skills after a one-off error.
+- Completion reports should include a Learning Review section with errors, category, routing lesson, proposed improvement, apply-now/backlog decision, and whether sanitized docs are safe to sync.

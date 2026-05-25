@@ -6,6 +6,7 @@ export const PM_ROOT = path.join(os.homedir(), ".codex", "agentic-project-manage
 export const FRONTEND_ROOT = path.join(os.homedir(), ".codex", "agentic-frontend");
 export const BACKEND_ROOT = path.join(os.homedir(), ".codex", "agentic-backend-database");
 export const SKILLS_ROOT = path.join(os.homedir(), ".codex", "skills");
+export const LEARNING_ROOT = path.join(PM_ROOT, "learning");
 
 export async function exists(p) {
   try { await fs.access(p); return true; } catch { return false; }
@@ -24,6 +25,14 @@ export async function ensureAiTask() {
   const dir = path.join(process.cwd(), ".ai-task");
   await fs.mkdir(dir, { recursive: true });
   await fs.mkdir(path.join(dir, "archive"), { recursive: true });
+  return dir;
+}
+
+export async function ensureTaskLearningFiles() {
+  const dir = await ensureAiTask();
+  await copyTemplate("error-ledger-template.md", path.join(dir, "error-ledger.md"));
+  await copyTemplate("failed-commands-template.md", path.join(dir, "failed-commands.md"));
+  await copyTemplate("decision-review-template.md", path.join(dir, "decision-review.md"));
   return dir;
 }
 
@@ -116,4 +125,23 @@ export function roadmapFor(task) {
 export async function append(file, text) {
   const dir = await ensureAiTask();
   await fs.appendFile(path.join(dir, file), text);
+}
+
+export function redact(value = "") {
+  return String(value)
+    .replace(/-----BEGIN [A-Z ]*PRIVATE KEY-----[\s\S]*?-----END [A-Z ]*PRIVATE KEY-----/g, "[REDACTED_PRIVATE_KEY]")
+    .replace(/\b(Bearer|Basic)\s+[A-Za-z0-9._~+/=-]+/gi, "$1 [REDACTED_AUTH]")
+    .replace(/(authorization|cookie|set-cookie)\s*[:=]\s*[^\n\r]+/gi, "$1: [REDACTED]")
+    .replace(/\b[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}\b/g, "[REDACTED_EMAIL]")
+    .replace(/\b(?:postgres|postgresql|mysql|mariadb|mongodb|redis):\/\/[^\s"'`]+/gi, "[REDACTED_DB_URL]")
+    .replace(/(?i:((?:api[_-]?key|token|secret|password|passwd|pwd)\s*[:=]\s*))["']?[^"'\s]+/g, "$1[REDACTED]")
+    .replace(/C:\\Users\\[^\\\s]+\\\.ssh\\[^\s]+/gi, "[REDACTED_SSH_PATH]");
+}
+
+export function categoryTargets(category = "") {
+  const c = String(category).toLowerCase();
+  if (/routing|wrong skill|tool misuse/.test(c)) return ["routing-lessons.md"];
+  if (/tool unavailable|environment|mcp|playwright|ssh|permission|missing/.test(c)) return ["tool-failure-patterns.md"];
+  if (/verification|loop/.test(c)) return ["verification-mistakes.md"];
+  return ["error-patterns.md"];
 }

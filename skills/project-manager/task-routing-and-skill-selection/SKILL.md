@@ -24,3 +24,9 @@ Default rule: start with the cheapest reliable method. Escalate only when the ta
 Budget: small tasks use direct inspection and no CodeGraph/Understand Anything unless search fails. Medium tasks run capability scan first and use one intelligence tool if needed. Large/risky/unknown tasks use Project Manager tracking, run capability scan, choose the best intelligence tool, and log why. Do not run multiple heavy tools unless one fails or the task needs both high-level explanation and precise symbol tracing.
 
 Generated artifacts from `.codegraph/`, `.understand-anything/`, indexes, caches, and databases are local-only and should be gitignored. Do not sync or commit them unless explicitly requested.
+
+## Tool Choice Feedback Loop
+
+When Project Manager tracking is active, log task type, available tools considered, tool chosen, why chosen, expected benefit, actual benefit, time/cost/complexity, whether it was overkill, whether a cheaper tool would have worked, whether a stronger tool should have been used, and future routing lesson.
+
+If wrong routing repeats, propose updates to this skill or `project-manager-execution-ledger`; do not auto-apply changes after a single mistake.

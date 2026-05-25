@@ -79,7 +79,14 @@ function Export-System {
     "tools/*.sh",
     "tools/package.json",
     "templates/*.md",
-    "skill-prompts/*.md"
+    "skill-prompts/*.md",
+    "learning/error-patterns.md",
+    "learning/routing-lessons.md",
+    "learning/tool-failure-patterns.md",
+    "learning/verification-mistakes.md",
+    "learning/skill-update-candidates.md",
+    "learning/resolved-lessons.md",
+    "learning/learning-policy.md"
   ) | ForEach-Object { Copy-Pattern $Source $dest $_ }
 
   $summaryPath = Join-Path $dest "LOCAL_STATUS_SUMMARY.md"
