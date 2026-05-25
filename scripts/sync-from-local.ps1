@@ -71,6 +71,7 @@ function Export-System {
     "README.md",
     "safety-policy.md",
     "workflow-policy.md",
+    "tool-selection-policy.md",
     "manual-auth-needed.md",
     "improvement-notes.md",
     "tools/*.mjs",

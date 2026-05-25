@@ -1,5 +1,7 @@
 node_modules/
 .ai-task/
+.codegraph/
+.understand-anything/
 qa/
 *.png
 *.jpg

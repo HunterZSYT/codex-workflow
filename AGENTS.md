@@ -103,6 +103,8 @@ Relevant skills:
 - task-bundling-controller
 - inefficiency-and-improvement-reviewer
 
+For medium/large or unknown codebase tasks, let Project Manager choose the appropriate codebase intelligence tool. Do not run heavy recon tools for tiny localized edits.
+
 ## Verification Rules
 
 Choose verification based on task type.

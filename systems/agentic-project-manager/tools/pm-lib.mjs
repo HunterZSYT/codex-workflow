@@ -43,6 +43,8 @@ export function classifyTask(task) {
   add("deployment", /deploy|deployment|production|release|rollback|ssl|domain/);
   add("security/env/secrets", /\.env|secret|token|password|credential|security|auth/);
   add("codebase knowledge graph recon", /understand .*project|understand .*codebase|codebase.*understand|architecture|dependency|dependencies|onboarding|impact analysis|business.*flow|project.*flow|codebase.*flow/);
+  add("codegraph impact tracing", /codegraph|caller|callee|symbol|symbols|what uses|who uses|depends on|depend on|dependency path|impact|what breaks|trace .*function|trace .*class|route.*service|service.*component/);
+  add("semantic navigation", /serena|semantic navigation|semantic search|locate .*symbol|find .*class|find .*function/);
   add("accessibility", /accessibility|a11y|aria|keyboard|focus|screen reader/);
   add("performance", /performance|slow|lighthouse|core web vitals|latency|speed/);
   add("design-to-code", /figma|design|screenshot|mockup/);
@@ -55,11 +57,14 @@ export function classifyTask(task) {
   const visual = unique.some(x => /frontend|design/.test(x));
   const backend = unique.some(x => /backend|database|SQL|VPS|deployment|security/.test(x));
   const recon = unique.includes("codebase knowledge graph recon");
+  const graphTrace = unique.includes("codegraph impact tracing");
+  const semanticNav = unique.includes("semantic navigation");
   const type = unique.length > 1 ? "mixed" : unique[0] || "unknown";
   const skills = [];
   if (visual) skills.push("frontend-tool-orchestrator", "frontend-inspection-discipline");
   if (backend) skills.push("backend-database-tool-orchestrator");
-  if (recon) skills.push("codebase-knowledge-graph-recon", "codebase-recon-orchestrator");
+  if (recon || graphTrace || semanticNav) skills.push("codebase-recon-orchestrator", "task-routing-and-skill-selection");
+  if (recon) skills.push("codebase-knowledge-graph-recon");
   if (unique.includes("SQL operation")) skills.push("sql-operations-gate");
   if (unique.includes("database/schema")) skills.push("database-safety-orchestrator");
   if (unique.includes("VPS/SSH/server")) skills.push("vps-ssh-operations-gate");
@@ -72,9 +77,12 @@ export function classifyTask(task) {
   const tools = [];
   if (visual) tools.push("frontend-inspect.mjs when visual proof is needed");
   if (backend) tools.push("backend project/API/DB scanners as relevant");
-  if (recon) tools.push("normal capability scan first, then Understand Anything if large/unknown");
+  if (recon) tools.push("project capability scan first, then Understand Anything for architecture/onboarding/domain flow");
+  if (graphTrace) tools.push("CodeGraph for symbol usage, caller/callee tracing, dependency paths, and impact analysis");
+  if (semanticNav) tools.push("Serena semantic navigation when available for targeted symbol/class/function context");
   if (unique.includes("SQL operation")) tools.push("sql-safety-check.mjs");
   if (unique.includes("VPS/SSH/server")) tools.push("vps-* read-only scripts");
+  const smallLocalized = /fix|change|update|adjust/.test(t) && /button|padding|copy|text|headline|label/.test(t) && !/large|unknown|architecture|depends on|impact|caller|callee|what uses|what breaks/.test(t);
   return {
     task,
     type,
@@ -82,11 +90,18 @@ export function classifyTask(task) {
     riskLevel: risky ? "high" : unique.length > 1 ? "medium" : "low",
     suggestedSkills: [...new Set(skills)],
     suggestedTools: [...new Set(tools)],
-    needsTracking: risky || unique.length > 1 || t.length > 140,
+    needsTracking: risky || (!smallLocalized && (unique.length > 1 || t.length > 140 || recon || graphTrace)),
     screenshotsNeeded: visual && !unique.includes("copy/content-only"),
     buildTestNeeded: !unique.includes("copy/content-only") && (visual || backend),
     backendDatabaseSafetyGatesNeeded: backend,
-    userApprovalBeforeWrites: risky
+    userApprovalBeforeWrites: risky,
+    codebaseIntelligence: graphTrace
+      ? "CodeGraph or Serena preferred for precise symbol/dependency/impact tracing"
+      : recon
+        ? "Understand Anything preferred for high-level architecture/onboarding/domain understanding"
+        : semanticNav
+          ? "Serena preferred when semantic navigation is available"
+          : "normal search/read first; escalate only if direct inspection is insufficient"
   };
 }
 
