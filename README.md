@@ -48,6 +48,8 @@ The scheduled task script is prepared but not registered automatically:
 powershell -ExecutionPolicy Bypass -File scripts\register-auto-sync-task.ps1
 ```
 
+The registered task uses `scripts\run-auto-sync-hidden.vbs` so the background sync does not open a visible PowerShell window.
+
 Remove it with:
 
 ```powershell
