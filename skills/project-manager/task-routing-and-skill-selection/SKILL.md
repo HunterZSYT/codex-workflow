@@ -6,3 +6,21 @@ description: Use to select the correct specialist skills/tools for frontend, bac
 # Task Routing and Skill Selection
 
 Do not use all tools every time. Choose the smallest skill/tool that proves the claim. Use frontend stack for frontend, backend-database stack for backend/database/VPS, design grounding for Figma/design source, component supply for UI components, and safety gates for risky work.
+
+## Tool Selection Policy
+
+Default rule: start with the cheapest reliable method. Escalate only when the task needs more context, precision, or impact analysis.
+
+- Normal search/read: small task, known target file, one-file edit, copy/content update, simple styling fix, or direct bug with known location.
+- Project capability scan: unknown project, stack detection, verification command selection, or available tool/script detection.
+- Component map: adding/modifying frontend components, finding existing UI, or avoiding duplicate components.
+- API/db/schema maps: backend/API/database tasks, route/controller/service tracing, migration/schema risk.
+- Understand Anything: user asks to understand/onboard/explain a codebase, task needs architecture, business/domain flow, large unfamiliar project understanding, or documentation-style summary.
+- CodeGraph: symbol search, caller/callee tracing, dependency path tracing, impact analysis, route/service/component relationship tracing, "what uses this?", or "what breaks if I change this?".
+- Serena: semantic code navigation is available and useful for symbols/classes/functions across a large repo or targeted edits with semantic context.
+- Frontend inspect: visual proof, responsive/mobile/layout issue, overflow/sticky/header/button/spacing visual claim.
+- Accessibility/performance tools: only when the task directly involves accessibility/performance, or when touched UI includes nav/forms/modals/buttons for accessibility.
+
+Budget: small tasks use direct inspection and no CodeGraph/Understand Anything unless search fails. Medium tasks run capability scan first and use one intelligence tool if needed. Large/risky/unknown tasks use Project Manager tracking, run capability scan, choose the best intelligence tool, and log why. Do not run multiple heavy tools unless one fails or the task needs both high-level explanation and precise symbol tracing.
+
+Generated artifacts from `.codegraph/`, `.understand-anything/`, indexes, caches, and databases are local-only and should be gitignored. Do not sync or commit them unless explicitly requested.
