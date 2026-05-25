@@ -10,15 +10,22 @@ Core rules:
 - Small tasks do not need heavy roadmap files.
 - Medium/large/risky tasks use `.ai-task` tracking.
 - Always extract hard constraints before editing.
+- Run Capability Gap Radar for medium, high-risk, unclear, or tool-evaluation tasks before committing to a workflow.
 - Always route to relevant specialist skills/tools.
 - Do not run broad QA for narrow tasks.
 - Do not claim success without verification.
 - Track inefficiencies for future improvement.
 
+Capability Gap Radar:
+- Small/simple tasks proceed normally without tool scouting.
+- Medium tasks do a quick capability check using existing skills/tools.
+- Complex, repeated, unclear, or high-risk tasks inspect existing setup and recommend research/tooling only when useful.
+- Tool installation or configuration always requires explicit approval.
+- Database, server, deployment, auth, SSH, or migration tasks require read-only inspection first.
+- Capability checks should record task type, existing matching skills/tools, need for current-source research, need for specialized tool/MCP/library, candidate capability, whether to use existing setup or recommend upgrade, risk level, approval need, and next action.
+
 Tool selection and auto-optimization:
 - Default to the cheapest reliable method, then escalate only when more context, precision, or impact analysis is needed.
-- Before medium, large, risky, unclear, repeated, or tool-evaluation tasks, run a short Capability Gap Radar check. Skip it for tiny localized edits where existing tools are obviously enough.
-- Capability Check fields: task type, existing matching skills/tools, need current-source research, need specialized tool/MCP/library, candidate capability, use existing setup or recommend upgrade, risk level, approval needed, next action.
 - Small tasks use normal search/read; do not run CodeGraph or Understand Anything unless direct search fails.
 - Medium tasks run capability scan first and use one intelligence tool if needed.
 - Large/risky/unknown tasks use `.ai-task` tracking, run capability scan, choose the best intelligence tool, and log why.
@@ -27,7 +34,6 @@ Tool selection and auto-optimization:
 - Use Serena when semantic code navigation is available and useful for symbols/classes/functions or targeted edits.
 - Avoid running multiple heavy tools unless the first fails or the task requires both high-level explanation and precise symbol tracing.
 - Keep `.codegraph/`, `.understand-anything/`, generated indexes, caches, and graph databases local-only and gitignored.
-- Do not install tools, MCPs, packages, or CLIs without explicit approval.
 
 Task lifecycle: classify task, extract hard constraints, decide tracking level, create/update roadmap, pick next packet, execute smallest safe packet, verify appropriately, log execution, log tools/skills, log inefficiencies, continue only if scope allows, then complete report.
 
@@ -37,15 +43,16 @@ Verification: copy-only no screenshot by default; frontend visual requires rende
 
 Tool usage logging should include tool chosen, why chosen, alternatives considered, whether it reduced search/read loops, whether it found needed context, whether it was overkill, and whether routing rules should change.
 
+User Response Ledger:
+- During iterative work, append short sanitized entries to `.ai-task/user-response-ledger.md` when the user approves work, rejects work, asks for a modification, reports a bug, changes scope, gives a style/content/workflow preference, makes a decision, or gives a reusable rule candidate.
+- Do not log every user message. Log only task-relevant feedback signals.
+- Store summarized feedback, not full transcripts.
+- Redact or skip secrets, credentials, auth details, private URLs, database URLs, cookies, sensitive logs, and private screenshots.
+- Repeated feedback or explicit reusable-rule language may become a learning candidate after review; do not rewrite skills from one response.
+
 Error and learning review:
 - Use `pm-log-error.mjs` for failed commands, wrong tool choices, weak verification, loop failures, safety risks, and environment failures.
 - At completion for medium/large/risky tasks, review `.ai-task/error-ledger.md`, `.ai-task/failed-commands.md`, and `.ai-task/decision-review.md`.
 - Classify failures, identify recurrence, and propose updates only after repeated patterns or high-severity safety issues.
 - Do not automatically edit skills after a one-off error.
 - Completion reports should include a Learning Review section with errors, category, routing lesson, proposed improvement, apply-now/backlog decision, and whether sanitized docs are safe to sync.
-
-User response ledger:
-- During iterative work, classify task-relevant user responses and append a short sanitized entry to `.ai-task/user-response-ledger.md` when feedback changes direction, approves/rejects work, reports a bug, gives a style/content/workflow preference, or creates a reusable rule candidate.
-- Do not log every tiny user message and do not store full conversations.
-- Signal types: approval, correction, modification_request, style_preference, rejection, bug_report, scope_change, decision, reusable_rule_candidate, blocked_or_unclear.
-- Promote repeated or explicit reusable-rule feedback into a skill/doc/memory candidate only after review.

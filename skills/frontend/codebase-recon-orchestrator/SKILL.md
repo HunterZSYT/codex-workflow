@@ -17,8 +17,6 @@ Run project capability scan when entering an unknown project, deciding project t
 
 Use CodeGraph when the question is symbol-oriented: symbol search, caller/callee tracing, dependency paths, impact analysis, route/service/component relationships, "what uses this?", or "what breaks if I change this?". Use Serena when semantic navigation is available and useful for locating symbols/classes/functions or making targeted edits with semantic context.
 
-If repo navigation/refactor work appears to need a missing code intelligence tool, dependency graph, affected-files helper, or current framework/library docs, run Capability Gap Radar first and recommend the smallest safe addition instead of improvising broad manual search.
-
 ## Understand Anything Routing
 
 Use Understand Anything as an optional knowledge-graph recon layer after normal project capability scanning when the project is large or unfamiliar, has many files/modules, may affect multiple layers, needs architecture/flow/dependency/onboarding/impact analysis, involves template/static/full-stack mapping before large edits, or benefits from business-domain flow understanding.

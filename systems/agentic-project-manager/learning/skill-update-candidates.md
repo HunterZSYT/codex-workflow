@@ -20,4 +20,4 @@ Reason: Simulated weak verification showed mobile claims must use mobile emulati
 Proposed wording: For mobile claims, require device-style mobile emulation evidence; desktop screenshots are not sufficient.
 Examples: Fix mobile header simulation
 Risk of change: Low if kept as verification guidance, but avoid forcing screenshots for copy-only tasks.
-Status: proposed; requires review before applying
+Status: resolved; already covered by Frontend Inspection Discipline, AGENTS verification rules, and Project Manager verification guidance. No further skill change needed.

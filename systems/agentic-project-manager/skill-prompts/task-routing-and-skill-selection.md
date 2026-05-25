@@ -5,6 +5,8 @@ Purpose: select correct specialist skills/tools.
 Rules:
 - Do not use all tools every time.
 - Choose smallest skill/tool that proves the claim.
+- Run Capability Gap Radar for medium, high-risk, unclear, repeated, or tool-evaluation tasks.
+- Do not run Capability Gap Radar for tiny localized edits unless direct inspection fails.
 - Use frontend stack for frontend.
 - Use backend-database stack for backend/database/VPS.
 - Use design grounding for Figma/design source.
@@ -27,3 +29,9 @@ Escalation budget:
 - Medium: capability scan first; use one intelligence tool if needed.
 - Large/risky/unknown: Project Manager tracking, capability scan, best intelligence tool, and logged reason.
 - Do not run multiple heavy tools unless the first fails or both high-level explanation and precise symbol tracing are needed.
+
+Capability recommendations:
+- If existing skills/tools are enough, proceed.
+- If current docs or external setup are needed, use official/current sources before recommending changes.
+- If a tool/MCP/library install or config change is useful, recommend it with approval required; do not install automatically.
+- For database/server/deployment/auth/SSH/migration tasks, route through the relevant safety gate and read-only inspection first.

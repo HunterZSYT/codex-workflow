@@ -9,6 +9,24 @@ Act as a task orchestration layer above specialist skills. Do not replace specia
 
 Small tasks do not need heavy roadmap files. Medium/large/risky tasks use `.ai-task` tracking. Always extract hard constraints before editing. Route to specialist skills/tools. Do not run broad QA for narrow tasks. Do not claim success without verification. Track inefficiencies for future improvement.
 
+## Capability Gap Radar
+
+Run Capability Gap Radar for medium, high-risk, unclear, repeated, or tool-evaluation tasks before committing to a workflow. Small/simple tasks proceed normally without tool scouting.
+
+Record a short capability check when useful:
+
+- Task type
+- Existing matching skills/tools
+- Need current-source research
+- Need specialized tool/MCP/library
+- Candidate capability
+- Use existing setup or recommend upgrade
+- Risk level
+- Approval needed before install/config change
+- Next action
+
+Tool installation/configuration always requires explicit approval. Database, server, deployment, auth, SSH, and migration tasks require read-only inspection first. If existing tools are enough, proceed without scouting.
+
 ## Knowledge-Graph Recon Routing
 
 After normal project capability scan, route large/unfamiliar/multi-layer codebase tasks to `codebase-knowledge-graph-recon` and Understand Anything. Use `/understand` to build the graph, `/understand-dashboard` for visual exploration, `/understand-chat` for architecture/flow questions, `/understand-diff` for impact analysis around large changes, and `/understand-domain` when business process flow matters.
@@ -21,20 +39,6 @@ Safety: require user approval before running on private/proprietary/production-s
 
 Default rule: start with the cheapest reliable method. Escalate only when the task needs more context, precision, or impact analysis.
 
-Before medium, large, risky, unclear, repeated, or tool-evaluation tasks, run a short Capability Gap Radar check:
-
-- Task type
-- Existing matching skills/tools
-- Need current-source research
-- Need specialized tool/MCP/library
-- Candidate capability
-- Use existing setup or recommend upgrade
-- Risk level
-- Approval needed before install/config change
-- Next action
-
-Skip this check for tiny localized edits where existing tools are obviously enough.
-
 Use normal search/read first for small tasks, known target files, one-file edits, copy/content changes, simple styling fixes, and direct bugs with known locations.
 
 Use project capability scans when entering an unknown project, deciding frontend/backend/project type, choosing verification commands, or checking available scripts/tools. Use `component-map` when adding/modifying frontend components or avoiding duplicate UI. Use API/db/schema maps for backend/API/database route, service, migration, and schema risk work.
@@ -45,7 +49,13 @@ Escalation budget: small tasks use direct inspection only unless search fails; m
 
 When `.ai-task` tracking is active, log tool chosen, why chosen, alternatives considered, whether it reduced search/read loops, whether it found the needed context, whether it was overkill, and whether routing rules should change.
 
-If a task may need a new GitHub repo, MCP server, npm package, CLI, framework/library docs, browser/testing tool, component library, database/server/deployment tool, or "should I add this?" evaluation, use current-source research before recommending it. Prefer official GitHub, official docs/site, package registry, release notes, and issues/discussions. Do not install or configure new tools without explicit approval.
+## User Response Ledger
+
+During iterative work, append a short sanitized entry to `.ai-task/user-response-ledger.md` when the user approves work, rejects work, asks for a modification, reports a bug, changes scope, gives a style/content/workflow preference, makes a decision, or gives a reusable rule candidate.
+
+Do not log every user message. Log only task-relevant feedback signals. Store summarized feedback, not full transcripts. Redact or skip secrets, credentials, auth details, private URLs, database URLs, cookies, sensitive logs, and private screenshots.
+
+Repeated feedback or explicit reusable-rule language may become a learning candidate after review. Do not rewrite skills from one response.
 
 ## Error and Failure Learning
 
@@ -54,13 +64,3 @@ For medium/large/risky tasks, capture failed commands, wrong tool choices, weak 
 Do not automatically rewrite skills after a one-off error. Log one-off errors only. For repeated patterns, create improvement candidates. For high-severity safety issues, immediately propose a safety update and require user approval before applying it.
 
 Completion reports should include a Learning Review: errors encountered, mistake category, tool/skill routing lesson, proposed improvement, apply now or backlog, and whether sanitized lessons are safe to sync to `codex-workflow`.
-
-## User Response Ledger
-
-During iterative work, classify task-relevant user responses and append a short sanitized entry to `.ai-task/user-response-ledger.md` when the response changes direction, approves work, rejects work, reports a bug, gives a style/content/workflow preference, or creates a reusable rule candidate.
-
-Do not log every tiny user message. Do not store full conversations. Record only summarized feedback, a short sanitized phrase, interpreted action, next action, status, reusable preference candidate, and verification after change.
-
-Signal types: approval, correction, modification_request, style_preference, rejection, bug_report, scope_change, decision, reusable_rule_candidate, blocked_or_unclear.
-
-Promote repeated or explicit reusable-rule feedback into a skill/doc/memory candidate only after review. Do not automatically rewrite skills from one response.

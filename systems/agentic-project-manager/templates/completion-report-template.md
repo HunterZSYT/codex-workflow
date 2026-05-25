@@ -14,6 +14,14 @@
 
 ## Recommended Improvements
 
+## User Response Review
+
+Feedback signals captured:
+
+Reusable preference candidates:
+
+Promote to skill/docs/memory candidate:
+
 ## Learning Review
 
 Errors encountered:
@@ -27,13 +35,3 @@ Proposed improvement:
 Apply now or backlog:
 
 Safe to sync to codex-workflow:
-
-## User Response Review
-
-Feedback signals captured:
-
-Reusable preference candidates:
-
-Changes made from user feedback:
-
-Deferred response items:

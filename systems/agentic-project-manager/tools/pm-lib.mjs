@@ -33,6 +33,7 @@ export async function ensureTaskLearningFiles() {
   await copyTemplate("error-ledger-template.md", path.join(dir, "error-ledger.md"));
   await copyTemplate("failed-commands-template.md", path.join(dir, "failed-commands.md"));
   await copyTemplate("decision-review-template.md", path.join(dir, "decision-review.md"));
+  await copyTemplate("user-response-ledger-template.md", path.join(dir, "user-response-ledger.md"));
   return dir;
 }
 

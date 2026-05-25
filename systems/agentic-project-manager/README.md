@@ -15,6 +15,8 @@ This is a global orchestration layer for Codex. It coordinates existing frontend
 - Routes work to frontend/backend/database/VPS/copywriting/safety skills.
 - Creates `.ai-task` tracking files only when task size/risk justifies it.
 - Tracks execution, verification, tool/skill usage, inefficiencies, and improvement backlog.
+- Runs Capability Gap Radar for meaningful tasks where tooling, current docs, safety gates, or code intelligence may change the correct workflow.
+- Tracks meaningful iterative user feedback through a sanitized task-local User Response Ledger.
 
 ## When `.ai-task` Is Created
 
@@ -37,6 +39,7 @@ node ~/.codex/agentic-project-manager/tools/pm-capability-sync.mjs
 node ~/.codex/agentic-project-manager/tools/pm-classify-task.mjs --task "Fix mobile header spacing"
 node ~/.codex/agentic-project-manager/tools/pm-init-task.mjs --task "Convert static site to shadcn components" --scope large
 node ~/.codex/agentic-project-manager/tools/pm-next-packet.mjs
+node ~/.codex/agentic-project-manager/tools/pm-log-user-response.mjs --signal "modification_request" --summary "Make the section cleaner" --action "Revise layout density"
 node ~/.codex/agentic-project-manager/tools/pm-completion-report.mjs
 node ~/.codex/agentic-project-manager/tools/pm-improvement-review.mjs
 ```
@@ -61,5 +64,7 @@ They are also installed as global Codex skills:
 - Frontend work routes to `C:\Users\acer\.codex\agentic-frontend`
 - Backend/database/VPS work routes to `C:\Users\acer\.codex\agentic-backend-database`
 - Risky work routes to safety gates.
+- Capability Gap Radar runs before medium/high-risk/unclear tool decisions, but does not block tiny localized edits.
+- User Response Ledger records summarized feedback signals only; it does not store raw conversations.
 - Visual claims require rendered evidence when visual proof is needed.
 - Database/server/destructive work requires explicit approval and safety planning.

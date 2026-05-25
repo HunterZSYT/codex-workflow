@@ -107,10 +107,6 @@ For medium/large or unknown codebase tasks, let Project Manager choose the appro
 
 After medium/large/risky tasks, run Project Manager completion review. Log failed commands, wrong tool choices, weak verification, and recurring mistakes. Propose skill/tool updates from repeated patterns, not one-off failures.
 
-For iterative work, route task feedback through the Project Manager execution ledger and maintain a sanitized task-local User Response Ledger when useful.
-
-For medium/high-risk tasks, route through Capability Gap Radar before execution to decide whether existing skills, scripts, MCPs, current-source research, or a tool recommendation is needed.
-
 ## Verification Rules
 
 Choose verification based on task type.
@@ -159,6 +155,10 @@ After two failed attempts:
 - say what is verified
 - say what is uncertain
 - name the next diagnostic
+
+For iterative work, route task feedback through the Project Manager execution ledger and maintain a sanitized task-local User Response Ledger when useful.
+
+For medium/high-risk tasks, route through Capability Gap Radar before execution to decide whether existing skills, scripts, MCPs, current-source research, or a tool recommendation is needed.
 
 ## Communication
 

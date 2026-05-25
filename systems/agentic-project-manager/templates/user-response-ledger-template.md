@@ -1,8 +1,9 @@
 # User Response Ledger
 
-Use this ledger for short, sanitized summaries of task-relevant user feedback. Do not store full conversations.
+Short, sanitized summaries of task-relevant user feedback. Do not store full conversations or secrets.
 
 ## Entry Format
+
 Date/time:
 Task ID:
 Related artifact:
