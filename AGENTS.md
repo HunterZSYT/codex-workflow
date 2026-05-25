@@ -109,6 +109,8 @@ After medium/large/risky tasks, run Project Manager completion review. Log faile
 
 For iterative work, route task feedback through the Project Manager execution ledger and maintain a sanitized task-local User Response Ledger when useful.
 
+For medium/high-risk tasks, route through Capability Gap Radar before execution to decide whether existing skills, scripts, MCPs, current-source research, or a tool recommendation is needed.
+
 ## Verification Rules
 
 Choose verification based on task type.

@@ -12,3 +12,5 @@ Codebase intelligence tools are discovery aids, not proof by themselves. For Cod
 Do not run heavy recon tools as verification for tiny localized edits. If a tool creates `.codegraph/`, `.understand-anything/`, cache, index, or database output, keep it local-only and do not commit it.
 
 Log weak, missing, wrong, excessive, or misleading verification as a verification mistake with `pm-log-error.mjs` when Project Manager tracking is active. After two failed verification attempts, stop changing code, log a loop failure, report what is verified and uncertain, and name the next diagnostic.
+
+Capability Gap Radar: if normal verification is insufficient, identify the missing verifier before claiming success. Examples: browser/rendered inspection for visual claims, mobile emulation for mobile claims, axe for accessibility, Lighthouse for performance, API smoke tests for handlers, SQL/migration safety checks for database work, CodeGraph/Serena for impact tracing, or project-specific test runner for code changes.

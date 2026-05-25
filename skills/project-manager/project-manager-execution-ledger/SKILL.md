@@ -21,6 +21,20 @@ Safety: require user approval before running on private/proprietary/production-s
 
 Default rule: start with the cheapest reliable method. Escalate only when the task needs more context, precision, or impact analysis.
 
+Before medium, large, risky, unclear, repeated, or tool-evaluation tasks, run a short Capability Gap Radar check:
+
+- Task type
+- Existing matching skills/tools
+- Need current-source research
+- Need specialized tool/MCP/library
+- Candidate capability
+- Use existing setup or recommend upgrade
+- Risk level
+- Approval needed before install/config change
+- Next action
+
+Skip this check for tiny localized edits where existing tools are obviously enough.
+
 Use normal search/read first for small tasks, known target files, one-file edits, copy/content changes, simple styling fixes, and direct bugs with known locations.
 
 Use project capability scans when entering an unknown project, deciding frontend/backend/project type, choosing verification commands, or checking available scripts/tools. Use `component-map` when adding/modifying frontend components or avoiding duplicate UI. Use API/db/schema maps for backend/API/database route, service, migration, and schema risk work.
@@ -30,6 +44,8 @@ Use Understand Anything for big-picture architecture, onboarding/explanation, bu
 Escalation budget: small tasks use direct inspection only unless search fails; medium tasks run capability scan first and at most one intelligence tool if needed; large/risky/unknown tasks use Project Manager tracking, capability scan, one best intelligence tool, and log why. Avoid running multiple heavy tools unless the first fails or the task needs both high-level explanation and precise symbol tracing.
 
 When `.ai-task` tracking is active, log tool chosen, why chosen, alternatives considered, whether it reduced search/read loops, whether it found the needed context, whether it was overkill, and whether routing rules should change.
+
+If a task may need a new GitHub repo, MCP server, npm package, CLI, framework/library docs, browser/testing tool, component library, database/server/deployment tool, or "should I add this?" evaluation, use current-source research before recommending it. Prefer official GitHub, official docs/site, package registry, release notes, and issues/discussions. Do not install or configure new tools without explicit approval.
 
 ## Error and Failure Learning
 

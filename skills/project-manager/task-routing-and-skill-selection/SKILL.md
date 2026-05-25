@@ -11,6 +11,8 @@ Do not use all tools every time. Choose the smallest skill/tool that proves the 
 
 Default rule: start with the cheapest reliable method. Escalate only when the task needs more context, precision, or impact analysis.
 
+Capability Gap Radar: for medium/high-risk/repeated/unclear tasks, identify what capability is missing before proceeding. Decide whether existing skills/scripts/MCPs are enough, current-source research is needed, or a tool upgrade should be proposed. For simple tasks, proceed directly.
+
 - Normal search/read: small task, known target file, one-file edit, copy/content update, simple styling fix, or direct bug with known location.
 - Project capability scan: unknown project, stack detection, verification command selection, or available tool/script detection.
 - Component map: adding/modifying frontend components, finding existing UI, or avoiding duplicate components.
@@ -30,3 +32,5 @@ Generated artifacts from `.codegraph/`, `.understand-anything/`, indexes, caches
 When Project Manager tracking is active, log task type, available tools considered, tool chosen, why chosen, expected benefit, actual benefit, time/cost/complexity, whether it was overkill, whether a cheaper tool would have worked, whether a stronger tool should have been used, and future routing lesson.
 
 If wrong routing repeats, propose updates to this skill or `project-manager-execution-ledger`; do not auto-apply changes after a single mistake.
+
+Tool recommendations must use: Verdict, what it is, where it fits, best use cases, when not to use it, integration decision, safety/sync rules, and Codex-ready prompt only if implementation is next.

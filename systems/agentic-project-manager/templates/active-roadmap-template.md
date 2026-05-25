@@ -13,6 +13,17 @@
 ## Relevant Tools / Systems
 - Tool:
 
+## Capability Check
+- Task type:
+- Existing matching skills/tools:
+- Need current-source research:
+- Need specialized tool/MCP/library:
+- Candidate capability:
+- Use existing setup or recommend upgrade:
+- Risk level:
+- Approval needed before install/config change:
+- Next action:
+
 ## Execution Packets
 - [ ]
 

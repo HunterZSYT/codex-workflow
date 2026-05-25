@@ -17,6 +17,8 @@ Core rules:
 
 Tool selection and auto-optimization:
 - Default to the cheapest reliable method, then escalate only when more context, precision, or impact analysis is needed.
+- Before medium, large, risky, unclear, repeated, or tool-evaluation tasks, run a short Capability Gap Radar check. Skip it for tiny localized edits where existing tools are obviously enough.
+- Capability Check fields: task type, existing matching skills/tools, need current-source research, need specialized tool/MCP/library, candidate capability, use existing setup or recommend upgrade, risk level, approval needed, next action.
 - Small tasks use normal search/read; do not run CodeGraph or Understand Anything unless direct search fails.
 - Medium tasks run capability scan first and use one intelligence tool if needed.
 - Large/risky/unknown tasks use `.ai-task` tracking, run capability scan, choose the best intelligence tool, and log why.
@@ -25,6 +27,7 @@ Tool selection and auto-optimization:
 - Use Serena when semantic code navigation is available and useful for symbols/classes/functions or targeted edits.
 - Avoid running multiple heavy tools unless the first fails or the task requires both high-level explanation and precise symbol tracing.
 - Keep `.codegraph/`, `.understand-anything/`, generated indexes, caches, and graph databases local-only and gitignored.
+- Do not install tools, MCPs, packages, or CLIs without explicit approval.
 
 Task lifecycle: classify task, extract hard constraints, decide tracking level, create/update roadmap, pick next packet, execute smallest safe packet, verify appropriately, log execution, log tools/skills, log inefficiencies, continue only if scope allows, then complete report.
 
