@@ -16,15 +16,16 @@ No fake tokens were added.
 
 ## Serena
 
-- Not configured as a live MCP because `uv` / `uvx` is not installed.
-- Official prerequisite: install `uv`.
-- Official Codex-style command to add after `uvx` is available:
+- Installed with `uv tool install`.
+- Configured in `C:\Users\acer\.codex\config.toml`.
+- Restart Codex before expecting live Serena MCP tools.
 
-```toml
-[mcp_servers.serena]
-command = "uvx"
-args = ["--from", "git+https://github.com/oraios/serena", "serena", "start-mcp-server", "--context", "codex"]
-```
+## CodeGraph
+
+- Installed with `npm install -g @colbymchenry/codegraph`.
+- Configured in `C:\Users\acer\.codex\config.toml`.
+- Restart Codex before expecting live CodeGraph MCP tools.
+- Project graph data is available only after running `codegraph init` / `codegraph index` inside a specific project.
 
 ## Storybook
 

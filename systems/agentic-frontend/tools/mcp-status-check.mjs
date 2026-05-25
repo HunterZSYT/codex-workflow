@@ -11,7 +11,8 @@ const TARGETS = [
   { name: "playwright", manual: "No auth. Browser binaries may install on first use.", verify: "Restart Codex and check Playwright MCP tools." },
   { name: "chrome-devtools", manual: "No auth for isolated browser. Existing logged-in browser debugging requires explicit permission/remote debugging setup.", verify: "Restart Codex and check Chrome DevTools MCP tools." },
   { name: "context7", manual: "API key is recommended for higher rate limits but not hardcoded.", verify: "Restart Codex and check Context7 docs tools." },
-  { name: "serena", manual: "Install uv/uvx first, then add the official Serena Codex MCP command.", verify: "Run uvx --version, add Serena config, then restart Codex." },
+  { name: "serena", manual: "Installed with uv and configured in Codex config; restart Codex to expose live MCP tools.", verify: "Run serena --version; restart Codex and check Serena MCP tools." },
+  { name: "codegraph", manual: "Installed with npm and configured in Codex config. Project graph data requires codegraph init/index inside a project.", verify: "Run codegraph --version; restart Codex and check CodeGraph MCP tools." },
   { name: "storybook", manual: "Project-dependent. Project must install @storybook/addon-mcp and run Storybook, typically at 127.0.0.1:6006/mcp.", verify: "Run Storybook in a project and open /mcp." },
   { name: "magic-ui", manual: "Optional. Official setup is IDE-specific; no Codex-safe global entry was added.", verify: "Install with Magic UI CLI for a target IDE if needed." },
   { name: "21st", manual: "Token/service-dependent. No fake API key was added.", verify: "Configure only after obtaining a real 21st.dev API key and official Codex-compatible instructions." }
@@ -46,12 +47,14 @@ async function main() {
     const found = detect(name, texts);
     let status = found ? "configured/documented" : "not detected";
     if (name === "serena" && !found) status = "placeholder; uv/uvx required";
+    if (name === "serena" && found) status = "configured; restart Codex required for live tools";
+    if (name === "codegraph" && found) status = "configured; restart Codex required for live tools";
     if (name === "storybook" && found) status = "project-dependent; Storybook must be running";
     if (name === "figma" && found) status = "configured; auth/desktop enable may be required";
     if (name === "magic-ui" || name === "21st") status = found ? "configured/documented" : "skipped/manual placeholder";
     return `| ${name} | ${status} | ${target.manual} | ${target.verify} |`;
   }).join("\n");
-  const md = `# MCP Status\n\nGenerated: ${new Date().toISOString()}\n\n## Inspected Config Locations\n${existing.map((f) => `- ${f}`).join("\n") || "- None found"}\n\n## Status\n| MCP | Status | Manual steps | Verification |\n| --- | --- | --- | --- |\n${rows}\n\n## Notes\n- Tokens/secrets are not printed by this report.\n- Configured or documented MCP entries still require live verification after restarting Codex.\n- Figma may require browser OAuth for remote MCP or Figma Desktop Dev Mode MCP enabled manually.\n- Serena requires uv/uvx before enabling the Codex MCP entry.\n`;
+  const md = `# MCP Status\n\nGenerated: ${new Date().toISOString()}\n\n## Inspected Config Locations\n${existing.map((f) => `- ${f}`).join("\n") || "- None found"}\n\n## Status\n| MCP | Status | Manual steps | Verification |\n| --- | --- | --- | --- |\n${rows}\n\n## Notes\n- Tokens/secrets are not printed by this report.\n- Configured or documented MCP entries still require live verification after restarting Codex.\n- Figma may require browser OAuth for remote MCP or Figma Desktop Dev Mode MCP enabled manually.\n- Serena and CodeGraph are configured in Codex config; restart Codex before expecting live MCP tools.\n`;
   const out = path.join(ROOT, "mcp-status.md");
   await fs.writeFile(out, md);
   console.log(out);

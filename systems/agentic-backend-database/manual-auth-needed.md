@@ -20,15 +20,14 @@ Optional API key setup must be done manually if higher limits are needed.
 
 ## Serena
 
-Not configured live because `uv` / `uvx` is missing.
+Installed with `uv tool install` and configured in `C:\Users\acer\.codex\config.toml`.
+Restart Codex before expecting live Serena MCP tools.
 
-After installing `uv`, add the official Serena command manually:
+## CodeGraph
 
-```toml
-[mcp_servers.serena]
-command = "uvx"
-args = ["--from", "git+https://github.com/oraios/serena", "serena", "start-mcp-server", "--context", "codex"]
-```
+Installed with `npm install -g @colbymchenry/codegraph` and configured in `C:\Users\acer\.codex\config.toml`.
+Restart Codex before expecting live CodeGraph MCP tools.
+Project graph data is available only after running `codegraph init` / `codegraph index` inside a specific project.
 
 ## Supabase
 
