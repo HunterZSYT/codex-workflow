@@ -9,6 +9,8 @@ Do not use all tools every time. Choose the smallest skill/tool that proves the 
 
 Run Capability Gap Radar for medium, high-risk, unclear, repeated, or tool-evaluation tasks. Do not run it for tiny localized edits unless direct inspection fails.
 
+Run Capability Orchestration Radar for external libraries/tools/packages/MCPs, current-doc dependent behavior, multi-capability tasks, high-risk work, and best-practice stack/tool selection. Route external library/tool tasks through knowledge blob lookup before implementation; do not rely on broad package names alone. Check `knowledge-registry.json` with `pm-knowledge-lookup.mjs` or `pm-knowledge-gap.mjs` when GSAP, Lenis, shadcn, Tailwind, PHPMailer, Prisma, Docker, Nginx, CodeGraph, Understand Anything, or similar capabilities appear. Missing/stale blobs require a docs-backed micro-update candidate before implementation.
+
 ## Tool Selection Policy
 
 Default rule: start with the cheapest reliable method. Escalate only when the task needs more context, precision, or impact analysis.
@@ -25,7 +27,7 @@ Default rule: start with the cheapest reliable method. Escalate only when the ta
 
 Budget: small tasks use direct inspection and no CodeGraph/Understand Anything unless search fails. Medium tasks run capability scan first and use one intelligence tool if needed. Large/risky/unknown tasks use Project Manager tracking, run capability scan, choose the best intelligence tool, and log why. Do not run multiple heavy tools unless one fails or the task needs both high-level explanation and precise symbol tracing.
 
-Capability recommendations: if existing skills/tools are enough, proceed. If current docs or external setup are needed, use official/current sources before recommending changes. If a tool/MCP/library install or config change is useful, recommend it with approval required; do not install automatically. For database/server/deployment/auth/SSH/migration tasks, route through the relevant safety gate and read-only inspection first.
+Capability recommendations: if existing skills/tools are enough, proceed. If current docs or external setup are needed, use official/current sources before recommending changes. If no active knowledge blob exists for a fast-changing tool/library, fetch Context7 docs when available before recommending implementation rules. If a tool/MCP/library install or config change is useful, recommend it with approval required; do not install automatically. For database/server/deployment/auth/SSH/migration tasks, route through the relevant safety gate and read-only inspection first.
 
 Generated artifacts from `.codegraph/`, `.understand-anything/`, indexes, caches, and databases are local-only and should be gitignored. Do not sync or commit them unless explicitly requested.
 

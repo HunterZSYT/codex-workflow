@@ -12,6 +12,7 @@ Rules:
 - Migration safety check before migrations.
 - VPS read-only inspection before server changes.
 - Build/lint/typecheck when code changes.
+- When a relevant knowledge blob exists, pull the verification method from the blob and combine it with task-appropriate proof.
 - Never claim verification that was not run.
 - Codebase intelligence tools are discovery aids, not proof by themselves.
 - Verify CodeGraph, Serena, Understand Anything, component-map, API-map, and capability-scan conclusions with the task-appropriate method.

@@ -6,6 +6,10 @@ Rules:
 - Do not use all tools every time.
 - Choose smallest skill/tool that proves the claim.
 - Run Capability Gap Radar for medium, high-risk, unclear, repeated, or tool-evaluation tasks.
+- Run Capability Orchestration Radar for tasks that mention external libraries/tools/packages/MCPs, require current docs, combine multiple capabilities, or request best-practice stack/tool selection.
+- Route external library/tool tasks through knowledge blob lookup before implementation; do not rely on broad package names alone.
+- Check `knowledge-registry.json` with `pm-knowledge-lookup.mjs` or `pm-knowledge-gap.mjs` when GSAP, Lenis, shadcn, Tailwind, PHPMailer, Prisma, Docker, Nginx, CodeGraph, Understand Anything, or similar capabilities appear.
+- Missing/stale blobs require a docs-backed micro-update candidate before implementation.
 - Do not run Capability Gap Radar for tiny localized edits unless direct inspection fails.
 - Use frontend stack for frontend.
 - Use backend-database stack for backend/database/VPS.
@@ -33,5 +37,6 @@ Escalation budget:
 Capability recommendations:
 - If existing skills/tools are enough, proceed.
 - If current docs or external setup are needed, use official/current sources before recommending changes.
+- If no active knowledge blob exists for a fast-changing tool/library, fetch Context7 docs when available before recommending implementation rules.
 - If a tool/MCP/library install or config change is useful, recommend it with approval required; do not install automatically.
 - For database/server/deployment/auth/SSH/migration tasks, route through the relevant safety gate and read-only inspection first.

@@ -1,0 +1,141 @@
+#!/usr/bin/env node
+import fs from "node:fs/promises";
+import path from "node:path";
+import { PM_ROOT, arg } from "./pm-lib.mjs";
+
+const registryPath = path.join(PM_ROOT, "knowledge", "knowledge-registry.json");
+
+const CAPABILITY_HINTS = [
+  { capability: "React GSAP ScrollTrigger animation", terms: ["gsap", "scrolltrigger", "scroll trigger", "pinned scroll"], package: "gsap / @gsap/react" },
+  { capability: "Lenis smooth scroll and ScrollTrigger sync", terms: ["lenis", "smooth scroll"], package: "lenis" },
+  { capability: "shadcn/Radix primitive selection and no manual primitives", terms: ["shadcn", "radix", "no primitive", "manual primitive", "no manually created primitives"], package: "shadcn/ui" },
+  { capability: "Tailwind styling", terms: ["tailwind", "tailwindcss"], package: "tailwindcss" },
+  { capability: "PHP form email handling", terms: ["phpmailer", "php mail", "smtp", "email handler"], package: "PHPMailer" },
+  { capability: "Prisma ORM", terms: ["prisma"], package: "prisma" },
+  { capability: "Drizzle ORM", terms: ["drizzle"], package: "drizzle" },
+  { capability: "Supabase integration", terms: ["supabase"], package: "supabase" },
+  { capability: "Stripe integration", terms: ["stripe", "checkout", "payment"], package: "stripe" },
+  { capability: "Docker operations", terms: ["docker", "compose", "container"], package: "docker" },
+  { capability: "Nginx edit safety", terms: ["nginx", "server block", "reverse proxy"], package: "nginx" },
+  { capability: "Caddy server config", terms: ["caddy"], package: "caddy" },
+  { capability: "PM2 process management", terms: ["pm2"], package: "pm2" },
+  { capability: "systemd service management", terms: ["systemd"], package: "systemd" },
+  { capability: "Codebase intelligence routing", terms: ["codegraph", "understand anything", "serena", "architecture", "impact analysis", "what uses this"], package: "CodeGraph / Understand Anything / Serena" }
+];
+
+const ORCHESTRATION_TRIGGERS = [
+  "figure out everything needed",
+  "use every necessary tool",
+  "take control",
+  "best practice",
+  "production-ready",
+  "no primitive manually",
+  "clone this site",
+  "setup backend",
+  "setup database",
+  "setup server",
+  "automate this workflow",
+  "choose the right stack"
+];
+
+function normalize(value) {
+  return String(value || "").toLowerCase();
+}
+
+function entryScore(entry, hint) {
+  const primary = [entry.blob_id, entry.capability, ...(entry.external_libraries || [])].map(normalize).join(" ");
+  const triggers = (entry.trigger_terms || []).map(normalize).join(" ");
+  let score = 0;
+  for (const term of hint.terms.map(normalize)) {
+    if (primary.includes(term)) score += 5;
+    if (triggers.includes(term)) score += 1;
+  }
+  if (primary.includes(normalize(hint.package))) score += 6;
+  if (primary.includes(normalize(hint.capability))) score += 8;
+  return score;
+}
+
+function findBestEntry(registry, hint) {
+  return registry
+    .map(entry => ({ entry, score: entryScore(entry, hint) }))
+    .filter(item => item.score > 0)
+    .sort((a, b) => b.score - a.score)[0]?.entry;
+}
+
+function blobStatus(entry) {
+  if (!entry) return "Missing";
+  if (entry.status === "active") return "Exists and active";
+  if (entry.status === "stale") return "Exists but stale";
+  if (entry.status === "candidate") return "Candidate exists";
+  return entry.status || "Missing";
+}
+
+function docsNeeded(entry) {
+  if (!entry) return "Context7 if available, else official docs/GitHub/npm";
+  if (entry.status === "active") return (entry.docs_sources || []).join(", ") || "Not needed";
+  return (entry.docs_sources || []).join(", ") || "Current docs refresh needed";
+}
+
+const task = arg("task");
+if (!task) {
+  console.error("Usage: pm-knowledge-gap.mjs --task <task description> [--json]");
+  process.exit(2);
+}
+
+const registry = JSON.parse(await fs.readFile(registryPath, "utf8"));
+const taskText = normalize(task);
+const triggerReasons = [];
+for (const phrase of ORCHESTRATION_TRIGGERS) {
+  if (taskText.includes(phrase)) triggerReasons.push(`phrase:${phrase}`);
+}
+
+const detected = CAPABILITY_HINTS.filter(hint => hint.terms.some(term => taskText.includes(normalize(term))));
+if (detected.length > 1) triggerReasons.push("multi-capability");
+if (/\bauth|payment|database|sql|vps|deployment|server config|production\b/.test(taskText)) triggerReasons.push("high-risk");
+if (detected.length > 0) triggerReasons.push("external-library/tool");
+
+const rows = detected.map(hint => {
+  const entry = findBestEntry(registry, hint);
+  const status = blobStatus(entry);
+  return {
+    Capability: hint.capability,
+    "Existing owner skill": entry?.owner_skill || "unassigned",
+    "Knowledge blob status": status,
+    "Docs source needed": docsNeeded(entry),
+    "Existing tool/MCP/script": "pm-knowledge-lookup.mjs / Context7 when docs needed",
+    "External package/tool": hint.package,
+    "Best-practice rules available?": status === "Exists and active" ? "yes" : status === "Candidate exists" ? "partial" : "no",
+    "Micro-update needed?": status === "Exists and active" ? "no" : "yes",
+    "Approval needed?": detected.length > 0 || /install|package|dependency|server|database|sql|vps|deployment|auth|payment|config/.test(taskText) ? "yes before install/config/risky change" : "maybe",
+    Verification: verificationFor(hint.capability)
+  };
+});
+
+function verificationFor(capability) {
+  const c = normalize(capability);
+  if (c.includes("gsap") || c.includes("lenis")) return "rendered scroll verification";
+  if (c.includes("shadcn")) return "components.json + rendered accessibility/interaction check";
+  if (c.includes("nginx")) return "read-only inspect, config test after approval";
+  if (c.includes("sql")) return "SQL safety check + read-only verification";
+  return "task-appropriate verification";
+}
+
+const result = {
+  task,
+  triggered: triggerReasons.length > 0,
+  trigger_reasons: [...new Set(triggerReasons)],
+  rows
+};
+
+if (process.argv.includes("--json")) {
+  console.log(JSON.stringify(result, null, 2));
+} else {
+  console.log(`Capability Orchestration Radar: ${result.triggered ? "TRIGGERED" : "not triggered"}`);
+  console.log(`Reasons: ${result.trigger_reasons.join(", ") || "none"}`);
+  console.log("");
+  console.log("| Capability | Existing owner skill | Knowledge blob status | Docs source needed | Existing tool/MCP/script | External package/tool | Best-practice rules available? | Micro-update needed? | Approval needed? | Verification |");
+  console.log("|---|---|---|---|---|---|---|---|---|---|");
+  for (const row of rows) {
+    console.log(`| ${row.Capability} | ${row["Existing owner skill"]} | ${row["Knowledge blob status"]} | ${row["Docs source needed"]} | ${row["Existing tool/MCP/script"]} | ${row["External package/tool"]} | ${row["Best-practice rules available?"]} | ${row["Micro-update needed?"]} | ${row["Approval needed?"]} | ${row.Verification} |`);
+  }
+}

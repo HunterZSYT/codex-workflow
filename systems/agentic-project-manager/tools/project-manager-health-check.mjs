@@ -6,9 +6,12 @@ import { spawnSync } from "node:child_process";
 import { PM_ROOT, FRONTEND_ROOT, BACKEND_ROOT, SKILLS_ROOT, exists } from "./pm-lib.mjs";
 function run(cmd, args=[]) { const c = process.platform === "win32" && cmd === "npm" ? ["cmd.exe", ["/d","/s","/c", `npm ${args.join(" ")}`]] : [cmd,args]; const r=spawnSync(c[0], c[1], {encoding:"utf8"}); return (r.stdout||r.stderr||r.error?.message||"").trim(); }
 const templates = ["active-roadmap-template.md","execution-ledger-template.md","verification-log-template.md","tool-skill-usage-template.md","inefficiency-log-template.md","improvement-backlog-template.md","completion-report-template.md","error-ledger-template.md","failed-commands-template.md","decision-review-template.md","user-response-ledger-template.md"];
-const tools = ["project-manager-health-check.mjs","pm-init-task.mjs","pm-classify-task.mjs","pm-create-roadmap.mjs","pm-next-packet.mjs","pm-log-execution.mjs","pm-log-verification.mjs","pm-log-tool-usage.mjs","pm-log-inefficiency.mjs","pm-log-user-response.mjs","pm-log-error.mjs","pm-review-errors.mjs","pm-promote-lesson.mjs","pm-suggest-skill-update.mjs","pm-learning-report.mjs","pm-completion-report.mjs","pm-archive-task.mjs","pm-capability-sync.mjs","pm-improvement-review.mjs"];
+const tools = ["project-manager-health-check.mjs","pm-init-task.mjs","pm-classify-task.mjs","pm-create-roadmap.mjs","pm-next-packet.mjs","pm-log-execution.mjs","pm-log-verification.mjs","pm-log-tool-usage.mjs","pm-log-inefficiency.mjs","pm-log-user-response.mjs","pm-log-error.mjs","pm-review-errors.mjs","pm-promote-lesson.mjs","pm-suggest-skill-update.mjs","pm-learning-report.mjs","pm-completion-report.mjs","pm-archive-task.mjs","pm-capability-sync.mjs","pm-improvement-review.mjs","pm-knowledge-lookup.mjs","pm-knowledge-register.mjs","pm-knowledge-gap.mjs"];
 const prompts = ["project-manager-execution-ledger.md","task-roadmap-orchestrator.md","task-routing-and-skill-selection.md","verification-gate-controller.md","inefficiency-and-improvement-reviewer.md","task-bundling-controller.md"];
 const learning = ["error-patterns.md","routing-lessons.md","tool-failure-patterns.md","verification-mistakes.md","skill-update-candidates.md","recurring-failures.jsonl","resolved-lessons.md","learning-policy.md"];
+const knowledge = ["knowledge-registry.json","knowledge-blob-template.md","capability-orchestration/capability-radar-trigger-policy.blob.md","capability-orchestration/trigger-policy.blob.md","capability-orchestration/knowledge-blob-policy.blob.md","capability-orchestration/micro-update-policy.blob.md","routing/codebase-intelligence-routing.blob.md"];
+const frontendKnowledge = ["motion/gsap-react-scrolltrigger.blob.md","motion/lenis-scroll-sync.blob.md","components/shadcn-no-manual-primitives.blob.md","inspection/visual-proof-policy.blob.md"];
+const backendKnowledge = ["api/php-form-email-handler.blob.md","database/sql-safety-patterns.blob.md","vps/nginx-edit-safety.blob.md"];
 const frontTools = ["agentic-health-check.mjs","project-capability-scan.mjs","component-map.mjs","frontend-inspect.mjs","accessibility-check.mjs","performance-check.mjs"];
 const backTools = ["backend-db-health-check.mjs","project-capability-scan.mjs","api-route-map.mjs","db-engine-detect.mjs","db-schema-map.mjs","sql-safety-check.mjs","vps-ssh-inspect.sh"];
 const rows = async (base, names, sub="") => (await Promise.all(names.map(async n => `- ${n}: ${await exists(path.join(base, sub, n)) ? "present" : "missing"}`))).join("\n");
@@ -37,6 +40,15 @@ ${await rows(path.join(PM_ROOT, "skill-prompts"), prompts)}
 
 ## Learning Layer
 ${await rows(path.join(PM_ROOT, "learning"), learning)}
+
+## Knowledge Layer
+${await rows(path.join(PM_ROOT, "knowledge"), knowledge)}
+
+## Frontend Knowledge Blobs
+${await rows(path.join(FRONTEND_ROOT, "knowledge"), frontendKnowledge)}
+
+## Backend Knowledge Blobs
+${await rows(path.join(BACKEND_ROOT, "knowledge"), backendKnowledge)}
 
 ## Frontend Integration Tools
 ${await rows(path.join(FRONTEND_ROOT, "tools"), frontTools)}

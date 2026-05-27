@@ -13,6 +13,10 @@ Small tasks do not need heavy roadmap files. Medium/large/risky tasks use `.ai-t
 
 Run Capability Gap Radar for medium, high-risk, unclear, repeated, or tool-evaluation tasks before committing to a workflow. Small/simple tasks proceed normally without tool scouting.
 
+Run Capability Orchestration Radar when knowledge risk exists: external library/tool/package/MCP mentions, multi-capability work, high-risk work, current-doc dependent behavior, or prior vague capability failures. Before implementation, check `C:\Users\acer\.codex\agentic-project-manager\knowledge\knowledge-registry.json` for active blobs that match required capabilities. Use `pm-knowledge-gap.mjs --task "<task>"` and `pm-knowledge-lookup.mjs --term "<term>"` when useful.
+
+If a required blob is missing or stale, fetch current docs through Context7 when available, otherwise official docs/GitHub/npm; create or update a small blob candidate before implementation. Patch owner skills only with short pointers/routing rules and prefer micro-updates to knowledge blobs over creating new giant skills.
+
 Record a short capability check when useful:
 
 - Task type
@@ -24,6 +28,10 @@ Record a short capability check when useful:
 - Risk level
 - Approval needed before install/config change
 - Next action
+
+Capability Orchestration Radar output must include: `Capability`, `Existing owner skill`, `Knowledge blob status`, `Docs source needed`, `Existing tool/MCP/script`, `External package/tool`, `Best-practice rules available?`, `Micro-update needed?`, `Approval needed?`, and `Verification`.
+
+Knowledge blob status values: Exists and active, Exists but stale, Candidate exists, Missing, Not needed. If a blob is missing or stale, name the owner skill, docs source to fetch, blob to create/update, and whether implementation should wait for the blob.
 
 Tool installation/configuration always requires explicit approval. Database, server, deployment, auth, SSH, and migration tasks require read-only inspection first. If existing tools are enough, proceed without scouting.
 

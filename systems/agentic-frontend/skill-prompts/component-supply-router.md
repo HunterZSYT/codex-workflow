@@ -7,6 +7,8 @@ Rules:
 - Check component map if inside project.
 - Use shadcn for base primitives.
 - Use Radix/shadcn for behavior-heavy components.
+- Before shadcn/Radix implementation, consult `agentic-frontend/knowledge/components/shadcn-no-manual-primitives.blob.md`.
+- If the project lacks `components.json` or the blob is missing/stale, route through Project Manager Capability Orchestration Radar before install/scaffold recommendations.
 - Use Magic UI/Aceternity/Animate/other registries for visual polish only when suitable.
 - Use 21st.dev Magic only if configured and appropriate.
 - Do not custom-code common primitives if a library exists.

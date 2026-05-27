@@ -7,6 +7,8 @@ description: Use at task completion to review logs and suggest workflow, skill, 
 
 Review repeated manual steps, wrong skill/tool choice, excessive verification loops, missing scripts, missing MCPs, missing project docs, skill gaps, tool failures, over-bundling, under-bundling, unnecessary screenshots/tests, and missing safety gates. Output prioritized recommendations.
 
+Capability precision failures: a vague package recommendation without best-practice operating rules counts as an inefficiency. Repeated "need package/tool" answers without owner skill, active knowledge blob, docs source, and verification method should propose a knowledge blob update. Prefer the micro-update order: use active blob, update blob, add blob under existing skill, add short owner-skill pointer, add docs/pattern note, add script, add MCP config, create new skill only when no owner fits. Do not promote raw task logs; summarize sanitized capability lessons only.
+
 For codebase intelligence routing, review whether the chosen method matched the task size and question type.
 
 Recommend:

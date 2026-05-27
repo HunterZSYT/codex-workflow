@@ -7,6 +7,7 @@ export const FRONTEND_ROOT = path.join(os.homedir(), ".codex", "agentic-frontend
 export const BACKEND_ROOT = path.join(os.homedir(), ".codex", "agentic-backend-database");
 export const SKILLS_ROOT = path.join(os.homedir(), ".codex", "skills");
 export const LEARNING_ROOT = path.join(PM_ROOT, "learning");
+export const KNOWLEDGE_ROOT = path.join(PM_ROOT, "knowledge");
 
 export async function exists(p) {
   try { await fs.access(p); return true; } catch { return false; }
@@ -46,6 +47,18 @@ export function classifyTask(task) {
   const t = String(task || "").toLowerCase();
   const types = [];
   const add = (type, rx) => { if (rx.test(t)) types.push(type); };
+  const externalToolTerms = [
+    "gsap", "scrolltrigger", "lenis", "shadcn", "tailwind", "phpmailer", "prisma", "drizzle",
+    "supabase", "stripe", "docker", "nginx", "caddy", "pm2", "systemd", "codegraph",
+    "understand anything", "serena"
+  ];
+  const orchestrationPhrases = [
+    "figure out everything needed", "use every necessary tool", "take control", "best practice",
+    "production-ready", "no primitive manually", "clone this site", "setup backend",
+    "setup database", "setup server", "automate this workflow", "choose the right stack"
+  ];
+  const detectedKnowledgeTerms = externalToolTerms.filter(term => t.includes(term));
+  const detectedOrchestrationPhrases = orchestrationPhrases.filter(term => t.includes(term));
   add("SQL operation", /\bsql\b|query|drop|truncate|delete from|update .*where|select .*from/);
   add("database/schema", /database|schema|migration|prisma|drizzle|postgres|mysql|sqlite|mongo|redis/);
   add("VPS/SSH/server", /ssh|vps|server|nginx|apache|caddy|systemd|pm2|docker|firewall|logs?/);
@@ -61,6 +74,7 @@ export function classifyTask(task) {
   add("static/template conversion", /static template|html template|template conversion/);
   add("frontend visual/layout", /mobile|responsive|layout|spacing|color|typography|overflow|sticky|screenshot|visual|css/);
   add("frontend component", /component|shadcn|radix|button|modal|dialog|card|navbar/);
+  add("capability orchestration", /gsap|scrolltrigger|lenis|shadcn|tailwind|phpmailer|prisma|drizzle|supabase|stripe|docker|nginx|caddy|pm2|systemd|codegraph|understand anything|figure out everything needed|use every necessary tool|best practice|production-ready|no primitive manually|clone this site|choose the right stack/);
   add("copy/content-only", /copy|headline|text|content|rewrite|cta/);
   const unique = [...new Set(types)];
   const risky = unique.some(x => /SQL|database|VPS|deployment|security/.test(x));
@@ -69,6 +83,7 @@ export function classifyTask(task) {
   const recon = unique.includes("codebase knowledge graph recon");
   const graphTrace = unique.includes("codegraph impact tracing");
   const semanticNav = unique.includes("semantic navigation");
+  const capabilityOrchestrationRecommended = detectedKnowledgeTerms.length > 0 || detectedOrchestrationPhrases.length > 0 || unique.includes("capability orchestration") || risky || unique.length > 1;
   const type = unique.length > 1 ? "mixed" : unique[0] || "unknown";
   const skills = [];
   if (visual) skills.push("frontend-tool-orchestrator", "frontend-inspection-discipline");
@@ -83,6 +98,7 @@ export function classifyTask(task) {
   if (unique.includes("accessibility")) skills.push("accessibility-gate");
   if (unique.includes("performance")) skills.push(backend ? "backend-performance-triage" : "performance-triage");
   if (unique.includes("frontend component")) skills.push("component-supply-router", "library-first-ui-builder");
+  if (capabilityOrchestrationRecommended) skills.push("project-manager-execution-ledger", "task-routing-and-skill-selection");
   if (unique.includes("design-to-code")) skills.push("design-source-grounding");
   const tools = [];
   if (visual) tools.push("frontend-inspect.mjs when visual proof is needed");
@@ -90,6 +106,7 @@ export function classifyTask(task) {
   if (recon) tools.push("project capability scan first, then Understand Anything for architecture/onboarding/domain flow");
   if (graphTrace) tools.push("CodeGraph for symbol usage, caller/callee tracing, dependency paths, and impact analysis");
   if (semanticNav) tools.push("Serena semantic navigation when available for targeted symbol/class/function context");
+  if (capabilityOrchestrationRecommended) tools.push("pm-knowledge-gap.mjs for Capability Orchestration Radar and knowledge blob status");
   if (unique.includes("SQL operation")) tools.push("sql-safety-check.mjs");
   if (unique.includes("VPS/SSH/server")) tools.push("vps-* read-only scripts");
   const smallLocalized = /fix|change|update|adjust/.test(t) && /button|padding|copy|text|headline|label/.test(t) && !/large|unknown|architecture|depends on|impact|caller|callee|what uses|what breaks/.test(t);
@@ -100,11 +117,20 @@ export function classifyTask(task) {
     riskLevel: risky ? "high" : unique.length > 1 ? "medium" : "low",
     suggestedSkills: [...new Set(skills)],
     suggestedTools: [...new Set(tools)],
-    needsTracking: risky || (!smallLocalized && (unique.length > 1 || t.length > 140 || recon || graphTrace)),
+    needsTracking: risky || (!smallLocalized && (unique.length > 1 || t.length > 140 || recon || graphTrace || capabilityOrchestrationRecommended)),
     screenshotsNeeded: visual && !unique.includes("copy/content-only"),
     buildTestNeeded: !unique.includes("copy/content-only") && (visual || backend),
     backendDatabaseSafetyGatesNeeded: backend,
     userApprovalBeforeWrites: risky,
+    capabilityOrchestration: capabilityOrchestrationRecommended
+      ? {
+          recommended: true,
+          detectedKnowledgeTerms,
+          detectedOrchestrationPhrases,
+          registry: path.join(KNOWLEDGE_ROOT, "knowledge-registry.json"),
+          tool: "pm-knowledge-gap.mjs"
+        }
+      : { recommended: false },
     codebaseIntelligence: graphTrace
       ? "CodeGraph or Serena preferred for precise symbol/dependency/impact tracing"
       : recon

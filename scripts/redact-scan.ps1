@@ -7,7 +7,9 @@ $ExcludedDirs = @(
   ".git",
   "node_modules",
   ".ai-task",
-  "qa"
+  "qa",
+  ".codegraph",
+  ".understand-anything"
 )
 
 $AllowedPlaceholderTokens = @(

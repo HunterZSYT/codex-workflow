@@ -11,6 +11,11 @@ Core rules:
 - Medium/large/risky tasks use `.ai-task` tracking.
 - Always extract hard constraints before editing.
 - Run Capability Gap Radar for medium, high-risk, unclear, or tool-evaluation tasks before committing to a workflow.
+- Run Capability Orchestration Radar when knowledge risk exists: external library/tool/package/MCP mentions, multi-capability work, high-risk work, current-doc dependent behavior, or prior vague capability failures.
+- Before implementation, check `C:\Users\acer\.codex\agentic-project-manager\knowledge\knowledge-registry.json` for active blobs that match required capabilities.
+- If a required blob is missing or stale, fetch current docs through Context7 when available, otherwise official docs/GitHub/npm; create or update a small blob candidate before implementation.
+- Use `pm-knowledge-gap.mjs --task "<task>"` and `pm-knowledge-lookup.mjs --term "<term>"` for knowledge lookup when useful.
+- Patch owner skills only with short pointers/routing rules; prefer micro-updates to knowledge blobs over creating new giant skills.
 - Always route to relevant specialist skills/tools.
 - Do not run broad QA for narrow tasks.
 - Do not claim success without verification.
@@ -23,6 +28,9 @@ Capability Gap Radar:
 - Tool installation or configuration always requires explicit approval.
 - Database, server, deployment, auth, SSH, or migration tasks require read-only inspection first.
 - Capability checks should record task type, existing matching skills/tools, need for current-source research, need for specialized tool/MCP/library, candidate capability, whether to use existing setup or recommend upgrade, risk level, approval need, and next action.
+- Capability Orchestration Radar must include: `Capability`, `Existing owner skill`, `Knowledge blob status`, `Docs source needed`, `Existing tool/MCP/script`, `External package/tool`, `Best-practice rules available?`, `Micro-update needed?`, `Approval needed?`, and `Verification`.
+- Knowledge blob status values are: Exists and active, Exists but stale, Candidate exists, Missing, Not needed.
+- If a blob is missing or stale, name the owner skill, docs source to fetch, blob to create/update, and whether implementation should wait for the blob.
 
 Tool selection and auto-optimization:
 - Default to the cheapest reliable method, then escalate only when more context, precision, or impact analysis is needed.
