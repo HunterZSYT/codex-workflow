@@ -28,6 +28,11 @@ function bulletBlock(text, label) {
   return values;
 }
 
+function bulletField(text, label) {
+  const rx = new RegExp(`^\\s*-\\s*${label}:\\s*(.*)$`, "im");
+  return text.match(rx)?.[1]?.trim() || "";
+}
+
 function listField(text, label) {
   return parseList(field(text, label)).concat(bulletBlock(text, label));
 }
@@ -36,7 +41,7 @@ function inferFromBlob(text, filePath) {
   const blobId = field(text, "Blob ID") || path.basename(filePath).replace(/\.blob\.md$/i, "");
   const docs = bulletBlock(text, "Required docs source")
     .map(item => item.replace(/^(Context7|Official docs|GitHub\/npm):\s*/i, "").trim())
-    .filter(item => item && !/^not needed$/i.test(item));
+    .filter(item => item && !/^not needed$/i.test(item) && !/^Last verified:/i.test(item));
   return {
     blob_id: blobId,
     capability: field(text, "Capability") || blobId,
@@ -46,7 +51,7 @@ function inferFromBlob(text, filePath) {
     trigger_terms: listField(text, "Trigger phrases"),
     external_libraries: listField(text, "External libraries/tools"),
     docs_sources: docs,
-    last_verified: field(text, "Last verified") || "candidate",
+    last_verified: field(text, "Last verified") || bulletField(text, "Last verified") || "candidate",
     status: arg("status", "candidate"),
     safe_to_sync: /^yes$/i.test(field(text, "Safe to sync to codex-workflow")) || arg("safe-to-sync", "true") !== "false"
   };

@@ -10,6 +10,8 @@ Rules:
 - Before implementing GSAP, ScrollTrigger, Lenis, or advanced scroll scenes, consult frontend knowledge blobs:
   - `agentic-frontend/knowledge/motion/gsap-react-scrolltrigger.blob.md`
   - `agentic-frontend/knowledge/motion/lenis-scroll-sync.blob.md`
+  - `agentic-frontend/knowledge/motion/reduced-motion-policy.blob.md`
+  - `agentic-frontend/knowledge/motion/scroll-scene-composition.blob.md`
 - If the blob is missing/stale or the tool behavior depends on current docs, route through Project Manager Capability Orchestration Radar and refresh docs via Context7/official docs before implementation.
 - Respect `prefers-reduced-motion`.
 - Avoid animating layout-heavy properties when transform/opacity works.

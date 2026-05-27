@@ -10,5 +10,7 @@ Motion must support meaning or feedback. Prefer CSS/Tailwind transitions for sim
 Before implementing GSAP, ScrollTrigger, Lenis, or advanced scroll scenes, consult frontend knowledge blobs:
 - `C:\Users\acer\.codex\agentic-frontend\knowledge\motion\gsap-react-scrolltrigger.blob.md`
 - `C:\Users\acer\.codex\agentic-frontend\knowledge\motion\lenis-scroll-sync.blob.md`
+- `C:\Users\acer\.codex\agentic-frontend\knowledge\motion\reduced-motion-policy.blob.md`
+- `C:\Users\acer\.codex\agentic-frontend\knowledge\motion\scroll-scene-composition.blob.md`
 
 If a blob is missing/stale or the tool behavior depends on current docs, route through Project Manager Capability Orchestration Radar and refresh docs via Context7/official docs before implementation.

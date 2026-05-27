@@ -5,6 +5,13 @@ description: "Make strong UI typography decisions using font hierarchy, type sca
 
 # Dynamic UI Typography Logic
 
+## Knowledge Blobs
+
+Before implementing or reviewing precise typography decisions, consult:
+
+- `C:\Users\acer\.codex\agentic-frontend\knowledge\typography\type-scale-hierarchy.blob.md`
+- `C:\Users\acer\.codex\agentic-frontend\knowledge\typography\readability-line-length.blob.md`
+
 ## Core Principle
 
 Typography controls how users understand content priority.

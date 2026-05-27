@@ -14,6 +14,7 @@ Core rules:
 - Run Capability Orchestration Radar when knowledge risk exists: external library/tool/package/MCP mentions, multi-capability work, high-risk work, current-doc dependent behavior, or prior vague capability failures.
 - Before implementation, check `C:\Users\acer\.codex\agentic-project-manager\knowledge\knowledge-registry.json` for active blobs that match required capabilities.
 - If a required blob is missing or stale, fetch current docs through Context7 when available, otherwise official docs/GitHub/npm; create or update a small blob candidate before implementation.
+- Before deciding whether to create a new skill, consult `C:\Users\acer\.codex\agentic-project-manager\knowledge\capability-orchestration\new-skill-vs-blob-policy.blob.md`.
 - Use `pm-knowledge-gap.mjs --task "<task>"` and `pm-knowledge-lookup.mjs --term "<term>"` for knowledge lookup when useful.
 - Patch owner skills only with short pointers/routing rules; prefer micro-updates to knowledge blobs over creating new giant skills.
 - Always route to relevant specialist skills/tools.

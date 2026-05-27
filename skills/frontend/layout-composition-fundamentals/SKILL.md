@@ -5,6 +5,14 @@ description: "Review or improve UI layout without redesigning the page. Use when
 
 # Layout & Composition Fundamentals
 
+## Knowledge Blobs
+
+Before implementing or reviewing precise layout/composition decisions, consult:
+
+- `C:\Users\acer\.codex\agentic-frontend\knowledge\layout\layout-grid-composition.blob.md`
+- `C:\Users\acer\.codex\agentic-frontend\knowledge\layout\swiss-editorial-grid-layout.blob.md`
+- `C:\Users\acer\.codex\agentic-frontend\knowledge\layout\premium-agency-section-rhythm.blob.md`
+
 ## Core Rule
 
 Do not redesign first. Diagnose first.

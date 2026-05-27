@@ -6,9 +6,15 @@ import { PM_ROOT, arg } from "./pm-lib.mjs";
 const registryPath = path.join(PM_ROOT, "knowledge", "knowledge-registry.json");
 
 const CAPABILITY_HINTS = [
+  { capability: "Layout grid composition", terms: ["layout", "grid", "composition", "responsive layout", "agency homepage"], package: "layout/composition rules" },
+  { capability: "Swiss/editorial grid layout", terms: ["swiss", "swiss-style", "editorial grid", "premium agency"], package: "layout/composition rules" },
+  { capability: "Color contrast and neutral fallback", terms: ["contrast", "accessible", "accessibility", "color", "foreground", "background"], package: "color contrast rules" },
+  { capability: "Spacing rhythm and grouping", terms: ["spacing", "strict spacing", "rhythm", "section spacing", "proximity"], package: "spacing rules" },
+  { capability: "Typography hierarchy and readability", terms: ["typography", "type", "readability", "homepage", "agency homepage", "swiss-style"], package: "typography rules" },
   { capability: "React GSAP ScrollTrigger animation", terms: ["gsap", "scrolltrigger", "scroll trigger", "pinned scroll"], package: "gsap / @gsap/react" },
   { capability: "Lenis smooth scroll and ScrollTrigger sync", terms: ["lenis", "smooth scroll"], package: "lenis" },
   { capability: "shadcn/Radix primitive selection and no manual primitives", terms: ["shadcn", "radix", "no primitive", "manual primitive", "no manually created primitives"], package: "shadcn/ui" },
+  { capability: "Frontend visual verification", terms: ["responsive", "mobile", "visual proof", "accessible responsive", "verify ui"], package: "Browser / Chrome" },
   { capability: "Tailwind styling", terms: ["tailwind", "tailwindcss"], package: "tailwindcss" },
   { capability: "PHP form email handling", terms: ["phpmailer", "php mail", "smtp", "email handler"], package: "PHPMailer" },
   { capability: "Prisma ORM", terms: ["prisma"], package: "prisma" },
@@ -115,6 +121,8 @@ function verificationFor(capability) {
   const c = normalize(capability);
   if (c.includes("gsap") || c.includes("lenis")) return "rendered scroll verification";
   if (c.includes("shadcn")) return "components.json + rendered accessibility/interaction check";
+  if (c.includes("layout") || c.includes("spacing") || c.includes("typography") || c.includes("color")) return "rendered desktop/mobile inspection plus DOM/CSS checks when geometry matters";
+  if (c.includes("visual")) return "screenshot/mobile emulation plus DOM measurement for exact claims";
   if (c.includes("nginx")) return "read-only inspect, config test after approval";
   if (c.includes("sql")) return "SQL safety check + read-only verification";
   return "task-appropriate verification";

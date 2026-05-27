@@ -5,6 +5,11 @@ description: Use for medium/large tasks, risky tasks, multi-step work, frontend/
 
 # Project Manager & Execution Ledger
 
+Before deciding whether to add workflow knowledge, consult:
+- `C:\Users\acer\.codex\agentic-project-manager\knowledge\capability-orchestration\capability-radar-trigger-policy.blob.md`
+- `C:\Users\acer\.codex\agentic-project-manager\knowledge\capability-orchestration\knowledge-blob-policy.blob.md`
+- `C:\Users\acer\.codex\agentic-project-manager\knowledge\capability-orchestration\new-skill-vs-blob-policy.blob.md`
+
 Act as a task orchestration layer above specialist skills. Do not replace specialist skills. Decide task type, skills/tools, bundling, isolation, verification, screenshots, database/server approval needs, logging, and stop conditions.
 
 Small tasks do not need heavy roadmap files. Medium/large/risky tasks use `.ai-task` tracking. Always extract hard constraints before editing. Route to specialist skills/tools. Do not run broad QA for narrow tasks. Do not claim success without verification. Track inefficiencies for future improvement.

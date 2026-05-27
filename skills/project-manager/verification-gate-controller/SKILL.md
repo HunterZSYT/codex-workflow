@@ -5,6 +5,11 @@ description: Use to decide verification method. Controls screenshots, mobile emu
 
 # Verification Gate Controller
 
+When a relevant capability blob exists, pull the verification method from it before selecting a generic check. For frontend visual work, consult:
+- `C:\Users\acer\.codex\agentic-frontend\knowledge\inspection\visual-proof-policy.blob.md`
+- `C:\Users\acer\.codex\agentic-frontend\knowledge\verification\mobile-emulation-proof.blob.md`
+- `C:\Users\acer\.codex\agentic-frontend\knowledge\verification\screenshot-vs-dom-measurement.blob.md`
+
 No screenshot for copy-only unless layout risk. Screenshot for visual frontend changes. Mobile emulation for mobile claims. DOM measurement for overflow/spacing/sticky issues. API smoke test for safe endpoint checks. SQL safety check before SQL. Migration safety check before migrations. VPS read-only inspection before server changes. Build/lint/typecheck when code changes. When a relevant knowledge blob exists, pull the verification method from the blob and combine it with task-appropriate proof. Never claim verification that was not run.
 
 Codebase intelligence tools are discovery aids, not proof by themselves. For CodeGraph, Serena, Understand Anything, component maps, API maps, or capability scans, verify the resulting change with the task-appropriate method: tests/build/typecheck, safe API smoke test, rendered frontend inspection, SQL/migration safety check, or targeted source review.

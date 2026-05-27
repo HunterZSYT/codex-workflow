@@ -7,6 +7,7 @@ Rules:
 - Screenshot for visual frontend changes.
 - Mobile emulation for mobile claims.
 - DOM measurement for overflow/spacing/sticky issues.
+- For frontend visual proof selection, consult `agentic-frontend/knowledge/verification/mobile-emulation-proof.blob.md` and `agentic-frontend/knowledge/verification/screenshot-vs-dom-measurement.blob.md`.
 - API smoke test for safe endpoint checks.
 - SQL safety check before SQL.
 - Migration safety check before migrations.

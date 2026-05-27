@@ -39,6 +39,8 @@ Best-practice rules:
 - Inspect the actual rendered URL and state.
 - Use mobile emulation for mobile claims.
 - Use DOM/CSS measurement for overflow, sticky, size, and alignment claims.
+- Consult `knowledge/verification/mobile-emulation-proof.blob.md` for responsive proof.
+- Consult `knowledge/verification/screenshot-vs-dom-measurement.blob.md` when choosing screenshot vs DOM/CSS evidence.
 - Treat screenshots of unreachable/error pages as invalid evidence.
 - Stop after two failed verification attempts and report uncertainty.
 

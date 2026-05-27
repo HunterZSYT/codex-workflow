@@ -5,6 +5,13 @@ description: "Make strong UI color decisions using contrast theory, accessibilit
 
 # Dynamic UI Color Contrast Logic
 
+## Knowledge Blobs
+
+Before implementing or reviewing precise color contrast decisions, consult:
+
+- `C:\Users\acer\.codex\agentic-frontend\knowledge\color\contrast-ratio-formula.blob.md`
+- `C:\Users\acer\.codex\agentic-frontend\knowledge\color\brand-safe-neutral-fallback.blob.md`
+
 ## Core Principle
 
 Balance readability, accessibility, brand consistency, component role, visual hierarchy, emotional tone, and neutral fallback safety.

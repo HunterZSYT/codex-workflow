@@ -5,6 +5,14 @@ description: "Make strong UI spacing decisions using layout rhythm, grouping log
 
 # Dynamic UI Spacing Rhythm Logic
 
+## Knowledge Blobs
+
+Before implementing or reviewing precise spacing decisions, consult:
+
+- `C:\Users\acer\.codex\agentic-frontend\knowledge\spacing\spacing-rhythm-scale.blob.md`
+- `C:\Users\acer\.codex\agentic-frontend\knowledge\spacing\proximity-grouping-spacing.blob.md`
+- `C:\Users\acer\.codex\agentic-frontend\knowledge\spacing\responsive-section-spacing.blob.md`
+
 ## Core Principle
 
 Spacing is not decoration. Spacing communicates structure.

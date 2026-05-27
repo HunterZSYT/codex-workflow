@@ -18,10 +18,8 @@
       "- None",
       "None"
     ],
-    "docs_sources": [
-      "Last verified: existing skill/user-authored rule, 2026-05-28"
-    ],
-    "last_verified": "candidate",
+    "docs_sources": [],
+    "last_verified": "existing skill/user-authored rule, 2026-05-28",
     "status": "active",
     "safe_to_sync": true
   },
@@ -46,10 +44,9 @@
     "docs_sources": [
       "use shadcn docs if wrapper depends on shadcn internals",
       "https://ui.shadcn.com/docs when relevant",
-      "not needed for internal wrapper rules",
-      "Last verified: existing skill/user-authored rule, 2026-05-28"
+      "not needed for internal wrapper rules"
     ],
-    "last_verified": "candidate",
+    "last_verified": "existing skill/user-authored rule, 2026-05-28",
     "status": "active",
     "safe_to_sync": true
   },
@@ -133,10 +130,9 @@
       "None"
     ],
     "docs_sources": [
-      "WCAG contrast model when current accessibility wording is required",
-      "Last verified: existing skill/user-authored rule, 2026-05-28"
+      "WCAG contrast model when current accessibility wording is required"
     ],
-    "last_verified": "candidate",
+    "last_verified": "existing skill/user-authored rule, 2026-05-28",
     "status": "active",
     "safe_to_sync": true
   },
@@ -208,10 +204,8 @@
       "- None",
       "None"
     ],
-    "docs_sources": [
-      "Last verified: existing skill/user-authored rule, 2026-05-28"
-    ],
-    "last_verified": "candidate",
+    "docs_sources": [],
+    "last_verified": "existing skill/user-authored rule, 2026-05-28",
     "status": "active",
     "safe_to_sync": true
   },
@@ -283,10 +277,9 @@
       "Playwright when available"
     ],
     "docs_sources": [
-      "browser tooling docs only when tool behavior changes",
-      "Last verified: existing skill/user-authored rule, 2026-05-28"
+      "browser tooling docs only when tool behavior changes"
     ],
-    "last_verified": "candidate",
+    "last_verified": "existing skill/user-authored rule, 2026-05-28",
     "status": "active",
     "safe_to_sync": true
   },
@@ -309,10 +302,8 @@
       "- None",
       "None"
     ],
-    "docs_sources": [
-      "Last verified: existing user-authored orchestration rule, 2026-05-28"
-    ],
-    "last_verified": "candidate",
+    "docs_sources": [],
+    "last_verified": "existing user-authored orchestration rule, 2026-05-28",
     "status": "active",
     "safe_to_sync": true
   },
@@ -385,10 +376,9 @@
       "None"
     ],
     "docs_sources": [
-      "project-specific visual references recommended before activation",
-      "Last verified: candidate, 2026-05-28"
+      "project-specific visual references recommended before activation"
     ],
-    "last_verified": "candidate",
+    "last_verified": "candidate, 2026-05-28",
     "status": "candidate",
     "safe_to_sync": true
   },
@@ -411,10 +401,8 @@
       "- None",
       "None"
     ],
-    "docs_sources": [
-      "Last verified: existing skill/user-authored rule, 2026-05-28"
-    ],
-    "last_verified": "candidate",
+    "docs_sources": [],
+    "last_verified": "existing skill/user-authored rule, 2026-05-28",
     "status": "active",
     "safe_to_sync": true
   },
@@ -437,10 +425,8 @@
       "- None",
       "None"
     ],
-    "docs_sources": [
-      "Last verified: existing skill/user-authored rule, 2026-05-28"
-    ],
-    "last_verified": "candidate",
+    "docs_sources": [],
+    "last_verified": "existing skill/user-authored rule, 2026-05-28",
     "status": "active",
     "safe_to_sync": true
   },
@@ -463,10 +449,9 @@
       "None for the policy itself"
     ],
     "docs_sources": [
-      "browser/CSS docs when exact API wording is required",
-      "Last verified: existing skill/user-authored rule, 2026-05-28"
+      "browser/CSS docs when exact API wording is required"
     ],
-    "last_verified": "candidate",
+    "last_verified": "existing skill/user-authored rule, 2026-05-28",
     "status": "active",
     "safe_to_sync": true
   },
@@ -488,10 +473,8 @@
       "- None",
       "None"
     ],
-    "docs_sources": [
-      "Last verified: existing skill/user-authored rule, 2026-05-28"
-    ],
-    "last_verified": "candidate",
+    "docs_sources": [],
+    "last_verified": "existing skill/user-authored rule, 2026-05-28",
     "status": "active",
     "safe_to_sync": true
   },
@@ -518,10 +501,9 @@
       "Playwright when available"
     ],
     "docs_sources": [
-      "browser tooling docs only when tool behavior changes",
-      "Last verified: existing skill/user-authored rule, 2026-05-28"
+      "browser tooling docs only when tool behavior changes"
     ],
-    "last_verified": "candidate",
+    "last_verified": "existing skill/user-authored rule, 2026-05-28",
     "status": "active",
     "safe_to_sync": true
   },
@@ -547,10 +529,9 @@
     "docs_sources": [
       "required for external API implementation",
       "GSAP/Lenis docs when using those libraries",
-      "package docs when implementation depends on package behavior",
-      "Last verified: existing skill/user-authored composition rule, 2026-05-28"
+      "package docs when implementation depends on package behavior"
     ],
-    "last_verified": "candidate",
+    "last_verified": "existing skill/user-authored composition rule, 2026-05-28",
     "status": "active",
     "safe_to_sync": true
   },
@@ -601,10 +582,8 @@
       "- None",
       "None"
     ],
-    "docs_sources": [
-      "Last verified: existing skill/user-authored rule, 2026-05-28"
-    ],
-    "last_verified": "candidate",
+    "docs_sources": [],
+    "last_verified": "existing skill/user-authored rule, 2026-05-28",
     "status": "active",
     "safe_to_sync": true
   },
@@ -649,10 +628,9 @@
       "None"
     ],
     "docs_sources": [
-      "project-specific design references recommended before activation",
-      "Last verified: candidate, 2026-05-28"
+      "project-specific design references recommended before activation"
     ],
-    "last_verified": "candidate",
+    "last_verified": "candidate, 2026-05-28",
     "status": "candidate",
     "safe_to_sync": true
   },
@@ -703,20 +681,19 @@
       "- None",
       "None"
     ],
-    "docs_sources": [
-      "Last verified: existing skill/user-authored rule, 2026-05-28"
-    ],
-    "last_verified": "candidate",
+    "docs_sources": [],
+    "last_verified": "existing skill/user-authored rule, 2026-05-28",
     "status": "active",
     "safe_to_sync": true
   },
   {
     "blob_id": "visual-proof-policy",
-    "capability": "Frontend rendered visual verification",
+    "capability": "Rendered evidence for frontend visual, responsive, sticky, overflow, and interaction claims.",
     "owner_system": "agentic-frontend",
     "owner_skill": "frontend-inspection-discipline",
     "file_path": "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge\\inspection\\visual-proof-policy.blob.md",
     "trigger_terms": [
+      "- inspect",
       "inspect",
       "screenshot",
       "mobile",
@@ -728,8 +705,9 @@
       "verify UI"
     ],
     "external_libraries": [
-      "Browser",
-      "Chrome"
+      "- Browser/Chrome connector",
+      "Browser/Chrome connector",
+      "local frontend inspect script when available"
     ],
     "docs_sources": [],
     "last_verified": "2026-05-28",

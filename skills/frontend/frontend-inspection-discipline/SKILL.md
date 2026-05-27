@@ -5,6 +5,11 @@ description: "Use when visually inspecting, testing, or fixing frontend UI, espe
 
 # Frontend Inspection Discipline
 
+Before making visual or responsive proof claims, consult:
+- `C:\Users\acer\.codex\agentic-frontend\knowledge\inspection\visual-proof-policy.blob.md`
+- `C:\Users\acer\.codex\agentic-frontend\knowledge\verification\mobile-emulation-proof.blob.md`
+- `C:\Users\acer\.codex\agentic-frontend\knowledge\verification\screenshot-vs-dom-measurement.blob.md`
+
 ## Purpose
 
 Use this skill before making visual, responsive, layout, screenshot, overflow, sticky header, interaction, or frontend QA claims about a rendered frontend UI.
