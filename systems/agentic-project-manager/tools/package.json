@@ -13,6 +13,9 @@
     "sync": "node pm-capability-sync.mjs",
     "knowledge:index": "node pm-knowledge-index.mjs",
     "knowledge:search": "node pm-knowledge-search.mjs",
-    "knowledge:dedupe": "node pm-knowledge-dedupe.mjs"
+    "knowledge:dedupe": "node pm-knowledge-dedupe.mjs",
+    "pack:init": "node pm-pack-init.mjs",
+    "pack:audit": "node pm-pack-audit.mjs",
+    "pack:promote": "node pm-pack-promote.mjs"
   }
 }

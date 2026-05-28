@@ -14,6 +14,8 @@ Rules:
 - VPS read-only inspection before server changes.
 - Build/lint/typecheck when code changes.
 - When a relevant knowledge blob exists, pull the verification method from the blob and combine it with task-appropriate proof.
+- When a relevant capability pack exists, inspect `verification.md`, `pack.yaml`, status, maturity, artifact paths, and approval status before relying on it.
+- Candidate packs are planning material, not proof. Active/verified packs still require task-appropriate verification after implementation.
 - Never claim verification that was not run.
 - Codebase intelligence tools are discovery aids, not proof by themselves.
 - Verify CodeGraph, Serena, Understand Anything, component-map, API-map, and capability-scan conclusions with the task-appropriate method.

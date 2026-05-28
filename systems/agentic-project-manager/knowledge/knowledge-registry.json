@@ -36,7 +36,18 @@
     "artifact_paths": [],
     "apply_command": "",
     "verification_method": "",
-    "notes": ""
+    "notes": "",
+    "product_type": "blob",
+    "pack_id": "",
+    "pack_path": "",
+    "source_ledger_path": "",
+    "specs_path": "",
+    "artifacts_count": 0,
+    "apply_commands": [],
+    "approval_status": "not_required",
+    "promotion_status": "not_ready",
+    "copied_from_external_source": false,
+    "copyright_risk": "none"
   },
   {
     "blob_id": "sql-safety-patterns",
@@ -74,7 +85,18 @@
     "artifact_paths": [],
     "apply_command": "",
     "verification_method": "",
-    "notes": ""
+    "notes": "",
+    "product_type": "blob",
+    "pack_id": "",
+    "pack_path": "",
+    "source_ledger_path": "",
+    "specs_path": "",
+    "artifacts_count": 0,
+    "apply_commands": [],
+    "approval_status": "not_required",
+    "promotion_status": "not_ready",
+    "copied_from_external_source": false,
+    "copyright_risk": "none"
   },
   {
     "blob_id": "brand-safe-neutral-fallback",
@@ -113,7 +135,18 @@
     "artifact_paths": [],
     "apply_command": "",
     "verification_method": "",
-    "notes": ""
+    "notes": "",
+    "product_type": "blob",
+    "pack_id": "",
+    "pack_path": "",
+    "source_ledger_path": "",
+    "specs_path": "",
+    "artifacts_count": 0,
+    "apply_commands": [],
+    "approval_status": "not_required",
+    "promotion_status": "active",
+    "copied_from_external_source": false,
+    "copyright_risk": "none"
   },
   {
     "blob_id": "contrast-ratio-formula",
@@ -154,7 +187,18 @@
     "artifact_paths": [],
     "apply_command": "",
     "verification_method": "",
-    "notes": ""
+    "notes": "",
+    "product_type": "blob",
+    "pack_id": "",
+    "pack_path": "",
+    "source_ledger_path": "",
+    "specs_path": "",
+    "artifacts_count": 0,
+    "apply_commands": [],
+    "approval_status": "not_required",
+    "promotion_status": "active",
+    "copied_from_external_source": false,
+    "copyright_risk": "none"
   },
   {
     "blob_id": "brand-wrapper-composition",
@@ -197,7 +241,18 @@
     "artifact_paths": [],
     "apply_command": "",
     "verification_method": "",
-    "notes": ""
+    "notes": "",
+    "product_type": "blob",
+    "pack_id": "",
+    "pack_path": "",
+    "source_ledger_path": "",
+    "specs_path": "",
+    "artifacts_count": 0,
+    "apply_commands": [],
+    "approval_status": "not_required",
+    "promotion_status": "active",
+    "copied_from_external_source": false,
+    "copyright_risk": "none"
   },
   {
     "blob_id": "shadcn-no-manual-primitives",
@@ -241,7 +296,18 @@
     "artifact_paths": [],
     "apply_command": "",
     "verification_method": "",
-    "notes": ""
+    "notes": "",
+    "product_type": "blob",
+    "pack_id": "",
+    "pack_path": "",
+    "source_ledger_path": "",
+    "specs_path": "",
+    "artifacts_count": 0,
+    "apply_commands": [],
+    "approval_status": "not_required",
+    "promotion_status": "active",
+    "copied_from_external_source": false,
+    "copyright_risk": "none"
   },
   {
     "blob_id": "mobile-emulation-proof",
@@ -284,7 +350,18 @@
     "artifact_paths": [],
     "apply_command": "",
     "verification_method": "",
-    "notes": ""
+    "notes": "",
+    "product_type": "blob",
+    "pack_id": "",
+    "pack_path": "",
+    "source_ledger_path": "",
+    "specs_path": "",
+    "artifacts_count": 0,
+    "apply_commands": [],
+    "approval_status": "not_required",
+    "promotion_status": "active",
+    "copied_from_external_source": false,
+    "copyright_risk": "none"
   },
   {
     "blob_id": "screenshot-vs-dom-measurement",
@@ -329,7 +406,18 @@
     "artifact_paths": [],
     "apply_command": "",
     "verification_method": "",
-    "notes": ""
+    "notes": "",
+    "product_type": "blob",
+    "pack_id": "",
+    "pack_path": "",
+    "source_ledger_path": "",
+    "specs_path": "",
+    "artifacts_count": 0,
+    "apply_commands": [],
+    "approval_status": "not_required",
+    "promotion_status": "active",
+    "copied_from_external_source": false,
+    "copyright_risk": "none"
   },
   {
     "blob_id": "visual-proof-policy",
@@ -373,7 +461,18 @@
     "artifact_paths": [],
     "apply_command": "",
     "verification_method": "",
-    "notes": ""
+    "notes": "",
+    "product_type": "blob",
+    "pack_id": "",
+    "pack_path": "",
+    "source_ledger_path": "",
+    "specs_path": "",
+    "artifacts_count": 0,
+    "apply_commands": [],
+    "approval_status": "not_required",
+    "promotion_status": "active",
+    "copied_from_external_source": false,
+    "copyright_risk": "none"
   },
   {
     "blob_id": "layout-grid-composition",
@@ -415,7 +514,18 @@
     "artifact_paths": [],
     "apply_command": "",
     "verification_method": "",
-    "notes": ""
+    "notes": "",
+    "product_type": "blob",
+    "pack_id": "",
+    "pack_path": "",
+    "source_ledger_path": "",
+    "specs_path": "",
+    "artifacts_count": 0,
+    "apply_commands": [],
+    "approval_status": "not_required",
+    "promotion_status": "active",
+    "copied_from_external_source": false,
+    "copyright_risk": "none"
   },
   {
     "blob_id": "premium-agency-section-rhythm",
@@ -458,7 +568,18 @@
     "artifact_paths": [],
     "apply_command": "",
     "verification_method": "",
-    "notes": ""
+    "notes": "",
+    "product_type": "blob",
+    "pack_id": "",
+    "pack_path": "",
+    "source_ledger_path": "",
+    "specs_path": "",
+    "artifacts_count": 0,
+    "apply_commands": [],
+    "approval_status": "not_required",
+    "promotion_status": "not_ready",
+    "copied_from_external_source": false,
+    "copyright_risk": "none"
   },
   {
     "blob_id": "swiss-editorial-grid-layout",
@@ -501,12 +622,24 @@
     "related_items": [
       "frontend.layout.layout-grid-composition",
       "frontend.layout.premium-agency-section-rhythm",
-      "skill.layout-composition-fundamentals"
+      "skill.layout-composition-fundamentals",
+      "frontend.layout.swiss-editorial-grid"
     ],
     "artifact_paths": [],
     "apply_command": "",
     "verification_method": "Inspect grid alignment, whitespace rhythm, readable type, and mobile order.",
-    "notes": ""
+    "notes": "",
+    "product_type": "blob",
+    "pack_id": "frontend.layout.swiss-editorial-grid",
+    "pack_path": "",
+    "source_ledger_path": "",
+    "specs_path": "",
+    "artifacts_count": 0,
+    "apply_commands": [],
+    "approval_status": "not_required",
+    "promotion_status": "not_ready",
+    "copied_from_external_source": false,
+    "copyright_risk": "none"
   },
   {
     "blob_id": "gsap-react-scrolltrigger",
@@ -551,7 +684,18 @@
     "artifact_paths": [],
     "apply_command": "",
     "verification_method": "",
-    "notes": ""
+    "notes": "",
+    "product_type": "blob",
+    "pack_id": "",
+    "pack_path": "",
+    "source_ledger_path": "",
+    "specs_path": "",
+    "artifacts_count": 0,
+    "apply_commands": [],
+    "approval_status": "not_required",
+    "promotion_status": "active",
+    "copied_from_external_source": false,
+    "copyright_risk": "none"
   },
   {
     "blob_id": "lenis-scroll-sync",
@@ -595,7 +739,18 @@
     "artifact_paths": [],
     "apply_command": "",
     "verification_method": "",
-    "notes": ""
+    "notes": "",
+    "product_type": "blob",
+    "pack_id": "",
+    "pack_path": "",
+    "source_ledger_path": "",
+    "specs_path": "",
+    "artifacts_count": 0,
+    "apply_commands": [],
+    "approval_status": "not_required",
+    "promotion_status": "active",
+    "copied_from_external_source": false,
+    "copyright_risk": "none"
   },
   {
     "blob_id": "reduced-motion-policy",
@@ -636,7 +791,18 @@
     "artifact_paths": [],
     "apply_command": "",
     "verification_method": "",
-    "notes": ""
+    "notes": "",
+    "product_type": "blob",
+    "pack_id": "",
+    "pack_path": "",
+    "source_ledger_path": "",
+    "specs_path": "",
+    "artifacts_count": 0,
+    "apply_commands": [],
+    "approval_status": "not_required",
+    "promotion_status": "active",
+    "copied_from_external_source": false,
+    "copyright_risk": "none"
   },
   {
     "blob_id": "scroll-scene-composition",
@@ -680,7 +846,18 @@
     "artifact_paths": [],
     "apply_command": "",
     "verification_method": "",
-    "notes": ""
+    "notes": "",
+    "product_type": "blob",
+    "pack_id": "",
+    "pack_path": "",
+    "source_ledger_path": "",
+    "specs_path": "",
+    "artifacts_count": 0,
+    "apply_commands": [],
+    "approval_status": "not_required",
+    "promotion_status": "active",
+    "copied_from_external_source": false,
+    "copyright_risk": "none"
   },
   {
     "blob_id": "proximity-grouping-spacing",
@@ -719,7 +896,18 @@
     "artifact_paths": [],
     "apply_command": "",
     "verification_method": "",
-    "notes": ""
+    "notes": "",
+    "product_type": "blob",
+    "pack_id": "",
+    "pack_path": "",
+    "source_ledger_path": "",
+    "specs_path": "",
+    "artifacts_count": 0,
+    "apply_commands": [],
+    "approval_status": "not_required",
+    "promotion_status": "active",
+    "copied_from_external_source": false,
+    "copyright_risk": "none"
   },
   {
     "blob_id": "responsive-section-spacing",
@@ -757,7 +945,18 @@
     "artifact_paths": [],
     "apply_command": "",
     "verification_method": "",
-    "notes": ""
+    "notes": "",
+    "product_type": "blob",
+    "pack_id": "",
+    "pack_path": "",
+    "source_ledger_path": "",
+    "specs_path": "",
+    "artifacts_count": 0,
+    "apply_commands": [],
+    "approval_status": "not_required",
+    "promotion_status": "active",
+    "copied_from_external_source": false,
+    "copyright_risk": "none"
   },
   {
     "blob_id": "spacing-rhythm-scale",
@@ -796,7 +995,18 @@
     "artifact_paths": [],
     "apply_command": "",
     "verification_method": "",
-    "notes": ""
+    "notes": "",
+    "product_type": "blob",
+    "pack_id": "",
+    "pack_path": "",
+    "source_ledger_path": "",
+    "specs_path": "",
+    "artifacts_count": 0,
+    "apply_commands": [],
+    "approval_status": "not_required",
+    "promotion_status": "active",
+    "copied_from_external_source": false,
+    "copyright_risk": "none"
   },
   {
     "blob_id": "readability-line-length",
@@ -835,7 +1045,18 @@
     "artifact_paths": [],
     "apply_command": "",
     "verification_method": "",
-    "notes": ""
+    "notes": "",
+    "product_type": "blob",
+    "pack_id": "",
+    "pack_path": "",
+    "source_ledger_path": "",
+    "specs_path": "",
+    "artifacts_count": 0,
+    "apply_commands": [],
+    "approval_status": "not_required",
+    "promotion_status": "active",
+    "copied_from_external_source": false,
+    "copyright_risk": "none"
   },
   {
     "blob_id": "type-scale-hierarchy",
@@ -874,7 +1095,69 @@
     "artifact_paths": [],
     "apply_command": "",
     "verification_method": "",
-    "notes": ""
+    "notes": "",
+    "product_type": "blob",
+    "pack_id": "",
+    "pack_path": "",
+    "source_ledger_path": "",
+    "specs_path": "",
+    "artifacts_count": 0,
+    "apply_commands": [],
+    "approval_status": "not_required",
+    "promotion_status": "active",
+    "copied_from_external_source": false,
+    "copyright_risk": "none"
+  },
+  {
+    "id": "pack.frontend.layout.swiss-editorial-grid",
+    "title": "Swiss Editorial Grid Layout",
+    "namespace": "frontend",
+    "type": "capability_pack",
+    "product_type": "pack",
+    "capability": "Swiss Editorial Grid Layout",
+    "capability_class": "frontend.layout",
+    "owner_system": "agentic-frontend",
+    "owner_skill": "layout-composition-fundamentals",
+    "status": "candidate",
+    "maturity": "researched",
+    "aliases": [
+      "swiss grid",
+      "swiss layout",
+      "editorial grid",
+      "international typographic style"
+    ],
+    "trigger_terms": [
+      "swiss grid",
+      "swiss layout",
+      "editorial grid",
+      "typographic grid",
+      "premium grid"
+    ],
+    "external_libraries": [],
+    "docs_sources": [],
+    "source_confidence": "low",
+    "related_items": [
+      "frontend.layout.swiss-editorial-grid",
+      "frontend.layout.layout-grid-composition",
+      "frontend.layout.premium-agency-section-rhythm"
+    ],
+    "artifact_paths": [],
+    "apply_command": "",
+    "apply_commands": [],
+    "verification_method": "Audit pack readiness before use; do not implement from candidate pack without source verification or approval.",
+    "safe_to_sync": true,
+    "file_path": "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge-packs\\frontend.layout.swiss-editorial-grid\\pack.yaml",
+    "last_verified": "",
+    "notes": "Candidate knowledge product shell. Not active or reusable until source-grounded and approved.",
+    "pack_id": "frontend.layout.swiss-editorial-grid",
+    "pack_path": "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge-packs\\frontend.layout.swiss-editorial-grid",
+    "source_ledger_path": "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge-packs\\frontend.layout.swiss-editorial-grid\\source-ledger.md",
+    "specs_path": "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge-packs\\frontend.layout.swiss-editorial-grid\\specs.md",
+    "artifacts_count": 0,
+    "approval_status": "not_requested",
+    "promotion_status": "not_ready",
+    "copied_from_external_source": false,
+    "copyright_risk": "none"
   },
   {
     "blob_id": "capability-radar-trigger-policy",
@@ -923,7 +1206,18 @@
     "artifact_paths": [],
     "apply_command": "",
     "verification_method": "",
-    "notes": ""
+    "notes": "",
+    "product_type": "blob",
+    "pack_id": "",
+    "pack_path": "",
+    "source_ledger_path": "",
+    "specs_path": "",
+    "artifacts_count": 0,
+    "apply_commands": [],
+    "approval_status": "not_required",
+    "promotion_status": "active",
+    "copied_from_external_source": false,
+    "copyright_risk": "none"
   },
   {
     "blob_id": "codebase-intelligence-routing",
@@ -966,7 +1260,18 @@
     "artifact_paths": [],
     "apply_command": "",
     "verification_method": "",
-    "notes": ""
+    "notes": "",
+    "product_type": "blob",
+    "pack_id": "",
+    "pack_path": "",
+    "source_ledger_path": "",
+    "specs_path": "",
+    "artifacts_count": 0,
+    "apply_commands": [],
+    "approval_status": "not_required",
+    "promotion_status": "active",
+    "copied_from_external_source": false,
+    "copyright_risk": "none"
   },
   {
     "blob_id": "knowledge-blob-policy",
@@ -1002,7 +1307,18 @@
     "artifact_paths": [],
     "apply_command": "",
     "verification_method": "",
-    "notes": ""
+    "notes": "",
+    "product_type": "blob",
+    "pack_id": "",
+    "pack_path": "",
+    "source_ledger_path": "",
+    "specs_path": "",
+    "artifacts_count": 0,
+    "apply_commands": [],
+    "approval_status": "not_required",
+    "promotion_status": "active",
+    "copied_from_external_source": false,
+    "copyright_risk": "none"
   },
   {
     "blob_id": "micro-update-policy",
@@ -1037,7 +1353,18 @@
     "artifact_paths": [],
     "apply_command": "",
     "verification_method": "",
-    "notes": ""
+    "notes": "",
+    "product_type": "blob",
+    "pack_id": "",
+    "pack_path": "",
+    "source_ledger_path": "",
+    "specs_path": "",
+    "artifacts_count": 0,
+    "apply_commands": [],
+    "approval_status": "not_required",
+    "promotion_status": "active",
+    "copied_from_external_source": false,
+    "copyright_risk": "none"
   },
   {
     "blob_id": "new-skill-vs-blob-policy",
@@ -1076,7 +1403,18 @@
     "artifact_paths": [],
     "apply_command": "",
     "verification_method": "",
-    "notes": ""
+    "notes": "",
+    "product_type": "blob",
+    "pack_id": "",
+    "pack_path": "",
+    "source_ledger_path": "",
+    "specs_path": "",
+    "artifacts_count": 0,
+    "apply_commands": [],
+    "approval_status": "not_required",
+    "promotion_status": "active",
+    "copied_from_external_source": false,
+    "copyright_risk": "none"
   },
   {
     "blob_id": "trigger-policy",
@@ -1120,7 +1458,18 @@
     "artifact_paths": [],
     "apply_command": "",
     "verification_method": "",
-    "notes": ""
+    "notes": "",
+    "product_type": "blob",
+    "pack_id": "",
+    "pack_path": "",
+    "source_ledger_path": "",
+    "specs_path": "",
+    "artifacts_count": 0,
+    "apply_commands": [],
+    "approval_status": "not_required",
+    "promotion_status": "active",
+    "copied_from_external_source": false,
+    "copyright_risk": "none"
   },
   {
     "blob_id": "nginx-edit-safety",
@@ -1163,6 +1512,17 @@
     "artifact_paths": [],
     "apply_command": "",
     "verification_method": "",
-    "notes": ""
+    "notes": "",
+    "product_type": "blob",
+    "pack_id": "",
+    "pack_path": "",
+    "source_ledger_path": "",
+    "specs_path": "",
+    "artifacts_count": 0,
+    "apply_commands": [],
+    "approval_status": "not_required",
+    "promotion_status": "not_ready",
+    "copied_from_external_source": false,
+    "copyright_risk": "none"
   }
 ]

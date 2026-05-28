@@ -114,6 +114,9 @@ foreach ($file in $Files) {
     elseif ($line -match "(?i)(env|environment).*(password|secret|token|key)\s*[:=]\s*[^`r`n]+") {
       Add-Finding $relative $lineNumber "Stack trace or env line with secret-like value"
     }
+    elseif ($relative -like "systems/*/knowledge-packs/*/artifacts/*" -and $line -match "(?i)<html|<!doctype html|wp-content|webpackJsonp|__NEXT_DATA__") {
+      Add-Finding $relative $lineNumber "Potential copied site source dump in knowledge pack artifact"
+    }
     elseif ($line -match "ssh-ed25519\s+[A-Za-z0-9+/=]{50,}\s*$" -and $line -notmatch "\.pub|public key") {
       Add-Finding $relative $lineNumber "SSH key material"
     }

@@ -13,6 +13,7 @@ Rules:
 - Before creating new workflow knowledge, run ranked retrieval. Use `pm-knowledge-search.mjs --query "<query>"` and inspect `pm-knowledge-related.mjs --id "<id>"` for plausible matches.
 - Check exact match, aliases, ranked FTS, related items, candidate/stale entries, owner skill, and existing artifacts/scripts/tools.
 - If a candidate or related item exists, route to update, promote, cross-reference, or leave candidate instead of creating a duplicate.
+- If the user asks to "fill knowledgebase" or asks for a reusable layout/design/animation/backend system, route to `pack-builder-workflow.md` and create or update a candidate capability pack. Do not implement the website/app from that prompt. Use source-first research and leave the pack candidate until explicit approval.
 - Do not run Capability Gap Radar for tiny localized edits unless direct inspection fails.
 - Use frontend stack for frontend.
 - Use backend-database stack for backend/database/VPS.

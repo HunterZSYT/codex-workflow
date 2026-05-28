@@ -17,8 +17,11 @@ function terms(entry) {
     entry.capability,
     entry.capability_class,
     entry.owner_skill,
+    entry.product_type,
+    entry.pack_id,
     ...(arr(entry.aliases)),
-    ...(arr(entry.trigger_terms))
+    ...(arr(entry.trigger_terms)),
+    ...(arr(entry.related_items))
   ].filter(Boolean).flatMap(x => String(x).toLowerCase().match(/[a-z0-9][a-z0-9_-]*/g) || []));
 }
 

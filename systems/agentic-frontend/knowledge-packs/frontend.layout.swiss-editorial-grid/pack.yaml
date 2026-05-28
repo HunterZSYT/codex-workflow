@@ -1,0 +1,34 @@
+id: frontend.layout.swiss-editorial-grid
+title: Swiss Editorial Grid Layout
+namespace: frontend
+owner_system: agentic-frontend
+owner_skill: layout-composition-fundamentals
+status: candidate
+maturity: researched
+source_confidence: low
+aliases:
+  - swiss grid
+  - swiss layout
+  - editorial grid
+  - international typographic style
+trigger_terms:
+  - swiss grid
+  - swiss layout
+  - editorial grid
+  - typographic grid
+  - premium grid
+related_blobs:
+  - frontend.layout.swiss-editorial-grid
+  - frontend.layout.layout-grid-composition
+  - frontend.layout.premium-agency-section-rhythm
+related_packs:
+  []
+artifact_paths:
+  []
+apply_commands:
+  []
+verification_methods:
+  - Audit pack readiness before implementation.
+safe_to_sync: true
+last_verified:
+approval_status: not_requested

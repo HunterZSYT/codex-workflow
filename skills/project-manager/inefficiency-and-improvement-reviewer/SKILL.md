@@ -11,6 +11,8 @@ Capability precision failures: a vague package recommendation without best-pract
 
 Retrieval failures count as improvement candidates when an existing blob, skill, artifact, script, MCP, or doc was missed and the agent created or proposed something new. Review whether `pm-knowledge-search.mjs`, `pm-knowledge-related.mjs`, and `pm-knowledge-dedupe.mjs` were used before creation. If ranked retrieval finds a candidate/stale item, recommend update, promotion, cross-reference, or dedupe review before any new item.
 
+Knowledge product failures count as improvement candidates when advice-only blobs are treated as reusable systems, source-light packs are marked active, artifacts are claimed without files/apply commands, or active routing changes happen without approval. Recommend candidate packs, source ledgers, artifact creation, or promotion review instead of new skills.
+
 For codebase intelligence routing, review whether the chosen method matched the task size and question type.
 
 Recommend:

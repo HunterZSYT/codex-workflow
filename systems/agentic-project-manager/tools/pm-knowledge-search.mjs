@@ -18,10 +18,13 @@ function ftsQuery(value) {
 }
 
 function maturityRecommendation(item) {
-  if (item.status === "candidate" || item.maturity === "candidate_blob") {
+  if (item.type === "capability_pack" && item.approval_status !== "approved") {
+    return "pack is not approved; use as candidate planning material only";
+  }
+  if (item.status === "candidate" || item.maturity === "candidate_blob" || item.maturity === "researched") {
     return "candidate only; do not treat as reusable implementation until promoted or artifact-backed";
   }
-  if (!item.artifact_paths && !item.apply_command && item.type === "blob") {
+  if (!item.artifact_paths && !item.apply_command && (item.type === "blob" || item.type === "capability_pack")) {
     return "guidance/spec only; no reusable artifact indexed";
   }
   return "usable as indexed; verify task fit before applying";
@@ -82,11 +85,14 @@ for (const row of rows) {
   console.log([
     `${rank}. ${row.id} - ${row.title}`,
     `   type: ${row.type}`,
+    `   product_type: ${row.product_type || row.type}`,
     `   owner_skill: ${row.owner_skill || "none"}`,
     `   status: ${row.status}`,
     `   maturity: ${row.maturity}`,
+    `   approval_status: ${row.approval_status || "none"}`,
     `   source_confidence: ${row.source_confidence || "unknown"}`,
-    `   artifacts: ${row.artifact_paths || row.apply_command ? "yes" : "none"}`,
+    `   artifacts: ${Number(row.artifacts_count || 0) || row.artifact_paths || row.apply_command ? (row.artifacts_count || "yes") : "none"}`,
+    `   apply_commands: ${row.apply_command || "none"}`,
     `   file: ${row.file_path}`,
     `   snippet: ${row.snippet || row.body_preview || ""}`,
     `   related: ${related.map(r => `${r.relation}:${r.target_id || r.target_path || r.notes}`).filter(Boolean).join("; ") || "none"}`,

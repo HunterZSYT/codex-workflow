@@ -56,6 +56,34 @@ function Copy-Pattern {
   }
 }
 
+function Copy-KnowledgePacks {
+  param([string]$SourceRoot, [string]$DestinationRoot)
+  $packsRoot = Join-Path $SourceRoot "knowledge-packs"
+  if (-not (Test-Path -LiteralPath $packsRoot)) { return }
+  $allowedNames = @(
+    "pack.yaml",
+    "README.md",
+    "source-ledger.md",
+    "research.md",
+    "decisions.md",
+    "specs.md",
+    "verification.md",
+    "examples.md",
+    "promotion-checklist.md"
+  )
+  $allowedArtifactExtensions = @(".md",".css",".ts",".tsx",".json")
+  Get-ChildItem -LiteralPath $packsRoot -Recurse -File -Force -ErrorAction SilentlyContinue | Where-Object {
+    $relative = Get-SafeRelativePath $packsRoot $_.FullName
+    if ($_.FullName -match "\\node_modules\\|\\.git\\|\\.retrieval\\|\\.codegraph\\|\\.understand-anything\\|\\.ai-task\\") { return $false }
+    if ($allowedNames -contains $_.Name) { return $true }
+    if (($relative -like "*\artifacts\*" -or $relative -like "*/artifacts/*") -and $allowedArtifactExtensions -contains $_.Extension) { return $true }
+    return $false
+  } | ForEach-Object {
+    $relativeToSource = Get-SafeRelativePath $SourceRoot $_.FullName
+    Copy-IfExists $_.FullName (Join-Path $DestinationRoot $relativeToSource)
+  }
+}
+
 function Export-System {
   param([string]$Name, [string]$Source, [string]$DestinationRelative)
   $dest = Join-Path $RepoRoot $DestinationRelative
@@ -104,6 +132,8 @@ function Export-System {
     "learning/resolved-lessons.md",
     "learning/learning-policy.md"
   ) | ForEach-Object { Copy-Pattern $Source $dest $_ }
+
+  Copy-KnowledgePacks $Source $dest
 
   $summaryPath = Join-Path $dest "LOCAL_STATUS_SUMMARY.md"
   @(

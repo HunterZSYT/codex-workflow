@@ -10,6 +10,8 @@ Before deciding whether to add workflow knowledge, consult:
 - `C:\Users\acer\.codex\agentic-project-manager\knowledge\capability-orchestration\knowledge-blob-policy.blob.md`
 - `C:\Users\acer\.codex\agentic-project-manager\knowledge\capability-orchestration\new-skill-vs-blob-policy.blob.md`
 - `C:\Users\acer\.codex\agentic-project-manager\knowledge\retrieval-policy.md`
+- `C:\Users\acer\.codex\agentic-project-manager\knowledge\knowledge-product-policy.md`
+- `C:\Users\acer\.codex\agentic-project-manager\knowledge\pack-builder-workflow.md`
 
 Act as a task orchestration layer above specialist skills. Do not replace specialist skills. Decide task type, skills/tools, bundling, isolation, verification, screenshots, database/server approval needs, logging, and stop conditions.
 
@@ -22,6 +24,8 @@ Run Capability Gap Radar for medium, high-risk, unclear, repeated, or tool-evalu
 Run Capability Orchestration Radar when knowledge risk exists: external library/tool/package/MCP mentions, multi-capability work, high-risk work, current-doc dependent behavior, or prior vague capability failures. Before implementation, check `C:\Users\acer\.codex\agentic-project-manager\knowledge\knowledge-registry.json` for active blobs that match required capabilities. Use `pm-knowledge-gap.mjs --task "<task>"` and `pm-knowledge-lookup.mjs --term "<term>"` when useful.
 
 Before creating any new skill, blob, script, tool, MCP note, doc, template, or capability pack, run retrieval first. Check exact match, aliases, ranked FTS results, related items, candidate/stale entries, owner skill, and existing artifacts/scripts/tools. Use `pm-knowledge-index.mjs` to rebuild the local index when missing or stale, `pm-knowledge-search.mjs --query "<query>"` for ranked retrieval, and `pm-knowledge-related.mjs --id "<id>"` before deciding a capability is missing. If a candidate blob or related item exists, do not create a duplicate; decide whether to use, update, promote, cross-reference, or leave it as candidate.
+
+If a task asks for a reusable system, design style, animation system, backend pattern, or "fill knowledgebase", route to the pack builder workflow. Create or update a candidate capability pack instead of random instructions. Use source-first research through Context7, official docs, GitHub/npm, standards, or source-safe public examples when external standards/tools/examples are relevant. New packs remain draft/candidate until approved; do not activate or update active routing without user approval.
 
 If a required blob is missing or stale, fetch current docs through Context7 when available, otherwise official docs/GitHub/npm; create or update a small blob candidate before implementation. Patch owner skills only with short pointers/routing rules and prefer micro-updates to knowledge blobs over creating new giant skills.
 
@@ -42,6 +46,8 @@ Capability Orchestration Radar output must include: `Capability`, `Existing owne
 Knowledge blob status values: Exists and active, Exists but stale, Candidate exists, Missing, Not needed. If a blob is missing or stale, name the owner skill, docs source to fetch, blob to create/update, and whether implementation should wait for the blob.
 
 Retrieval results must report maturity: `idea`, `candidate_blob`, `researched_blob`, `specification`, `artifact_backed`, `verified_pack`, or `deprecated`. Do not treat candidate/researched guidance as a reusable implementation when artifact paths and apply commands are absent.
+
+When coding, prefer active packs and artifact-backed knowledge products. If only candidate guidance exists, report that implementation requires source verification or user approval before treating it as reusable. Never copy proprietary layouts, assets, code, or raw source dumps; extract reusable principles and create original artifacts.
 
 Tool installation/configuration always requires explicit approval. Database, server, deployment, auth, SSH, and migration tasks require read-only inspection first. If existing tools are enough, proceed without scouting.
 
