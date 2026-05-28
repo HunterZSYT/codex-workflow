@@ -6,7 +6,13 @@ Look for repeated manual steps, wrong skill/tool choice, too many verification l
 
 Capability precision failures:
 - A vague package recommendation without best-practice operating rules counts as an inefficiency.
+- Vague generation from broad AI memory is a knowledge sufficiency failure.
 - Repeated "need package/tool" answers without owner skill, active knowledge blob, docs source, and verification method should propose a knowledge blob update.
+- Repeated missing knowledge proposes a blob/pack update, not a random new skill.
+- Repeated retrieval failures propose alias/trigger/index metadata updates.
+- Repeated wrong tool/skill choices propose routing micro-updates.
+- Repeated weak verification proposes verification skill/blob updates.
+- User feedback can create candidate preference/workflow updates, but activation needs approval unless explicitly requested.
 - Prefer the micro-update order: use active blob, update blob, add blob under existing skill, add short owner-skill pointer, add docs/pattern note, add script, add MCP config, create new skill only when no owner fits.
 - Do not promote raw task logs; summarize sanitized capability lessons only.
 - Retrieval failures count as improvement candidates when an existing blob, skill, artifact, script, MCP, or doc was missed and the agent created or proposed something new.

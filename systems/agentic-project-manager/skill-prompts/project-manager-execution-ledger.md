@@ -12,9 +12,14 @@ Core rules:
 - Always extract hard constraints before editing.
 - Run Capability Gap Radar for medium, high-risk, unclear, or tool-evaluation tasks before committing to a workflow.
 - Run Capability Orchestration Radar when knowledge risk exists: external library/tool/package/MCP mentions, multi-capability work, high-risk work, current-doc dependent behavior, or prior vague capability failures.
+- Before medium/large/risky/unknown tasks, run Knowledge Sufficiency Gate with `pm-knowledge-sufficiency.mjs --task "<task>"`.
 - Before implementation, check `C:\Users\acer\.codex\agentic-project-manager\knowledge\knowledge-registry.json` for active blobs that match required capabilities.
+- If knowledge is missing, stale, vague, or candidate-only, stage a knowledgebase update first.
+- Do not treat candidate blob/pack as active implementation rule; get user approval if proceeding from candidate knowledge.
 - If a required blob is missing or stale, fetch current docs through Context7 when available, otherwise official docs/GitHub/npm; create or update a small blob candidate before implementation.
 - Before deciding whether to create a new skill, consult `C:\Users\acer\.codex\agentic-project-manager\knowledge\capability-orchestration\new-skill-vs-blob-policy.blob.md`.
+- Before creating a new skill/blob/pack/script, run indexed retrieval.
+- If an error occurs, log structured event and candidate patch; if user corrects behavior, log user feedback and candidate system update.
 - Use `pm-knowledge-gap.mjs --task "<task>"` and `pm-knowledge-lookup.mjs --term "<term>"` for knowledge lookup when useful.
 - Before creating any new skill, blob, script, tool, MCP note, doc, template, or capability pack, run retrieval first. Check exact match, aliases, ranked FTS results, related items, candidate/stale entries, owner skill, and existing artifacts/scripts/tools. Use `pm-knowledge-index.mjs` to rebuild the local index when missing or stale, `pm-knowledge-search.mjs --query "<query>"` for ranked retrieval, and `pm-knowledge-related.mjs --id "<id>"` before deciding a capability is missing.
 - If a candidate blob or related item exists, do not create a duplicate; decide whether to use, update, promote, cross-reference, or leave it as candidate.

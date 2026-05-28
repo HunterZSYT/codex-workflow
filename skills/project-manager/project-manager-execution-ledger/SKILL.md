@@ -9,6 +9,11 @@ Before deciding whether to add workflow knowledge, consult:
 - `C:\Users\acer\.codex\agentic-project-manager\knowledge\capability-orchestration\capability-radar-trigger-policy.blob.md`
 - `C:\Users\acer\.codex\agentic-project-manager\knowledge\capability-orchestration\knowledge-blob-policy.blob.md`
 - `C:\Users\acer\.codex\agentic-project-manager\knowledge\capability-orchestration\new-skill-vs-blob-policy.blob.md`
+
+Before medium/large/risky/unknown tasks, run Knowledge Sufficiency Gate:
+- `node C:\Users\acer\.codex\agentic-project-manager\tools\pm-knowledge-sufficiency.mjs --task "<task>"`
+
+If knowledge is missing, stale, vague, or candidate-only, stage a knowledgebase update first. Do not treat candidate blobs/packs as active implementation rules. If implementation proceeds from candidate knowledge, get user approval.
 - `C:\Users\acer\.codex\agentic-project-manager\knowledge\retrieval-policy.md`
 - `C:\Users\acer\.codex\agentic-project-manager\knowledge\knowledge-product-policy.md`
 - `C:\Users\acer\.codex\agentic-project-manager\knowledge\pack-builder-workflow.md`
@@ -28,6 +33,8 @@ Before creating any new skill, blob, script, tool, MCP note, doc, template, or c
 If a task asks for a reusable system, design style, animation system, backend pattern, or "fill knowledgebase", route to the pack builder workflow. Create or update a candidate capability pack instead of random instructions. Use source-first research through Context7, official docs, GitHub/npm, standards, or source-safe public examples when external standards/tools/examples are relevant. New packs remain draft/candidate until approved; do not activate or update active routing without user approval.
 
 If a required blob is missing or stale, fetch current docs through Context7 when available, otherwise official docs/GitHub/npm; create or update a small blob candidate before implementation. Patch owner skills only with short pointers/routing rules and prefer micro-updates to knowledge blobs over creating new giant skills.
+
+Before creating new workflow knowledge, run indexed retrieval. If an error occurs, log a structured event and candidate patch. If the user corrects behavior, log reusable feedback and a candidate system update. Repeated classes of mistakes should produce a system-level patch proposal, not uncontrolled auto-rewrites.
 
 Record a short capability check when useful:
 

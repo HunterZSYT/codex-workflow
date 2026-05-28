@@ -10,6 +10,8 @@ When a relevant capability blob exists, pull the verification method from it bef
 - `C:\Users\acer\.codex\agentic-frontend\knowledge\verification\mobile-emulation-proof.blob.md`
 - `C:\Users\acer\.codex\agentic-frontend\knowledge\verification\screenshot-vs-dom-measurement.blob.md`
 
+If the Knowledge Sufficiency Gate reports verification gaps, resolve or explicitly warn before implementation. Weak verification should be logged as `verification_weak` and mapped to the relevant verification blob or this skill.
+
 When a relevant capability pack exists, inspect `verification.md`, `pack.yaml`, status, maturity, artifact paths, and approval status before relying on it. Candidate packs are planning material, not proof. Active/verified packs still require task-appropriate verification after implementation.
 
 No screenshot for copy-only unless layout risk. Screenshot for visual frontend changes. Mobile emulation for mobile claims. DOM measurement for overflow/spacing/sticky issues. API smoke test for safe endpoint checks. SQL safety check before SQL. Migration safety check before migrations. VPS read-only inspection before server changes. Build/lint/typecheck when code changes. When a relevant knowledge blob exists, pull the verification method from the blob and combine it with task-appropriate proof. Never claim verification that was not run.

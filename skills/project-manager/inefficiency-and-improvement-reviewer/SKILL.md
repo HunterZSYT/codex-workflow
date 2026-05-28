@@ -5,6 +5,13 @@ description: Use at task completion to review logs and suggest workflow, skill, 
 
 # Inefficiency and Improvement Reviewer
 
+Learning rules:
+- Vague implementation from broad AI memory counts as a knowledge sufficiency failure.
+- Repeated missing knowledge should propose a blob/pack update, not a random new skill.
+- Repeated retrieval misses should propose aliases/trigger terms/registry/index improvements.
+- One-off lessons remain candidates unless explicitly approved.
+- User corrections should be logged as reusable feedback candidates when they express workflow, safety, tool, naming, or knowledgebase rules.
+
 Review repeated manual steps, wrong skill/tool choice, excessive verification loops, missing scripts, missing MCPs, missing project docs, skill gaps, tool failures, over-bundling, under-bundling, unnecessary screenshots/tests, and missing safety gates. Output prioritized recommendations.
 
 Capability precision failures: a vague package recommendation without best-practice operating rules counts as an inefficiency. Repeated "need package/tool" answers without owner skill, active knowledge blob, docs source, and verification method should propose a knowledge blob update. Prefer the micro-update order: use active blob, update blob, add blob under existing skill, add short owner-skill pointer, add docs/pattern note, add script, add MCP config, create new skill only when no owner fits. Do not promote raw task logs; summarize sanitized capability lessons only.

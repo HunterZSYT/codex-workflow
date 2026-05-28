@@ -10,7 +10,8 @@ $ExcludedDirs = @(
   "qa",
   ".codegraph",
   ".understand-anything",
-  ".retrieval"
+  ".retrieval",
+  "learning/events"
 )
 
 $AllowedPlaceholderTokens = @(

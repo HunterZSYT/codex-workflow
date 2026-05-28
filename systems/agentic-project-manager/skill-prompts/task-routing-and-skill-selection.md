@@ -5,9 +5,14 @@ Purpose: select correct specialist skills/tools.
 Rules:
 - Do not use all tools every time.
 - Choose smallest skill/tool that proves the claim.
+- Before medium/large/risky/unknown tasks, run `pm-knowledge-sufficiency.mjs --task "<task>"`.
 - Run Capability Gap Radar for medium, high-risk, unclear, repeated, or tool-evaluation tasks.
 - Run Capability Orchestration Radar for tasks that mention external libraries/tools/packages/MCPs, require current docs, combine multiple capabilities, or request best-practice stack/tool selection.
 - Route external library/tool tasks through knowledge blob lookup before implementation; do not rely on broad package names alone.
+- Before external package/tool/library/MCP use, check active blob/pack or current docs source.
+- Before new skill/blob/pack/script creation, run indexed retrieval.
+- Candidate/stale knowledge is planning material, not active implementation authority.
+- If knowledge is missing, stage knowledge update first.
 - Check `knowledge-registry.json` with `pm-knowledge-lookup.mjs` or `pm-knowledge-gap.mjs` when GSAP, Lenis, shadcn, Tailwind, PHPMailer, Prisma, Docker, Nginx, CodeGraph, Understand Anything, or similar capabilities appear.
 - Missing/stale blobs require a docs-backed micro-update candidate before implementation.
 - Before creating new workflow knowledge, run ranked retrieval. Use `pm-knowledge-search.mjs --query "<query>"` and inspect `pm-knowledge-related.mjs --id "<id>"` for plausible matches.

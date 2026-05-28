@@ -5,6 +5,16 @@ description: Use to select the correct specialist skills/tools for frontend, bac
 
 # Task Routing and Skill Selection
 
+Before selecting implementation tools for medium/large/risky/unknown work, run:
+- `node C:\Users\acer\.codex\agentic-project-manager\tools\pm-knowledge-sufficiency.mjs --task "<task>"`
+
+Rules:
+- Before using an external package/tool/library/MCP, check for an active blob/pack or current docs source.
+- Before creating a new skill/blob/pack/script, run indexed retrieval.
+- Candidate/stale knowledge is planning material, not an active implementation rule.
+- If knowledge is missing, stage a knowledge update first.
+- Wrong tool/skill selection should be logged and reviewed as a candidate routing update.
+
 Do not use all tools every time. Choose the smallest skill/tool that proves the claim. Use frontend stack for frontend, backend-database stack for backend/database/VPS, design grounding for Figma/design source, component supply for UI components, and safety gates for risky work.
 
 Run Capability Gap Radar for medium, high-risk, unclear, repeated, or tool-evaluation tasks. Do not run it for tiny localized edits unless direct inspection fails.

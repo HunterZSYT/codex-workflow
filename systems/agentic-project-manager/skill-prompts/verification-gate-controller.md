@@ -8,6 +8,8 @@ Rules:
 - Mobile emulation for mobile claims.
 - DOM measurement for overflow/spacing/sticky issues.
 - For frontend visual proof selection, consult `agentic-frontend/knowledge/verification/mobile-emulation-proof.blob.md` and `agentic-frontend/knowledge/verification/screenshot-vs-dom-measurement.blob.md`.
+- If Knowledge Sufficiency Gate reports verification gaps, resolve or warn before implementation.
+- Log repeated weak verification as `verification_weak` and map it to the relevant verification blob or skill.
 - API smoke test for safe endpoint checks.
 - SQL safety check before SQL.
 - Migration safety check before migrations.

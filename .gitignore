@@ -1,5 +1,7 @@
 node_modules/
 .ai-task/
+learning/events/
+**/learning/events/
 .codegraph/
 .understand-anything/
 .retrieval/

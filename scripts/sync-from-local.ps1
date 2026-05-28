@@ -129,8 +129,16 @@ function Export-System {
     "learning/tool-failure-patterns.md",
     "learning/verification-mistakes.md",
     "learning/skill-update-candidates.md",
+    "learning/knowledge-patch-candidates.md",
+    "learning/tool-update-candidates.md",
+    "learning/user-preference-candidates.md",
+    "learning/user-feedback-patterns.md",
+    "learning/verification-update-candidates.md",
     "learning/resolved-lessons.md",
-    "learning/learning-policy.md"
+    "learning/learning-policy.md",
+    "learning/agent-learning-model.md",
+    "learning/event-schema.md",
+    "learning/learning-system-research.md"
   ) | ForEach-Object { Copy-Pattern $Source $dest $_ }
 
   Copy-KnowledgePacks $Source $dest
