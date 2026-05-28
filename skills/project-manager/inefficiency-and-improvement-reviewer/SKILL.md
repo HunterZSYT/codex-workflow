@@ -9,6 +9,8 @@ Review repeated manual steps, wrong skill/tool choice, excessive verification lo
 
 Capability precision failures: a vague package recommendation without best-practice operating rules counts as an inefficiency. Repeated "need package/tool" answers without owner skill, active knowledge blob, docs source, and verification method should propose a knowledge blob update. Prefer the micro-update order: use active blob, update blob, add blob under existing skill, add short owner-skill pointer, add docs/pattern note, add script, add MCP config, create new skill only when no owner fits. Do not promote raw task logs; summarize sanitized capability lessons only.
 
+Retrieval failures count as improvement candidates when an existing blob, skill, artifact, script, MCP, or doc was missed and the agent created or proposed something new. Review whether `pm-knowledge-search.mjs`, `pm-knowledge-related.mjs`, and `pm-knowledge-dedupe.mjs` were used before creation. If ranked retrieval finds a candidate/stale item, recommend update, promotion, cross-reference, or dedupe review before any new item.
+
 For codebase intelligence routing, review whether the chosen method matched the task size and question type.
 
 Recommend:

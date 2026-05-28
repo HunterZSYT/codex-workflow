@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 import fs from "node:fs/promises";
 import path from "node:path";
-import { PM_ROOT, arg } from "./pm-lib.mjs";
+import { spawnSync } from "node:child_process";
+import { PM_ROOT, arg, exists } from "./pm-lib.mjs";
 
 const registryPath = path.join(PM_ROOT, "knowledge", "knowledge-registry.json");
+const indexPath = path.join(PM_ROOT, ".retrieval", "knowledge-index.sqlite");
 
 function normalize(value) {
   return String(value || "").toLowerCase();
@@ -28,6 +30,16 @@ const capability = arg("capability");
 const term = arg("term");
 const query = capability || term || "";
 
+if (query && await exists(indexPath) && !process.argv.includes("--legacy")) {
+  const script = path.join(PM_ROOT, "tools", "pm-knowledge-search.mjs");
+  const args = [script, "--query", query];
+  if (process.argv.includes("--json")) args.push("--json");
+  const result = spawnSync(process.execPath, args, { encoding: "utf8" });
+  process.stdout.write(result.stdout || "");
+  process.stderr.write(result.stderr || "");
+  process.exit(result.status ?? 0);
+}
+
 const raw = await fs.readFile(registryPath, "utf8");
 const registry = JSON.parse(raw);
 const results = registry.filter(entry => matches(entry, query));
@@ -37,6 +49,9 @@ if (process.argv.includes("--json")) {
 } else {
   if (results.length === 0) {
     console.log(`No knowledge blobs matched: ${query}`);
+    if (!(await exists(indexPath))) {
+      console.log("Ranked retrieval index is missing. Run: node C:\\Users\\acer\\.codex\\agentic-project-manager\\tools\\pm-knowledge-index.mjs");
+    }
     process.exit(1);
   }
   for (const entry of results) {

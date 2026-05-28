@@ -39,22 +39,66 @@ function listField(text, label) {
 
 function inferFromBlob(text, filePath) {
   const blobId = field(text, "Blob ID") || path.basename(filePath).replace(/\.blob\.md$/i, "");
+  const ownerSystem = field(text, "Owner system") || "";
+  const ownerSkill = field(text, "Owner skill") || "";
+  const status = arg("status", "candidate");
+  const artifactPaths = listField(text, "Artifact paths");
+  const applyCommand = field(text, "Apply command");
   const docs = bulletBlock(text, "Required docs source")
     .map(item => item.replace(/^(Context7|Official docs|GitHub\/npm):\s*/i, "").trim())
     .filter(item => item && !/^not needed$/i.test(item) && !/^Last verified:/i.test(item));
+  const capabilityClass = inferCapabilityClass(filePath, ownerSkill);
   return {
+    id: `${capabilityClass}.${blobId.replace(/-layout$/i, "")}`,
+    title: blobId.split(/[-_]+/).filter(Boolean).map(word => word[0]?.toUpperCase() + word.slice(1)).join(" "),
+    namespace: inferNamespace(ownerSystem, filePath),
+    type: "blob",
     blob_id: blobId,
     capability: field(text, "Capability") || blobId,
-    owner_system: field(text, "Owner system") || "",
-    owner_skill: field(text, "Owner skill") || "",
+    capability_class: capabilityClass,
+    owner_system: ownerSystem,
+    owner_skill: ownerSkill,
     file_path: filePath,
+    aliases: [blobId],
     trigger_terms: listField(text, "Trigger phrases"),
     external_libraries: listField(text, "External libraries/tools"),
     docs_sources: docs,
     last_verified: field(text, "Last verified") || bulletField(text, "Last verified") || "candidate",
-    status: arg("status", "candidate"),
+    status,
+    maturity: artifactPaths.length || applyCommand ? "artifact_backed" : status === "active" ? "researched_blob" : "candidate_blob",
+    source_confidence: docs.some(doc => /https?:|context7/i.test(doc)) ? "sourced" : status === "candidate" ? "needs-docs" : "internal",
+    related_items: listField(text, "Related items"),
+    artifact_paths: artifactPaths,
+    apply_command: applyCommand,
+    verification_method: field(text, "Verification method"),
     safe_to_sync: /^yes$/i.test(field(text, "Safe to sync to codex-workflow")) || arg("safe-to-sync", "true") !== "false"
   };
+}
+
+function inferNamespace(ownerSystem, filePath) {
+  const value = `${ownerSystem} ${filePath}`.toLowerCase();
+  if (value.includes("agentic-frontend")) return "frontend";
+  if (value.includes("agentic-backend-database")) return "backend";
+  if (value.includes("agentic-project-manager")) return "project_manager";
+  return "global";
+}
+
+function inferCapabilityClass(filePath, ownerSkill = "") {
+  const fp = String(filePath || "").toLowerCase();
+  const owner = String(ownerSkill || "").toLowerCase();
+  if (fp.includes("\\layout\\") || owner.includes("layout")) return "frontend.layout";
+  if (fp.includes("\\motion\\") || owner.includes("motion")) return "frontend.motion";
+  if (fp.includes("\\components\\") || owner.includes("component")) return "frontend.components";
+  if (fp.includes("\\inspection\\") || fp.includes("\\verification\\")) return "frontend.inspection";
+  if (fp.includes("\\typography\\") || owner.includes("typography")) return "frontend.typography";
+  if (fp.includes("\\color\\") || owner.includes("color")) return "frontend.color";
+  if (fp.includes("\\spacing\\") || owner.includes("spacing")) return "frontend.spacing";
+  if (fp.includes("\\api\\")) return "backend.api";
+  if (fp.includes("\\database\\")) return "backend.database";
+  if (fp.includes("\\vps\\")) return "vps.webserver";
+  if (fp.includes("\\routing\\")) return "project_manager.routing";
+  if (fp.includes("\\capability-orchestration\\")) return "project_manager.routing";
+  return "project_manager.retrieval";
 }
 
 const file = arg("file");

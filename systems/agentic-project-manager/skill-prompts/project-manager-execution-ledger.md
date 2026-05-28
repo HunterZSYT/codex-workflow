@@ -16,6 +16,8 @@ Core rules:
 - If a required blob is missing or stale, fetch current docs through Context7 when available, otherwise official docs/GitHub/npm; create or update a small blob candidate before implementation.
 - Before deciding whether to create a new skill, consult `C:\Users\acer\.codex\agentic-project-manager\knowledge\capability-orchestration\new-skill-vs-blob-policy.blob.md`.
 - Use `pm-knowledge-gap.mjs --task "<task>"` and `pm-knowledge-lookup.mjs --term "<term>"` for knowledge lookup when useful.
+- Before creating any new skill, blob, script, tool, MCP note, doc, template, or capability pack, run retrieval first. Check exact match, aliases, ranked FTS results, related items, candidate/stale entries, owner skill, and existing artifacts/scripts/tools. Use `pm-knowledge-index.mjs` to rebuild the local index when missing or stale, `pm-knowledge-search.mjs --query "<query>"` for ranked retrieval, and `pm-knowledge-related.mjs --id "<id>"` before deciding a capability is missing.
+- If a candidate blob or related item exists, do not create a duplicate; decide whether to use, update, promote, cross-reference, or leave it as candidate.
 - Patch owner skills only with short pointers/routing rules; prefer micro-updates to knowledge blobs over creating new giant skills.
 - Always route to relevant specialist skills/tools.
 - Do not run broad QA for narrow tasks.
@@ -31,6 +33,8 @@ Capability Gap Radar:
 - Capability checks should record task type, existing matching skills/tools, need for current-source research, need for specialized tool/MCP/library, candidate capability, whether to use existing setup or recommend upgrade, risk level, approval need, and next action.
 - Capability Orchestration Radar must include: `Capability`, `Existing owner skill`, `Knowledge blob status`, `Docs source needed`, `Existing tool/MCP/script`, `External package/tool`, `Best-practice rules available?`, `Micro-update needed?`, `Approval needed?`, and `Verification`.
 - Knowledge blob status values are: Exists and active, Exists but stale, Candidate exists, Missing, Not needed.
+- Retrieval results must report maturity: `idea`, `candidate_blob`, `researched_blob`, `specification`, `artifact_backed`, `verified_pack`, or `deprecated`.
+- Do not treat candidate/researched guidance as a reusable implementation when artifact paths and apply commands are absent.
 - If a blob is missing or stale, name the owner skill, docs source to fetch, blob to create/update, and whether implementation should wait for the blob.
 
 Tool selection and auto-optimization:

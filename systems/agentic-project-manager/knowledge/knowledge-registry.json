@@ -1,5 +1,82 @@
 [
   {
+    "blob_id": "php-form-email-handler",
+    "capability": "PHP form email handling",
+    "owner_system": "agentic-backend-database",
+    "owner_skill": "api-contract-orchestrator",
+    "file_path": "C:\\Users\\acer\\.codex\\agentic-backend-database\\knowledge\\api\\php-form-email-handler.blob.md",
+    "trigger_terms": [
+      "PHPMailer",
+      "PHP mail",
+      "contact form",
+      "SMTP",
+      "email handler"
+    ],
+    "external_libraries": [
+      "PHPMailer"
+    ],
+    "docs_sources": [
+      "https://github.com/PHPMailer/PHPMailer"
+    ],
+    "last_verified": "candidate",
+    "status": "candidate",
+    "safe_to_sync": true,
+    "id": "backend.api.php-form-email-handler",
+    "title": "Php Form Email Handler",
+    "namespace": "backend",
+    "type": "blob",
+    "capability_class": "backend.api",
+    "maturity": "candidate_blob",
+    "aliases": [
+      "php-form-email-handler",
+      "Php Form Email Handler"
+    ],
+    "source_confidence": "sourced",
+    "related_items": [],
+    "artifact_paths": [],
+    "apply_command": "",
+    "verification_method": "",
+    "notes": ""
+  },
+  {
+    "blob_id": "sql-safety-patterns",
+    "capability": "SQL safety patterns",
+    "owner_system": "agentic-backend-database",
+    "owner_skill": "sql-operations-gate",
+    "file_path": "C:\\Users\\acer\\.codex\\agentic-backend-database\\knowledge\\database\\sql-safety-patterns.blob.md",
+    "trigger_terms": [
+      "SQL",
+      "migration",
+      "query",
+      "update table",
+      "delete rows",
+      "drop",
+      "truncate",
+      "database change"
+    ],
+    "external_libraries": [],
+    "docs_sources": [],
+    "last_verified": "candidate",
+    "status": "candidate",
+    "safe_to_sync": true,
+    "id": "backend.database.sql-safety-patterns",
+    "title": "Sql Safety Patterns",
+    "namespace": "backend",
+    "type": "blob",
+    "capability_class": "backend.database",
+    "maturity": "candidate_blob",
+    "aliases": [
+      "sql-safety-patterns",
+      "Sql Safety Patterns"
+    ],
+    "source_confidence": "needs-docs",
+    "related_items": [],
+    "artifact_paths": [],
+    "apply_command": "",
+    "verification_method": "",
+    "notes": ""
+  },
+  {
     "blob_id": "brand-safe-neutral-fallback",
     "capability": "Preserve brand color intent while fixing weak contrast with neutral fallbacks.",
     "owner_system": "agentic-frontend",
@@ -15,13 +92,69 @@
       "accessible brand palette"
     ],
     "external_libraries": [
-      "- None",
       "None"
     ],
     "docs_sources": [],
     "last_verified": "existing skill/user-authored rule, 2026-05-28",
     "status": "active",
-    "safe_to_sync": true
+    "safe_to_sync": true,
+    "id": "frontend.color.brand-safe-neutral-fallback",
+    "title": "Brand Safe Neutral Fallback",
+    "namespace": "frontend",
+    "type": "blob",
+    "capability_class": "frontend.color",
+    "maturity": "researched_blob",
+    "aliases": [
+      "brand-safe-neutral-fallback",
+      "Brand Safe Neutral Fallback"
+    ],
+    "source_confidence": "internal",
+    "related_items": [],
+    "artifact_paths": [],
+    "apply_command": "",
+    "verification_method": "",
+    "notes": ""
+  },
+  {
+    "blob_id": "contrast-ratio-formula",
+    "capability": "Calculate and apply foreground/background contrast decisions.",
+    "owner_system": "agentic-frontend",
+    "owner_skill": "dynamic-ui-color-contrast-logic",
+    "file_path": "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge\\color\\contrast-ratio-formula.blob.md",
+    "trigger_terms": [
+      "- contrast",
+      "contrast",
+      "WCAG contrast",
+      "foreground background",
+      "text readability",
+      "icon visibility",
+      "accessible colors"
+    ],
+    "external_libraries": [
+      "None"
+    ],
+    "docs_sources": [
+      "WCAG contrast model when current accessibility wording is required"
+    ],
+    "last_verified": "existing skill/user-authored rule, 2026-05-28",
+    "status": "active",
+    "safe_to_sync": true,
+    "id": "frontend.color.contrast-ratio-formula",
+    "title": "Contrast Ratio Formula",
+    "namespace": "frontend",
+    "type": "blob",
+    "capability_class": "frontend.color",
+    "maturity": "researched_blob",
+    "aliases": [
+      "contrast-ratio-formula",
+      "Contrast Ratio Formula"
+    ],
+    "source_confidence": "internal",
+    "related_items": [],
+    "artifact_paths": [],
+    "apply_command": "",
+    "verification_method": "",
+    "notes": ""
   },
   {
     "blob_id": "brand-wrapper-composition",
@@ -48,7 +181,700 @@
     ],
     "last_verified": "existing skill/user-authored rule, 2026-05-28",
     "status": "active",
-    "safe_to_sync": true
+    "safe_to_sync": true,
+    "id": "frontend.components.brand-wrapper-composition",
+    "title": "Brand Wrapper Composition",
+    "namespace": "frontend",
+    "type": "blob",
+    "capability_class": "frontend.components",
+    "maturity": "researched_blob",
+    "aliases": [
+      "brand-wrapper-composition",
+      "Brand Wrapper Composition"
+    ],
+    "source_confidence": "sourced",
+    "related_items": [],
+    "artifact_paths": [],
+    "apply_command": "",
+    "verification_method": "",
+    "notes": ""
+  },
+  {
+    "blob_id": "shadcn-no-manual-primitives",
+    "capability": "shadcn/Radix primitive selection and no manual primitives",
+    "owner_system": "agentic-frontend",
+    "owner_skill": "component-supply-router",
+    "file_path": "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge\\components\\shadcn-no-manual-primitives.blob.md",
+    "trigger_terms": [
+      "shadcn",
+      "no manual primitives",
+      "no primitive manually",
+      "Radix",
+      "component registry",
+      "use every necessary component",
+      "accessible component primitive"
+    ],
+    "external_libraries": [
+      "shadcn",
+      "Radix"
+    ],
+    "docs_sources": [
+      "Context7:/websites/ui_shadcn",
+      "https://ui.shadcn.com/docs",
+      "https://github.com/shadcn-ui/ui"
+    ],
+    "last_verified": "2026-05-28",
+    "status": "active",
+    "safe_to_sync": true,
+    "id": "frontend.components.shadcn-no-manual-primitives",
+    "title": "Shadcn No Manual Primitives",
+    "namespace": "frontend",
+    "type": "blob",
+    "capability_class": "frontend.components",
+    "maturity": "researched_blob",
+    "aliases": [
+      "shadcn-no-manual-primitives",
+      "Shadcn No Manual Primitives"
+    ],
+    "source_confidence": "sourced",
+    "related_items": [],
+    "artifact_paths": [],
+    "apply_command": "",
+    "verification_method": "",
+    "notes": ""
+  },
+  {
+    "blob_id": "mobile-emulation-proof",
+    "capability": "Verify responsive claims with mobile rendering evidence.",
+    "owner_system": "agentic-frontend",
+    "owner_skill": "frontend-inspection-discipline",
+    "file_path": "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge\\verification\\mobile-emulation-proof.blob.md",
+    "trigger_terms": [
+      "- mobile proof",
+      "mobile proof",
+      "responsive proof",
+      "mobile emulation",
+      "viewport",
+      "inspect mobile"
+    ],
+    "external_libraries": [
+      "- Browser",
+      "Browser",
+      "Chrome",
+      "Playwright when available"
+    ],
+    "docs_sources": [
+      "browser tooling docs only when tool behavior changes"
+    ],
+    "last_verified": "existing skill/user-authored rule, 2026-05-28",
+    "status": "active",
+    "safe_to_sync": true,
+    "id": "frontend.inspection.mobile-emulation-proof",
+    "title": "Mobile Emulation Proof",
+    "namespace": "frontend",
+    "type": "blob",
+    "capability_class": "frontend.inspection",
+    "maturity": "researched_blob",
+    "aliases": [
+      "mobile-emulation-proof",
+      "Mobile Emulation Proof"
+    ],
+    "source_confidence": "internal",
+    "related_items": [],
+    "artifact_paths": [],
+    "apply_command": "",
+    "verification_method": "",
+    "notes": ""
+  },
+  {
+    "blob_id": "screenshot-vs-dom-measurement",
+    "capability": "Choose screenshot inspection or DOM/CSS measurement based on the visual claim.",
+    "owner_system": "agentic-frontend",
+    "owner_skill": "verification-gate-controller",
+    "file_path": "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge\\verification\\screenshot-vs-dom-measurement.blob.md",
+    "trigger_terms": [
+      "- screenshot",
+      "screenshot",
+      "DOM measurement",
+      "visual proof",
+      "spacing proof",
+      "overflow",
+      "sticky",
+      "alignment"
+    ],
+    "external_libraries": [
+      "- Browser",
+      "Browser",
+      "Chrome",
+      "Playwright when available"
+    ],
+    "docs_sources": [
+      "browser tooling docs only when tool behavior changes"
+    ],
+    "last_verified": "existing skill/user-authored rule, 2026-05-28",
+    "status": "active",
+    "safe_to_sync": true,
+    "id": "frontend.inspection.screenshot-vs-dom-measurement",
+    "title": "Screenshot Vs Dom Measurement",
+    "namespace": "frontend",
+    "type": "blob",
+    "capability_class": "frontend.inspection",
+    "maturity": "researched_blob",
+    "aliases": [
+      "screenshot-vs-dom-measurement",
+      "Screenshot Vs Dom Measurement"
+    ],
+    "source_confidence": "internal",
+    "related_items": [],
+    "artifact_paths": [],
+    "apply_command": "",
+    "verification_method": "",
+    "notes": ""
+  },
+  {
+    "blob_id": "visual-proof-policy",
+    "capability": "Rendered evidence for frontend visual, responsive, sticky, overflow, and interaction claims.",
+    "owner_system": "agentic-frontend",
+    "owner_skill": "frontend-inspection-discipline",
+    "file_path": "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge\\inspection\\visual-proof-policy.blob.md",
+    "trigger_terms": [
+      "- inspect",
+      "inspect",
+      "screenshot",
+      "mobile",
+      "responsive",
+      "sticky",
+      "overflow",
+      "visual proof",
+      "looks broken",
+      "verify UI"
+    ],
+    "external_libraries": [
+      "- Browser/Chrome connector",
+      "Browser/Chrome connector",
+      "local frontend inspect script when available"
+    ],
+    "docs_sources": [],
+    "last_verified": "2026-05-28",
+    "status": "active",
+    "safe_to_sync": true,
+    "id": "frontend.inspection.visual-proof-policy",
+    "title": "Visual Proof Policy",
+    "namespace": "frontend",
+    "type": "blob",
+    "capability_class": "frontend.inspection",
+    "maturity": "researched_blob",
+    "aliases": [
+      "visual-proof-policy",
+      "Visual Proof Policy"
+    ],
+    "source_confidence": "sourced",
+    "related_items": [],
+    "artifact_paths": [],
+    "apply_command": "",
+    "verification_method": "",
+    "notes": ""
+  },
+  {
+    "blob_id": "layout-grid-composition",
+    "capability": "Compose sections with shared containers, grouping, focal points, and grid/flex decisions.",
+    "owner_system": "agentic-frontend",
+    "owner_skill": "layout-composition-fundamentals",
+    "file_path": "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge\\layout\\layout-grid-composition.blob.md",
+    "trigger_terms": [
+      "- layout composition",
+      "layout composition",
+      "grid layout",
+      "container alignment",
+      "card grid",
+      "focal point",
+      "responsive layout"
+    ],
+    "external_libraries": [
+      "None"
+    ],
+    "docs_sources": [],
+    "last_verified": "existing skill/user-authored rule, 2026-05-28",
+    "status": "active",
+    "safe_to_sync": true,
+    "id": "frontend.layout.layout-grid-composition",
+    "title": "Layout Grid Composition",
+    "namespace": "frontend",
+    "type": "blob",
+    "capability_class": "frontend.layout",
+    "maturity": "researched_blob",
+    "aliases": [
+      "layout-grid-composition",
+      "Layout Grid Composition"
+    ],
+    "source_confidence": "internal",
+    "related_items": [
+      "frontend.layout.swiss-editorial-grid",
+      "skill.layout-composition-fundamentals"
+    ],
+    "artifact_paths": [],
+    "apply_command": "",
+    "verification_method": "",
+    "notes": ""
+  },
+  {
+    "blob_id": "premium-agency-section-rhythm",
+    "capability": "Candidate section rhythm pattern for premium agency websites.",
+    "owner_system": "agentic-frontend",
+    "owner_skill": "layout-composition-fundamentals",
+    "file_path": "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge\\layout\\premium-agency-section-rhythm.blob.md",
+    "trigger_terms": [
+      "- premium agency",
+      "premium agency",
+      "agency homepage",
+      "section rhythm",
+      "high-end landing page",
+      "art direction"
+    ],
+    "external_libraries": [
+      "None"
+    ],
+    "docs_sources": [
+      "project-specific visual references recommended before activation"
+    ],
+    "last_verified": "candidate, 2026-05-28",
+    "status": "candidate",
+    "safe_to_sync": true,
+    "id": "frontend.layout.premium-agency-section-rhythm",
+    "title": "Premium Agency Section Rhythm",
+    "namespace": "frontend",
+    "type": "blob",
+    "capability_class": "frontend.layout",
+    "maturity": "candidate_blob",
+    "aliases": [
+      "premium-agency-section-rhythm",
+      "Premium Agency Section Rhythm"
+    ],
+    "source_confidence": "needs-docs",
+    "related_items": [
+      "frontend.layout.swiss-editorial-grid",
+      "frontend.layout.layout-grid-composition"
+    ],
+    "artifact_paths": [],
+    "apply_command": "",
+    "verification_method": "",
+    "notes": ""
+  },
+  {
+    "blob_id": "swiss-editorial-grid-layout",
+    "capability": "Candidate rules for Swiss/editorial grid composition.",
+    "owner_system": "agentic-frontend",
+    "owner_skill": "layout-composition-fundamentals",
+    "file_path": "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge\\layout\\swiss-editorial-grid-layout.blob.md",
+    "trigger_terms": [
+      "- Swiss layout",
+      "Swiss layout",
+      "Swiss-style",
+      "editorial grid",
+      "premium grid",
+      "agency homepage"
+    ],
+    "external_libraries": [
+      "None"
+    ],
+    "docs_sources": [
+      "project-specific design references recommended before activation"
+    ],
+    "last_verified": "candidate, 2026-05-28",
+    "status": "candidate",
+    "safe_to_sync": true,
+    "id": "frontend.layout.swiss-editorial-grid",
+    "title": "Swiss Editorial Grid Layout",
+    "namespace": "frontend",
+    "type": "blob",
+    "capability_class": "frontend.layout",
+    "maturity": "candidate_blob",
+    "aliases": [
+      "swiss-editorial-grid-layout",
+      "Swiss Editorial Grid Layout",
+      "swiss grid",
+      "swiss layout system",
+      "international typographic style",
+      "editorial grid system"
+    ],
+    "source_confidence": "needs-docs",
+    "related_items": [
+      "frontend.layout.layout-grid-composition",
+      "frontend.layout.premium-agency-section-rhythm",
+      "skill.layout-composition-fundamentals"
+    ],
+    "artifact_paths": [],
+    "apply_command": "",
+    "verification_method": "Inspect grid alignment, whitespace rhythm, readable type, and mobile order.",
+    "notes": ""
+  },
+  {
+    "blob_id": "gsap-react-scrolltrigger",
+    "capability": "React GSAP ScrollTrigger animation",
+    "owner_system": "agentic-frontend",
+    "owner_skill": "motion-quality-router",
+    "file_path": "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge\\motion\\gsap-react-scrolltrigger.blob.md",
+    "trigger_terms": [
+      "GSAP",
+      "@gsap/react",
+      "ScrollTrigger",
+      "scroll-triggered animation",
+      "pinned scroll",
+      "animation-heavy website",
+      "React timeline"
+    ],
+    "external_libraries": [
+      "gsap",
+      "@gsap/react",
+      "gsap/ScrollTrigger"
+    ],
+    "docs_sources": [
+      "Context7:/greensock/react",
+      "https://gsap.com/resources/React/",
+      "https://github.com/greensock/react"
+    ],
+    "last_verified": "2026-05-28",
+    "status": "active",
+    "safe_to_sync": true,
+    "id": "frontend.motion.gsap-react-scrolltrigger",
+    "title": "Gsap React Scrolltrigger",
+    "namespace": "frontend",
+    "type": "blob",
+    "capability_class": "frontend.motion",
+    "maturity": "researched_blob",
+    "aliases": [
+      "gsap-react-scrolltrigger",
+      "Gsap React Scrolltrigger"
+    ],
+    "source_confidence": "sourced",
+    "related_items": [],
+    "artifact_paths": [],
+    "apply_command": "",
+    "verification_method": "",
+    "notes": ""
+  },
+  {
+    "blob_id": "lenis-scroll-sync",
+    "capability": "Lenis smooth scroll and ScrollTrigger sync",
+    "owner_system": "agentic-frontend",
+    "owner_skill": "motion-quality-router",
+    "file_path": "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge\\motion\\lenis-scroll-sync.blob.md",
+    "trigger_terms": [
+      "Lenis",
+      "smooth scroll",
+      "scroll sync",
+      "GSAP Lenis",
+      "ScrollTrigger sync"
+    ],
+    "external_libraries": [
+      "lenis",
+      "lenis/react",
+      "gsap",
+      "gsap/ScrollTrigger"
+    ],
+    "docs_sources": [
+      "Context7:/darkroomengineering/lenis",
+      "https://lenis.darkroom.engineering/",
+      "https://github.com/darkroomengineering/lenis"
+    ],
+    "last_verified": "2026-05-28",
+    "status": "active",
+    "safe_to_sync": true,
+    "id": "frontend.motion.lenis-scroll-sync",
+    "title": "Lenis Scroll Sync",
+    "namespace": "frontend",
+    "type": "blob",
+    "capability_class": "frontend.motion",
+    "maturity": "researched_blob",
+    "aliases": [
+      "lenis-scroll-sync",
+      "Lenis Scroll Sync"
+    ],
+    "source_confidence": "sourced",
+    "related_items": [],
+    "artifact_paths": [],
+    "apply_command": "",
+    "verification_method": "",
+    "notes": ""
+  },
+  {
+    "blob_id": "reduced-motion-policy",
+    "capability": "Respect reduced-motion preferences for page, scroll, and interaction animation.",
+    "owner_system": "agentic-frontend",
+    "owner_skill": "motion-quality-router",
+    "file_path": "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge\\motion\\reduced-motion-policy.blob.md",
+    "trigger_terms": [
+      "- reduced motion",
+      "reduced motion",
+      "prefers-reduced-motion",
+      "animation accessibility",
+      "motion safety",
+      "scroll animation"
+    ],
+    "external_libraries": [
+      "- None for the policy itself",
+      "None for the policy itself"
+    ],
+    "docs_sources": [
+      "browser/CSS docs when exact API wording is required"
+    ],
+    "last_verified": "existing skill/user-authored rule, 2026-05-28",
+    "status": "active",
+    "safe_to_sync": true,
+    "id": "frontend.motion.reduced-motion-policy",
+    "title": "Reduced Motion Policy",
+    "namespace": "frontend",
+    "type": "blob",
+    "capability_class": "frontend.motion",
+    "maturity": "researched_blob",
+    "aliases": [
+      "reduced-motion-policy",
+      "Reduced Motion Policy"
+    ],
+    "source_confidence": "internal",
+    "related_items": [],
+    "artifact_paths": [],
+    "apply_command": "",
+    "verification_method": "",
+    "notes": ""
+  },
+  {
+    "blob_id": "scroll-scene-composition",
+    "capability": "Compose scroll animation scenes that support reading and layout instead of fighting them.",
+    "owner_system": "agentic-frontend",
+    "owner_skill": "motion-quality-router",
+    "file_path": "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge\\motion\\scroll-scene-composition.blob.md",
+    "trigger_terms": [
+      "- scroll scene",
+      "scroll scene",
+      "animation-heavy website",
+      "scroll reveal",
+      "pinned section",
+      "parallax",
+      "scroll choreography"
+    ],
+    "external_libraries": [
+      "- GSAP/ScrollTrigger or Lenis when used by implementation",
+      "GSAP/ScrollTrigger or Lenis when used by implementation"
+    ],
+    "docs_sources": [
+      "required for external API implementation",
+      "GSAP/Lenis docs when using those libraries",
+      "package docs when implementation depends on package behavior"
+    ],
+    "last_verified": "existing skill/user-authored composition rule, 2026-05-28",
+    "status": "active",
+    "safe_to_sync": true,
+    "id": "frontend.motion.scroll-scene-composition",
+    "title": "Scroll Scene Composition",
+    "namespace": "frontend",
+    "type": "blob",
+    "capability_class": "frontend.motion",
+    "maturity": "researched_blob",
+    "aliases": [
+      "scroll-scene-composition",
+      "Scroll Scene Composition"
+    ],
+    "source_confidence": "internal",
+    "related_items": [],
+    "artifact_paths": [],
+    "apply_command": "",
+    "verification_method": "",
+    "notes": ""
+  },
+  {
+    "blob_id": "proximity-grouping-spacing",
+    "capability": "Use proximity and separation to communicate UI grouping.",
+    "owner_system": "agentic-frontend",
+    "owner_skill": "dynamic-ui-spacing-rhythm-logic",
+    "file_path": "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge\\spacing\\proximity-grouping-spacing.blob.md",
+    "trigger_terms": [
+      "- grouping",
+      "grouping",
+      "proximity",
+      "disconnected layout",
+      "crowded layout",
+      "section heading to grid",
+      "button to cards"
+    ],
+    "external_libraries": [
+      "None"
+    ],
+    "docs_sources": [],
+    "last_verified": "existing skill/user-authored rule, 2026-05-28",
+    "status": "active",
+    "safe_to_sync": true,
+    "id": "frontend.spacing.proximity-grouping-spacing",
+    "title": "Proximity Grouping Spacing",
+    "namespace": "frontend",
+    "type": "blob",
+    "capability_class": "frontend.spacing",
+    "maturity": "researched_blob",
+    "aliases": [
+      "proximity-grouping-spacing",
+      "Proximity Grouping Spacing"
+    ],
+    "source_confidence": "internal",
+    "related_items": [],
+    "artifact_paths": [],
+    "apply_command": "",
+    "verification_method": "",
+    "notes": ""
+  },
+  {
+    "blob_id": "responsive-section-spacing",
+    "capability": "Scale section spacing across desktop, tablet, and mobile.",
+    "owner_system": "agentic-frontend",
+    "owner_skill": "dynamic-ui-spacing-rhythm-logic",
+    "file_path": "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge\\spacing\\responsive-section-spacing.blob.md",
+    "trigger_terms": [
+      "- responsive spacing",
+      "responsive spacing",
+      "section padding",
+      "mobile spacing",
+      "hero spacing",
+      "landing page rhythm"
+    ],
+    "external_libraries": [
+      "None"
+    ],
+    "docs_sources": [],
+    "last_verified": "existing skill/user-authored rule, 2026-05-28",
+    "status": "active",
+    "safe_to_sync": true,
+    "id": "frontend.spacing.responsive-section-spacing",
+    "title": "Responsive Section Spacing",
+    "namespace": "frontend",
+    "type": "blob",
+    "capability_class": "frontend.spacing",
+    "maturity": "researched_blob",
+    "aliases": [
+      "responsive-section-spacing",
+      "Responsive Section Spacing"
+    ],
+    "source_confidence": "internal",
+    "related_items": [],
+    "artifact_paths": [],
+    "apply_command": "",
+    "verification_method": "",
+    "notes": ""
+  },
+  {
+    "blob_id": "spacing-rhythm-scale",
+    "capability": "Apply a consistent spacing scale for UI rhythm.",
+    "owner_system": "agentic-frontend",
+    "owner_skill": "dynamic-ui-spacing-rhythm-logic",
+    "file_path": "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge\\spacing\\spacing-rhythm-scale.blob.md",
+    "trigger_terms": [
+      "- spacing scale",
+      "spacing scale",
+      "layout rhythm",
+      "gap",
+      "padding",
+      "margin",
+      "strict spacing"
+    ],
+    "external_libraries": [
+      "None"
+    ],
+    "docs_sources": [],
+    "last_verified": "existing skill/user-authored rule, 2026-05-28",
+    "status": "active",
+    "safe_to_sync": true,
+    "id": "frontend.spacing.spacing-rhythm-scale",
+    "title": "Spacing Rhythm Scale",
+    "namespace": "frontend",
+    "type": "blob",
+    "capability_class": "frontend.spacing",
+    "maturity": "researched_blob",
+    "aliases": [
+      "spacing-rhythm-scale",
+      "Spacing Rhythm Scale"
+    ],
+    "source_confidence": "internal",
+    "related_items": [],
+    "artifact_paths": [],
+    "apply_command": "",
+    "verification_method": "",
+    "notes": ""
+  },
+  {
+    "blob_id": "readability-line-length",
+    "capability": "Keep paragraphs, hero copy, and content text readable with line-height and max-width rules.",
+    "owner_system": "agentic-frontend",
+    "owner_skill": "dynamic-ui-typography-logic",
+    "file_path": "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge\\typography\\readability-line-length.blob.md",
+    "trigger_terms": [
+      "- readability",
+      "readability",
+      "line length",
+      "paragraph width",
+      "line-height",
+      "hard to read",
+      "text wrapping"
+    ],
+    "external_libraries": [
+      "None"
+    ],
+    "docs_sources": [],
+    "last_verified": "existing skill/user-authored rule, 2026-05-28",
+    "status": "active",
+    "safe_to_sync": true,
+    "id": "frontend.typography.readability-line-length",
+    "title": "Readability Line Length",
+    "namespace": "frontend",
+    "type": "blob",
+    "capability_class": "frontend.typography",
+    "maturity": "researched_blob",
+    "aliases": [
+      "readability-line-length",
+      "Readability Line Length"
+    ],
+    "source_confidence": "internal",
+    "related_items": [],
+    "artifact_paths": [],
+    "apply_command": "",
+    "verification_method": "",
+    "notes": ""
+  },
+  {
+    "blob_id": "type-scale-hierarchy",
+    "capability": "Build readable hierarchy from size, weight, contrast, position, and spacing.",
+    "owner_system": "agentic-frontend",
+    "owner_skill": "dynamic-ui-typography-logic",
+    "file_path": "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge\\typography\\type-scale-hierarchy.blob.md",
+    "trigger_terms": [
+      "- typography hierarchy",
+      "typography hierarchy",
+      "type scale",
+      "weak heading",
+      "hero title",
+      "section title",
+      "CTA text"
+    ],
+    "external_libraries": [
+      "None"
+    ],
+    "docs_sources": [],
+    "last_verified": "existing skill/user-authored rule, 2026-05-28",
+    "status": "active",
+    "safe_to_sync": true,
+    "id": "frontend.typography.type-scale-hierarchy",
+    "title": "Type Scale Hierarchy",
+    "namespace": "frontend",
+    "type": "blob",
+    "capability_class": "frontend.typography",
+    "maturity": "researched_blob",
+    "aliases": [
+      "type-scale-hierarchy",
+      "Type Scale Hierarchy"
+    ],
+    "source_confidence": "internal",
+    "related_items": [],
+    "artifact_paths": [],
+    "apply_command": "",
+    "verification_method": "",
+    "notes": ""
   },
   {
     "blob_id": "capability-radar-trigger-policy",
@@ -81,7 +907,23 @@
     ],
     "last_verified": "2026-05-28",
     "status": "active",
-    "safe_to_sync": true
+    "safe_to_sync": true,
+    "id": "project_manager.routing.capability-radar-trigger-policy",
+    "title": "Capability Radar Trigger Policy",
+    "namespace": "project_manager",
+    "type": "blob",
+    "capability_class": "project_manager.routing",
+    "maturity": "researched_blob",
+    "aliases": [
+      "capability-radar-trigger-policy",
+      "Capability Radar Trigger Policy"
+    ],
+    "source_confidence": "sourced",
+    "related_items": [],
+    "artifact_paths": [],
+    "apply_command": "",
+    "verification_method": "",
+    "notes": ""
   },
   {
     "blob_id": "codebase-intelligence-routing",
@@ -108,62 +950,23 @@
     "docs_sources": [],
     "last_verified": "2026-05-28",
     "status": "active",
-    "safe_to_sync": true
-  },
-  {
-    "blob_id": "contrast-ratio-formula",
-    "capability": "Calculate and apply foreground/background contrast decisions.",
-    "owner_system": "agentic-frontend",
-    "owner_skill": "dynamic-ui-color-contrast-logic",
-    "file_path": "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge\\color\\contrast-ratio-formula.blob.md",
-    "trigger_terms": [
-      "- contrast",
-      "contrast",
-      "WCAG contrast",
-      "foreground background",
-      "text readability",
-      "icon visibility",
-      "accessible colors"
+    "safe_to_sync": true,
+    "id": "project_manager.routing.codebase-intelligence-routing",
+    "title": "Codebase Intelligence Routing",
+    "namespace": "project_manager",
+    "type": "blob",
+    "capability_class": "project_manager.routing",
+    "maturity": "researched_blob",
+    "aliases": [
+      "codebase-intelligence-routing",
+      "Codebase Intelligence Routing"
     ],
-    "external_libraries": [
-      "- None",
-      "None"
-    ],
-    "docs_sources": [
-      "WCAG contrast model when current accessibility wording is required"
-    ],
-    "last_verified": "existing skill/user-authored rule, 2026-05-28",
-    "status": "active",
-    "safe_to_sync": true
-  },
-  {
-    "blob_id": "gsap-react-scrolltrigger",
-    "capability": "React GSAP ScrollTrigger animation",
-    "owner_system": "agentic-frontend",
-    "owner_skill": "motion-quality-router",
-    "file_path": "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge\\motion\\gsap-react-scrolltrigger.blob.md",
-    "trigger_terms": [
-      "GSAP",
-      "@gsap/react",
-      "ScrollTrigger",
-      "scroll-triggered animation",
-      "pinned scroll",
-      "animation-heavy website",
-      "React timeline"
-    ],
-    "external_libraries": [
-      "gsap",
-      "@gsap/react",
-      "gsap/ScrollTrigger"
-    ],
-    "docs_sources": [
-      "Context7:/greensock/react",
-      "https://gsap.com/resources/React/",
-      "https://github.com/greensock/react"
-    ],
-    "last_verified": "2026-05-28",
-    "status": "active",
-    "safe_to_sync": true
+    "source_confidence": "sourced",
+    "related_items": [],
+    "artifact_paths": [],
+    "apply_command": "",
+    "verification_method": "",
+    "notes": ""
   },
   {
     "blob_id": "knowledge-blob-policy",
@@ -183,59 +986,23 @@
     "docs_sources": [],
     "last_verified": "2026-05-28",
     "status": "active",
-    "safe_to_sync": true
-  },
-  {
-    "blob_id": "layout-grid-composition",
-    "capability": "Compose sections with shared containers, grouping, focal points, and grid/flex decisions.",
-    "owner_system": "agentic-frontend",
-    "owner_skill": "layout-composition-fundamentals",
-    "file_path": "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge\\layout\\layout-grid-composition.blob.md",
-    "trigger_terms": [
-      "- layout composition",
-      "layout composition",
-      "grid layout",
-      "container alignment",
-      "card grid",
-      "focal point",
-      "responsive layout"
+    "safe_to_sync": true,
+    "id": "project_manager.routing.knowledge-blob-policy",
+    "title": "Knowledge Blob Policy",
+    "namespace": "project_manager",
+    "type": "blob",
+    "capability_class": "project_manager.routing",
+    "maturity": "researched_blob",
+    "aliases": [
+      "knowledge-blob-policy",
+      "Knowledge Blob Policy"
     ],
-    "external_libraries": [
-      "- None",
-      "None"
-    ],
-    "docs_sources": [],
-    "last_verified": "existing skill/user-authored rule, 2026-05-28",
-    "status": "active",
-    "safe_to_sync": true
-  },
-  {
-    "blob_id": "lenis-scroll-sync",
-    "capability": "Lenis smooth scroll and ScrollTrigger sync",
-    "owner_system": "agentic-frontend",
-    "owner_skill": "motion-quality-router",
-    "file_path": "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge\\motion\\lenis-scroll-sync.blob.md",
-    "trigger_terms": [
-      "Lenis",
-      "smooth scroll",
-      "scroll sync",
-      "GSAP Lenis",
-      "ScrollTrigger sync"
-    ],
-    "external_libraries": [
-      "lenis",
-      "lenis/react",
-      "gsap",
-      "gsap/ScrollTrigger"
-    ],
-    "docs_sources": [
-      "Context7:/darkroomengineering/lenis",
-      "https://lenis.darkroom.engineering/",
-      "https://github.com/darkroomengineering/lenis"
-    ],
-    "last_verified": "2026-05-28",
-    "status": "active",
-    "safe_to_sync": true
+    "source_confidence": "sourced",
+    "related_items": [],
+    "artifact_paths": [],
+    "apply_command": "",
+    "verification_method": "",
+    "notes": ""
   },
   {
     "blob_id": "micro-update-policy",
@@ -254,34 +1021,23 @@
     "docs_sources": [],
     "last_verified": "2026-05-28",
     "status": "active",
-    "safe_to_sync": true
-  },
-  {
-    "blob_id": "mobile-emulation-proof",
-    "capability": "Verify responsive claims with mobile rendering evidence.",
-    "owner_system": "agentic-frontend",
-    "owner_skill": "frontend-inspection-discipline",
-    "file_path": "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge\\verification\\mobile-emulation-proof.blob.md",
-    "trigger_terms": [
-      "- mobile proof",
-      "mobile proof",
-      "responsive proof",
-      "mobile emulation",
-      "viewport",
-      "inspect mobile"
+    "safe_to_sync": true,
+    "id": "project_manager.routing.micro-update-policy",
+    "title": "Micro Update Policy",
+    "namespace": "project_manager",
+    "type": "blob",
+    "capability_class": "project_manager.routing",
+    "maturity": "researched_blob",
+    "aliases": [
+      "micro-update-policy",
+      "Micro Update Policy"
     ],
-    "external_libraries": [
-      "- Browser",
-      "Browser",
-      "Chrome",
-      "Playwright when available"
-    ],
-    "docs_sources": [
-      "browser tooling docs only when tool behavior changes"
-    ],
-    "last_verified": "existing skill/user-authored rule, 2026-05-28",
-    "status": "active",
-    "safe_to_sync": true
+    "source_confidence": "sourced",
+    "related_items": [],
+    "artifact_paths": [],
+    "apply_command": "",
+    "verification_method": "",
+    "notes": ""
   },
   {
     "blob_id": "new-skill-vs-blob-policy",
@@ -299,340 +1055,28 @@
       "reusable formula"
     ],
     "external_libraries": [
-      "- None",
       "None"
     ],
     "docs_sources": [],
     "last_verified": "existing user-authored orchestration rule, 2026-05-28",
     "status": "active",
-    "safe_to_sync": true
-  },
-  {
-    "blob_id": "nginx-edit-safety",
-    "capability": "Nginx edit safety",
-    "owner_system": "agentic-backend-database",
-    "owner_skill": "vps-ssh-operations-gate",
-    "file_path": "C:\\Users\\acer\\.codex\\agentic-backend-database\\knowledge\\vps\\nginx-edit-safety.blob.md",
-    "trigger_terms": [
-      "Nginx",
-      "server block",
-      "reverse proxy",
-      "SSL",
-      "domain config",
-      "restart nginx",
-      "VPS config"
+    "safe_to_sync": true,
+    "id": "project_manager.routing.new-skill-vs-blob-policy",
+    "title": "New Skill Vs Blob Policy",
+    "namespace": "project_manager",
+    "type": "blob",
+    "capability_class": "project_manager.routing",
+    "maturity": "researched_blob",
+    "aliases": [
+      "new-skill-vs-blob-policy",
+      "New Skill Vs Blob Policy"
     ],
-    "external_libraries": [
-      "nginx",
-      "systemd",
-      "SSH"
-    ],
-    "docs_sources": [
-      "https://nginx.org/en/docs/"
-    ],
-    "last_verified": "candidate",
-    "status": "candidate",
-    "safe_to_sync": true
-  },
-  {
-    "blob_id": "php-form-email-handler",
-    "capability": "PHP form email handling",
-    "owner_system": "agentic-backend-database",
-    "owner_skill": "api-contract-orchestrator",
-    "file_path": "C:\\Users\\acer\\.codex\\agentic-backend-database\\knowledge\\api\\php-form-email-handler.blob.md",
-    "trigger_terms": [
-      "PHPMailer",
-      "PHP mail",
-      "contact form",
-      "SMTP",
-      "email handler"
-    ],
-    "external_libraries": [
-      "PHPMailer"
-    ],
-    "docs_sources": [
-      "https://github.com/PHPMailer/PHPMailer"
-    ],
-    "last_verified": "candidate",
-    "status": "candidate",
-    "safe_to_sync": true
-  },
-  {
-    "blob_id": "premium-agency-section-rhythm",
-    "capability": "Candidate section rhythm pattern for premium agency websites.",
-    "owner_system": "agentic-frontend",
-    "owner_skill": "layout-composition-fundamentals",
-    "file_path": "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge\\layout\\premium-agency-section-rhythm.blob.md",
-    "trigger_terms": [
-      "- premium agency",
-      "premium agency",
-      "agency homepage",
-      "section rhythm",
-      "high-end landing page",
-      "art direction"
-    ],
-    "external_libraries": [
-      "- None",
-      "None"
-    ],
-    "docs_sources": [
-      "project-specific visual references recommended before activation"
-    ],
-    "last_verified": "candidate, 2026-05-28",
-    "status": "candidate",
-    "safe_to_sync": true
-  },
-  {
-    "blob_id": "proximity-grouping-spacing",
-    "capability": "Use proximity and separation to communicate UI grouping.",
-    "owner_system": "agentic-frontend",
-    "owner_skill": "dynamic-ui-spacing-rhythm-logic",
-    "file_path": "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge\\spacing\\proximity-grouping-spacing.blob.md",
-    "trigger_terms": [
-      "- grouping",
-      "grouping",
-      "proximity",
-      "disconnected layout",
-      "crowded layout",
-      "section heading to grid",
-      "button to cards"
-    ],
-    "external_libraries": [
-      "- None",
-      "None"
-    ],
-    "docs_sources": [],
-    "last_verified": "existing skill/user-authored rule, 2026-05-28",
-    "status": "active",
-    "safe_to_sync": true
-  },
-  {
-    "blob_id": "readability-line-length",
-    "capability": "Keep paragraphs, hero copy, and content text readable with line-height and max-width rules.",
-    "owner_system": "agentic-frontend",
-    "owner_skill": "dynamic-ui-typography-logic",
-    "file_path": "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge\\typography\\readability-line-length.blob.md",
-    "trigger_terms": [
-      "- readability",
-      "readability",
-      "line length",
-      "paragraph width",
-      "line-height",
-      "hard to read",
-      "text wrapping"
-    ],
-    "external_libraries": [
-      "- None",
-      "None"
-    ],
-    "docs_sources": [],
-    "last_verified": "existing skill/user-authored rule, 2026-05-28",
-    "status": "active",
-    "safe_to_sync": true
-  },
-  {
-    "blob_id": "reduced-motion-policy",
-    "capability": "Respect reduced-motion preferences for page, scroll, and interaction animation.",
-    "owner_system": "agentic-frontend",
-    "owner_skill": "motion-quality-router",
-    "file_path": "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge\\motion\\reduced-motion-policy.blob.md",
-    "trigger_terms": [
-      "- reduced motion",
-      "reduced motion",
-      "prefers-reduced-motion",
-      "animation accessibility",
-      "motion safety",
-      "scroll animation"
-    ],
-    "external_libraries": [
-      "- None for the policy itself",
-      "None for the policy itself"
-    ],
-    "docs_sources": [
-      "browser/CSS docs when exact API wording is required"
-    ],
-    "last_verified": "existing skill/user-authored rule, 2026-05-28",
-    "status": "active",
-    "safe_to_sync": true
-  },
-  {
-    "blob_id": "responsive-section-spacing",
-    "capability": "Scale section spacing across desktop, tablet, and mobile.",
-    "owner_system": "agentic-frontend",
-    "owner_skill": "dynamic-ui-spacing-rhythm-logic",
-    "file_path": "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge\\spacing\\responsive-section-spacing.blob.md",
-    "trigger_terms": [
-      "- responsive spacing",
-      "responsive spacing",
-      "section padding",
-      "mobile spacing",
-      "hero spacing",
-      "landing page rhythm"
-    ],
-    "external_libraries": [
-      "- None",
-      "None"
-    ],
-    "docs_sources": [],
-    "last_verified": "existing skill/user-authored rule, 2026-05-28",
-    "status": "active",
-    "safe_to_sync": true
-  },
-  {
-    "blob_id": "screenshot-vs-dom-measurement",
-    "capability": "Choose screenshot inspection or DOM/CSS measurement based on the visual claim.",
-    "owner_system": "agentic-frontend",
-    "owner_skill": "verification-gate-controller",
-    "file_path": "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge\\verification\\screenshot-vs-dom-measurement.blob.md",
-    "trigger_terms": [
-      "- screenshot",
-      "screenshot",
-      "DOM measurement",
-      "visual proof",
-      "spacing proof",
-      "overflow",
-      "sticky",
-      "alignment"
-    ],
-    "external_libraries": [
-      "- Browser",
-      "Browser",
-      "Chrome",
-      "Playwright when available"
-    ],
-    "docs_sources": [
-      "browser tooling docs only when tool behavior changes"
-    ],
-    "last_verified": "existing skill/user-authored rule, 2026-05-28",
-    "status": "active",
-    "safe_to_sync": true
-  },
-  {
-    "blob_id": "scroll-scene-composition",
-    "capability": "Compose scroll animation scenes that support reading and layout instead of fighting them.",
-    "owner_system": "agentic-frontend",
-    "owner_skill": "motion-quality-router",
-    "file_path": "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge\\motion\\scroll-scene-composition.blob.md",
-    "trigger_terms": [
-      "- scroll scene",
-      "scroll scene",
-      "animation-heavy website",
-      "scroll reveal",
-      "pinned section",
-      "parallax",
-      "scroll choreography"
-    ],
-    "external_libraries": [
-      "- GSAP/ScrollTrigger or Lenis when used by implementation",
-      "GSAP/ScrollTrigger or Lenis when used by implementation"
-    ],
-    "docs_sources": [
-      "required for external API implementation",
-      "GSAP/Lenis docs when using those libraries",
-      "package docs when implementation depends on package behavior"
-    ],
-    "last_verified": "existing skill/user-authored composition rule, 2026-05-28",
-    "status": "active",
-    "safe_to_sync": true
-  },
-  {
-    "blob_id": "shadcn-no-manual-primitives",
-    "capability": "shadcn/Radix primitive selection and no manual primitives",
-    "owner_system": "agentic-frontend",
-    "owner_skill": "component-supply-router",
-    "file_path": "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge\\components\\shadcn-no-manual-primitives.blob.md",
-    "trigger_terms": [
-      "shadcn",
-      "no manual primitives",
-      "no primitive manually",
-      "Radix",
-      "component registry",
-      "use every necessary component",
-      "accessible component primitive"
-    ],
-    "external_libraries": [
-      "shadcn",
-      "Radix"
-    ],
-    "docs_sources": [
-      "Context7:/websites/ui_shadcn",
-      "https://ui.shadcn.com/docs",
-      "https://github.com/shadcn-ui/ui"
-    ],
-    "last_verified": "2026-05-28",
-    "status": "active",
-    "safe_to_sync": true
-  },
-  {
-    "blob_id": "spacing-rhythm-scale",
-    "capability": "Apply a consistent spacing scale for UI rhythm.",
-    "owner_system": "agentic-frontend",
-    "owner_skill": "dynamic-ui-spacing-rhythm-logic",
-    "file_path": "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge\\spacing\\spacing-rhythm-scale.blob.md",
-    "trigger_terms": [
-      "- spacing scale",
-      "spacing scale",
-      "layout rhythm",
-      "gap",
-      "padding",
-      "margin",
-      "strict spacing"
-    ],
-    "external_libraries": [
-      "- None",
-      "None"
-    ],
-    "docs_sources": [],
-    "last_verified": "existing skill/user-authored rule, 2026-05-28",
-    "status": "active",
-    "safe_to_sync": true
-  },
-  {
-    "blob_id": "sql-safety-patterns",
-    "capability": "SQL safety patterns",
-    "owner_system": "agentic-backend-database",
-    "owner_skill": "sql-operations-gate",
-    "file_path": "C:\\Users\\acer\\.codex\\agentic-backend-database\\knowledge\\database\\sql-safety-patterns.blob.md",
-    "trigger_terms": [
-      "SQL",
-      "migration",
-      "query",
-      "update table",
-      "delete rows",
-      "drop",
-      "truncate",
-      "database change"
-    ],
-    "external_libraries": [],
-    "docs_sources": [],
-    "last_verified": "candidate",
-    "status": "candidate",
-    "safe_to_sync": true
-  },
-  {
-    "blob_id": "swiss-editorial-grid-layout",
-    "capability": "Candidate rules for Swiss/editorial grid composition.",
-    "owner_system": "agentic-frontend",
-    "owner_skill": "layout-composition-fundamentals",
-    "file_path": "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge\\layout\\swiss-editorial-grid-layout.blob.md",
-    "trigger_terms": [
-      "- Swiss layout",
-      "Swiss layout",
-      "Swiss-style",
-      "editorial grid",
-      "premium grid",
-      "agency homepage"
-    ],
-    "external_libraries": [
-      "- None",
-      "None"
-    ],
-    "docs_sources": [
-      "project-specific design references recommended before activation"
-    ],
-    "last_verified": "candidate, 2026-05-28",
-    "status": "candidate",
-    "safe_to_sync": true
+    "source_confidence": "internal",
+    "related_items": [],
+    "artifact_paths": [],
+    "apply_command": "",
+    "verification_method": "",
+    "notes": ""
   },
   {
     "blob_id": "trigger-policy",
@@ -660,58 +1104,65 @@
     ],
     "last_verified": "2026-05-28",
     "status": "active",
-    "safe_to_sync": true
+    "safe_to_sync": true,
+    "id": "project_manager.routing.trigger-policy",
+    "title": "Trigger Policy",
+    "namespace": "project_manager",
+    "type": "blob",
+    "capability_class": "project_manager.routing",
+    "maturity": "researched_blob",
+    "aliases": [
+      "trigger-policy",
+      "Trigger Policy"
+    ],
+    "source_confidence": "sourced",
+    "related_items": [],
+    "artifact_paths": [],
+    "apply_command": "",
+    "verification_method": "",
+    "notes": ""
   },
   {
-    "blob_id": "type-scale-hierarchy",
-    "capability": "Build readable hierarchy from size, weight, contrast, position, and spacing.",
-    "owner_system": "agentic-frontend",
-    "owner_skill": "dynamic-ui-typography-logic",
-    "file_path": "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge\\typography\\type-scale-hierarchy.blob.md",
+    "blob_id": "nginx-edit-safety",
+    "capability": "Nginx edit safety",
+    "owner_system": "agentic-backend-database",
+    "owner_skill": "vps-ssh-operations-gate",
+    "file_path": "C:\\Users\\acer\\.codex\\agentic-backend-database\\knowledge\\vps\\nginx-edit-safety.blob.md",
     "trigger_terms": [
-      "- typography hierarchy",
-      "typography hierarchy",
-      "type scale",
-      "weak heading",
-      "hero title",
-      "section title",
-      "CTA text"
+      "Nginx",
+      "server block",
+      "reverse proxy",
+      "SSL",
+      "domain config",
+      "restart nginx",
+      "VPS config"
     ],
     "external_libraries": [
-      "- None",
-      "None"
+      "nginx",
+      "systemd",
+      "SSH"
     ],
-    "docs_sources": [],
-    "last_verified": "existing skill/user-authored rule, 2026-05-28",
-    "status": "active",
-    "safe_to_sync": true
-  },
-  {
-    "blob_id": "visual-proof-policy",
-    "capability": "Rendered evidence for frontend visual, responsive, sticky, overflow, and interaction claims.",
-    "owner_system": "agentic-frontend",
-    "owner_skill": "frontend-inspection-discipline",
-    "file_path": "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge\\inspection\\visual-proof-policy.blob.md",
-    "trigger_terms": [
-      "- inspect",
-      "inspect",
-      "screenshot",
-      "mobile",
-      "responsive",
-      "sticky",
-      "overflow",
-      "visual proof",
-      "looks broken",
-      "verify UI"
+    "docs_sources": [
+      "https://nginx.org/en/docs/"
     ],
-    "external_libraries": [
-      "- Browser/Chrome connector",
-      "Browser/Chrome connector",
-      "local frontend inspect script when available"
+    "last_verified": "candidate",
+    "status": "candidate",
+    "safe_to_sync": true,
+    "id": "vps.webserver.nginx-edit-safety",
+    "title": "Nginx Edit Safety",
+    "namespace": "backend",
+    "type": "blob",
+    "capability_class": "vps.webserver",
+    "maturity": "candidate_blob",
+    "aliases": [
+      "nginx-edit-safety",
+      "Nginx Edit Safety"
     ],
-    "docs_sources": [],
-    "last_verified": "2026-05-28",
-    "status": "active",
-    "safe_to_sync": true
+    "source_confidence": "sourced",
+    "related_items": [],
+    "artifact_paths": [],
+    "apply_command": "",
+    "verification_method": "",
+    "notes": ""
   }
 ]

@@ -2,6 +2,7 @@ node_modules/
 .ai-task/
 .codegraph/
 .understand-anything/
+.retrieval/
 qa/
 *.png
 *.jpg
@@ -22,7 +23,13 @@ auth.json
 config.toml
 config.toml.*
 *.sqlite
+*.sqlite-*
+*.sqlite3
+*.sqlite3-*
 *.db
+*.db-*
+knowledge-index.db
+knowledge-index.sqlite
 *.dump
 *.sql
 .DS_Store

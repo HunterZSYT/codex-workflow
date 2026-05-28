@@ -9,6 +9,9 @@ Capability precision failures:
 - Repeated "need package/tool" answers without owner skill, active knowledge blob, docs source, and verification method should propose a knowledge blob update.
 - Prefer the micro-update order: use active blob, update blob, add blob under existing skill, add short owner-skill pointer, add docs/pattern note, add script, add MCP config, create new skill only when no owner fits.
 - Do not promote raw task logs; summarize sanitized capability lessons only.
+- Retrieval failures count as improvement candidates when an existing blob, skill, artifact, script, MCP, or doc was missed and the agent created or proposed something new.
+- Review whether `pm-knowledge-search.mjs`, `pm-knowledge-related.mjs`, and `pm-knowledge-dedupe.mjs` were used before creation.
+- If ranked retrieval finds a candidate/stale item, recommend update, promotion, cross-reference, or dedupe review before any new item.
 
 Also review codebase-intelligence effectiveness:
 - use CodeGraph more for impact tracing, caller/callee lookup, dependency paths, and "what uses this?"

@@ -11,6 +11,8 @@ Run Capability Gap Radar for medium, high-risk, unclear, repeated, or tool-evalu
 
 Run Capability Orchestration Radar for external libraries/tools/packages/MCPs, current-doc dependent behavior, multi-capability tasks, high-risk work, and best-practice stack/tool selection. Route external library/tool tasks through knowledge blob lookup before implementation; do not rely on broad package names alone. Check `knowledge-registry.json` with `pm-knowledge-lookup.mjs` or `pm-knowledge-gap.mjs` when GSAP, Lenis, shadcn, Tailwind, PHPMailer, Prisma, Docker, Nginx, CodeGraph, Understand Anything, or similar capabilities appear. Missing/stale blobs require a docs-backed micro-update candidate before implementation.
 
+Before creating new workflow knowledge, run ranked retrieval. Use `pm-knowledge-search.mjs --query "<query>"` and inspect `pm-knowledge-related.mjs --id "<id>"` for plausible matches. Check exact match, aliases, ranked FTS, related items, candidate/stale entries, owner skill, and existing artifacts/scripts/tools. If a candidate or related item exists, route to update, promote, cross-reference, or leave candidate instead of creating a duplicate.
+
 ## Tool Selection Policy
 
 Default rule: start with the cheapest reliable method. Escalate only when the task needs more context, precision, or impact analysis.
@@ -30,6 +32,8 @@ Budget: small tasks use direct inspection and no CodeGraph/Understand Anything u
 Capability recommendations: if existing skills/tools are enough, proceed. If current docs or external setup are needed, use official/current sources before recommending changes. If no active knowledge blob exists for a fast-changing tool/library, fetch Context7 docs when available before recommending implementation rules. If a tool/MCP/library install or config change is useful, recommend it with approval required; do not install automatically. For database/server/deployment/auth/SSH/migration tasks, route through the relevant safety gate and read-only inspection first.
 
 Generated artifacts from `.codegraph/`, `.understand-anything/`, indexes, caches, and databases are local-only and should be gitignored. Do not sync or commit them unless explicitly requested.
+
+Generated retrieval indexes under `.retrieval/` and `*.sqlite`, `*.sqlite3`, or `*.db` files are local-only and must not sync.
 
 ## Tool Choice Feedback Loop
 

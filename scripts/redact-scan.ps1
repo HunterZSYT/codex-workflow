@@ -9,7 +9,8 @@ $ExcludedDirs = @(
   ".ai-task",
   "qa",
   ".codegraph",
-  ".understand-anything"
+  ".understand-anything",
+  ".retrieval"
 )
 
 $AllowedPlaceholderTokens = @(
@@ -76,7 +77,7 @@ foreach ($file in $Files) {
     continue
   }
 
-  if ($relative -match "\.(pem|key|ppk|sqlite|db|dump|sql)$") {
+  if ($relative -match "\.(pem|key|ppk|sqlite|sqlite3|db|dump|sql)$") {
     Add-Finding $relative 0 "Forbidden sensitive file extension"
     continue
   }

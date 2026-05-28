@@ -167,7 +167,7 @@ function Export-Skills {
     Copy-IfExists (Join-Path $_.FullName "SKILL.md") (Join-Path $dest "SKILL.md")
     Get-ChildItem -LiteralPath $_.FullName -Recurse -File -Force -ErrorAction SilentlyContinue | Where-Object {
       $name = $_.Name
-      if ($_.FullName -match "\\node_modules\\|\\.git\\|\\.understand-anything\\") { return $false }
+      if ($_.FullName -match "\\node_modules\\|\\.git\\|\\.understand-anything\\|\\.retrieval\\|\\.codegraph\\|\\.ai-task\\") { return $false }
       if ($name -eq "SKILL.md") { return $false }
       return ($_.Extension -in @(".md",".mjs",".js",".sh") -or $name -eq "package.json")
     } | ForEach-Object {

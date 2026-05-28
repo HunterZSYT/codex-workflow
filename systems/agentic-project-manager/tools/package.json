@@ -10,6 +10,9 @@
     "init": "node pm-init-task.mjs",
     "roadmap": "node pm-create-roadmap.mjs",
     "next": "node pm-next-packet.mjs",
-    "sync": "node pm-capability-sync.mjs"
+    "sync": "node pm-capability-sync.mjs",
+    "knowledge:index": "node pm-knowledge-index.mjs",
+    "knowledge:search": "node pm-knowledge-search.mjs",
+    "knowledge:dedupe": "node pm-knowledge-dedupe.mjs"
   }
 }

@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 import fs from "node:fs/promises";
 import path from "node:path";
-import { PM_ROOT, arg } from "./pm-lib.mjs";
+import { DatabaseSync } from "node:sqlite";
+import { PM_ROOT, arg, exists } from "./pm-lib.mjs";
 
 const registryPath = path.join(PM_ROOT, "knowledge", "knowledge-registry.json");
+const indexPath = path.join(PM_ROOT, ".retrieval", "knowledge-index.sqlite");
 
 const CAPABILITY_HINTS = [
   { capability: "Layout grid composition", terms: ["layout", "grid", "composition", "responsive layout", "agency homepage"], package: "layout/composition rules" },
@@ -68,6 +70,30 @@ function findBestEntry(registry, hint) {
     .sort((a, b) => b.score - a.score)[0]?.entry;
 }
 
+function ftsQuery(value) {
+  const parts = String(value || "").toLowerCase().match(/[a-z0-9][a-z0-9_-]*/g)?.filter(t => t.length > 1).map(t => `"${t.replaceAll('"', '""')}"`) || [];
+  return parts.join(" OR ");
+}
+
+function searchIndex(query) {
+  if (!globalThis.__knowledgeDbAvailable) return undefined;
+  const match = ftsQuery(query);
+  if (!match) return undefined;
+  try {
+    const rows = globalThis.__knowledgeDb.prepare(`
+      SELECT items.*
+      FROM item_fts
+      JOIN items ON items.rowid = item_fts.rowid
+      WHERE item_fts MATCH ?
+      ORDER BY bm25(item_fts, 8.0, 5.0, 4.0, 5.0, 3.0, 3.0, 2.0, 1.0, 0.5) ASC
+      LIMIT 1
+    `).all(match);
+    return rows[0];
+  } catch {
+    return undefined;
+  }
+}
+
 function blobStatus(entry) {
   if (!entry) return "Missing";
   if (entry.status === "active") return "Exists and active";
@@ -89,6 +115,8 @@ if (!task) {
 }
 
 const registry = JSON.parse(await fs.readFile(registryPath, "utf8"));
+globalThis.__knowledgeDbAvailable = await exists(indexPath);
+globalThis.__knowledgeDb = globalThis.__knowledgeDbAvailable ? new DatabaseSync(indexPath, { readOnly: true }) : undefined;
 const taskText = normalize(task);
 const triggerReasons = [];
 for (const phrase of ORCHESTRATION_TRIGGERS) {
@@ -101,7 +129,9 @@ if (/\bauth|payment|database|sql|vps|deployment|server config|production\b/.test
 if (detected.length > 0) triggerReasons.push("external-library/tool");
 
 const rows = detected.map(hint => {
-  const entry = findBestEntry(registry, hint);
+  const registryEntry = findBestEntry(registry, hint);
+  const indexed = searchIndex(`${hint.capability} ${hint.terms.join(" ")}`);
+  const entry = registryEntry || indexed;
   const status = blobStatus(entry);
   return {
     Capability: hint.capability,
@@ -147,3 +177,4 @@ if (process.argv.includes("--json")) {
     console.log(`| ${row.Capability} | ${row["Existing owner skill"]} | ${row["Knowledge blob status"]} | ${row["Docs source needed"]} | ${row["Existing tool/MCP/script"]} | ${row["External package/tool"]} | ${row["Best-practice rules available?"]} | ${row["Micro-update needed?"]} | ${row["Approval needed?"]} | ${row.Verification} |`);
   }
 }
+globalThis.__knowledgeDb?.close();
