@@ -3,7 +3,7 @@ title: Frontend UI Layer Scope Model
 namespace: frontend
 owner_system: agentic-frontend
 owner_skill: frontend-tool-orchestrator
-status: candidate
+status: active
 maturity: specified
 source_confidence: mixed
 aliases:
@@ -43,6 +43,9 @@ verification_methods:
   - Run knowledge search and sufficiency tests for frontend layer/scope tasks.
   - Verify routing points to owner skills/blobs/packs without creating new skills.
 safe_to_sync: true
-last_verified: 2026-06-01
-approval_status: not_requested
-
+last_verified: 2026-05-31
+approval_status: ai_reviewed_approved
+lifecycle_status: active
+activation_mode: ai_reviewed
+activation_review_path: activation-review.md
+enrichment_history_path: enrichment-history.md

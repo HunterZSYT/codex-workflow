@@ -154,7 +154,8 @@ if (index >= 0) {
     active_baseline_version: registry[index].active_baseline_version || `active-${today}`,
     artifact_paths: artifacts,
     artifacts_count: artifacts.length,
-    source_confidence: yaml.source_confidence || registry[index].source_confidence || "medium"
+    source_confidence: yaml.source_confidence || registry[index].source_confidence || "medium",
+    notes: "Active usable baseline. Remains open to enrichment candidates, source refreshes, stale review, and superseding evidence."
   };
   await fs.writeFile(registryPath, `${JSON.stringify(registry, null, 2)}\n`, "utf8");
 }

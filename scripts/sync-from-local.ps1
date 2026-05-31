@@ -69,7 +69,9 @@ function Copy-KnowledgePacks {
     "specs.md",
     "verification.md",
     "examples.md",
-    "promotion-checklist.md"
+    "promotion-checklist.md",
+    "activation-review.md",
+    "enrichment-history.md"
   )
   $allowedArtifactExtensions = @(".md",".css",".ts",".tsx",".json")
   Get-ChildItem -LiteralPath $packsRoot -Recurse -File -Force -ErrorAction SilentlyContinue | Where-Object {
