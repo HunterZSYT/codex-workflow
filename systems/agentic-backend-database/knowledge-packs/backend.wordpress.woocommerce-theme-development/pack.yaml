@@ -3,7 +3,7 @@ title: WordPress WooCommerce Theme Development
 namespace: backend
 owner_system: agentic-backend-database
 owner_skill: backend-database-tool-orchestrator
-status: candidate
+status: active
 maturity: researched
 source_confidence: sourced
 aliases:
@@ -38,4 +38,4 @@ verification_methods:
   - Verify template override version status, storefront archive/product/cart/checkout/account flows, logs, and rollback plan.
 safe_to_sync: true
 last_verified: 2026-05-31
-approval_status: not_requested
+approval_status: approved

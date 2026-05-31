@@ -18,10 +18,14 @@ function ftsQuery(value) {
 }
 
 function maturityRecommendation(item) {
+  const artifactCount = Number(item.artifacts_count || 0);
+  if (item.type === "capability_pack" && item.status === "active" && item.approval_status === "approved" && artifactCount > 0) {
+    return "approved active pack; use artifacts with task-fit verification";
+  }
   if (item.type === "capability_pack" && item.approval_status !== "approved") {
     return "pack is not approved; use as candidate planning material only";
   }
-  if (item.status === "candidate" || item.maturity === "candidate_blob" || item.maturity === "researched") {
+  if (item.status === "candidate" || item.maturity === "candidate_blob") {
     return "candidate only; do not treat as reusable implementation until promoted or artifact-backed";
   }
   if (!item.artifact_paths && !item.apply_command && (item.type === "blob" || item.type === "capability_pack")) {

@@ -3,7 +3,7 @@ title: WordPress Theme Design System
 namespace: frontend
 owner_system: agentic-frontend
 owner_skill: frontend-tool-orchestrator
-status: candidate
+status: active
 maturity: researched
 source_confidence: sourced
 aliases:
@@ -39,4 +39,4 @@ verification_methods:
   - Audit pack readiness before implementation.
 safe_to_sync: true
 last_verified: 2026-05-31
-approval_status: not_requested
+approval_status: approved

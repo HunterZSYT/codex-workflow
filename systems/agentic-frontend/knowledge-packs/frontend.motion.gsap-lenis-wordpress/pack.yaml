@@ -3,7 +3,7 @@ title: GSAP Lenis WordPress Motion
 namespace: frontend
 owner_system: agentic-frontend
 owner_skill: motion-quality-router
-status: candidate
+status: active
 maturity: researched
 source_confidence: sourced
 aliases:
@@ -36,4 +36,4 @@ verification_methods:
   - Audit pack readiness before implementation.
 safe_to_sync: true
 last_verified: 2026-05-31
-approval_status: not_requested
+approval_status: approved
