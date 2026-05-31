@@ -113,6 +113,7 @@ if (dryRun) {
   process.exit(0);
 }
 
+const previousStatus = yaml.status || "unknown";
 yaml.status = "active";
 yaml.approval_status = aiReviewed ? "ai_reviewed_approved" : "user_approved";
 yaml.lifecycle_status = "active";
@@ -123,7 +124,11 @@ yaml.last_verified = today;
 await fs.writeFile(packYamlPath, serializeYaml(yaml), "utf8");
 
 const activationPath = path.join(packPath, "activation-review.md");
-const activationEntry = `\n## ${new Date().toISOString()}\n- Date: ${today}\n- Pack/blob ID: ${id}\n- Previous status: ${yaml.status === "active" ? "candidate_or_previous" : "unknown"}\n- New status: active\n- Reviewer mode: ${reviewerMode}\n- Source ledger verdict: passed (${sourceUrlCount} URL/source references or internal/user-authored source noted)\n- Specs verdict: passed\n- Artifacts verdict: passed (${artifacts.length})\n- Verification verdict: passed\n- Safety/copyright verdict: no copied source/assets detected by promotion checks\n- Dedupe verdict: related/overlap review remains task-level responsibility\n- Final decision: promoted active usable baseline\n- Remaining gaps: active knowledge remains open to enrichment candidates\n- Reason: ${reason || "promotion requested"}\n- Commit hash if synced: pending\n`;\n+try {\n+  if (!(await exists(activationPath))) await fs.writeFile(activationPath, `# Activation Review\n`, "utf8");\n+  await fs.appendFile(activationPath, activationEntry, "utf8");\n+} catch {}
+const activationEntry = `\n## ${new Date().toISOString()}\n- Date: ${today}\n- Pack/blob ID: ${id}\n- Previous status: ${previousStatus}\n- New status: active\n- Reviewer mode: ${reviewerMode}\n- Source ledger verdict: passed (${sourceUrlCount} URL/source references or internal/user-authored source noted)\n- Specs verdict: passed\n- Artifacts verdict: passed (${artifacts.length})\n- Verification verdict: passed\n- Safety/copyright verdict: no copied source/assets detected by promotion checks\n- Dedupe verdict: related/overlap review remains task-level responsibility\n- Final decision: promoted active usable baseline\n- Remaining gaps: active knowledge remains open to enrichment candidates\n- Reason: ${reason || "promotion requested"}\n- Commit hash if synced: pending\n`;
+try {
+  if (!(await exists(activationPath))) await fs.writeFile(activationPath, `# Activation Review\n`, "utf8");
+  await fs.appendFile(activationPath, activationEntry, "utf8");
+} catch {}
 
 const enrichmentPath = path.join(packPath, "enrichment-history.md");
 if (!(await exists(enrichmentPath))) {

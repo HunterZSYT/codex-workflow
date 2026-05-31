@@ -17,3 +17,19 @@ Reviewed candidate knowledgebase updates. Do not treat proposed entries as activ
 - Approval required: yes
 - Validation needed: retrieval search, sufficiency gate, targeted verification
 - Status: proposed
+
+## 2026-05-31T23:35:57.205Z
+- Date: 2026-05-31
+- Triggering event(s): , 2026-05-25T22:13:09.578Z, 2026-05-28T13:27:22.223Z
+- Capability: GSAP Lenis WordPress motion
+- Root cause: active_missing_edge
+- Existing item found by retrieval: active pack.frontend.motion.gsap-lenis-wordpress
+- Proposed target: pack -> frontend.motion.gsap-lenis-wordpress
+- Proposed patch: Add duplicate-init prevention checklist candidate.
+- Lifecycle action: enrichment_candidate_against_active_item
+- Evidence: Simulation: implementation failed because duplicate-init prevention was missing.
+- Source/docs needed: official/current docs if external capability is involved
+- Risk of change: medium
+- Approval required: yes
+- Validation needed: retrieval search, sufficiency gate, targeted verification
+- Status: proposed
