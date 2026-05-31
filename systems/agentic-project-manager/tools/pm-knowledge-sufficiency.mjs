@@ -288,6 +288,7 @@ if (/quick fix|just quick/i.test(task) && !classification.backendDatabaseSafetyG
 
 const result = {
   task,
+  frontend_layer_scope: classification.frontendLayerScope,
   capabilities_detected: capabilities.map(item => item.capability),
   retrieved_items: retrieved.map(item => ({
     id: item.id,
@@ -329,6 +330,12 @@ if (jsonOnly) {
   console.log(JSON.stringify(result, null, 2));
 } else {
   console.log(`Knowledge Sufficiency Gate: ${decision}`);
+  if (result.frontend_layer_scope?.applicable) {
+    console.log(`Frontend layers: ${result.frontend_layer_scope.layers.join(", ") || "none"}`);
+    console.log(`Frontend scopes: ${result.frontend_layer_scope.scopes.join(", ") || "none"}`);
+    console.log(`Frontend owners: ${result.frontend_layer_scope.ownerKnowledge.join(", ") || "none"}`);
+    console.log(`Frontend verification: ${result.frontend_layer_scope.verification.join(", ") || "none"}`);
+  }
   console.log(`Reasons: ${result.reasons.join(", ") || "none"}`);
   console.log(`Capabilities: ${result.capabilities_detected.join(", ") || "none"}`);
   console.log(`Active: ${result.active_items.join(", ") || "none"}`);

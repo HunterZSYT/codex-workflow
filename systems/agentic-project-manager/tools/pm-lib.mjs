@@ -98,6 +98,7 @@ export function classifyTask(task) {
   const semanticNav = unique.includes("semantic navigation");
   const capabilityOrchestrationRecommended = detectedKnowledgeTerms.length > 0 || detectedOrchestrationPhrases.length > 0 || unique.includes("capability orchestration") || risky || unique.length > 1;
   const type = unique.length > 1 ? "mixed" : unique[0] || "unknown";
+  const frontendLayerScope = classifyFrontendLayerScope(t);
   const skills = [];
   if (visual) skills.push("frontend-tool-orchestrator", "frontend-inspection-discipline");
   if (backend) skills.push("backend-database-tool-orchestrator");
@@ -135,6 +136,7 @@ export function classifyTask(task) {
     buildTestNeeded: !unique.includes("copy/content-only") && (visual || backend),
     backendDatabaseSafetyGatesNeeded: backend,
     userApprovalBeforeWrites: risky,
+    frontendLayerScope,
     capabilityOrchestration: capabilityOrchestrationRecommended
       ? {
           recommended: true,
@@ -151,6 +153,106 @@ export function classifyTask(task) {
         : semanticNav
           ? "Serena preferred when semantic navigation is available"
           : "normal search/read first; escalate only if direct inspection is insufficient"
+  };
+}
+
+export function classifyFrontendLayerScope(t) {
+  const text = String(t || "").toLowerCase();
+  const layers = [];
+  const scopes = [];
+  const owners = [];
+  const verification = [];
+  const add = (list, value) => { if (!list.includes(value)) list.push(value); };
+  const hit = rx => rx.test(text);
+
+  if (hit(/layout|grid|container|alignment|hero|section|page|overflow|sticky|sidebar|dashboard/)) {
+    add(layers, "Layout Structure");
+    add(owners, "layout-composition-fundamentals");
+  }
+  if (hit(/spacing|padding|margin|gap|rhythm|density|crowded|empty|breathing/)) {
+    add(layers, "Spacing Rhythm");
+    add(owners, "dynamic-ui-spacing-rhythm-logic");
+  }
+  if (hit(/typography|font|text|heading|headline|line-height|readability|type scale|copy/)) {
+    add(layers, "Typography System");
+    add(owners, "dynamic-ui-typography-logic");
+  }
+  if (hit(/color|contrast|palette|foreground|background|brand|hover color|state color/)) {
+    add(layers, "Color & Contrast System");
+    add(owners, "dynamic-ui-color-contrast-logic");
+  }
+  if (hit(/button|input|card|modal|dialog|tab|accordion|component|primitive|shadcn|radix/)) {
+    add(layers, "Component Primitive System");
+    add(owners, "component-supply-router");
+    add(owners, "library-first-ui-builder");
+  }
+  if (hit(/hover|focus|focus-visible|active|pressed|disabled|loading|selected|current|expanded|collapsed|state/)) {
+    add(layers, "Interaction Feedback");
+    add(owners, "frontend.interaction.interaction-feedback-states");
+    add(verification, "interaction state proof when visual/behavioral claim is made");
+  }
+  if (hit(/motion|animation|transition|scroll|gsap|lenis|framer|reveal/)) {
+    add(layers, "Motion System");
+    add(owners, "motion-quality-router");
+  }
+  if (hit(/responsive|mobile|tablet|breakpoint|wide|narrow|stack|reflow|resize/)) {
+    add(layers, "Responsive Structure");
+    add(owners, "frontend.responsive.responsive-structure-adaptation");
+    add(verification, "mobile emulation for mobile claims");
+  }
+  if (hit(/accessibility|a11y|aria|keyboard|screen reader|label|semantic|focus/)) {
+    add(layers, "Accessibility & Semantics");
+    add(owners, "accessibility-gate");
+  }
+  if (hit(/content|information architecture|ia|cta|message|scan path|section order/)) {
+    add(layers, "Content & Information Architecture");
+    add(owners, "project-manager-execution-ledger");
+  }
+  if (hit(/image|media|icon|video|aspect ratio|object-fit|crop|avatar|illustration/)) {
+    add(layers, "Visual Media System");
+    add(owners, "frontend.media.visual-media-system");
+  }
+  if (hit(/form|field|input|placeholder|validation|submit|required|optional|helper|error/)) {
+    add(layers, "Form & Input System");
+    add(owners, "frontend.forms.form-input-system");
+  }
+  if (hit(/empty|skeleton|success|no-results|offline|permission|error state|loading state/)) {
+    add(layers, "State System");
+    add(owners, "frontend.state.frontend-state-system");
+  }
+  if (hit(/nav|navbar|navigation|header|menu|breadcrumb|route|sticky header|mobile menu/)) {
+    add(layers, "Navigation System");
+    add(owners, "frontend.navigation.navigation-system");
+  }
+  if (hit(/performance|lighthouse|core web vitals|lcp|cls|bundle|lazy|layout shift/)) {
+    add(layers, "Performance System");
+    add(owners, "performance-triage");
+  }
+  if (hit(/verify|proof|screenshot|inspect|dom measurement|overflow|visual claim/)) {
+    add(layers, "Verification System");
+    add(owners, "frontend-inspection-discipline");
+  }
+
+  if (hit(/token|variable|css var|design token|theme token|radius|shadow|duration/)) add(scopes, "token");
+  if (hit(/label|icon|badge|image|text|button text/)) add(scopes, "element");
+  if (hit(/button|input|card|modal|dialog|tab|accordion|navbar item|component/)) add(scopes, "primitive component");
+  if (hit(/card grid|form group|nav group|pricing group|gallery|component group/)) add(scopes, "component group");
+  if (hit(/section|hero|feature|testimonial|pricing|faq|contact|product section/)) add(scopes, "section");
+  if (hit(/page|landing|dashboard|checkout|article|product page/)) add(scopes, "page");
+  if (hit(/template|layout template|page structure/)) add(scopes, "template");
+  if (hit(/site|system|global|theme|design system|navigation language|whole/)) add(scopes, "site/system");
+  if (!scopes.length && layers.length) add(scopes, "component/section");
+  if (!verification.length && hit(/visual|layout|responsive|mobile|hover|focus|sticky|overflow/)) add(verification, "rendered inspection when claiming visual success");
+  if (hit(/accessibility|form|nav|keyboard|focus|aria/)) add(verification, "keyboard/focus/semantic accessibility review");
+  if (hit(/performance|image|media|cls|lcp/)) add(verification, "performance/media check only when in scope");
+
+  return {
+    applicable: layers.length > 0,
+    layers,
+    scopes,
+    ownerKnowledge: owners,
+    localOrSystemic: scopes.some(s => /template|site|system|token/.test(s)) ? "systemic risk" : "local unless reused component/token is touched",
+    verification
   };
 }
 

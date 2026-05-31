@@ -1,0 +1,48 @@
+id: frontend.system.ui-layer-scope-model
+title: Frontend UI Layer Scope Model
+namespace: frontend
+owner_system: agentic-frontend
+owner_skill: frontend-tool-orchestrator
+status: candidate
+maturity: specified
+source_confidence: mixed
+aliases:
+  - ui layers
+  - frontend layers
+  - scope ladder
+  - ui scope ladder
+  - frontend layer system
+trigger_terms:
+  - frontend layers
+  - ui scope ladder
+  - layout structure
+  - spacing rhythm
+  - typography system
+  - interaction feedback
+  - responsive structure
+  - button to section to page site scope
+related_blobs:
+  - frontend.interaction.interaction-feedback-states
+  - frontend.responsive.responsive-structure-adaptation
+  - frontend.state.frontend-state-system
+  - frontend.media.visual-media-system
+  - frontend.forms.form-input-system
+  - frontend.navigation.navigation-system
+related_packs:
+  - frontend.layout.swiss-editorial-grid
+  - frontend.wordpress.theme-design-system
+  - frontend.motion.gsap-lenis-wordpress
+artifact_paths:
+  - artifacts/frontend-layer-routing-matrix.md
+  - artifacts/ui-scope-impact-checklist.md
+  - artifacts/frontend-layer-scope-ladder.md
+  - artifacts/verification-by-layer.md
+apply_commands:
+  []
+verification_methods:
+  - Run knowledge search and sufficiency tests for frontend layer/scope tasks.
+  - Verify routing points to owner skills/blobs/packs without creating new skills.
+safe_to_sync: true
+last_verified: 2026-06-01
+approval_status: not_requested
+

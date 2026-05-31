@@ -5,6 +5,8 @@ Purpose: select correct specialist skills/tools.
 Rules:
 - Do not use all tools every time.
 - Choose smallest skill/tool that proves the claim.
+- For frontend tasks, identify UI layer, UI scope, owner skill/blob/pack, local vs systemic impact, and verification method before choosing tools.
+- Use `frontend.system.ui-layer-scope-model` as candidate routing material for multi-layer or cross-scope frontend work.
 - Before medium/large/risky/unknown tasks, run `pm-knowledge-sufficiency.mjs --task "<task>"`.
 - Run Capability Gap Radar for medium, high-risk, unclear, repeated, or tool-evaluation tasks.
 - Run Capability Orchestration Radar for tasks that mention external libraries/tools/packages/MCPs, require current docs, combine multiple capabilities, or request best-practice stack/tool selection.
@@ -39,6 +41,12 @@ Tool decision logic:
 - Serena: semantic symbol/class/function navigation when available and useful.
 - Frontend inspect: rendered visual proof, responsive/mobile/layout, overflow, sticky, header, button, or spacing claims.
 - Accessibility/performance tools: only when directly involved, or nav/forms/modals/buttons were touched for accessibility.
+
+Frontend layer/scope examples:
+- Fix button hover: interaction feedback, element/primitive component, `frontend.interaction.interaction-feedback-states`, interaction proof if visual/behavioral claim is made.
+- Fix card grid spacing: spacing + layout, component group/section, spacing rhythm + layout composition.
+- Improve landing page design: layout, spacing, typography, color, IA, responsive, motion, page/site, Project Manager + frontend-tool-orchestrator.
+- Mobile header overflow: layout, responsive, navigation, verification, component/site nav, mobile emulation and overflow measurement.
 
 Escalation budget:
 - Small: direct inspection only; no CodeGraph/Understand Anything unless search fails.
