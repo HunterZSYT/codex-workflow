@@ -21,7 +21,11 @@ const CAPABILITY_TERMS = [
   { capability: "Color contrast and neutral fallback", terms: ["contrast", "accessible", "accessibility", "color"], highRisk: false },
   { capability: "PHP form email handling", terms: ["phpmailer", "smtp", "contact form", "php mail"], external: true },
   { capability: "SQL safety patterns", terms: ["sql", "database", "migration", "delete rows", "drop", "truncate"], highRisk: true },
-  { capability: "Nginx edit safety", terms: ["nginx", "server block", "reverse proxy", "vps"], external: true, highRisk: true }
+  { capability: "Nginx edit safety", terms: ["nginx", "server block", "reverse proxy", "vps"], external: true, highRisk: true },
+  { capability: "WordPress theme development", terms: ["wordpress theme", "wp theme", "block theme", "classic theme", "theme.json", "functions.php", "wp_enqueue_script", "wp_enqueue_style", "enqueue scripts", "enqueue styles"], external: true },
+  { capability: "WordPress WooCommerce theme development", terms: ["woocommerce theme", "woocommerce template override", "woocommerce hooks", "woocommerce child theme", "single product template", "archive product", "checkout template", "product gallery", "product carousel"], external: true, highRisk: true },
+  { capability: "WordPress theme design system", terms: ["wordpress design system", "theme.json design tokens", "theme.json spacing", "theme.json typography", "theme.json color", "editor frontend parity", "block pattern design"], external: true },
+  { capability: "GSAP Lenis WordPress motion", terms: ["gsap wordpress", "lenis wordpress", "scrolltrigger wordpress", "animated wordpress theme", "wordpress scroll animation"], external: true }
 ];
 
 const ECOSYSTEM_SCOUT_TERMS = [
@@ -29,7 +33,7 @@ const ECOSYSTEM_SCOUT_TERMS = [
   "what tools exist", "what should we use", "reusable source", "existing solution",
   "existing software", "github trending", "find repos", "component source",
   "starter kit", "starter", "template", "registry", "wordpress theme",
-  "woocommerce", "theme development", "plugin ecosystem", "animation library",
+  "woocommerce", "theme development", "wordpress theme", "wp theme", "block theme", "classic theme", "theme.json", "create block theme", "roots sage", "sage", "_s", "underscores", "plugin ecosystem", "animation library",
   "carousel", "custom carousel", "carousel library", "gallery", "gallery library", "mcp server", "integration knowledge",
   "fill knowledgebase", "add knowledge", "teach the system", "add integration knowledge",
   "use best tools", "build with existing tools", "don't generate from scratch",
@@ -78,6 +82,8 @@ function sourceCategoriesFor(text) {
     categories.add("WordPress plugin/theme directories");
   }
   if (/woocommerce|ecommerce|commerce|shop/.test(t)) categories.add("WooCommerce Developer Docs");
+  if (/theme\.json|block theme|wordpress design system/.test(t)) categories.add("WordPress theme.json/global styles docs");
+  if (/sage|roots|underscores|_s|create block theme|starter theme/.test(t)) categories.add("WordPress starter theme repositories");
   if (/animation|motion|gsap|lenis/.test(t)) categories.add("animation/motion library docs");
   if (/carousel|gallery/.test(t)) categories.add("carousel/gallery libraries");
   if (/github|repo|starter|template|boilerplate|theme|plugin/.test(t)) categories.add("GitHub discovery");

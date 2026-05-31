@@ -1,0 +1,42 @@
+id: frontend.wordpress.theme-design-system
+title: WordPress Theme Design System
+namespace: frontend
+owner_system: agentic-frontend
+owner_skill: frontend-tool-orchestrator
+status: candidate
+maturity: researched
+source_confidence: sourced
+aliases:
+  - wordpress design system
+  - wordpress theme.json tokens
+  - block theme design system
+  - editor frontend parity
+trigger_terms:
+  - WordPress design system
+  - theme.json design tokens
+  - theme.json spacing
+  - theme.json typography
+  - theme.json color
+  - block styles
+  - style variations
+  - editor frontend parity
+related_blobs:
+  - frontend.spacing.spacing-rhythm-scale
+  - frontend.typography.type-scale-hierarchy
+  - frontend.color.contrast-ratio-formula
+  - frontend.layout.layout-grid-composition
+related_packs:
+  []
+artifact_paths:
+  - artifacts/theme-json-token-checklist.md
+  - artifacts/wordpress-layout-spacing-map.md
+  - artifacts/wordpress-typography-map.md
+  - artifacts/block-pattern-design-checklist.md
+  - artifacts/editor-frontend-parity-checklist.md
+apply_commands:
+  []
+verification_methods:
+  - Audit pack readiness before implementation.
+safe_to_sync: true
+last_verified: 2026-05-31
+approval_status: not_requested

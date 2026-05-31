@@ -1,0 +1,41 @@
+id: backend.wordpress.woocommerce-theme-development
+title: WordPress WooCommerce Theme Development
+namespace: backend
+owner_system: agentic-backend-database
+owner_skill: backend-database-tool-orchestrator
+status: candidate
+maturity: researched
+source_confidence: sourced
+aliases:
+  - woocommerce theme development
+  - woocommerce template override
+  - woocommerce child theme
+  - woocommerce hooks
+  - product template
+trigger_terms:
+  - WooCommerce theme
+  - WooCommerce template override
+  - product gallery
+  - product carousel
+  - single product template
+  - archive product
+  - checkout template
+  - child theme override
+related_blobs:
+  []
+related_packs:
+  []
+artifact_paths:
+  - artifacts/woocommerce-hooks-first-decision-tree.md
+  - artifacts/woocommerce-template-override-checklist.md
+  - artifacts/woocommerce-child-theme-override-map.md
+  - artifacts/woocommerce-page-verification-checklist.md
+  - artifacts/woocommerce-gallery-carousel-reuse-scout.md
+apply_commands:
+  []
+verification_methods:
+  - Audit pack readiness before implementation.
+  - Verify template override version status, storefront archive/product/cart/checkout/account flows, logs, and rollback plan.
+safe_to_sync: true
+last_verified: 2026-05-31
+approval_status: not_requested

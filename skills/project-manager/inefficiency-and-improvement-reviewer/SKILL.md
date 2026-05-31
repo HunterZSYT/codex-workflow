@@ -11,6 +11,7 @@ Learning rules:
 - Researching only the user-named tool when adjacent ecosystem options are clearly relevant counts as an ecosystem scout failure.
 - Installing, cloning, copying, or activating a public repo from an "absorb this" request without a repo absorption report, license check, source absorption ledger, and approval counts as a source absorption failure.
 - Treating a repo absorption report as active knowledge before approval counts as a knowledge product failure.
+- Implementing WordPress/WooCommerce/theme.json/GSAP-Lenis WordPress work without checking the candidate WordPress packs or current official docs counts as a knowledge sufficiency failure.
 - Repeated missing knowledge should propose a blob/pack update, not a random new skill.
 - Repeated retrieval misses should propose aliases/trigger terms/registry/index improvements.
 - One-off lessons remain candidates unless explicitly approved.

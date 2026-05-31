@@ -51,7 +51,9 @@ export function classifyTask(task) {
     "gsap", "scrolltrigger", "lenis", "shadcn", "tailwind", "phpmailer", "prisma", "drizzle",
     "supabase", "stripe", "docker", "nginx", "caddy", "pm2", "systemd", "codegraph",
     "understand anything", "serena", "wordpress", "woocommerce", "carousel library", "gallery library",
-    "mcp server", "starter kit", "component source", "registry"
+    "mcp server", "starter kit", "component source", "registry", "theme.json", "wp_enqueue_script",
+    "wp_enqueue_style", "create block theme", "roots sage", "underscores", "scrolltrigger wordpress",
+    "lenis wordpress", "gsap wordpress"
   ];
   const orchestrationPhrases = [
     "figure out everything needed", "use every necessary tool", "take control", "best practice",
@@ -61,7 +63,9 @@ export function classifyTask(task) {
     "best tool", "best library", "what tools exist", "what should we use", "find reusable sources",
     "build with existing tools", "don't generate from scratch", "research and add",
     "absorb this repo", "absorb into our system", "learn from this repo", "mine this repo",
-    "strip goodies", "extract workflow", "copy useful patterns", "source reference"
+    "strip goodies", "extract workflow", "copy useful patterns", "source reference",
+    "wordpress theme ecosystem", "woocommerce theme ecosystem", "wordpress starter theme",
+    "wordpress design system", "animated wordpress theme"
   ];
   const detectedKnowledgeTerms = externalToolTerms.filter(term => t.includes(term));
   const detectedOrchestrationPhrases = orchestrationPhrases.filter(term => t.includes(term));
@@ -69,6 +73,8 @@ export function classifyTask(task) {
   add("database/schema", /database|schema|migration|prisma|drizzle|postgres|mysql|sqlite|mongo|redis/);
   add("VPS/SSH/server", /ssh|vps|server|nginx|apache|caddy|systemd|pm2|docker|firewall|logs?/);
   add("backend/API", /api|endpoint|route|controller|backend|server action|webhook|auth|jwt/);
+  add("WordPress theme development", /wordpress theme|wp theme|block theme|classic theme|theme\.json|functions\.php|wp_enqueue_script|wp_enqueue_style|create block theme|roots sage|underscores|_s/);
+  add("WooCommerce theme development", /woocommerce theme|woocommerce template|woocommerce hooks|single product template|archive product|checkout template|product gallery|product carousel/);
   add("deployment", /deploy|deployment|production|release|rollback|ssl|domain/);
   add("security/env/secrets", /\.env|secret|token|password|credential|security|auth/);
   add("codebase knowledge graph recon", /understand .*project|understand .*codebase|codebase.*understand|architecture|dependency|dependencies|onboarding|impact analysis|business.*flow|project.*flow|codebase.*flow/);

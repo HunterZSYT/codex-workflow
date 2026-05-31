@@ -1,0 +1,39 @@
+id: frontend.motion.gsap-lenis-wordpress
+title: GSAP Lenis WordPress Motion
+namespace: frontend
+owner_system: agentic-frontend
+owner_skill: motion-quality-router
+status: candidate
+maturity: researched
+source_confidence: sourced
+aliases:
+  - GSAP Lenis WordPress
+  - ScrollTrigger WordPress
+  - animated WordPress theme
+trigger_terms:
+  - GSAP WordPress
+  - Lenis WordPress
+  - ScrollTrigger WordPress
+  - animated WordPress theme
+  - WordPress scroll animation
+  - WordPress motion
+related_blobs:
+  - frontend.motion.gsap-react-scrolltrigger
+  - frontend.motion.lenis-scroll-sync
+  - frontend.motion.scroll-scene-composition
+  - frontend.motion.reduced-motion-policy
+related_packs:
+  []
+artifact_paths:
+  - artifacts/wordpress-gsap-enqueue-checklist.md
+  - artifacts/wordpress-lenis-scrolltrigger-sync-checklist.md
+  - artifacts/wordpress-scroll-scene-verification-checklist.md
+  - artifacts/reduced-motion-checklist.md
+  - artifacts/animation-init-safety-checklist.md
+apply_commands:
+  []
+verification_methods:
+  - Audit pack readiness before implementation.
+safe_to_sync: true
+last_verified: 2026-05-31
+approval_status: not_requested

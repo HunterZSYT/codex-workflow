@@ -1,0 +1,45 @@
+id: backend.wordpress.theme-development
+title: WordPress Theme Development
+namespace: backend
+owner_system: agentic-backend-database
+owner_skill: backend-database-tool-orchestrator
+status: candidate
+maturity: researched
+source_confidence: sourced
+aliases:
+  - wordpress theme development
+  - wp theme
+  - block theme
+  - classic theme
+  - theme.json
+  - functions.php
+trigger_terms:
+  - WordPress theme
+  - WP theme
+  - block theme
+  - classic theme
+  - theme.json
+  - functions.php
+  - enqueue scripts
+  - enqueue styles
+  - wp_enqueue_script
+  - wp_enqueue_style
+related_blobs:
+  []
+related_packs:
+  []
+artifact_paths:
+  - artifacts/block-vs-classic-theme-decision-tree.md
+  - artifacts/wordpress-theme-file-map.md
+  - artifacts/theme-json-design-token-map.md
+  - artifacts/asset-enqueue-checklist.md
+  - artifacts/theme-verification-checklist.md
+  - artifacts/local-dev-tooling-options.md
+apply_commands:
+  []
+verification_methods:
+  - Audit pack readiness before implementation.
+  - Verify PHP syntax, WordPress debug logs, rendered frontend, editor/front-end parity, and asset enqueue output in a real project.
+safe_to_sync: true
+last_verified: 2026-05-31
+approval_status: not_requested
