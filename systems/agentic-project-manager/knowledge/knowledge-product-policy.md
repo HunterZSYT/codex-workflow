@@ -76,7 +76,9 @@ Before creating a new blob, pack, artifact, script, skill, MCP note, or doc:
 
 New packs start as `draft` or `candidate`.
 
-Activation requires approval. Do not mark a pack `active` unless the user approves and promotion checks pass.
+Activation requires approval or AI-audited activation requested by the user. Do not mark a pack `active` unless promotion checks pass.
+
+Activation is not finalization. `active` means approved usable baseline that remains open to enrichment. Future errors, source discoveries, repo absorption, user corrections, outdated docs, better tools, and ecosystem changes should create enrichment candidates against the active item instead of silently rewriting it or creating duplicate skills.
 
 ## Maturity Rules
 
@@ -87,6 +89,16 @@ Activation requires approval. Do not mark a pack `active` unless the user approv
 - `verified`: artifact-backed and verification criteria have been proven
 
 A pack is not reusable if it only contains advice. If there are no artifacts, apply commands, or exact specs, keep it candidate/researched.
+
+## Lifecycle Status Rules
+
+- `idea`: raw thought or possible capability
+- `candidate`: staged but not active implementation authority
+- `active`: approved usable baseline
+- `enrichment_candidate`: proposed improvement against candidate/active knowledge
+- `active_updated`: active item after approved enrichment
+- `stale`: active but refresh/review is needed
+- `deprecated`: replaced by better knowledge
 
 ## Naming
 

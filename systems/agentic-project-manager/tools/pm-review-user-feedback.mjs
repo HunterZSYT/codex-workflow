@@ -47,7 +47,7 @@ for (const item of items) counts.set(`${item.classification} -> ${item.owner}`, 
 const recommendations = [...counts.entries()].map(([target, count]) => ({
   target,
   count,
-  action: count > 1 ? "consider promoted policy/blob update after approval" : "keep as proposed candidate unless user explicitly requested update"
+  action: count > 1 ? "consider enrichment candidate or promoted policy/blob update after approval" : "keep as proposed candidate unless user explicitly requested update"
 }));
 
 console.log(JSON.stringify({ patterns: items.length, items, recommendations }, null, 2));

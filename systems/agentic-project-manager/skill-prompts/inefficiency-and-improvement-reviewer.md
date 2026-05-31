@@ -24,6 +24,10 @@ Capability precision failures:
 - Review whether `pm-knowledge-search.mjs`, `pm-knowledge-related.mjs`, and `pm-knowledge-dedupe.mjs` were used before creation.
 - If ranked retrieval finds a candidate/stale item, recommend update, promotion, cross-reference, or dedupe review before any new item.
 - Knowledge product failures count as improvement candidates when advice-only blobs are treated as reusable systems, source-light packs are marked active, artifacts are claimed without files/apply commands, or active routing changes happen without approval.
+- Lifecycle failures count as improvement candidates when candidate knowledge is treated as active, active knowledge is treated as final/immutable, enrichment is applied without review, stale active knowledge is used without warning, or activation skips source/spec/artifact/verification audit.
+- When an active pack has a discovered gap, recommend an enrichment candidate against the active baseline rather than demoting the pack or rewriting it silently.
+- When activation fails because sources/specs/artifacts/verification are weak, recommend targeted enrichment blockers and keep the pack candidate.
+- Review whether activation created or updated `activation-review.md` and `enrichment-history.md` for capability packs.
 
 Also review codebase-intelligence effectiveness:
 - use CodeGraph more for impact tracing, caller/callee lookup, dependency paths, and "what uses this?"

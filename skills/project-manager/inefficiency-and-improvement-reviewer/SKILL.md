@@ -1,43 +1,43 @@
-﻿---
-name: inefficiency-and-improvement-reviewer
-description: Use at task completion to review logs and suggest workflow, skill, script, MCP, task splitting, verification, and AGENTS.md improvements based on observed inefficiencies.
----
-
 # Inefficiency and Improvement Reviewer
 
-Learning rules:
-- Vague implementation from broad AI memory counts as a knowledge sufficiency failure.
+Purpose: at task completion, review logs and suggest system improvements.
+
+Look for repeated manual steps, wrong skill/tool choice, too many verification loops, missing scripts, missing MCPs, missing project docs, skill prompt gaps, tool failures, over-bundled tasks, under-bundled tasks, unnecessary screenshots/tests, and missing safety gates.
+
+Capability precision failures:
+- A vague package recommendation without best-practice operating rules counts as an inefficiency.
+- Vague generation from broad AI memory is a knowledge sufficiency failure.
 - Custom generation before scouting official docs, repositories, registries, component sources, MCPs, starter kits, or existing ecosystem tools counts as an ecosystem scout failure.
 - Researching only the user-named tool when adjacent ecosystem options are clearly relevant counts as an ecosystem scout failure.
 - Installing, cloning, copying, or activating a public repo from an "absorb this" request without a repo absorption report, license check, source absorption ledger, and approval counts as a source absorption failure.
-- Treating a repo absorption report as active knowledge before approval counts as a knowledge product failure.
 - Implementing WordPress/WooCommerce/theme.json/GSAP-Lenis WordPress work without checking the candidate WordPress packs or current official docs counts as a knowledge sufficiency failure.
-- Repeated missing knowledge should propose a blob/pack update, not a random new skill.
-- Repeated retrieval misses should propose aliases/trigger terms/registry/index improvements.
-- One-off lessons remain candidates unless explicitly approved.
-- User corrections should be logged as reusable feedback candidates when they express workflow, safety, tool, naming, or knowledgebase rules.
+- Treating a repo absorption report as active knowledge before approval counts as a knowledge product failure.
+- Repeated "need package/tool" answers without owner skill, active knowledge blob, docs source, and verification method should propose a knowledge blob update.
+- Repeated missing knowledge proposes a blob/pack update, not a random new skill.
+- Repeated retrieval failures propose alias/trigger/index metadata updates.
+- Repeated wrong tool/skill choices propose routing micro-updates.
+- Repeated weak verification proposes verification skill/blob updates.
+- User feedback can create candidate preference/workflow updates, but activation needs approval unless explicitly requested.
+- Prefer the micro-update order: use active blob, update blob, add blob under existing skill, add short owner-skill pointer, add docs/pattern note, add script, add MCP config, create new skill only when no owner fits.
+- Do not promote raw task logs; summarize sanitized capability lessons only.
+- Retrieval failures count as improvement candidates when an existing blob, skill, artifact, script, MCP, or doc was missed and the agent created or proposed something new.
+- Review whether `pm-knowledge-search.mjs`, `pm-knowledge-related.mjs`, and `pm-knowledge-dedupe.mjs` were used before creation.
+- If ranked retrieval finds a candidate/stale item, recommend update, promotion, cross-reference, or dedupe review before any new item.
+- Knowledge product failures count as improvement candidates when advice-only blobs are treated as reusable systems, source-light packs are marked active, artifacts are claimed without files/apply commands, or active routing changes happen without approval.
+- Lifecycle failures count as improvement candidates when candidate knowledge is treated as active, active knowledge is treated as final/immutable, enrichment is applied without review, stale active knowledge is used without warning, or activation skips source/spec/artifact/verification audit.
+- When an active pack has a discovered gap, recommend an enrichment candidate against the active baseline rather than demoting the pack or rewriting it silently.
+- When activation fails because sources/specs/artifacts/verification are weak, recommend targeted enrichment blockers and keep the pack candidate.
+- Review whether activation created or updated `activation-review.md` and `enrichment-history.md` for capability packs.
 
-Review repeated manual steps, wrong skill/tool choice, excessive verification loops, missing scripts, missing MCPs, missing project docs, skill gaps, tool failures, over-bundling, under-bundling, unnecessary screenshots/tests, and missing safety gates. Output prioritized recommendations.
+Also review codebase-intelligence effectiveness:
+- use CodeGraph more for impact tracing, caller/callee lookup, dependency paths, and "what uses this?"
+- use Understand Anything more for onboarding, architecture, domain flow, and documentation-style understanding
+- use Serena more when semantic navigation would reduce broad search/read loops
+- avoid CodeGraph for small known-file edits
+- avoid Understand Anything for tiny localized edits
+- update router skills, add scripts, add gitignore rules, or update `codex-workflow` docs when repeated friction appears
 
-Capability precision failures: a vague package recommendation without best-practice operating rules counts as an inefficiency. Repeated "need package/tool" answers without owner skill, active knowledge blob, docs source, and verification method should propose a knowledge blob update. Prefer the micro-update order: use active blob, update blob, add blob under existing skill, add short owner-skill pointer, add docs/pattern note, add script, add MCP config, create new skill only when no owner fits. Do not promote raw task logs; summarize sanitized capability lessons only.
-
-Retrieval failures count as improvement candidates when an existing blob, skill, artifact, script, MCP, or doc was missed and the agent created or proposed something new. Review whether `pm-knowledge-search.mjs`, `pm-knowledge-related.mjs`, and `pm-knowledge-dedupe.mjs` were used before creation. If ranked retrieval finds a candidate/stale item, recommend update, promotion, cross-reference, or dedupe review before any new item.
-
-Knowledge product failures count as improvement candidates when advice-only blobs are treated as reusable systems, source-light packs are marked active, artifacts are claimed without files/apply commands, or active routing changes happen without approval. Recommend candidate packs, source ledgers, artifact creation, or promotion review instead of new skills.
-
-For codebase intelligence routing, review whether the chosen method matched the task size and question type.
-
-Recommend:
-- Use CodeGraph more when impact tracing, caller/callee lookup, dependency paths, route/service/component relationships, "what uses this?", or "what breaks if I change this?" caused repeated manual search.
-- Use Understand Anything more when onboarding, architecture explanation, business/domain flow, or high-level documentation would reduce confusion.
-- Use Serena more when semantic symbol navigation is available and would reduce broad grep/read loops.
-- Avoid CodeGraph for small known-file edits when direct search was enough.
-- Avoid Understand Anything for tiny localized edits, copy/content-only tasks, or no-codebase tasks.
-- Update router skills, add a script, add a gitignore rule, or update `codex-workflow` docs when repeated friction appears.
-
-Tool effectiveness review should check: tool chosen, why chosen, alternatives considered, whether it reduced search/read loops, whether it found the needed context, whether it was overkill, and whether routing rules should change.
-
-Read `.ai-task/error-ledger.md`, `.ai-task/failed-commands.md`, and `.ai-task/decision-review.md` when present. Distinguish one-off issues from repeated patterns. One-off issues should be logged only. Repeated patterns should create skill/tool/script/doc update candidates. High-severity safety risks should create immediate safety-rule proposals requiring user approval.
+Output recommended skill updates, scripts, MCPs, AGENTS.md rules, `codex-workflow` docs updates, and priority level.
 
 When ecosystem scout failures repeat, recommend updating local knowledge aliases, trigger terms, source maps, option scorecards, or pack-builder docs before creating a new script or skill.
 

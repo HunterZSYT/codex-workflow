@@ -178,6 +178,9 @@ const ecosystemScoutTriggers = detectEcosystemScout(task);
 const repoAbsorption = detectRepoAbsorption(task);
 const repoAbsorptionRequired = repoAbsorption.required;
 const ecosystemScoutRequired = ecosystemScoutTriggers.length > 0 || repoAbsorptionRequired;
+const activationRequest = /\b(ai[- ]review|activate|promote|approve|make active)\b/i.test(task);
+const enrichmentRequest = /\b(enrich|deepen|refresh source|update knowledge|improve active pack|fill gaps|latest docs)\b/i.test(task);
+const taskErrorEnrichmentSignal = /\b(error|failed|failure|missed|wrong|bug)\b/i.test(task) && /\b(active|pack|blob|knowledge)\b/i.test(task);
 const retrieved = (await exists(searchTool)) ? runJson(searchTool, ["--query", task, "--limit", "12"]) : [];
 const learning = (await exists(learningTool)) ? runJson(learningTool, ["--query", task, "--limit", "8"]) : [];
 
@@ -210,6 +213,22 @@ const artifactGaps = matched
 const verificationGaps = matched
   .filter(item => item.status === "active" && !hasVerification(item) && /verify|visual|responsive|backend|database|vps|server|layout|animation|component/i.test(task))
   .map(item => ({ id: item.id || item.blob_id, capability: item.matched_capability }));
+
+const activeButGap = active
+  .filter(item => !hasSource(item) || !hasVerification(item) || (reusableSystemNeeded && !hasArtifact(item)) || /low|stale|needs-docs/i.test(item.source_confidence || ""))
+  .map(item => ({
+    id: item.id || item.blob_id,
+    source_confidence: item.source_confidence || "unknown",
+    missing: [
+      !hasSource(item) ? "source" : "",
+      !hasVerification(item) ? "verification" : "",
+      reusableSystemNeeded && !hasArtifact(item) ? "artifact" : ""
+    ].filter(Boolean)
+  }));
+
+const staleRisk = matched
+  .filter(item => item.status === "stale" || item.status === "deprecated" || /stale|low|needs-docs/i.test(item.source_confidence || ""))
+  .map(item => item.id || item.blob_id);
 
 const candidateOnlyCapabilities = capabilities
   .filter(cap => {
@@ -276,6 +295,22 @@ if (candidateOnlyCapabilities.length) {
   decision = decision === "proceed" ? "fill_knowledgebase_first" : decision;
   reasons.push("candidate-only knowledge cannot be treated as active");
 }
+if (activationRequest) {
+  decision = "ai_audit_required";
+  reasons.push("activation request requires AI quality audit before promotion");
+}
+if (enrichmentRequest) {
+  decision = "enrichment_required";
+  reasons.push("enrichment request should patch existing knowledge without freezing active baseline");
+}
+if (taskErrorEnrichmentSignal) {
+  decision = "enrichment_required";
+  reasons.push("task error maps to knowledge enrichment candidate");
+}
+if (activeButGap.length && decision === "proceed") {
+  decision = "proceed_with_warning";
+  reasons.push("active knowledge has enrichment gap");
+}
 if (artifactGaps.length) {
   decision = decision === "proceed" ? "fill_knowledgebase_first" : decision;
   reasons.push("reusable system needs artifact/apply-command backing");
@@ -295,6 +330,12 @@ if (/quick fix|just quick/i.test(task) && !classification.backendDatabaseSafetyG
 
 const result = {
   task,
+  lifecycle_status: activationRequest ? "activation_requested" : enrichmentRequest || taskErrorEnrichmentSignal ? "enrichment_requested" : candidate.length ? "candidate_present" : active.length ? "active_available" : "none",
+  activation_needed: activationRequest || (candidateOnlyCapabilities.length > 0 && /implement|build|use|with candidate/i.test(task)),
+  enrichment_needed: enrichmentRequest || taskErrorEnrichmentSignal || activeButGap.length > 0,
+  stale_risk: staleRisk,
+  active_but_gap: activeButGap,
+  recommended_lifecycle_action: activationRequest ? "run_ai_audited_activation_workflow" : enrichmentRequest || taskErrorEnrichmentSignal ? "run_knowledge_enrichment_workflow" : activeButGap.length ? "create_enrichment_candidate_or_refresh" : candidateOnlyCapabilities.length ? "activate_or_enrich_first" : "none",
   frontend_layer_scope: classification.frontendLayerScope,
   capabilities_detected: capabilities.map(item => item.capability),
   retrieved_items: retrieved.map(item => ({
@@ -343,6 +384,12 @@ if (jsonOnly) {
     console.log(`Frontend owners: ${result.frontend_layer_scope.ownerKnowledge.join(", ") || "none"}`);
     console.log(`Frontend verification: ${result.frontend_layer_scope.verification.join(", ") || "none"}`);
   }
+  console.log(`Lifecycle status: ${result.lifecycle_status}`);
+  console.log(`Activation needed: ${result.activation_needed ? "yes" : "no"}`);
+  console.log(`Enrichment needed: ${result.enrichment_needed ? "yes" : "no"}`);
+  console.log(`Stale risk: ${result.stale_risk.join(", ") || "none"}`);
+  console.log(`Active but gap: ${result.active_but_gap.map(x => x.id).join(", ") || "none"}`);
+  console.log(`Recommended lifecycle action: ${result.recommended_lifecycle_action}`);
   console.log(`Reasons: ${result.reasons.join(", ") || "none"}`);
   console.log(`Capabilities: ${result.capabilities_detected.join(", ") || "none"}`);
   console.log(`Active: ${result.active_items.join(", ") || "none"}`);

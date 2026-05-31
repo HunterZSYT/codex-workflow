@@ -19,7 +19,7 @@ function ftsQuery(value) {
 
 function maturityRecommendation(item) {
   const artifactCount = Number(item.artifacts_count || 0);
-  if (item.type === "capability_pack" && item.status === "active" && item.approval_status === "approved" && artifactCount > 0) {
+  if (item.type === "capability_pack" && item.status === "active" && /approved/.test(item.approval_status || "") && artifactCount > 0) {
     return "approved active pack; use artifacts with task-fit verification";
   }
   if (item.type === "capability_pack" && item.approval_status !== "approved") {

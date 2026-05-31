@@ -8,6 +8,8 @@ Before implementation, the agent must decide whether the local knowledgebase has
 
 Raw event storage can hoard sanitized events. Active knowledgebase must stay strict, source-backed, deduplicated, and approved.
 
+Activation means approved usable baseline, not finished forever. Active blobs and packs remain open to enrichment from new sources, repo absorption, task failures, user corrections, outdated docs, better tools, repeated errors, and ecosystem changes.
+
 ## Loop 1: Pre-action Knowledge Sufficiency
 
 Task arrives:
@@ -76,6 +78,7 @@ Error happens:
 Rules:
 
 - Missing knowledge proposes blob/pack update first.
+- If the mapped owner item is active, create an enrichment candidate against that active item instead of treating it as closed.
 - Wrong execution pattern proposes artifact/script/command recipe update.
 - Wrong routing proposes routing skill micro-update.
 - Weak verification proposes verification skill/blob update.
@@ -93,5 +96,6 @@ Future task:
 Rules:
 
 - Active learning is promoted, sanitized, and reviewed.
+- Active knowledge is preferred for implementation, but active knowledge can still be marked stale or enriched when evidence changes.
 - Candidate learning is advisory and must not override task evidence.
 - Raw event logs are evidence stores, not implementation instructions.

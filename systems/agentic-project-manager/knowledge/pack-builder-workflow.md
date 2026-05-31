@@ -57,7 +57,7 @@ Show:
 - what remains uncertain
 - whether to activate, keep candidate, or revise
 
-7. Activate only after approval.
+7. Activate only after approval or AI-audited activation requested by the user.
 
 If approved:
 
@@ -69,6 +69,10 @@ If approved:
 - validate/redact/commit/push if safe
 
 If not approved, leave draft/candidate and do not affect active routing.
+
+## Enrichment After Activation
+
+Active packs are approved usable baselines, not finished forever. If later evidence shows a gap, outdated source, better tool, implementation failure, user correction, or repo absorption opportunity, create an enrichment candidate and preserve the previous knowledge. Do not silently overwrite active knowledge.
 
 ## Implementation Gate
 

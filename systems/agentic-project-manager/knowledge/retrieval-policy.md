@@ -28,6 +28,8 @@ Only then decide:
 
 If retrieval finds a candidate blob or related item, do not create a duplicate. Decide whether to promote, update, cross-reference, or leave candidate.
 
+If retrieval finds an active item with a gap, stale source, repeated failure, or user correction, do not treat active as closed. Route to enrichment candidate or stale review.
+
 ## Retrieval Software
 
 Chosen engine: SQLite FTS5 through Node's local SQLite binding.

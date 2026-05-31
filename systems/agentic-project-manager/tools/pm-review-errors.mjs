@@ -42,6 +42,7 @@ const repeatedCommands = [...byCommand.entries()].filter(([, count]) => count > 
 const recommendations = [];
 for (const [rootCause, count] of rootCauses.length ? rootCauses : repeated) {
   if (/missing_knowledge|stale_knowledge|vague_blob|candidate_used_as_active|external_docs_missing/i.test(rootCause)) recommendations.push(`Repeated ${rootCause} (${count}): fill/update knowledge blob or capability pack; do not implement until source-backed.`);
+  else if (/active_gap|active_missing_edge|active_outdated|active_verification_gap/i.test(rootCause)) recommendations.push(`Repeated ${rootCause} (${count}): create enrichment candidate against active pack/blob; do not create a duplicate skill.`);
   else if (/retrieval_failed/i.test(rootCause)) recommendations.push(`Repeated ${rootCause} (${count}): improve aliases/trigger terms/registry metadata, rerun index, and dedupe if needed.`);
   else if (/wrong_tool|wrong_skill|missing_tool|missing_mcp/i.test(rootCause)) recommendations.push(`Repeated ${rootCause} (${count}): propose task-routing-and-skill-selection micro-update or tool status update.`);
   else if (/verification_weak|verification_overkill/i.test(rootCause)) recommendations.push(`Repeated ${rootCause} (${count}): propose verification-gate-controller or verification blob update.`);
@@ -60,6 +61,7 @@ const report = {
   toolOrSkillCounts: tools.map(([tool, count]) => ({ tool, count })),
   likelyRootCauses: recommendations.length ? recommendations : ["No repeated pattern detected yet; log only."],
   recommendedChanges: recommendations,
+  enrichmentCandidatesRecommended: recommendations.filter(x => /enrichment candidate/i.test(x)),
   candidatePatchRecommended: recommendations.some(x => /propose|fill\/update|improve/.test(x)),
   docsResearchNeeded: recommendations.some(x => /source-backed|docs|external/i.test(x)),
   userApprovalNeeded: recommendations.some(x => /approval|promote|source-backed/.test(x))

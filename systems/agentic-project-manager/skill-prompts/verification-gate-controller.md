@@ -18,6 +18,8 @@ Rules:
 - When a relevant knowledge blob exists, pull the verification method from the blob and combine it with task-appropriate proof.
 - When a relevant capability pack exists, inspect `verification.md`, `pack.yaml`, status, maturity, artifact paths, and approval status before relying on it.
 - Candidate packs are planning material, not proof. Active/verified packs still require task-appropriate verification after implementation.
+- Active packs are approved usable baselines, not final proof for every future task. If verification reveals a gap in active knowledge, log an enrichment candidate and keep the baseline intact until the patch is reviewed.
+- Activation review must verify that a pack has source evidence, actionable specs/artifacts, decision guidance, and verification guidance. Weak packs stay candidate or move to enrich-first.
 - Never claim verification that was not run.
 - Codebase intelligence tools are discovery aids, not proof by themselves.
 - Verify CodeGraph, Serena, Understand Anything, component-map, API-map, and capability-scan conclusions with the task-appropriate method.
