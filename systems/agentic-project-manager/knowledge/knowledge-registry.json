@@ -1189,7 +1189,7 @@
     "capability_class": "backend.wordpress",
     "owner_system": "agentic-backend-database",
     "owner_skill": "backend-database-tool-orchestrator",
-    "status": "candidate",
+    "status": "active",
     "maturity": "researched",
     "aliases": [
       "woocommerce theme development",
@@ -1216,11 +1216,11 @@
     "source_confidence": "sourced",
     "related_items": [],
     "artifact_paths": [
-      "C:\\Users\\acer\\.codex\\agentic-backend-database\\knowledge-packs\\backend.wordpress.woocommerce-theme-development\\artifacts\\woocommerce-hooks-first-decision-tree.md",
-      "C:\\Users\\acer\\.codex\\agentic-backend-database\\knowledge-packs\\backend.wordpress.woocommerce-theme-development\\artifacts\\woocommerce-template-override-checklist.md",
       "C:\\Users\\acer\\.codex\\agentic-backend-database\\knowledge-packs\\backend.wordpress.woocommerce-theme-development\\artifacts\\woocommerce-child-theme-override-map.md",
+      "C:\\Users\\acer\\.codex\\agentic-backend-database\\knowledge-packs\\backend.wordpress.woocommerce-theme-development\\artifacts\\woocommerce-gallery-carousel-reuse-scout.md",
+      "C:\\Users\\acer\\.codex\\agentic-backend-database\\knowledge-packs\\backend.wordpress.woocommerce-theme-development\\artifacts\\woocommerce-hooks-first-decision-tree.md",
       "C:\\Users\\acer\\.codex\\agentic-backend-database\\knowledge-packs\\backend.wordpress.woocommerce-theme-development\\artifacts\\woocommerce-page-verification-checklist.md",
-      "C:\\Users\\acer\\.codex\\agentic-backend-database\\knowledge-packs\\backend.wordpress.woocommerce-theme-development\\artifacts\\woocommerce-gallery-carousel-reuse-scout.md"
+      "C:\\Users\\acer\\.codex\\agentic-backend-database\\knowledge-packs\\backend.wordpress.woocommerce-theme-development\\artifacts\\woocommerce-template-override-checklist.md"
     ],
     "apply_command": "",
     "apply_commands": [],
@@ -1234,8 +1234,8 @@
     "source_ledger_path": "C:\\Users\\acer\\.codex\\agentic-backend-database\\knowledge-packs\\backend.wordpress.woocommerce-theme-development\\source-ledger.md",
     "specs_path": "C:\\Users\\acer\\.codex\\agentic-backend-database\\knowledge-packs\\backend.wordpress.woocommerce-theme-development\\specs.md",
     "artifacts_count": 5,
-    "approval_status": "not_requested",
-    "promotion_status": "not_ready",
+    "approval_status": "approved",
+    "promotion_status": "approved",
     "copied_from_external_source": false,
     "copyright_risk": "none"
   },
