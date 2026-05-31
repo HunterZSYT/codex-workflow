@@ -1,4 +1,4 @@
----
+﻿---
 name: verification-gate-controller
 description: Use to decide verification method. Controls screenshots, mobile emulation, DOM measurement, API smoke tests, SQL safety checks, migration checks, VPS read-only inspection, builds, lint, typecheck, and honest verification reporting.
 ---
@@ -19,6 +19,8 @@ No screenshot for copy-only unless layout risk. Screenshot for visual frontend c
 Codebase intelligence tools are discovery aids, not proof by themselves. For CodeGraph, Serena, Understand Anything, component maps, API maps, or capability scans, verify the resulting change with the task-appropriate method: tests/build/typecheck, safe API smoke test, rendered frontend inspection, SQL/migration safety check, or targeted source review.
 
 Ecosystem scouting is discovery, not proof. Verify selected tools, libraries, components, templates, and MCPs against official docs, license/maintenance evidence, compatibility, and task-specific checks before treating them as safe to use. Candidate packs/blobs from ecosystem scouting are not active implementation rules until approved.
+
+Repo absorption is discovery, not proof. Verify source repo URL, docs, license, maintenance signal, generated artifact behavior, and local architecture fit before recommending any workflow change. Repo-derived reports, ledgers, blobs, packs, scripts, and docs remain candidate until explicit approval. Redaction scan and sync safety checks are required before publishing sanitized workflow updates.
 
 Do not run heavy recon tools as verification for tiny localized edits. If a tool creates `.codegraph/`, `.understand-anything/`, cache, index, or database output, keep it local-only and do not commit it.
 

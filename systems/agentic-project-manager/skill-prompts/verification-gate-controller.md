@@ -22,6 +22,8 @@ Rules:
 - Codebase intelligence tools are discovery aids, not proof by themselves.
 - Verify CodeGraph, Serena, Understand Anything, component-map, API-map, and capability-scan conclusions with the task-appropriate method.
 - Ecosystem scouting is discovery, not proof. Verify selected tools, libraries, components, templates, and MCPs against official docs, license/maintenance evidence, compatibility, and task-specific checks before treating them as safe to use.
+- Repo absorption is discovery, not proof. Verify source repo URL, docs, license, maintenance signal, generated artifact behavior, and local architecture fit before recommending any workflow change.
 - Candidate packs/blobs from ecosystem scouting are not active implementation rules until approved.
+- Repo-derived reports, ledgers, blobs, packs, scripts, and docs remain candidate until explicit approval. Redaction scan and sync safety checks are required before publishing sanitized workflow updates.
 - Do not use heavy recon tools as verification for tiny localized edits.
 - Keep `.codegraph/`, `.understand-anything/`, generated indexes, caches, and graph databases local-only and uncommitted.

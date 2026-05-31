@@ -104,3 +104,18 @@ Examples:
 - `project_manager.retrieval.knowledge-index`
 
 Do not create vague names like `modern-ui`, `cool-layout`, or `premium-design` unless they are part of a defined taxonomy.
+
+## Open-Source Repository Absorption
+
+Public repositories may be used as source references, pattern sources, tool candidates, script ideas, or candidate capability-pack inputs. They are not automatically reusable artifacts.
+
+Before absorbing anything from a repository:
+
+1. Retrieve existing local knowledge first.
+2. Inspect the official repo, docs, license, maintenance signal, and generated artifact behavior.
+3. Create a repo absorption report and source absorption ledger entry.
+4. Preserve attribution and license boundaries.
+5. Extract abstract patterns instead of copying raw source or assets.
+6. Keep all outputs candidate until explicit approval.
+
+Do not copy full source files, visual assets, cloned repos, generated graphs, caches, dashboards, logs, screenshots, or dependency folders into synced workflow assets. Do not install, activate, or promote repo-derived knowledge without approval.

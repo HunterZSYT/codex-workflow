@@ -20,6 +20,7 @@ Rules:
 - If a candidate or related item exists, route to update, promote, cross-reference, or leave candidate instead of creating a duplicate.
 - If the user asks to "fill knowledgebase" or asks for a reusable layout/design/animation/backend system, route to `pack-builder-workflow.md` and create or update a candidate capability pack. Do not implement the website/app from that prompt. Use source-first research and leave the pack candidate until explicit approval.
 - Ecosystem Scout triggers include "fill our knowledgebase", "add knowledge", "teach the system", "add integration knowledge", "best way", "best stack", "what tools exist", "what should we use", "find reusable sources", "use best tools", "build with existing tools", "don't generate from scratch", "research and add", "scout ecosystem", WordPress/WooCommerce/theme/plugin, animation/motion, frontend framework, backend/database/VPS, MCP, AI coding tool, testing/browser/devtools, design system, starter kit, template, registry, and reusable component work. For these, retrieve local knowledge first, then scout official docs, official repos, GitHub discovery, package registries, component registries, MCP ecosystems, starters, templates, and safe public examples. Use `ecosystem-option-scorecard.md` to decide placement.
+- Repo Absorption triggers include a GitHub/public repo plus "absorb", "learn from", "mine", "strip goodies", "extract workflow", "copy useful patterns", "source reference", or "add this repo to our system". For these, use `repo-absorption-workflow.md`, not install/clone/copy by default. Require local retrieval, source/license review, absorption report, source absorption ledger, architecture mapping, and explicit approval before activation.
 - Do not run Capability Gap Radar for tiny localized edits unless direct inspection fails.
 - Use frontend stack for frontend.
 - Use backend-database stack for backend/database/VPS.
@@ -49,5 +50,6 @@ Capability recommendations:
 - If current docs or external setup are needed, use official/current sources before recommending changes.
 - If no active knowledge blob exists for a fast-changing tool/library, fetch Context7 docs when available before recommending implementation rules.
 - If a tool/MCP/library install or config change is useful, recommend it with approval required; do not install automatically.
+- If a repository is only being evaluated for useful ideas, classify it as source absorption and stage candidates; do not promote it to active workflow knowledge until reviewed and approved.
 - For database/server/deployment/auth/SSH/migration tasks, route through the relevant safety gate and read-only inspection first.
 - Generated retrieval indexes under `.retrieval/` and `*.sqlite`, `*.sqlite3`, or `*.db` files are local-only and must not sync.

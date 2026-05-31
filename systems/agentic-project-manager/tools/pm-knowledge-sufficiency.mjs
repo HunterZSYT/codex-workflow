@@ -36,9 +36,35 @@ const ECOSYSTEM_SCOUT_TERMS = [
   "research and add", "codebase intelligence tool"
 ];
 
+const REPO_ABSORPTION_TERMS = [
+  "absorb", "absorption", "repo absorption", "strip goodies", "mine repo",
+  "mine this repo", "learn from repo", "learn from this repo", "open source reference",
+  "open-source reference", "source repo", "copy useful patterns", "extract workflow",
+  "extract patterns", "source system", "absorb into our system", "use this repo as source",
+  "add this repo to our system"
+];
+
 function detectEcosystemScout(text) {
   const t = lower(text);
   return ECOSYSTEM_SCOUT_TERMS.filter(term => t.includes(lower(term)));
+}
+
+function extractRepoUrl(text) {
+  const match = String(text || "").match(/https?:\/\/(?:www\.)?github\.com\/[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+/i);
+  return match ? match[0].replace(/[),.;]+$/, "") : "";
+}
+
+function detectRepoAbsorption(text) {
+  const t = lower(text);
+  const triggers = REPO_ABSORPTION_TERMS.filter(term => t.includes(lower(term)));
+  const sourceRepoUrl = extractRepoUrl(text);
+  const hasRepoSignal = Boolean(sourceRepoUrl) || /\brepo\b|\brepository\b|open source|open-source|github\.com/.test(t);
+  const hasAbsorptionSignal = /absorb|absorption|mine|strip|learn from|extract|copy useful|source reference|source system/.test(t);
+  return {
+    required: hasRepoSignal && (hasAbsorptionSignal || triggers.length > 0),
+    triggers,
+    sourceRepoUrl
+  };
 }
 
 function sourceCategoriesFor(text) {
@@ -56,6 +82,11 @@ function sourceCategoriesFor(text) {
   if (/carousel|gallery/.test(t)) categories.add("carousel/gallery libraries");
   if (/github|repo|starter|template|boilerplate|theme|plugin/.test(t)) categories.add("GitHub discovery");
   if (/tool|library|codebase intelligence/.test(t)) categories.add("GitHub discovery");
+  if (/github\.com|repo|repository|open source|open-source|absorb|absorption/.test(t)) {
+    categories.add("license and attribution review");
+    categories.add("repo health/release activity");
+    categories.add("README/docs/examples/templates/scripts inspection");
+  }
   if (/npm|package|library|gsap|lenis|carousel|gallery|shadcn|tailwind|wordpress|woocommerce|php|composer/.test(t)) categories.add("package registries");
   if (/component|ui|landing|shadcn|radix|tailwind|block|pattern/.test(t)) categories.add("component/registry ecosystems");
   if (/mcp|server|live capability|integration|codebase intelligence/.test(t)) categories.add("MCP/server ecosystems");
@@ -131,7 +162,9 @@ const registry = JSON.parse(await fs.readFile(registryPath, "utf8"));
 const classification = classifyTask(task);
 const capabilities = detectCapabilities(task);
 const ecosystemScoutTriggers = detectEcosystemScout(task);
-const ecosystemScoutRequired = ecosystemScoutTriggers.length > 0;
+const repoAbsorption = detectRepoAbsorption(task);
+const repoAbsorptionRequired = repoAbsorption.required;
+const ecosystemScoutRequired = ecosystemScoutTriggers.length > 0 || repoAbsorptionRequired;
 const retrieved = (await exists(searchTool)) ? runJson(searchTool, ["--query", task, "--limit", "12"]) : [];
 const learning = (await exists(learningTool)) ? runJson(learningTool, ["--query", task, "--limit", "8"]) : [];
 
@@ -214,6 +247,10 @@ if (ecosystemScoutRequired) {
   decision = decision === "proceed" ? "ecosystem_scout_required" : decision;
   reasons.push("ecosystem scouting required before custom generation");
 }
+if (repoAbsorptionRequired) {
+  decision = decision === "proceed" ? "ecosystem_scout_required" : decision;
+  reasons.push("repo absorption requires local retrieval, license check, absorption report, and approval before activation");
+}
 if (externalWithoutActiveSource.length) {
   decision = decision === "stop_and_research" || decision === "ecosystem_scout_required" ? decision : "fill_knowledgebase_first";
   reasons.push("external library/tool lacks active source-backed knowledge");
@@ -267,6 +304,12 @@ const result = {
   relevant_user_feedback: learning.filter(item => /feedback|preference|user/i.test(item.file || item.snippet || "")),
   ecosystem_scout_required: ecosystemScoutRequired,
   ecosystem_scout_triggers: ecosystemScoutTriggers,
+  repo_absorption_required: repoAbsorptionRequired,
+  repo_absorption_triggers: repoAbsorption.triggers,
+  source_repo_url: repoAbsorption.sourceRepoUrl,
+  license_check_required: repoAbsorptionRequired,
+  absorption_report_required: repoAbsorptionRequired,
+  activation_approval_required: repoAbsorptionRequired,
   suggested_source_categories: sourceCategoriesFor(task),
   existing_local_coverage: existingLocalCoverage,
   external_discovery_needed: ecosystemScoutRequired || externalWithoutActiveSource.length > 0,
@@ -289,6 +332,11 @@ if (jsonOnly) {
   console.log(`Artifact gaps: ${result.artifact_gaps.map(x => x.id).join(", ") || "none"}`);
   console.log(`Verification gaps: ${result.verification_gaps.map(x => x.id).join(", ") || "none"}`);
   console.log(`Ecosystem scout required: ${result.ecosystem_scout_required ? "yes" : "no"}`);
+  console.log(`Repo absorption required: ${result.repo_absorption_required ? "yes" : "no"}`);
+  if (result.source_repo_url) console.log(`Source repo: ${result.source_repo_url}`);
+  console.log(`License check required: ${result.license_check_required ? "yes" : "no"}`);
+  console.log(`Absorption report required: ${result.absorption_report_required ? "yes" : "no"}`);
+  console.log(`Activation approval required: ${result.activation_approval_required ? "yes" : "no"}`);
   console.log(`Suggested sources: ${result.suggested_source_categories.join(", ")}`);
   console.log(`External discovery needed: ${result.external_discovery_needed ? "yes" : "no"}`);
   console.log(`Candidate pack needed: ${result.candidate_pack_needed ? "yes" : "no"}`);

@@ -1,4 +1,4 @@
----
+﻿---
 name: project-manager-execution-ledger
 description: Use for medium/large tasks, risky tasks, multi-step work, frontend/backend/database/VPS tasks, migrations, template conversions, design-to-code builds, deployment work, or tasks with many constraints. Orchestrates task classification, constraints, roadmap, execution packets, routing, verification, logs, and improvement review.
 ---
@@ -34,6 +34,8 @@ If a task asks for a reusable system, design style, animation system, backend pa
 
 Ecosystem Scout rule: apply "reuse first, orchestrate second, generate last" for new domains, tools, packages, MCPs, UI/component sources, starter kits, templates, WordPress/WooCommerce/theme/plugin work, animation/motion systems, testing/browser/devtools workflows, design systems, "best stack", "best way", "what should we use", "fill knowledgebase", "add integration knowledge", and production-ready work. Do not research only the exact tool the user named; discover adjacent official docs, repos, GitHub options, registries, component sources, MCPs, starters, templates, and safe public examples. Before creating a blob, pack, script, MCP config, skill, docs, or custom implementation: retrieve local knowledge, scout ecosystems, score options, decide placement, stage candidate knowledge with source ledger, and ask approval before activation.
 
+Open-source absorption rule: when a user provides a GitHub/public repo and asks to absorb it, learn from it, mine it, strip useful patterns, use it as a source, or add it to the system, run the Repo Absorption Workflow. Retrieve local knowledge first, inspect repo/docs/license/maintenance, create a repo absorption report and source absorption ledger, map useful ideas to existing architecture, and ask approval before installing, cloning, copying, activating, promoting, or syncing repo-derived artifacts.
+
 If a required blob is missing or stale, fetch current docs through Context7 when available, otherwise official docs/GitHub/npm; create or update a small blob candidate before implementation. Patch owner skills only with short pointers/routing rules and prefer micro-updates to knowledge blobs over creating new giant skills.
 
 Before creating new workflow knowledge, run indexed retrieval. If an error occurs, log a structured event and candidate patch. If the user corrects behavior, log reusable feedback and a candidate system update. Repeated classes of mistakes should produce a system-level patch proposal, not uncontrolled auto-rewrites.
@@ -57,6 +59,8 @@ Knowledge blob status values: Exists and active, Exists but stale, Candidate exi
 Retrieval results must report maturity: `idea`, `candidate_blob`, `researched_blob`, `specification`, `artifact_backed`, `verified_pack`, or `deprecated`. Do not treat candidate/researched guidance as a reusable implementation when artifact paths and apply commands are absent.
 
 When coding, prefer active packs and artifact-backed knowledge products. If only candidate guidance exists, report that implementation requires source verification or user approval before treating it as reusable. Never copy proprietary layouts, assets, code, or raw source dumps; extract reusable principles and create original artifacts.
+
+Public repositories are sources, not imports. Do not copy full source/assets or treat repo-derived reports as approved knowledge. Keep derived artifacts candidate until license-safe reuse and user approval are explicit.
 
 Tool installation/configuration always requires explicit approval. Database, server, deployment, auth, SSH, and migration tasks require read-only inspection first. If existing tools are enough, proceed without scouting.
 

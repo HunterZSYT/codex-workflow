@@ -59,7 +59,9 @@ export function classifyTask(task) {
     "setup database", "setup server", "automate this workflow", "choose the right stack",
     "scout ecosystem", "fill knowledgebase", "add integration knowledge", "best stack",
     "best tool", "best library", "what tools exist", "what should we use", "find reusable sources",
-    "build with existing tools", "don't generate from scratch", "research and add"
+    "build with existing tools", "don't generate from scratch", "research and add",
+    "absorb this repo", "absorb into our system", "learn from this repo", "mine this repo",
+    "strip goodies", "extract workflow", "copy useful patterns", "source reference"
   ];
   const detectedKnowledgeTerms = externalToolTerms.filter(term => t.includes(term));
   const detectedOrchestrationPhrases = orchestrationPhrases.filter(term => t.includes(term));
@@ -79,6 +81,7 @@ export function classifyTask(task) {
   add("frontend visual/layout", /mobile|responsive|layout|spacing|color|typography|overflow|sticky|screenshot|visual|css/);
   add("frontend component", /component|shadcn|radix|button|modal|dialog|card|navbar/);
   add("capability orchestration", /gsap|scrolltrigger|lenis|shadcn|tailwind|phpmailer|prisma|drizzle|supabase|stripe|docker|nginx|caddy|pm2|systemd|codegraph|understand anything|figure out everything needed|use every necessary tool|best practice|production-ready|no primitive manually|clone this site|choose the right stack/);
+  add("open-source repo absorption", /github\.com\/[\w.-]+\/[\w.-]+.*(absorb|learn from|mine|strip|extract|source reference|copy useful)|\b(absorb|learn from|mine|strip|extract)\b.*\b(repo|repository)\b/);
   add("copy/content-only", /copy|headline|text|content|rewrite|cta/);
   const unique = [...new Set(types)];
   const risky = unique.some(x => /SQL|database|VPS|deployment|security/.test(x));

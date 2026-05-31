@@ -9,6 +9,8 @@ Capability precision failures:
 - Vague generation from broad AI memory is a knowledge sufficiency failure.
 - Custom generation before scouting official docs, repositories, registries, component sources, MCPs, starter kits, or existing ecosystem tools counts as an ecosystem scout failure.
 - Researching only the user-named tool when adjacent ecosystem options are clearly relevant counts as an ecosystem scout failure.
+- Installing, cloning, copying, or activating a public repo from an "absorb this" request without a repo absorption report, license check, source absorption ledger, and approval counts as a source absorption failure.
+- Treating a repo absorption report as active knowledge before approval counts as a knowledge product failure.
 - Repeated "need package/tool" answers without owner skill, active knowledge blob, docs source, and verification method should propose a knowledge blob update.
 - Repeated missing knowledge proposes a blob/pack update, not a random new skill.
 - Repeated retrieval failures propose alias/trigger/index metadata updates.
@@ -33,3 +35,5 @@ Also review codebase-intelligence effectiveness:
 Output recommended skill updates, scripts, MCPs, AGENTS.md rules, `codex-workflow` docs updates, and priority level.
 
 When ecosystem scout failures repeat, recommend updating local knowledge aliases, trigger terms, source maps, option scorecards, or pack-builder docs before creating a new script or skill.
+
+When source absorption failures repeat, recommend updating repo absorption triggers, report templates, source ledger templates, license review rules, or sync/redaction docs before creating a new skill.

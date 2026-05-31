@@ -1,4 +1,4 @@
----
+﻿---
 name: inefficiency-and-improvement-reviewer
 description: Use at task completion to review logs and suggest workflow, skill, script, MCP, task splitting, verification, and AGENTS.md improvements based on observed inefficiencies.
 ---
@@ -9,6 +9,8 @@ Learning rules:
 - Vague implementation from broad AI memory counts as a knowledge sufficiency failure.
 - Custom generation before scouting official docs, repositories, registries, component sources, MCPs, starter kits, or existing ecosystem tools counts as an ecosystem scout failure.
 - Researching only the user-named tool when adjacent ecosystem options are clearly relevant counts as an ecosystem scout failure.
+- Installing, cloning, copying, or activating a public repo from an "absorb this" request without a repo absorption report, license check, source absorption ledger, and approval counts as a source absorption failure.
+- Treating a repo absorption report as active knowledge before approval counts as a knowledge product failure.
 - Repeated missing knowledge should propose a blob/pack update, not a random new skill.
 - Repeated retrieval misses should propose aliases/trigger terms/registry/index improvements.
 - One-off lessons remain candidates unless explicitly approved.
@@ -37,3 +39,5 @@ Tool effectiveness review should check: tool chosen, why chosen, alternatives co
 Read `.ai-task/error-ledger.md`, `.ai-task/failed-commands.md`, and `.ai-task/decision-review.md` when present. Distinguish one-off issues from repeated patterns. One-off issues should be logged only. Repeated patterns should create skill/tool/script/doc update candidates. High-severity safety risks should create immediate safety-rule proposals requiring user approval.
 
 When ecosystem scout failures repeat, recommend updating local knowledge aliases, trigger terms, source maps, option scorecards, or pack-builder docs before creating a new script or skill.
+
+When source absorption failures repeat, recommend updating repo absorption triggers, report templates, source ledger templates, license review rules, or sync/redaction docs before creating a new skill.
