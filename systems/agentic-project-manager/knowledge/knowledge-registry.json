@@ -582,66 +582,6 @@
     "copyright_risk": "none"
   },
   {
-    "blob_id": "swiss-editorial-grid-layout",
-    "capability": "Candidate rules for Swiss/editorial grid composition.",
-    "owner_system": "agentic-frontend",
-    "owner_skill": "layout-composition-fundamentals",
-    "file_path": "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge\\layout\\swiss-editorial-grid-layout.blob.md",
-    "trigger_terms": [
-      "- Swiss layout",
-      "Swiss layout",
-      "Swiss-style",
-      "editorial grid",
-      "premium grid",
-      "agency homepage"
-    ],
-    "external_libraries": [
-      "None"
-    ],
-    "docs_sources": [
-      "project-specific design references recommended before activation"
-    ],
-    "last_verified": "candidate, 2026-05-28",
-    "status": "candidate",
-    "safe_to_sync": true,
-    "id": "frontend.layout.swiss-editorial-grid",
-    "title": "Swiss Editorial Grid Layout",
-    "namespace": "frontend",
-    "type": "blob",
-    "capability_class": "frontend.layout",
-    "maturity": "candidate_blob",
-    "aliases": [
-      "swiss-editorial-grid-layout",
-      "Swiss Editorial Grid Layout",
-      "swiss grid",
-      "swiss layout system",
-      "international typographic style",
-      "editorial grid system"
-    ],
-    "source_confidence": "needs-docs",
-    "related_items": [
-      "frontend.layout.layout-grid-composition",
-      "frontend.layout.premium-agency-section-rhythm",
-      "skill.layout-composition-fundamentals",
-      "frontend.layout.swiss-editorial-grid"
-    ],
-    "artifact_paths": [],
-    "apply_command": "",
-    "verification_method": "Inspect grid alignment, whitespace rhythm, readable type, and mobile order.",
-    "notes": "",
-    "product_type": "blob",
-    "pack_id": "frontend.layout.swiss-editorial-grid",
-    "pack_path": "",
-    "source_ledger_path": "",
-    "specs_path": "",
-    "artifacts_count": 0,
-    "apply_commands": [],
-    "approval_status": "not_required",
-    "promotion_status": "not_ready",
-    "copied_from_external_source": false,
-    "copyright_risk": "none"
-  },
-  {
     "blob_id": "gsap-react-scrolltrigger",
     "capability": "React GSAP ScrollTrigger animation",
     "owner_system": "agentic-frontend",
@@ -1245,50 +1185,71 @@
     "namespace": "frontend",
     "type": "capability_pack",
     "product_type": "pack",
-    "capability": "Swiss Editorial Grid Layout",
+    "capability": "Source-backed candidate pack for Swiss / International Typographic Style inspired editorial grid composition.",
     "capability_class": "frontend.layout",
     "owner_system": "agentic-frontend",
     "owner_skill": "layout-composition-fundamentals",
     "status": "candidate",
-    "maturity": "researched",
+    "maturity": "artifact_backed",
+    "approval_status": "not_requested",
+    "promotion_status": "ready_for_approval_review",
+    "pack_id": "frontend.layout.swiss-editorial-grid",
+    "pack_path": "C:/Users/acer/.codex/agentic-frontend/knowledge-packs/frontend.layout.swiss-editorial-grid",
+    "source_ledger_path": "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge-packs\\frontend.layout.swiss-editorial-grid\\source-ledger.md",
+    "specs_path": "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge-packs\\frontend.layout.swiss-editorial-grid\\specs.md",
+    "file_path": "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge-packs\\frontend.layout.swiss-editorial-grid\\pack.yaml",
+    "artifacts_count": 6,
     "aliases": [
       "swiss grid",
       "swiss layout",
       "editorial grid",
-      "international typographic style"
+      "international typographic style",
+      "typographic grid",
+      "premium grid"
     ],
     "trigger_terms": [
       "swiss grid",
       "swiss layout",
       "editorial grid",
       "typographic grid",
-      "premium grid"
+      "premium grid",
+      "international typographic style",
+      "Swiss Style web layout",
+      "editorial landing page"
     ],
     "external_libraries": [],
-    "docs_sources": [],
-    "source_confidence": "low",
-    "related_items": [
-      "frontend.layout.swiss-editorial-grid",
-      "frontend.layout.layout-grid-composition",
-      "frontend.layout.premium-agency-section-rhythm"
+    "docs_sources": [
+      "https://www.cooperhewitt.org/2018/08/05/aharmonyofcontrasts/",
+      "https://www.britannica.com/art/graphic-design/Graphic-design-1945-75",
+      "https://www.moma.org/artists/4154-josef-muller-brockmann",
+      "https://designmuseum.org/your-vote-on-designs-of-the-year/100-years-of-swiss-graphic-design",
+      "https://www.cooperhewitt.org/2013/11/26/gridnik/",
+      "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Grid_layout",
+      "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Grid_layout/Accessibility",
+      "https://www.w3.org/TR/css-grid-1/"
     ],
-    "artifact_paths": [],
+    "source_confidence": "sourced",
+    "related_items": [
+      "frontend.layout.layout-grid-composition",
+      "frontend.layout.premium-agency-section-rhythm",
+      "skill.layout-composition-fundamentals"
+    ],
+    "artifact_paths": [
+      "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge-packs\\frontend.layout.swiss-editorial-grid\\artifacts\\editorial-layout-patterns.md",
+      "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge-packs\\frontend.layout.swiss-editorial-grid\\artifacts\\responsive-grid-implementation-checklist.md",
+      "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge-packs\\frontend.layout.swiss-editorial-grid\\artifacts\\swiss-editorial-grid-decision-tree.md",
+      "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge-packs\\frontend.layout.swiss-editorial-grid\\artifacts\\swiss-grid-system-spec.md",
+      "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge-packs\\frontend.layout.swiss-editorial-grid\\artifacts\\swiss-grid-verification-checklist.md",
+      "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge-packs\\frontend.layout.swiss-editorial-grid\\artifacts\\typography-and-hierarchy-checklist.md"
+    ],
     "apply_command": "",
     "apply_commands": [],
-    "verification_method": "Audit pack readiness before use; do not implement from candidate pack without source verification or approval.",
+    "verification_method": "Inspect grid alignment, typographic hierarchy, source order, responsive collapse, visual restraint, and no copied source compositions.",
     "safe_to_sync": true,
-    "file_path": "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge-packs\\frontend.layout.swiss-editorial-grid\\pack.yaml",
-    "last_verified": "",
-    "notes": "Candidate knowledge product shell. Not active or reusable until source-grounded and approved.",
-    "pack_id": "frontend.layout.swiss-editorial-grid",
-    "pack_path": "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge-packs\\frontend.layout.swiss-editorial-grid",
-    "source_ledger_path": "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge-packs\\frontend.layout.swiss-editorial-grid\\source-ledger.md",
-    "specs_path": "C:\\Users\\acer\\.codex\\agentic-frontend\\knowledge-packs\\frontend.layout.swiss-editorial-grid\\specs.md",
-    "artifacts_count": 0,
-    "approval_status": "not_requested",
-    "promotion_status": "not_ready",
+    "last_verified": "2026-05-31",
+    "notes": "Enriched but intentionally kept candidate until explicit activation approval.",
     "copied_from_external_source": false,
-    "copyright_risk": "none"
+    "copyright_risk": "principles only; no copied layouts/assets"
   },
   {
     "id": "pack.frontend.motion.gsap-lenis-wordpress",

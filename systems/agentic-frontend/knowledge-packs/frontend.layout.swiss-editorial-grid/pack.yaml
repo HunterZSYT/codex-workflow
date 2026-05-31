@@ -4,8 +4,8 @@ namespace: frontend
 owner_system: agentic-frontend
 owner_skill: layout-composition-fundamentals
 status: candidate
-maturity: researched
-source_confidence: low
+maturity: artifact_backed
+source_confidence: sourced
 aliases:
   - swiss grid
   - swiss layout
@@ -24,11 +24,17 @@ related_blobs:
 related_packs:
   []
 artifact_paths:
-  []
+  - artifacts/swiss-editorial-grid-decision-tree.md
+  - artifacts/swiss-grid-system-spec.md
+  - artifacts/editorial-layout-patterns.md
+  - artifacts/typography-and-hierarchy-checklist.md
+  - artifacts/responsive-grid-implementation-checklist.md
+  - artifacts/swiss-grid-verification-checklist.md
 apply_commands:
   []
 verification_methods:
   - Audit pack readiness before implementation.
+  - Verify source order, grid alignment, typographic hierarchy, responsive stacking, and visual restraint in rendered UI.
 safe_to_sync: true
-last_verified:
+last_verified: 2026-05-31
 approval_status: not_requested
