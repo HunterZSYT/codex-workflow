@@ -25,7 +25,14 @@ const CAPABILITY_TERMS = [
   { capability: "WordPress theme development", terms: ["wordpress theme", "wp theme", "block theme", "classic theme", "theme.json", "functions.php", "wp_enqueue_script", "wp_enqueue_style", "enqueue scripts", "enqueue styles"], external: true },
   { capability: "WordPress WooCommerce theme development", terms: ["woocommerce theme", "woocommerce template override", "woocommerce hooks", "woocommerce child theme", "single product template", "archive product", "checkout template", "product gallery", "product carousel"], external: true, highRisk: true },
   { capability: "WordPress theme design system", terms: ["wordpress design system", "theme.json design tokens", "theme.json spacing", "theme.json typography", "theme.json color", "editor frontend parity", "block pattern design"], external: true },
-  { capability: "GSAP Lenis WordPress motion", terms: ["gsap wordpress", "lenis wordpress", "scrolltrigger wordpress", "animated wordpress theme", "wordpress scroll animation"], external: true }
+  { capability: "GSAP Lenis WordPress motion", terms: ["gsap wordpress", "lenis wordpress", "scrolltrigger wordpress", "animated wordpress theme", "wordpress scroll animation"], external: true },
+  { capability: "Frontend UI layer scope model", terms: ["frontend layers", "ui layers", "scope ladder", "ui scope", "button to section", "component section page site", "visual system", "whole landing page", "landing page visual", "frontend system"], highRisk: false },
+  { capability: "Interaction feedback states", terms: ["hover state", "focus state", "focus-visible", "active state", "disabled state", "loading button", "selected state", "current state", "expanded collapsed"], highRisk: false },
+  { capability: "Responsive structure adaptation", terms: ["responsive", "responsive structure", "responsive layout", "mobile structure", "desktop to mobile", "wide medium narrow", "mobile order", "stack columns", "mobile header"], highRisk: false },
+  { capability: "Frontend state system", terms: ["loading state", "empty state", "error state", "success state", "no-results", "skeleton", "offline", "permission state"], highRisk: false },
+  { capability: "Visual media system", terms: ["visual media", "image ratio", "aspect ratio", "object-fit", "icon sizing", "responsive image", "hero image"], highRisk: false },
+  { capability: "Form input system", terms: ["form input", "form validation", "label input", "helper text", "required field", "optional field", "submit loading"], highRisk: false },
+  { capability: "Navigation system", terms: ["navigation", "navigation system", "nav active", "active route", "sticky nav", "sticky header", "mobile menu", "nav overflow"], highRisk: false }
 ];
 
 const ECOSYSTEM_SCOUT_TERMS = [
