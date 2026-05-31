@@ -7,6 +7,8 @@ Look for repeated manual steps, wrong skill/tool choice, too many verification l
 Capability precision failures:
 - A vague package recommendation without best-practice operating rules counts as an inefficiency.
 - Vague generation from broad AI memory is a knowledge sufficiency failure.
+- Custom generation before scouting official docs, repositories, registries, component sources, MCPs, starter kits, or existing ecosystem tools counts as an ecosystem scout failure.
+- Researching only the user-named tool when adjacent ecosystem options are clearly relevant counts as an ecosystem scout failure.
 - Repeated "need package/tool" answers without owner skill, active knowledge blob, docs source, and verification method should propose a knowledge blob update.
 - Repeated missing knowledge proposes a blob/pack update, not a random new skill.
 - Repeated retrieval failures propose alias/trigger/index metadata updates.
@@ -29,3 +31,5 @@ Also review codebase-intelligence effectiveness:
 - update router skills, add scripts, add gitignore rules, or update `codex-workflow` docs when repeated friction appears
 
 Output recommended skill updates, scripts, MCPs, AGENTS.md rules, `codex-workflow` docs updates, and priority level.
+
+When ecosystem scout failures repeat, recommend updating local knowledge aliases, trigger terms, source maps, option scorecards, or pack-builder docs before creating a new script or skill.

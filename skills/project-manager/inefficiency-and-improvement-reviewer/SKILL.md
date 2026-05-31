@@ -7,6 +7,8 @@ description: Use at task completion to review logs and suggest workflow, skill, 
 
 Learning rules:
 - Vague implementation from broad AI memory counts as a knowledge sufficiency failure.
+- Custom generation before scouting official docs, repositories, registries, component sources, MCPs, starter kits, or existing ecosystem tools counts as an ecosystem scout failure.
+- Researching only the user-named tool when adjacent ecosystem options are clearly relevant counts as an ecosystem scout failure.
 - Repeated missing knowledge should propose a blob/pack update, not a random new skill.
 - Repeated retrieval misses should propose aliases/trigger terms/registry/index improvements.
 - One-off lessons remain candidates unless explicitly approved.
@@ -33,3 +35,5 @@ Recommend:
 Tool effectiveness review should check: tool chosen, why chosen, alternatives considered, whether it reduced search/read loops, whether it found the needed context, whether it was overkill, and whether routing rules should change.
 
 Read `.ai-task/error-ledger.md`, `.ai-task/failed-commands.md`, and `.ai-task/decision-review.md` when present. Distinguish one-off issues from repeated patterns. One-off issues should be logged only. Repeated patterns should create skill/tool/script/doc update candidates. High-severity safety risks should create immediate safety-rule proposals requiring user approval.
+
+When ecosystem scout failures repeat, recommend updating local knowledge aliases, trigger terms, source maps, option scorecards, or pack-builder docs before creating a new script or skill.

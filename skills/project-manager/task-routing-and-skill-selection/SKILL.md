@@ -25,6 +25,8 @@ Before creating new workflow knowledge, run ranked retrieval. Use `pm-knowledge-
 
 If the user asks to "fill knowledgebase" or asks for a reusable layout/design/animation/backend system, route to `pack-builder-workflow.md` and create or update a candidate capability pack. Do not implement the website/app from that prompt. Use source-first research and leave the pack candidate until explicit approval.
 
+Ecosystem Scout triggers include "fill our knowledgebase", "add knowledge", "teach the system", "add integration knowledge", "best way", "best stack", "what tools exist", "what should we use", "find reusable sources", "use best tools", "build with existing tools", "don't generate from scratch", "research and add", "scout ecosystem", WordPress/WooCommerce/theme/plugin, animation/motion, frontend framework, backend/database/VPS, MCP, AI coding tool, testing/browser/devtools, design system, starter kit, template, registry, and reusable component work. For these, retrieve local knowledge first, then scout official docs, official repos, GitHub discovery, package registries, component registries, MCP ecosystems, starters, templates, and safe public examples. Use `ecosystem-option-scorecard.md` to decide placement.
+
 ## Tool Selection Policy
 
 Default rule: start with the cheapest reliable method. Escalate only when the task needs more context, precision, or impact analysis.

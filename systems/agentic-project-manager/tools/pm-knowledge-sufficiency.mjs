@@ -24,6 +24,47 @@ const CAPABILITY_TERMS = [
   { capability: "Nginx edit safety", terms: ["nginx", "server block", "reverse proxy", "vps"], external: true, highRisk: true }
 ];
 
+const ECOSYSTEM_SCOUT_TERMS = [
+  "scout", "ecosystem", "best tool", "best stack", "best library", "best way",
+  "what tools exist", "what should we use", "reusable source", "existing solution",
+  "existing software", "github trending", "find repos", "component source",
+  "starter kit", "starter", "template", "registry", "wordpress theme",
+  "woocommerce", "theme development", "plugin ecosystem", "animation library",
+  "carousel", "custom carousel", "carousel library", "gallery", "gallery library", "mcp server", "integration knowledge",
+  "fill knowledgebase", "add knowledge", "teach the system", "add integration knowledge",
+  "use best tools", "build with existing tools", "don't generate from scratch",
+  "research and add", "codebase intelligence tool"
+];
+
+function detectEcosystemScout(text) {
+  const t = lower(text);
+  return ECOSYSTEM_SCOUT_TERMS.filter(term => t.includes(lower(term)));
+}
+
+function sourceCategoriesFor(text) {
+  const t = lower(text);
+  const categories = new Set(["official docs/sites", "official GitHub repositories"]);
+  if (/wordpress/.test(t)) {
+    categories.add("WordPress Developer Docs");
+    categories.add("WordPress theme/block docs");
+    categories.add("WP-CLI scaffold docs");
+    categories.add("GitHub starter themes");
+    categories.add("WordPress plugin/theme directories");
+  }
+  if (/woocommerce|ecommerce|commerce|shop/.test(t)) categories.add("WooCommerce Developer Docs");
+  if (/animation|motion|gsap|lenis/.test(t)) categories.add("animation/motion library docs");
+  if (/carousel|gallery/.test(t)) categories.add("carousel/gallery libraries");
+  if (/github|repo|starter|template|boilerplate|theme|plugin/.test(t)) categories.add("GitHub discovery");
+  if (/tool|library|codebase intelligence/.test(t)) categories.add("GitHub discovery");
+  if (/npm|package|library|gsap|lenis|carousel|gallery|shadcn|tailwind|wordpress|woocommerce|php|composer/.test(t)) categories.add("package registries");
+  if (/component|ui|landing|shadcn|radix|tailwind|block|pattern/.test(t)) categories.add("component/registry ecosystems");
+  if (/mcp|server|live capability|integration|codebase intelligence/.test(t)) categories.add("MCP/server ecosystems");
+  if (/wordpress|woocommerce/.test(t)) categories.add("WordPress plugin/theme directories");
+  if (/awesome|curated|trending/.test(t)) categories.add("curated lists as leads only");
+  categories.add("public examples for pattern observation only");
+  return [...categories];
+}
+
 function lower(value) {
   return String(value || "").toLowerCase();
 }
@@ -89,6 +130,8 @@ if (!task) {
 const registry = JSON.parse(await fs.readFile(registryPath, "utf8"));
 const classification = classifyTask(task);
 const capabilities = detectCapabilities(task);
+const ecosystemScoutTriggers = detectEcosystemScout(task);
+const ecosystemScoutRequired = ecosystemScoutTriggers.length > 0;
 const retrieved = (await exists(searchTool)) ? runJson(searchTool, ["--query", task, "--limit", "12"]) : [];
 const learning = (await exists(learningTool)) ? runJson(learningTool, ["--query", task, "--limit", "8"]) : [];
 
@@ -139,14 +182,40 @@ const highRiskWithoutActiveSafety = capabilities
   .filter(cap => !allMatched.some(item => item.matched_capability === cap.capability && item.status === "active"))
   .map(cap => cap.capability);
 
+const existingLocalCoverage = {
+  retrieved_count: retrieved.length,
+  active_count: active.length,
+  candidate_count: candidate.length,
+  stale_count: stale.length,
+  matched_count: matched.length
+};
+
+const activeSourceBackedCoverage = active.some(item => hasSource(item));
+const candidatePackNeeded = ecosystemScoutRequired && !activeSourceBackedCoverage;
+const toolReuseOpportunities = ecosystemScoutRequired
+  ? [
+      "official docs/sites",
+      "official repositories",
+      "GitHub discovery",
+      "package registries",
+      "component registries",
+      "MCP/server ecosystems",
+      "starter kits/templates"
+    ]
+  : [];
+
 let decision = "proceed";
 const reasons = [];
 if (highRiskWithoutActiveSafety.length) {
   decision = "stop_and_research";
   reasons.push("high-risk capability lacks active safety knowledge");
 }
+if (ecosystemScoutRequired) {
+  decision = decision === "proceed" ? "ecosystem_scout_required" : decision;
+  reasons.push("ecosystem scouting required before custom generation");
+}
 if (externalWithoutActiveSource.length) {
-  decision = decision === "stop_and_research" ? decision : "fill_knowledgebase_first";
+  decision = decision === "stop_and_research" || decision === "ecosystem_scout_required" ? decision : "fill_knowledgebase_first";
   reasons.push("external library/tool lacks active source-backed knowledge");
 }
 if (missing.length) {
@@ -196,6 +265,13 @@ const result = {
   verification_gaps: verificationGaps,
   relevant_past_errors: learning.filter(item => /error|failure|mistake/i.test(item.file || item.snippet || "")),
   relevant_user_feedback: learning.filter(item => /feedback|preference|user/i.test(item.file || item.snippet || "")),
+  ecosystem_scout_required: ecosystemScoutRequired,
+  ecosystem_scout_triggers: ecosystemScoutTriggers,
+  suggested_source_categories: sourceCategoriesFor(task),
+  existing_local_coverage: existingLocalCoverage,
+  external_discovery_needed: ecosystemScoutRequired || externalWithoutActiveSource.length > 0,
+  candidate_pack_needed: candidatePackNeeded,
+  tool_reuse_opportunities: toolReuseOpportunities,
   decision,
   reasons: [...new Set(reasons)]
 };
@@ -212,4 +288,8 @@ if (jsonOnly) {
   console.log(`Source risks: ${result.source_confidence_risks.map(x => x.id).join(", ") || "none"}`);
   console.log(`Artifact gaps: ${result.artifact_gaps.map(x => x.id).join(", ") || "none"}`);
   console.log(`Verification gaps: ${result.verification_gaps.map(x => x.id).join(", ") || "none"}`);
+  console.log(`Ecosystem scout required: ${result.ecosystem_scout_required ? "yes" : "no"}`);
+  console.log(`Suggested sources: ${result.suggested_source_categories.join(", ")}`);
+  console.log(`External discovery needed: ${result.external_discovery_needed ? "yes" : "no"}`);
+  console.log(`Candidate pack needed: ${result.candidate_pack_needed ? "yes" : "no"}`);
 }

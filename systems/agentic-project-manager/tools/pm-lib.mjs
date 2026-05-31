@@ -50,12 +50,16 @@ export function classifyTask(task) {
   const externalToolTerms = [
     "gsap", "scrolltrigger", "lenis", "shadcn", "tailwind", "phpmailer", "prisma", "drizzle",
     "supabase", "stripe", "docker", "nginx", "caddy", "pm2", "systemd", "codegraph",
-    "understand anything", "serena"
+    "understand anything", "serena", "wordpress", "woocommerce", "carousel library", "gallery library",
+    "mcp server", "starter kit", "component source", "registry"
   ];
   const orchestrationPhrases = [
     "figure out everything needed", "use every necessary tool", "take control", "best practice",
     "production-ready", "no primitive manually", "clone this site", "setup backend",
-    "setup database", "setup server", "automate this workflow", "choose the right stack"
+    "setup database", "setup server", "automate this workflow", "choose the right stack",
+    "scout ecosystem", "fill knowledgebase", "add integration knowledge", "best stack",
+    "best tool", "best library", "what tools exist", "what should we use", "find reusable sources",
+    "build with existing tools", "don't generate from scratch", "research and add"
   ];
   const detectedKnowledgeTerms = externalToolTerms.filter(term => t.includes(term));
   const detectedOrchestrationPhrases = orchestrationPhrases.filter(term => t.includes(term));
