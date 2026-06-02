@@ -1,0 +1,17 @@
+{
+  "scripts": {
+    "start": "node scripts/server.js",
+    "writer:check": "node scripts/writer-check.mjs",
+    "writer:extract": "node scripts/writer-extract-text.mjs"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "fs-extra": "^11.3.0",
+    "glob": "^11.0.3",
+    "textlint": "^15.2.2",
+    "textlint-rule-no-todo": "^2.0.1",
+    "textlint-rule-write-good": "^2.0.0",
+    "write-good": "^1.0.8"
+  }
+}
