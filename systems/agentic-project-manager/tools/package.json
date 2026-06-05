@@ -17,5 +17,8 @@
     "pack:init": "node pm-pack-init.mjs",
     "pack:audit": "node pm-pack-audit.mjs",
     "pack:promote": "node pm-pack-promote.mjs"
+  },
+  "dependencies": {
+    "headroom-ai": "^0.22.4"
   }
 }
