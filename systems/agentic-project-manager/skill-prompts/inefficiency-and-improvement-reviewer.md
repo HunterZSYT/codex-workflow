@@ -42,3 +42,5 @@ Output recommended skill updates, scripts, MCPs, AGENTS.md rules, `codex-workflo
 When ecosystem scout failures repeat, recommend updating local knowledge aliases, trigger terms, source maps, option scorecards, or pack-builder docs before creating a new script or skill.
 
 When source absorption failures repeat, recommend updating repo absorption triggers, report templates, source ledger templates, license review rules, or sync/redaction docs before creating a new skill.
+
+When README/migration/setup documentation drifts from the live Codex Workflow system, recommend routing future work to `readme-update-migration-guide` and `pm-readme-update.mjs`. Treat missing one-way primary/secondary rules, stale restore steps, stale MCP setup, missing system inventory, or unsafe secondary sync instructions as high-priority documentation/routing inefficiencies.

@@ -34,6 +34,7 @@ Rules:
 - Use design grounding for Figma/design source.
 - Use component supply for UI components.
 - Use safety gates for risky work.
+- Route update README, migration README, restore guide, new PC setup, machine setup, one-shot migration, document current system, system inventory, setup checklist, README out of date, one-way sync, source-of-truth PC, primary machine, secondary machine, restore-only machine, and promote machine to primary to `readme-update-migration-guide`. It must scan first, update docs from actual systems, validate/redact before commit, and preserve the one-way primary-PC source-of-truth model.
 
 Tool decision logic:
 - Normal search/read: small tasks, known target file, one-file edit, copy/content update, simple styling fix, or direct bug with known location.
