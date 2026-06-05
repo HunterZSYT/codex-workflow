@@ -8,8 +8,8 @@ secondary_owners:
   - inefficiency-and-improvement-reviewer
   - verification-gate-controller
   - readme-update-migration-guide
-status: candidate
-maturity: researched
+status: active
+maturity: sdk_pilot
 source_confidence: sourced
 aliases:
   - Headroom
@@ -64,15 +64,19 @@ artifact_paths:
   - artifacts/headroom-benchmark-plan.md
   - artifacts/headroom-mcp-evaluation-checklist.md
   - artifacts/headroom-learning-conflict-checklist.md
+  - artifacts/headroom-active-integration-notes.md
 apply_commands:
-  []
+  - node C:\Users\acer\.codex\agentic-project-manager\tools\pm-headroom-status.mjs
+  - node C:\Users\acer\.codex\agentic-project-manager\tools\pm-headroom-context.mjs --file <path> --mode analyze
 verification_methods:
   - Run pm-pack-audit.mjs --id project_manager.context.headroom-compression-evaluation.
   - Run pm-knowledge-search.mjs searches for Headroom, CCR, tool output compression, headroom learn, and MCP compression.
-  - Do not install or run Headroom without explicit approval and a pilot plan.
+  - Run pm-headroom-status.mjs before service-backed compression.
+  - Run pm-headroom-context.mjs --mode analyze for explicit context-waste analysis.
+  - Do not proxy/wrap Codex, enable MCP, or run headroom learn until service health and rollback checks pass.
 safe_to_sync: true
 last_verified: 2026-06-06
-approval_status: not_requested
-promotion_status: candidate_only
+approval_status: approved_by_user_for_sdk_pilot
+promotion_status: active_sdk_pilot
 copied_from_external_source: false
 copyright_risk: low

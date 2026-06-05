@@ -16,7 +16,9 @@
     "knowledge:dedupe": "node pm-knowledge-dedupe.mjs",
     "pack:init": "node pm-pack-init.mjs",
     "pack:audit": "node pm-pack-audit.mjs",
-    "pack:promote": "node pm-pack-promote.mjs"
+    "pack:promote": "node pm-pack-promote.mjs",
+    "headroom:status": "node pm-headroom-status.mjs",
+    "headroom:context": "node pm-headroom-context.mjs"
   },
   "dependencies": {
     "headroom-ai": "^0.22.4"

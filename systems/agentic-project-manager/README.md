@@ -42,7 +42,17 @@ node ~/.codex/agentic-project-manager/tools/pm-next-packet.mjs
 node ~/.codex/agentic-project-manager/tools/pm-log-user-response.mjs --signal "modification_request" --summary "Make the section cleaner" --action "Revise layout density"
 node ~/.codex/agentic-project-manager/tools/pm-completion-report.mjs
 node ~/.codex/agentic-project-manager/tools/pm-improvement-review.mjs
+node ~/.codex/agentic-project-manager/tools/pm-headroom-status.mjs
+node ~/.codex/agentic-project-manager/tools/pm-headroom-context.mjs --file ./large-output.txt --mode analyze
 ```
+
+## Headroom SDK Pilot
+
+Headroom is installed as a Project Manager SDK dependency for explicit context analysis.
+
+- `pm-headroom-status.mjs` checks the npm SDK, local service health, and blocked Python/Docker runtime paths.
+- `pm-headroom-context.mjs` analyzes large logs/tool outputs/files and can call service-backed `simulate` or `compress` only when a Headroom service endpoint is reachable.
+- The current default is not proxy/wrapper mode. Do not route Codex provider traffic through Headroom without a service-health check, telemetry decision, generated-file plan, and rollback plan.
 
 ## Skills
 

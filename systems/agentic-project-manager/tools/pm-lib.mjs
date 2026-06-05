@@ -53,7 +53,8 @@ export function classifyTask(task) {
     "understand anything", "serena", "wordpress", "woocommerce", "carousel library", "gallery library",
     "mcp server", "starter kit", "component source", "registry", "theme.json", "wp_enqueue_script",
     "wp_enqueue_style", "create block theme", "roots sage", "underscores", "scrolltrigger wordpress",
-    "lenis wordpress", "gsap wordpress"
+    "lenis wordpress", "gsap wordpress", "headroom", "headroom-ai", "context compression",
+    "token compression", "reversible compression", "compress tool outputs", "compress logs", "ccr"
   ];
   const orchestrationPhrases = [
     "figure out everything needed", "use every necessary tool", "take control", "best practice",
@@ -65,13 +66,14 @@ export function classifyTask(task) {
     "absorb this repo", "absorb into our system", "learn from this repo", "mine this repo",
     "strip goodies", "extract workflow", "copy useful patterns", "source reference",
     "wordpress theme ecosystem", "woocommerce theme ecosystem", "wordpress starter theme",
-    "wordpress design system", "animated wordpress theme"
+    "wordpress design system", "animated wordpress theme", "integrate headroom", "try headroom",
+    "use headroom", "context compression integration"
   ];
   const detectedKnowledgeTerms = externalToolTerms.filter(term => t.includes(term));
   const detectedOrchestrationPhrases = orchestrationPhrases.filter(term => t.includes(term));
   add("SQL operation", /\bsql\b|query|drop|truncate|delete from|update .*where|select .*from/);
   add("database/schema", /database|schema|migration|prisma|drizzle|postgres|mysql|sqlite|mongo|redis/);
-  add("VPS/SSH/server", /ssh|vps|server|nginx|apache|caddy|systemd|pm2|docker|firewall|logs?/);
+  add("VPS/SSH/server", /ssh|vps|server|nginx|apache|caddy|systemd|pm2|docker|firewall|server logs?|vps logs?|nginx logs?|apache logs?/);
   add("backend/API", /api|endpoint|route|controller|backend|server action|webhook|auth|jwt/);
   add("WordPress theme development", /wordpress theme|wp theme|block theme|classic theme|theme\.json|functions\.php|wp_enqueue_script|wp_enqueue_style|create block theme|roots sage|underscores|_s/);
   add("WooCommerce theme development", /woocommerce theme|woocommerce template|woocommerce hooks|single product template|archive product|checkout template|product gallery|product carousel/);
@@ -87,8 +89,9 @@ export function classifyTask(task) {
   add("frontend visual/layout", /mobile|responsive|layout|spacing|color|typography|overflow|sticky|screenshot|visual|css/);
   add("frontend component", /component|shadcn|radix|button|modal|dialog|card|navbar/);
   add("capability orchestration", /gsap|scrolltrigger|lenis|shadcn|tailwind|phpmailer|prisma|drizzle|supabase|stripe|docker|nginx|caddy|pm2|systemd|codegraph|understand anything|figure out everything needed|use every necessary tool|best practice|production-ready|no primitive manually|clone this site|choose the right stack/);
+  add("context compression", /headroom|headroom-ai|context compression|token compression|reversible compression|compress tool outputs|compress logs|\bccr\b/);
   add("open-source repo absorption", /github\.com\/[\w.-]+\/[\w.-]+.*(absorb|learn from|mine|strip|extract|source reference|copy useful)|\b(absorb|learn from|mine|strip|extract)\b.*\b(repo|repository)\b/);
-  add("copy/content-only", /copy|headline|text|content|rewrite|cta/);
+  add("copy/content-only", /\b(copy|headline|text|content|rewrite|cta)\b/);
   const unique = [...new Set(types)];
   const risky = unique.some(x => /SQL|database|VPS|deployment|security/.test(x));
   const visual = unique.some(x => /frontend|design/.test(x));
@@ -121,6 +124,7 @@ export function classifyTask(task) {
   if (graphTrace) tools.push("CodeGraph for symbol usage, caller/callee tracing, dependency paths, and impact analysis");
   if (semanticNav) tools.push("Serena semantic navigation when available for targeted symbol/class/function context");
   if (capabilityOrchestrationRecommended) tools.push("pm-knowledge-gap.mjs for Capability Orchestration Radar and knowledge blob status");
+  if (unique.includes("context compression")) tools.push("pm-headroom-status.mjs and pm-headroom-context.mjs for explicit Headroom SDK pilot checks");
   if (unique.includes("SQL operation")) tools.push("sql-safety-check.mjs");
   if (unique.includes("VPS/SSH/server")) tools.push("vps-* read-only scripts");
   const smallLocalized = /fix|change|update|adjust/.test(t) && /button|padding|copy|text|headline|label/.test(t) && !/large|unknown|architecture|depends on|impact|caller|callee|what uses|what breaks/.test(t);

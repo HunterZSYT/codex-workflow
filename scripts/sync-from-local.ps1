@@ -152,6 +152,10 @@ function Export-System {
 
   Copy-KnowledgePacks $Source $dest
 
+  if ($Name -eq "agentic-project-manager") {
+    Copy-IfExists (Join-Path $Source "tools/package-lock.json") (Join-Path $dest "tools/package-lock.json")
+  }
+
   $summaryPath = Join-Path $dest "LOCAL_STATUS_SUMMARY.md"
   @(
     "# Local Status Summary",
