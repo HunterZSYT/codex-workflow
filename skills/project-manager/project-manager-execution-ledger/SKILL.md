@@ -70,6 +70,8 @@ Routing: frontend visual/layout -> frontend-tool-orchestrator plus visual skills
 
 README/migration docs routing: update README, migration README, restore guide, new PC setup, machine setup, one-shot migration, document current system, system inventory, setup checklist, README out of date, one-way sync, source-of-truth PC, primary machine, secondary machine, restore-only machine, or promote machine to primary -> `readme-update-migration-guide`. Scan first with `pm-readme-update.mjs`, update docs from actual system inventory, validate/redact before commit, and always preserve the one-way primary-write/secondary-restore model.
 
+Headroom/context-compression routing: headroom, context compression, token compression, compress tool outputs, compress logs, reversible compression, CCR, cross-agent memory, headroom learn, wrap Codex, proxy compression, or MCP compression -> candidate pack `project_manager.context.headroom-compression-evaluation`. Treat it as source-backed candidate knowledge only. Do not install, configure MCP/proxy, wrap Codex, or run `headroom learn` without explicit approval, safety review, telemetry decision, generated-file plan, and rollback plan.
+
 Verification: copy-only no screenshot by default; frontend visual requires rendered evidence; mobile claims require mobile emulation; backend/API uses tests/build/typecheck/smoke test; database uses read-only inspection and safety checks; VPS/server uses read-only inspection and command preview before changes.
 
 Tool usage logging should include tool chosen, why chosen, alternatives considered, whether it reduced search/read loops, whether it found needed context, whether it was overkill, and whether routing rules should change.

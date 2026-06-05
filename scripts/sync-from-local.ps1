@@ -114,6 +114,7 @@ function Export-System {
     "knowledge/*.md",
     "knowledge/*.json",
     "knowledge/capability-orchestration/*.md",
+    "knowledge/repo-absorption-reports/*.md",
     "knowledge/routing/*.md",
     "knowledge/color/*.md",
     "knowledge/spacing/*.md",

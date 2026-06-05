@@ -44,3 +44,5 @@ When ecosystem scout failures repeat, recommend updating local knowledge aliases
 When source absorption failures repeat, recommend updating repo absorption triggers, report templates, source ledger templates, license review rules, or sync/redaction docs before creating a new skill.
 
 When README/migration/setup documentation drifts from the live Codex Workflow system, recommend routing future work to `readme-update-migration-guide` and `pm-readme-update.mjs`. Treat missing one-way primary/secondary rules, stale restore steps, stale MCP setup, missing system inventory, or unsafe secondary sync instructions as high-priority documentation/routing inefficiencies.
+
+When Headroom/context-compression requests are answered with install/proxy/wrapper advice before checking `project_manager.context.headroom-compression-evaluation`, treat it as a routing inefficiency. Recommend candidate-pack lookup first, comparison against existing retrieval/logging practices, and approval-gated pilot planning before any install, MCP, proxy, wrapper, or `headroom learn` action.

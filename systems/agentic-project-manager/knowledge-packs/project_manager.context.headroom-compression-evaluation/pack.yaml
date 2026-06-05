@@ -1,0 +1,78 @@
+id: project_manager.context.headroom-compression-evaluation
+title: Headroom Context Compression Evaluation
+namespace: project_manager
+owner_system: agentic-project-manager
+owner_skill: task-routing-and-skill-selection
+secondary_owners:
+  - project-manager-execution-ledger
+  - inefficiency-and-improvement-reviewer
+  - verification-gate-controller
+  - readme-update-migration-guide
+status: candidate
+maturity: researched
+source_confidence: sourced
+aliases:
+  - Headroom
+  - context compression
+  - token compression
+  - reversible compression
+  - CCR
+  - MCP compression
+  - proxy compression
+  - headroom learn
+trigger_terms:
+  - headroom
+  - context compression
+  - token compression
+  - compress tool outputs
+  - compress logs
+  - reversible compression
+  - CCR
+  - cross-agent memory
+  - headroom learn
+  - wrap codex
+  - proxy compression
+  - MCP compression
+related_blobs:
+  - project_manager.routing.capability-radar-trigger-policy
+  - project_manager.routing.knowledge-blob-policy
+  - project_manager.routing.micro-update-policy
+related_packs:
+  []
+external_libraries:
+  - headroom-ai
+  - Headroom
+docs_sources:
+  - https://github.com/chopratejas/headroom
+  - https://raw.githubusercontent.com/chopratejas/headroom/main/llms.txt
+  - https://headroom-docs.vercel.app/llms.txt
+  - https://headroom-docs.vercel.app/docs/installation
+  - https://headroom-docs.vercel.app/docs/proxy
+  - https://headroom-docs.vercel.app/docs/mcp
+  - https://headroom-docs.vercel.app/docs/ccr
+  - https://headroom-docs.vercel.app/docs/memory
+  - https://headroom-docs.vercel.app/docs/failure-learning
+  - https://headroom-docs.vercel.app/docs/configuration
+  - https://headroom-docs.vercel.app/docs/limitations
+  - https://headroom-docs.vercel.app/docs/benchmarks
+  - https://pypi.org/project/headroom-ai/
+artifact_paths:
+  - artifacts/headroom-mode-decision-tree.md
+  - artifacts/headroom-pilot-checklist.md
+  - artifacts/headroom-sync-ignore-checklist.md
+  - artifacts/headroom-risk-register.md
+  - artifacts/headroom-benchmark-plan.md
+  - artifacts/headroom-mcp-evaluation-checklist.md
+  - artifacts/headroom-learning-conflict-checklist.md
+apply_commands:
+  []
+verification_methods:
+  - Run pm-pack-audit.mjs --id project_manager.context.headroom-compression-evaluation.
+  - Run pm-knowledge-search.mjs searches for Headroom, CCR, tool output compression, headroom learn, and MCP compression.
+  - Do not install or run Headroom without explicit approval and a pilot plan.
+safe_to_sync: true
+last_verified: 2026-06-06
+approval_status: not_requested
+promotion_status: candidate_only
+copied_from_external_source: false
+copyright_risk: low

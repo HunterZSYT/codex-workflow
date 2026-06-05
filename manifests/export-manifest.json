@@ -46,6 +46,7 @@
     "learning/learning-system-research.md",
     "knowledge/*.md",
     "knowledge/*.json",
+    "knowledge/repo-absorption-reports/*.md",
     "knowledge-packs/*/pack.yaml",
     "knowledge-packs/*/README.md",
     "knowledge-packs/*/source-ledger.md",
