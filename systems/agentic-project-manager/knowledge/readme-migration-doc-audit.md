@@ -1,6 +1,6 @@
 # README Migration Documentation Audit
 
-Generated: 2026-06-05T19:15:51.773Z
+Generated: 2026-06-05T19:19:09.586Z
 
 ## Current README coverage
 

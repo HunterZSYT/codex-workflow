@@ -1,6 +1,6 @@
 # System Inventory
 
-Generated from scan at 2026-06-05T19:15:51.773Z.
+Generated from scan at 2026-06-05T19:19:09.586Z.
 
 ## Exported systems
 
@@ -299,8 +299,8 @@ Skill categories:
 
 ## Last sync summary
 
-- Timestamp: unknown
-- Files copied: unknown
+- Timestamp: 2026-06-06T01:18:52.8785105+06:00
+- Files copied: 405
 - Warnings: none
 
 ## Primary-only scripts

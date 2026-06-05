@@ -111,7 +111,7 @@ async function readText(filePath) {
 
 async function readJson(filePath) {
   try {
-    return JSON.parse(await fs.readFile(filePath, "utf8"));
+    return JSON.parse((await fs.readFile(filePath, "utf8")).replace(/^\uFEFF/, ""));
   } catch {
     return null;
   }
