@@ -44,7 +44,7 @@ Detected exported systems:
 
 - agentic-backend-database (21 tools, 2 knowledge packs)
 - agentic-frontend (7 tools, 4 knowledge packs)
-- agentic-project-manager (37 tools, 0 knowledge packs)
+- agentic-project-manager (39 tools, 1 knowledge packs)
 
 Detected skill groups:
 
@@ -97,6 +97,7 @@ Detected local npm dependencies:
 - @axe-core/playwright
 - ajv
 - dotenv
+- headroom-ai
 - lighthouse
 - playwright
 - yaml

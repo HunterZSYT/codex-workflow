@@ -1,0 +1,101 @@
+id: project_manager.research.last30days-current-signal
+title: last30days Current Research Signal
+namespace: project_manager
+owner_system: agentic-project-manager
+owner_skill: task-routing-and-skill-selection
+secondary_owners:
+  - project-manager-execution-ledger
+  - inefficiency-and-improvement-reviewer
+  - verification-gate-controller
+  - readme-update-migration-guide
+  - frontend-tool-orchestrator
+  - backend-database-tool-orchestrator
+status: active
+maturity: artifact_backed
+integration_mode: global_research_layer
+source_confidence: sourced
+aliases:
+  - last30days
+  - last 30 days
+  - current research
+  - current signal
+  - community signal
+  - social signal
+  - ecosystem scout
+trigger_terms:
+  - last30days
+  - last 30 days
+  - current research
+  - recent community signal
+  - what people are saying
+  - trending tools
+  - latest ecosystem
+  - compare current tools
+  - social signal
+  - research artifacts
+  - source discovery
+  - find current sources
+  - recent GitHub activity
+  - recent complaints
+  - current best practice
+  - latest tool
+  - latest repo
+  - latest library
+  - latest MCP
+active_modes:
+  - global_skill
+  - current_topic_research
+  - ecosystem_discovery
+  - community_signal
+  - repo_activity_signal
+  - source_ledger_feed
+  - html_brief_when_requested
+pending_modes:
+  - paid_api_sources
+  - browser_session_sources
+  - persistent_store_watchlists
+  - synced_html_briefs
+related_blobs:
+  - project_manager.routing.capability-radar-trigger-policy
+  - project_manager.routing.knowledge-blob-policy
+  - project_manager.routing.micro-update-policy
+related_docs:
+  - ecosystem-scout-policy.md
+  - ecosystem-scout-workflow.md
+  - repo-absorption-workflow.md
+  - last30days-global-research-integration-audit.md
+  - last30days-secret-and-artifact-policy.md
+external_libraries:
+  - last30days-skill
+  - Agent Skills CLI
+docs_sources:
+  - https://github.com/mvanhorn/last30days-skill
+  - https://github.com/mvanhorn/last30days-skill/blob/main/skills/last30days/SKILL.md
+  - https://github.com/mvanhorn/last30days-skill/blob/main/README.md
+  - https://github.com/mvanhorn/last30days-skill/blob/main/CONFIGURATION.md
+  - https://github.com/mvanhorn/last30days-skill/blob/main/LICENSE
+artifact_paths:
+  - artifacts/research-source-routing-decision-tree.md
+  - artifacts/last30days-when-to-use.md
+  - artifacts/last30days-when-to-skip.md
+  - artifacts/source-trust-ladder.md
+  - artifacts/research-artifact-policy.md
+  - artifacts/last30days-api-key-policy.md
+  - artifacts/knowledgebase-fill-with-last30days.md
+  - artifacts/repo-absorption-with-last30days.md
+apply_commands:
+  - npx skills list -g
+  - python C:\Users\acer\.agents\skills\last30days\scripts\last30days.py --diagnose
+  - python C:\Users\acer\.agents\skills\last30days\scripts\last30days.py "<topic>" --quick --search reddit,hackernews,polymarket --emit=json --save-dir <local-only-dir>
+verification_methods:
+  - Run npx skills list -g and confirm last30days is installed for Codex.
+  - Run python C:\Users\acer\.agents\skills\last30days\scripts\last30days.py --help.
+  - Run python C:\Users\acer\.agents\skills\last30days\scripts\last30days.py --diagnose.
+  - Run a safe zero-key smoke query with local-only save-dir.
+  - Run pm-pack-audit.mjs --id project_manager.research.last30days-current-signal.
+safe_to_sync: true
+last_verified: 2026-06-06
+approval_status: user_approved_global_current_research_layer
+promotion_status: active_global_research_layer
+copied_from_external_source: false
+copyright_risk: low

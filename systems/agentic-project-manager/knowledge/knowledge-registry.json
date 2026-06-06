@@ -2298,5 +2298,107 @@
     "promotion_status": "not_ready",
     "copied_from_external_source": false,
     "copyright_risk": "none"
+  },
+  {
+    "capability": "last30days Current Research Signal",
+    "type": "capability_pack",
+    "product_type": "pack",
+    "title": "last30days Current Research Signal",
+    "status": "active",
+    "maturity": "artifact_backed",
+    "owner_system": "agentic-project-manager",
+    "owner_skill": "task-routing-and-skill-selection",
+    "trigger_terms": [
+      "last30days",
+      "last 30 days",
+      "current research",
+      "recent community signal",
+      "what people are saying",
+      "trending tools",
+      "latest ecosystem",
+      "compare current tools",
+      "social signal",
+      "research artifacts",
+      "source discovery",
+      "find current sources",
+      "recent GitHub activity",
+      "recent complaints",
+      "current best practice",
+      "latest tool",
+      "latest repo",
+      "latest library",
+      "latest MCP",
+      "research brief"
+    ],
+    "aliases": [
+      "last30days",
+      "current signal",
+      "community signal",
+      "social signal",
+      "ecosystem scout"
+    ],
+    "external_libraries": [
+      "last30days-skill",
+      "Agent Skills CLI"
+    ],
+    "docs_sources": [
+      "https://github.com/mvanhorn/last30days-skill",
+      "https://github.com/mvanhorn/last30days-skill/blob/main/skills/last30days/SKILL.md",
+      "https://github.com/mvanhorn/last30days-skill/blob/main/README.md",
+      "https://github.com/mvanhorn/last30days-skill/blob/main/CONFIGURATION.md",
+      "https://github.com/mvanhorn/last30days-skill/blob/main/LICENSE"
+    ],
+    "artifact_paths": [
+      "artifacts/research-source-routing-decision-tree.md",
+      "artifacts/last30days-when-to-use.md",
+      "artifacts/last30days-when-to-skip.md",
+      "artifacts/source-trust-ladder.md",
+      "artifacts/research-artifact-policy.md",
+      "artifacts/last30days-api-key-policy.md",
+      "artifacts/knowledgebase-fill-with-last30days.md",
+      "artifacts/repo-absorption-with-last30days.md"
+    ],
+    "apply_command": "npx skills list -g && python C:\\Users\\acer\\.agents\\skills\\last30days\\scripts\\last30days.py --diagnose",
+    "apply_commands": [
+      "npx skills list -g",
+      "python C:\\Users\\acer\\.agents\\skills\\last30days\\scripts\\last30days.py --diagnose",
+      "python C:\\Users\\acer\\.agents\\skills\\last30days\\scripts\\last30days.py \"<topic>\" --quick --search reddit,hackernews,polymarket --emit=json --save-dir <local-only-dir>"
+    ],
+    "verification_method": "Run npx skills list -g; run last30days.py --help and --diagnose; run a safe zero-key smoke query with local-only save-dir; run pm-pack-audit.mjs --id project_manager.research.last30days-current-signal.",
+    "safe_to_sync": true,
+    "file_path": "C:\\Users\\acer\\.codex\\agentic-project-manager\\knowledge-packs\\project_manager.research.last30days-current-signal\\pack.yaml",
+    "last_verified": "2026-06-06",
+    "notes": "Active global current-research layer approved by user. Use last30days for current ecosystem/community signal, source discovery, recent complaints, recent GitHub/project activity leads, and research briefs. Official docs/repos remain authoritative. Optional paid/API/browser/session sources and raw artifact sync require explicit approval.",
+    "pack_id": "project_manager.research.last30days-current-signal",
+    "pack_path": "C:\\Users\\acer\\.codex\\agentic-project-manager\\knowledge-packs\\project_manager.research.last30days-current-signal",
+    "source_ledger_path": "C:\\Users\\acer\\.codex\\agentic-project-manager\\knowledge-packs\\project_manager.research.last30days-current-signal\\source-ledger.md",
+    "specs_path": "C:\\Users\\acer\\.codex\\agentic-project-manager\\knowledge-packs\\project_manager.research.last30days-current-signal\\specs.md",
+    "artifacts_count": 8,
+    "approval_status": "user_approved_global_current_research_layer",
+    "promotion_status": "active_global_research_layer",
+    "copied_from_external_source": false,
+    "copyright_risk": "none",
+    "integration_mode": "global_research_layer",
+    "source_confidence": "sourced",
+    "active_modes": [
+      "global_skill",
+      "current_topic_research",
+      "ecosystem_discovery",
+      "community_signal",
+      "repo_activity_signal",
+      "source_ledger_feed",
+      "html_brief_when_requested"
+    ],
+    "pending_modes": [
+      "paid_api_sources",
+      "browser_session_sources",
+      "persistent_store_watchlists",
+      "synced_html_briefs"
+    ],
+    "related_blobs": [
+      "project_manager.routing.capability-radar-trigger-policy",
+      "project_manager.routing.knowledge-blob-policy",
+      "project_manager.routing.micro-update-policy"
+    ]
   }
 ]

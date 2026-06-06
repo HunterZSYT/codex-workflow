@@ -1,10 +1,10 @@
 # README Update Report
 
-Generated: 2026-06-05T19:19:09.586Z
+Generated: 2026-06-06T06:59:25.844Z
 
 ## Files scanned
 
-- Total files scanned: 875
+- Total files scanned: 1057
 - Docs scanned: 14
 
 ## README sections updated

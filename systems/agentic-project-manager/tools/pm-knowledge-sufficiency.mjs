@@ -34,6 +34,7 @@ const CAPABILITY_TERMS = [
   { capability: "Form input system", terms: ["form input", "form validation", "label input", "helper text", "required field", "optional field", "submit loading"], highRisk: false },
   { capability: "Navigation system", terms: ["navigation", "navigation system", "nav active", "active route", "sticky nav", "sticky header", "mobile menu", "nav overflow"], highRisk: false }
   ,{ capability: "Headroom global context layer", terms: ["headroom", "context compression", "token compression", "context optimization", "compress tool outputs", "compress logs", "summarize logs", "analyze huge output", "huge output", "large context", "large logs", "large tool output", "long debugging output", "source ingestion", "knowledgebase fill", "too much raw text", "research artifact", "repo absorption context", "reversible compression", "ccr", "cross-agent memory", "headroom learn", "wrap codex", "proxy compression", "mcp compression"], external: true, highRisk: true }
+  ,{ capability: "last30days current research signal", terms: ["last30days", "last 30 days", "current research", "recent community signal", "what people are saying", "trending tools", "latest ecosystem", "compare current tools", "social signal", "source discovery", "find current sources", "recent github activity", "recent complaints", "current best practice", "latest tool", "latest repo", "latest library", "latest mcp", "research brief"], external: true, highRisk: true }
 ];
 
 const ECOSYSTEM_SCOUT_TERMS = [
@@ -45,7 +46,11 @@ const ECOSYSTEM_SCOUT_TERMS = [
   "carousel", "custom carousel", "carousel library", "gallery", "gallery library", "mcp server", "integration knowledge",
   "fill knowledgebase", "add knowledge", "teach the system", "add integration knowledge",
   "use best tools", "build with existing tools", "don't generate from scratch",
-  "research and add", "codebase intelligence tool"
+  "research and add", "codebase intelligence tool",
+  "last30days", "last 30 days", "current research", "recent community signal",
+  "what people are saying", "trending tools", "latest ecosystem", "compare current tools",
+  "social signal", "source discovery", "find current sources", "recent github activity",
+  "recent complaints", "current best practice", "latest tool", "latest repo", "latest library", "latest mcp"
 ];
 
 const REPO_ABSORPTION_TERMS = [

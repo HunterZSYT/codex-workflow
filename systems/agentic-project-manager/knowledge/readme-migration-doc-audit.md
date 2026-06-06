@@ -1,6 +1,6 @@
 # README Migration Documentation Audit
 
-Generated: 2026-06-05T19:19:09.586Z
+Generated: 2026-06-06T06:59:25.844Z
 
 ## Current README coverage
 
@@ -58,7 +58,7 @@ Generated: 2026-06-05T19:19:09.586Z
 
 - agentic-backend-database: 21 tools, 2 knowledge packs
 - agentic-frontend: 7 tools, 4 knowledge packs
-- agentic-project-manager: 37 tools, 0 knowledge packs
+- agentic-project-manager: 39 tools, 1 knowledge packs
 
 ## Skills found
 
@@ -67,7 +67,7 @@ Generated: 2026-06-05T19:19:09.586Z
 
 ## Tools/scripts found
 
-- Local system tools: 65
+- Local system tools: 67
 - Repo scripts: 10
 
 ## Knowledge packs found
@@ -78,6 +78,7 @@ Generated: 2026-06-05T19:19:09.586Z
 - frontend.motion.gsap-lenis-wordpress (active)
 - frontend.system.ui-layer-scope-model (active)
 - frontend.wordpress.theme-design-system (active)
+- project_manager.context.headroom-compression-evaluation (active)
 
 ## MCP/config references found
 

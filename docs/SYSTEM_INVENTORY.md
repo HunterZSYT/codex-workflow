@@ -1,6 +1,6 @@
 # System Inventory
 
-Generated from scan at 2026-06-05T19:19:09.586Z.
+Generated from scan at 2026-06-06T06:59:25.844Z.
 
 ## Exported systems
 
@@ -8,7 +8,7 @@ Generated from scan at 2026-06-05T19:19:09.586Z.
 | --- | --- | --- | --- |
 | agentic-backend-database | 21 | 2 | ajv, dotenv, yaml |
 | agentic-frontend | 7 | 4 | @axe-core/playwright, lighthouse, playwright |
-| agentic-project-manager | 37 | 0 | None detected |
+| agentic-project-manager | 39 | 1 | headroom-ai |
 
 ## Skills
 
@@ -61,8 +61,8 @@ Skill categories:
 
 ## Knowledge packs
 
-- Exported knowledge packs detected: 6
-- Status summary: active: 5, candidate: 1
+- Exported knowledge packs detected: 7
+- Status summary: active: 6, candidate: 1
 
 ## Tools by system
 
@@ -102,6 +102,8 @@ Skill categories:
 | agentic-project-manager | tools/pm-completion-report.mjs |
 | agentic-project-manager | tools/pm-create-roadmap.mjs |
 | agentic-project-manager | tools/pm-error-to-knowledge-candidate.mjs |
+| agentic-project-manager | tools/pm-headroom-context.mjs |
+| agentic-project-manager | tools/pm-headroom-status.mjs |
 | agentic-project-manager | tools/pm-improvement-review.mjs |
 | agentic-project-manager | tools/pm-init-task.mjs |
 | agentic-project-manager | tools/pm-knowledge-dedupe.mjs |
@@ -237,6 +239,7 @@ Skill categories:
 - learning/learning-system-research.md
 - knowledge/*.md
 - knowledge/*.json
+- knowledge/repo-absorption-reports/*.md
 - knowledge-packs/*/pack.yaml
 - knowledge-packs/*/README.md
 - knowledge-packs/*/source-ledger.md
@@ -299,8 +302,8 @@ Skill categories:
 
 ## Last sync summary
 
-- Timestamp: 2026-06-06T01:18:52.8785105+06:00
-- Files copied: 405
+- Timestamp: 2026-06-06T12:42:27.4128883+06:00
+- Files copied: 430
 - Warnings: none
 
 ## Primary-only scripts
