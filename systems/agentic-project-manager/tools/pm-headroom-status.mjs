@@ -56,7 +56,8 @@ const py313 = path.join(PM_ROOT, ".runtime", "headroom", "venv", "Scripts", "pyt
 
 const status = {
   timestamp: new Date().toISOString(),
-  mode: "sdk_pilot",
+  mode: "global_context_layer",
+  integrationMode: "global_context_layer",
   package: await packageInfo(),
   service: await serviceHealth(baseUrl),
   runtimes: {
@@ -68,19 +69,47 @@ const status = {
   },
   activeUse: {
     sdkInstalled: false,
+    explicitContextAnalysis: true,
+    largeContextAnalysis: true,
+    largeLogAnalysis: true,
+    toolOutputAnalysis: true,
+    repoAbsorptionContextAnalysis: true,
+    researchArtifactContextAnalysis: true,
     compressionServiceReachable: false,
     codexProxyWrapped: false,
     mcpServerConfigured: false,
     headroomLearnEnabled: false
   },
+  activeModes: [
+    "sdk",
+    "explicit_context_analysis",
+    "large_context_analysis",
+    "large_log_analysis",
+    "tool_output_analysis",
+    "repo_absorption_context_analysis",
+    "research_artifact_context_analysis"
+  ],
+  pendingModes: [
+    "mcp",
+    "service",
+    "proxy",
+    "wrapper",
+    "headroom_learn"
+  ],
+  safeUsageCommands: [
+    "node C:\\Users\\acer\\.codex\\agentic-project-manager\\tools\\pm-headroom-status.mjs",
+    "node C:\\Users\\acer\\.codex\\agentic-project-manager\\tools\\pm-headroom-context.mjs --file <path> --mode analyze"
+  ],
   guidance: [
-    "Use pm-headroom-context.mjs for explicit context analysis and service-backed simulation/compression checks.",
-    "Do not route Codex provider traffic through Headroom until service health is green and a rollback plan exists.",
-    "If Python install fails with link.exe missing, install Visual Studio Build Tools with the C++ workload or use a remote/headroom cloud endpoint."
+    "Use pm-headroom-context.mjs automatically for large context, logs, tool output, repo absorption source material, and large research artifacts.",
+    "Raw source paths remain canonical; Headroom analysis is an optimization layer, not the source of truth.",
+    "Do not use Headroom on secret-looking files unless the user explicitly approves and --force is passed.",
+    "Do not route Codex provider traffic through Headroom until service health is green and a rollback plan exists."
   ]
 };
 
 status.activeUse.sdkInstalled = status.package.installed;
 status.activeUse.compressionServiceReachable = status.service.reachable;
+status.activeUse.mcpServerConfigured = status.service.reachable && Boolean(status.service.health?.mcp);
 
 console.log(JSON.stringify(status, null, 2));

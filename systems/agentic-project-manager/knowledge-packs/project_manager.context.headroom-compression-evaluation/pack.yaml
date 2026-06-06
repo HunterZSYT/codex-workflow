@@ -9,7 +9,8 @@ secondary_owners:
   - verification-gate-controller
   - readme-update-migration-guide
 status: active
-maturity: sdk_pilot
+maturity: integrated
+integration_mode: global_context_layer
 source_confidence: sourced
 aliases:
   - Headroom
@@ -26,6 +27,13 @@ trigger_terms:
   - token compression
   - compress tool outputs
   - compress logs
+  - large context analysis
+  - large log analysis
+  - tool output analysis
+  - huge output analysis
+  - research artifact context analysis
+  - repo absorption context analysis
+  - context optimization
   - reversible compression
   - CCR
   - cross-agent memory
@@ -33,6 +41,20 @@ trigger_terms:
   - wrap codex
   - proxy compression
   - MCP compression
+active_modes:
+  - sdk
+  - explicit_context_analysis
+  - large_context_analysis
+  - large_log_analysis
+  - tool_output_analysis
+  - repo_absorption_context_analysis
+  - research_artifact_context_analysis
+pending_modes:
+  - mcp
+  - service
+  - proxy
+  - wrapper
+  - headroom_learn
 related_blobs:
   - project_manager.routing.capability-radar-trigger-policy
   - project_manager.routing.knowledge-blob-policy
@@ -58,7 +80,7 @@ docs_sources:
   - https://pypi.org/project/headroom-ai/
 artifact_paths:
   - artifacts/headroom-mode-decision-tree.md
-  - artifacts/headroom-pilot-checklist.md
+  - artifacts/headroom-expansion-checklist.md
   - artifacts/headroom-sync-ignore-checklist.md
   - artifacts/headroom-risk-register.md
   - artifacts/headroom-benchmark-plan.md
@@ -71,12 +93,12 @@ apply_commands:
 verification_methods:
   - Run pm-pack-audit.mjs --id project_manager.context.headroom-compression-evaluation.
   - Run pm-knowledge-search.mjs searches for Headroom, CCR, tool output compression, headroom learn, and MCP compression.
-  - Run pm-headroom-status.mjs before service-backed compression.
-  - Run pm-headroom-context.mjs --mode analyze for explicit context-waste analysis.
+  - Run pm-headroom-status.mjs to verify global context layer and pending modes.
+  - Run pm-headroom-context.mjs --mode analyze for large context/log/tool-output analysis.
   - Do not proxy/wrap Codex, enable MCP, or run headroom learn until service health and rollback checks pass.
 safe_to_sync: true
 last_verified: 2026-06-06
-approval_status: approved_by_user_for_sdk_pilot
-promotion_status: active_sdk_pilot
+approval_status: user_approved_global_context_layer
+promotion_status: active_global_context_layer
 copied_from_external_source: false
 copyright_risk: low

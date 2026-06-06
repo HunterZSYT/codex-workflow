@@ -2,13 +2,23 @@
 
 ## Trigger Terms
 
-Route to this candidate pack when a request includes:
+Route to this active global context layer when a request includes:
 
 - headroom
 - context compression
 - token compression
 - compress tool outputs
 - compress logs
+- huge output
+- large context
+- large log analysis
+- large tool output
+- summarize logs
+- analyze huge output
+- reduce tokens
+- context optimization
+- repo absorption context analysis
+- research artifact context analysis
 - reversible compression
 - CCR
 - cross-agent memory
@@ -19,16 +29,17 @@ Route to this candidate pack when a request includes:
 
 ## Required Behavior
 
-- Scan existing retrieval/learning practices before recommending Headroom.
-- Treat Headroom as candidate knowledge unless explicit approval is given.
-- Compare Headroom against cheaper practices first: narrower search, log filtering, artifact summaries, retrieval index, and task-local ledgers.
-- Require approval before installing Python/npm packages, running Docker, configuring MCP, starting proxy, wrapping Codex, or running `headroom learn`.
-- Require telemetry decision before any pilot. Default pilot setting should disable telemetry.
-- Require generated-file ignore plan before any pilot.
+- Automatically consider Headroom for large context/log/tool-output/research artifact analysis.
+- Use Headroom for context optimization, not as the only source of truth.
+- Preserve raw source paths separately.
+- Do not use Headroom when exact raw text/code fidelity is required.
+- Do not use Headroom on secret-looking files unless the user explicitly approves and `--force` is passed.
+- Compare Headroom against cheaper practices when the content is small: narrower search, log filtering, artifact summaries, retrieval index, and task-local ledgers.
+- Require approval before running Docker, configuring MCP, starting proxy, wrapping Codex, or running `headroom learn`.
 
-## Candidate Generated/Local-Only Paths
+## Generated/Local-Only Paths
 
-Use as candidate ignore notes if Headroom is piloted later:
+Keep these local-only and never sync raw Headroom stores/caches/logs:
 
 - `~/.headroom/`
 - `.headroom/`
@@ -46,13 +57,13 @@ Use as candidate ignore notes if Headroom is piloted later:
 - generated failure-learning outputs unless reviewed
 - any token/auth/env/config files
 
-Exact paths must be verified during a pilot before changing `.gitignore` or sync/redaction policy.
+Exact paths must be verified before changing `.gitignore` or sync/redaction policy.
 
 ## Approval Gates
 
 Approval required before:
 
-- installing `headroom-ai` from PyPI or npm
+- reinstalling `headroom-ai` if already present
 - pulling/running Docker images
 - configuring a Headroom MCP server
 - running a Headroom proxy
@@ -60,11 +71,11 @@ Approval required before:
 - running `headroom learn`
 - letting any tool write to `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, or workflow policy files
 - adding sync ignore/redaction rules based on unverified generated paths
-- promoting this pack to active
+- using Headroom on secret-looking files
 
-## Pilot Acceptance Criteria
+## Active Layer Acceptance Criteria
 
-A future pilot must show:
+The global context layer should show:
 
 - measurable token reduction on sanitized representative outputs
 - no loss of required error/context details

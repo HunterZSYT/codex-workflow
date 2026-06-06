@@ -1,18 +1,18 @@
 # Headroom Mode Decision Tree
 
 1. Need only source-backed knowledge now?
-   - Use candidate pack only. Do not install.
+   - Use the active global context layer for large-context analysis; do not reinstall unless missing.
 
 2. Need to compress a single sanitized fixture or app-owned content?
-   - Consider Python library first.
-   - TypeScript library requires a running proxy per current docs, so it is not the first isolated pilot.
+   - Use `pm-headroom-context.mjs --mode analyze` first.
+   - Use service-backed `simulate` or `compress` only when `pm-headroom-status.mjs` reports service health.
 
 3. Need agent-accessible compression without proxying all provider traffic?
-   - Consider MCP candidate.
+   - Consider MCP as a pending expansion mode.
    - Require local store/log/telemetry review.
 
 4. Need zero-code-change compression for a client?
-   - Consider proxy candidate only after privacy/network/rollback review.
+   - Consider proxy only after privacy/network/rollback review.
    - Disable telemetry unless explicitly accepted.
 
 5. Need to run Codex through Headroom?

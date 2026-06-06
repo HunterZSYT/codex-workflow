@@ -1,11 +1,12 @@
 # Headroom Active Integration Notes
 
-Status: active SDK pilot.
+Status: active global context layer in SDK/tool mode.
 
 Approved scope:
 - Install `headroom-ai` in `C:\Users\acer\.codex\agentic-project-manager\tools`.
 - Use `pm-headroom-status.mjs` to verify SDK, runtime, and service state.
-- Use `pm-headroom-context.mjs` for explicit context-waste analysis and service-backed `simulate` or `compress` when a Headroom endpoint is reachable.
+- Use `pm-headroom-context.mjs` automatically for large context/log/tool-output/repo-absorption/research-artifact analysis.
+- Use service-backed `simulate` or `compress` only when a Headroom endpoint is reachable.
 
 Not active yet:
 - Codex proxy/wrapper routing.
@@ -18,7 +19,6 @@ Current Windows service blocker:
 - Docker is not installed.
 - The npm SDK installs cleanly but service-backed compression calls `http://localhost:8787` unless `HEADROOM_BASE_URL` points to a running endpoint.
 
-Operational rule:
-- Treat Headroom as active only for explicit analysis until `pm-headroom-status.mjs` reports `service.reachable: true`.
+- Treat Headroom as active for SDK/tool mode context analysis even when `service.reachable` is false.
 - If service health is green, `pm-headroom-context.mjs --mode simulate` may be used before compression to check savings and risk.
 - Do not route provider traffic through Headroom without a rollback command and a before/after task transcript.

@@ -33,7 +33,7 @@ const CAPABILITY_TERMS = [
   { capability: "Visual media system", terms: ["visual media", "image ratio", "aspect ratio", "object-fit", "icon sizing", "responsive image", "hero image"], highRisk: false },
   { capability: "Form input system", terms: ["form input", "form validation", "label input", "helper text", "required field", "optional field", "submit loading"], highRisk: false },
   { capability: "Navigation system", terms: ["navigation", "navigation system", "nav active", "active route", "sticky nav", "sticky header", "mobile menu", "nav overflow"], highRisk: false }
-  ,{ capability: "Headroom context compression evaluation", terms: ["headroom", "context compression", "token compression", "compress tool outputs", "compress logs", "reversible compression", "ccr", "cross-agent memory", "headroom learn", "wrap codex", "proxy compression", "mcp compression"], external: true, highRisk: true }
+  ,{ capability: "Headroom global context layer", terms: ["headroom", "context compression", "token compression", "context optimization", "compress tool outputs", "compress logs", "summarize logs", "analyze huge output", "huge output", "large context", "large logs", "large tool output", "long debugging output", "source ingestion", "knowledgebase fill", "too much raw text", "research artifact", "repo absorption context", "reversible compression", "ccr", "cross-agent memory", "headroom learn", "wrap codex", "proxy compression", "mcp compression"], external: true, highRisk: true }
 ];
 
 const ECOSYSTEM_SCOUT_TERMS = [

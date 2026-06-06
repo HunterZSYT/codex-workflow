@@ -1,6 +1,6 @@
 # Headroom MCP Evaluation Checklist
 
-- Approval granted for MCP pilot.
+- Approval granted for MCP expansion.
 - Install mode reviewed and limited to MCP/proxy extras if needed.
 - Live config changes are kept outside Git.
 - MCP server can be removed cleanly.

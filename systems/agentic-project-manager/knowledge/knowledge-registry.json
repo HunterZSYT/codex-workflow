@@ -1808,16 +1808,16 @@
   },
   {
     "id": "pack.project_manager.context.headroom-compression-evaluation",
-    "title": "Headroom Context Compression Evaluation",
+    "title": "Headroom Global Context Layer",
     "namespace": "project_manager",
     "type": "capability_pack",
     "product_type": "pack",
-    "capability": "Headroom Context Compression Evaluation",
+    "capability": "Headroom Global Context Layer",
     "capability_class": "project_manager.context",
     "owner_system": "agentic-project-manager",
     "owner_skill": "task-routing-and-skill-selection",
     "status": "active",
-    "maturity": "sdk_pilot",
+    "maturity": "integrated",
     "aliases": [
       "Headroom",
       "context compression",
@@ -1826,7 +1826,11 @@
       "CCR",
       "MCP compression",
       "proxy compression",
-      "headroom learn"
+      "headroom learn",
+      "context optimization",
+      "large context analysis",
+      "large log analysis",
+      "tool output analysis"
     ],
     "trigger_terms": [
       "headroom",
@@ -1840,7 +1844,21 @@
       "headroom learn",
       "wrap codex",
       "proxy compression",
-      "MCP compression"
+      "MCP compression",
+      "context optimization",
+      "huge output",
+      "large context",
+      "large logs",
+      "large tool output",
+      "long debugging output",
+      "source ingestion",
+      "knowledgebase fill",
+      "too much raw text",
+      "summarize logs",
+      "analyze huge output",
+      "reduce tokens",
+      "repo absorption context analysis",
+      "research artifact context analysis"
     ],
     "external_libraries": [
       "headroom-ai",
@@ -1869,7 +1887,7 @@
     ],
     "artifact_paths": [
       "artifacts/headroom-mode-decision-tree.md",
-      "artifacts/headroom-pilot-checklist.md",
+      "artifacts/headroom-expansion-checklist.md",
       "artifacts/headroom-sync-ignore-checklist.md",
       "artifacts/headroom-risk-register.md",
       "artifacts/headroom-benchmark-plan.md",
@@ -1882,20 +1900,37 @@
       "node C:\\Users\\acer\\.codex\\agentic-project-manager\\tools\\pm-headroom-status.mjs",
       "node C:\\Users\\acer\\.codex\\agentic-project-manager\\tools\\pm-headroom-context.mjs --file <path> --mode analyze"
     ],
-    "verification_method": "Run pm-headroom-status.mjs first; use pm-headroom-context.mjs for explicit context analysis; service-backed simulate/compress requires reachable Headroom service.",
+    "verification_method": "Run pm-headroom-status.mjs; run pm-headroom-context.mjs --file <safe-test-file> --mode analyze; index/search Headroom global context layer.",
     "safe_to_sync": true,
     "file_path": "C:\\Users\\acer\\.codex\\agentic-project-manager\\knowledge-packs\\project_manager.context.headroom-compression-evaluation\\pack.yaml",
     "last_verified": "2026-06-06",
-    "notes": "Active SDK pilot approved by user. Npm headroom-ai is installed in Project Manager tools; Python service install is blocked by missing MSVC link.exe on this Windows machine; proxy/MCP/wrapper/headroom learn remain safety-gated.",
+    "notes": "Active global context layer approved by user. Use SDK/tool mode automatically for large context/log/tool-output/repo-absorption/research-artifact analysis. Raw source paths remain canonical. MCP/service/proxy/wrapper/headroom_learn remain pending. Do not use on secret-looking files without explicit approval and --force.",
     "pack_id": "project_manager.context.headroom-compression-evaluation",
     "pack_path": "C:\\Users\\acer\\.codex\\agentic-project-manager\\knowledge-packs\\project_manager.context.headroom-compression-evaluation",
     "source_ledger_path": "C:\\Users\\acer\\.codex\\agentic-project-manager\\knowledge-packs\\project_manager.context.headroom-compression-evaluation\\source-ledger.md",
     "specs_path": "C:\\Users\\acer\\.codex\\agentic-project-manager\\knowledge-packs\\project_manager.context.headroom-compression-evaluation\\specs.md",
     "artifacts_count": 8,
-    "approval_status": "approved_by_user_for_sdk_pilot",
-    "promotion_status": "active_sdk_pilot",
+    "approval_status": "user_approved_global_context_layer",
+    "promotion_status": "active_global_context_layer",
     "copied_from_external_source": false,
-    "copyright_risk": "none"
+    "copyright_risk": "none",
+    "integration_mode": "global_context_layer",
+    "active_modes": [
+      "sdk",
+      "explicit_context_analysis",
+      "large_context_analysis",
+      "large_log_analysis",
+      "tool_output_analysis",
+      "repo_absorption_context_analysis",
+      "research_artifact_context_analysis"
+    ],
+    "pending_modes": [
+      "mcp",
+      "service",
+      "proxy",
+      "wrapper",
+      "headroom_learn"
+    ]
   },
   {
     "blob_id": "capability-radar-trigger-policy",

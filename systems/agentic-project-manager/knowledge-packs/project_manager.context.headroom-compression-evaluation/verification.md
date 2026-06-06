@@ -1,6 +1,6 @@
 # Verification
 
-This pack is candidate knowledge. Verification proves retrieval and readiness, not runtime Headroom behavior.
+This pack is active as a global context layer in SDK/tool mode. Verification proves routing, local analysis behavior, service state reporting, and export safety.
 
 ## Required Validation
 
@@ -12,12 +12,14 @@ This pack is candidate knowledge. Verification proves retrieval and readiness, n
   - `headroom learn AGENTS.md`
   - `MCP compression tool`
 - Run `pm-pack-audit.mjs --id project_manager.context.headroom-compression-evaluation`.
+- Run `pm-headroom-status.mjs`.
+- Run `pm-headroom-context.mjs --file <safe-test-file> --mode analyze`.
 - Run `project-manager-health-check.mjs`.
 - Run `sync-from-local.ps1`, `validate-export.ps1`, and `redact-scan.ps1` before committing to `codex-workflow`.
 
-## Future Pilot Verification
+## Pending Mode Verification
 
-Do not run in this absorption task. If later approved, evaluate on sanitized fixtures:
+Do not enable MCP/service/proxy/wrapper/headroom_learn without separate safety review. If later approved, evaluate on sanitized fixtures:
 
 - large JSON/API output
 - build/test log with one failure

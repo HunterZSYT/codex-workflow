@@ -1,6 +1,6 @@
 # Headroom Sync Ignore Checklist
 
-Candidate ignore notes for a future pilot. Verify exact paths before modifying ignore rules.
+Global context layer local-only notes. Verify exact paths before modifying ignore rules.
 
 - `~/.headroom/`
 - `.headroom/`

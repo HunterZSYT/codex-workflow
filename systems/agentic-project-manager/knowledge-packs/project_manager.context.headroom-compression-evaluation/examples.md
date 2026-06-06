@@ -1,12 +1,12 @@
 # Examples
 
-## Good Future Prompt
+## Good Prompt
 
-Evaluate whether Headroom should be piloted for compressing large Codex tool outputs. Do not install anything. Use the Headroom candidate pack, compare it to current retrieval/logging practices, and propose an approval-gated pilot plan.
+Analyze this huge Codex tool output with Headroom. Preserve the raw file path as canonical evidence and do not use service/proxy/MCP modes.
 
-## Good Future Prompt
+## Good Prompt
 
-I am hitting context limits from huge build logs. Use Headroom candidate knowledge to decide whether MCP compression or a local library pilot is worth testing. Do not run proxy or wrap Codex without approval.
+I am hitting context limits from huge build logs. Use the Headroom global context layer to analyze the log, then tell me whether pending service or MCP expansion would add value. Do not run proxy or wrap Codex.
 
 ## Must Stop For Approval
 

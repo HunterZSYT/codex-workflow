@@ -1,8 +1,8 @@
 # Source Ledger
 
 Date checked: 2026-06-06
-Task: Absorb Headroom as source-backed candidate knowledge for Codex Workflow.
-Approval status: candidate only; no install, clone, MCP setup, proxy, wrapper, or activation approved.
+Task: Absorb Headroom as source-backed knowledge for Codex Workflow; later promoted to active global context layer in SDK/tool mode.
+Approval status: user approved global context layer; MCP, service, proxy, wrapper, and `headroom learn` remain pending expansion modes.
 
 ## Sources Reviewed
 
@@ -85,8 +85,8 @@ Approval status: candidate only; no install, clone, MCP setup, proxy, wrapper, o
 
 - https://headroom-docs.vercel.app/docs/benchmarks
   - Type: official docs.
-  - Extracted: benchmark claims and candidate evaluation metrics.
-  - Reliability: primary source; benchmark claims still require local pilot verification.
+  - Extracted: benchmark claims and evaluation metrics.
+  - Reliability: primary source; benchmark claims still require local verification.
 
 - https://pypi.org/project/headroom-ai/
   - Type: package registry.
@@ -101,6 +101,6 @@ Approval status: candidate only; no install, clone, MCP setup, proxy, wrapper, o
 ## Rejected Source Actions
 
 - Did not clone the repo.
-- Did not install Python or npm packages.
+- Current active layer uses the existing npm package dependency; do not reinstall unless missing.
 - Did not run proxy, MCP server, wrapper, or `headroom learn`.
 - Did not copy source code into the Codex Workflow system.

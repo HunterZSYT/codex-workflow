@@ -1,6 +1,6 @@
 # Headroom Benchmark Plan
 
-Use only after explicit pilot approval.
+Use for active global context layer evaluation and pending-mode expansion review.
 
 ## Fixtures
 
@@ -31,4 +31,4 @@ Compare Headroom against current low-cost practices:
 - Project Manager retrieval index
 - task-local ledgers and reports
 
-Adopt only if Headroom improves real workflow outcomes, not just token counts.
+Keep Headroom active only where it improves real workflow outcomes, not just token counts.

@@ -47,7 +47,7 @@ Limitations docs say value is highest for long tool-heavy sessions, JSON/API/DB 
 
 CCR means Compress-Cache-Retrieve. Headroom stores original content locally when it compresses, emits a hash/marker, and exposes a retrieval tool or handler. The model can request the original by hash or query when details are needed. The pattern is useful because it separates "context carried into the model" from "source available locally on demand."
 
-Codex Workflow fit: CCR is conceptually useful for large tool outputs and logs, but any pilot must verify where originals are stored, how long they persist, and whether sensitive tool output can be redacted or excluded.
+Codex Workflow fit: CCR is conceptually useful for large tool outputs and logs, but any pending service/MCP expansion must verify where originals are stored, how long they persist, and whether sensitive tool output can be redacted or excluded.
 
 ## MCP Mode
 
@@ -57,7 +57,7 @@ The MCP docs describe:
 - `headroom_retrieve`: retrieve full or filtered original content by hash.
 - `headroom_stats`: show session stats and proxy stats when available.
 
-MCP fit: candidate only. It is less invasive than proxying all Codex traffic, but still creates local stores/stats and exposes compressed/original content flows through tools. It needs an approval-gated pilot.
+MCP fit: pending expansion mode. It is less invasive than proxying all Codex traffic, but still creates local stores/stats and exposes compressed/original content flows through tools. It needs approval-gated review.
 
 ## Proxy / Wrapper Mode
 
@@ -69,7 +69,7 @@ Codex Workflow fit: do not use proxy/wrapper mode by default. Require privacy, n
 
 Headroom docs describe shared/persistent memory and SharedContext for cross-agent handoffs. The docs mention local SQLite/vector storage and scoping. This overlaps strongly with the user's existing memory, knowledge registry, retrieval index, learning ledgers, and one-way sync model.
 
-Codex Workflow fit: do not replace existing memory/learning systems. Treat Headroom memory as a future comparison/pilot only, and keep any generated stores local-only.
+Codex Workflow fit: do not replace existing memory/learning systems. Treat Headroom memory as a pending expansion comparison only, and keep any generated stores local-only.
 
 ## Failure Learning
 
@@ -88,4 +88,4 @@ Codex Workflow fit: all Headroom generated state must be treated as local-only u
 - GitHub repo is Apache-2.0 and shows active releases, with latest GitHub release v0.23.0 on 2026-06-04 during research.
 - PyPI shows `headroom-ai` 0.23.0 released 2026-06-04, Python >=3.10, beta classifier.
 - npm registry query showed `headroom-ai` 0.22.4 and Node >=18, so npm may lag PyPI/GitHub.
-- The repo has many stars/forks, but maturity still requires local pilot proof because context-compression quality depends on workload and safety settings.
+- The repo has many stars/forks, but workload-specific effectiveness still requires local verification because context-compression quality depends on workload and safety settings.

@@ -13,7 +13,7 @@ import {
 import { arg, ensureAiTask } from "./pm-lib.mjs";
 
 function usage() {
-  console.error("Usage: pm-headroom-context.mjs --file <path> [--mode analyze|simulate|compress] [--model gpt-4o] [--token-budget 4000] [--json]");
+  console.error("Usage: pm-headroom-context.mjs --file <path> [--mode analyze|simulate|compress] [--model gpt-4o] [--token-budget 4000] [--force] [--json]");
 }
 
 function roughTokens(text) {
@@ -58,6 +58,26 @@ function makeMessages(text) {
   ];
 }
 
+function secretSignals(filePath, text) {
+  const fileName = String(filePath || "").toLowerCase();
+  const content = String(text || "");
+  const matches = [];
+  if (/(^|[\\/])\.env(\.|$)|secret|credential|private[-_]?key|id_rsa|token|password|passwd|cookie|auth\.json|config\.toml/i.test(fileName)) {
+    matches.push("secret-looking file path");
+  }
+  const patterns = [
+    [/-----BEGIN [A-Z ]*PRIVATE KEY-----/, "private key block"],
+    [/\b(Bearer|Basic)\s+[A-Za-z0-9._~+/=-]+/i, "authorization header"],
+    [/\b(?:api[_-]?key|token|secret|password|passwd|pwd)\s*[:=]\s*["']?[^"'\s]+/i, "secret-like assignment"],
+    [/\b(?:postgres|postgresql|mysql|mariadb|mongodb|redis):\/\/[^\s"'`]+/i, "database URL"],
+    [/\b[A-Za-z0-9+/]{40,}={0,2}\b/, "long opaque value"]
+  ];
+  for (const [rx, label] of patterns) {
+    if (rx.test(content)) matches.push(label);
+  }
+  return [...new Set(matches)];
+}
+
 async function writeArtifact(payload) {
   const dir = await ensureAiTask();
   const out = path.join(dir, "headroom-context-analysis.json");
@@ -71,6 +91,7 @@ const mode = arg("mode", "analyze");
 const model = arg("model", "gpt-4o");
 const tokenBudget = Number(arg("token-budget", "4000"));
 const jsonOnly = process.argv.includes("--json");
+const force = process.argv.includes("--force");
 
 if (!file && !textArg) {
   usage();
@@ -78,6 +99,27 @@ if (!file && !textArg) {
 }
 
 const text = textArg || await fs.readFile(file, "utf8");
+const secretMatches = secretSignals(file, text);
+if (secretMatches.length > 0 && !force) {
+  const refusal = {
+    timestamp: new Date().toISOString(),
+    mode,
+    refused: true,
+    reason: "secret-looking input refused",
+    file: file || null,
+    matches: secretMatches,
+    localOnly: true,
+    next: "Use a redacted fixture or rerun with --force only after explicit user approval."
+  };
+  refusal.artifact = await writeArtifact(refusal);
+  if (jsonOnly) console.log(JSON.stringify(refusal, null, 2));
+  else {
+    console.log("Headroom context analysis refused: secret-looking input.");
+    console.log(`Matches: ${secretMatches.join(", ")}`);
+    console.log(`Artifact: ${refusal.artifact}`);
+  }
+  process.exit(3);
+}
 const messages = makeMessages(text);
 const analysis = {
   timestamp: new Date().toISOString(),
@@ -87,6 +129,9 @@ const analysis = {
     characters: text.length,
     roughTokens: roughTokens(text)
   },
+  localOnly: true,
+  canonicalSource: file || "inline --text input",
+  secretSignals: secretMatches,
   headroomSdk: {
     messageFormat: detectFormat(messages),
     turns: countTurns(messages),
@@ -99,7 +144,7 @@ const analysis = {
     largeEnoughForCompression: roughTokens(text) >= 1200
   },
   serviceResult: null,
-  recommendation: "Use current retrieval/summarization unless roughTokens is high or repeated/log/json waste is present."
+  recommendation: "Use Headroom as a context optimization layer only when it reduces large context without replacing raw source paths."
 };
 
 try {
@@ -137,7 +182,7 @@ if (analysis.serviceResult?.tokensSaved > 0) {
 } else if (!analysis.serviceResult?.available && mode !== "analyze") {
   analysis.recommendation = "Service-backed compression is not active; keep using local retrieval and summarize large outputs manually.";
 } else if (analysis.localSignals.largeEnoughForCompression || analysis.localSignals.repeatedLines.repeatedLineGroups > 0 || analysis.localSignals.json.likelyCompressible) {
-  analysis.recommendation = "Good candidate for Headroom once service health is green; use this analysis to decide whether to compress.";
+  analysis.recommendation = "Use Headroom analysis for this large/noisy context, while preserving the raw source path as canonical evidence.";
 }
 
 analysis.artifact = await writeArtifact(analysis);
