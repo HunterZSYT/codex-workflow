@@ -1,8 +1,8 @@
 # Source Ledger
 
 Date checked: 2026-06-06
-Task: Absorb Headroom as source-backed knowledge for Codex Workflow; later promoted to active global context layer in SDK/tool mode.
-Approval status: user approved global context layer; MCP, service, proxy, wrapper, and `headroom learn` remain pending expansion modes.
+Task: Absorb Headroom as source-backed knowledge for Codex Workflow; later promoted to active global context layer in SDK/tool mode and local service mode.
+Approval status: user approved global context layer and local service activation; MCP, Codex provider proxy/wrapper, persistent memory, and `headroom learn` remain pending expansion modes.
 
 ## Sources Reviewed
 
@@ -101,6 +101,6 @@ Approval status: user approved global context layer; MCP, service, proxy, wrappe
 ## Rejected Source Actions
 
 - Did not clone the repo.
-- Current active layer uses the existing npm package dependency; do not reinstall unless missing.
-- Did not run proxy, MCP server, wrapper, or `headroom learn`.
+- Current active layer uses the existing npm package dependency and isolated Python 3.11 proxy runtime; do not reinstall unless missing.
+- Did not run MCP server, Codex provider wrapper, persistent memory, or `headroom learn`.
 - Did not copy source code into the Codex Workflow system.

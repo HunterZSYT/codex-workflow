@@ -39,7 +39,7 @@ async function packageInfo() {
 }
 
 async function serviceHealth(baseUrl) {
-  const client = new HeadroomClient({ baseUrl, timeout: 2000, fallback: true, stack: "codex_project_manager" });
+  const client = new HeadroomClient({ baseUrl, timeout: 5000, fallback: true, stack: "codex_project_manager" });
   try {
     const health = await client.health();
     return { reachable: true, baseUrl, health };
@@ -50,7 +50,7 @@ async function serviceHealth(baseUrl) {
   }
 }
 
-const baseUrl = process.env.HEADROOM_BASE_URL || "http://localhost:8787";
+const baseUrl = process.env.HEADROOM_BASE_URL || "http://127.0.0.1:8787";
 const py311 = path.join(PM_ROOT, ".runtime", "headroom-py311", "venv", "Scripts", "python.exe");
 const py313 = path.join(PM_ROOT, ".runtime", "headroom", "venv", "Scripts", "python.exe");
 
@@ -111,5 +111,13 @@ const status = {
 status.activeUse.sdkInstalled = status.package.installed;
 status.activeUse.compressionServiceReachable = status.service.reachable;
 status.activeUse.mcpServerConfigured = status.service.reachable && Boolean(status.service.health?.mcp);
+if (status.service.reachable) {
+  if (!status.activeModes.includes("service")) status.activeModes.push("service");
+  status.pendingModes = status.pendingModes.filter(mode => mode !== "service");
+  status.safeUsageCommands.push(
+    "node C:\\Users\\acer\\.codex\\agentic-project-manager\\tools\\pm-headroom-context.mjs --file <path> --mode simulate --timeout-ms 30000",
+    "node C:\\Users\\acer\\.codex\\agentic-project-manager\\tools\\pm-headroom-context.mjs --file <path> --mode compress --timeout-ms 30000"
+  );
+}
 
 console.log(JSON.stringify(status, null, 2));

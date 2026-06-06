@@ -43,6 +43,7 @@ trigger_terms:
   - MCP compression
 active_modes:
   - sdk
+  - service
   - explicit_context_analysis
   - large_context_analysis
   - large_log_analysis
@@ -51,7 +52,6 @@ active_modes:
   - research_artifact_context_analysis
 pending_modes:
   - mcp
-  - service
   - proxy
   - wrapper
   - headroom_learn
@@ -90,12 +90,14 @@ artifact_paths:
 apply_commands:
   - node C:\Users\acer\.codex\agentic-project-manager\tools\pm-headroom-status.mjs
   - node C:\Users\acer\.codex\agentic-project-manager\tools\pm-headroom-context.mjs --file <path> --mode analyze
+  - node C:\Users\acer\.codex\agentic-project-manager\tools\pm-headroom-context.mjs --file <path> --mode simulate --timeout-ms 30000
 verification_methods:
   - Run pm-pack-audit.mjs --id project_manager.context.headroom-compression-evaluation.
   - Run pm-knowledge-search.mjs searches for Headroom, CCR, tool output compression, headroom learn, and MCP compression.
   - Run pm-headroom-status.mjs to verify global context layer and pending modes.
   - Run pm-headroom-context.mjs --mode analyze for large context/log/tool-output analysis.
-  - Do not proxy/wrap Codex, enable MCP, or run headroom learn until service health and rollback checks pass.
+  - Use service-backed simulate/compress only when pm-headroom-status.mjs reports service health.
+  - Do not proxy/wrap Codex, enable MCP, or run headroom learn until separate health and rollback checks pass.
 safe_to_sync: true
 last_verified: 2026-06-06
 approval_status: user_approved_global_context_layer

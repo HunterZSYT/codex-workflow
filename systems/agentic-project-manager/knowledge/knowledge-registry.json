@@ -1895,16 +1895,17 @@
       "artifacts/headroom-learning-conflict-checklist.md",
       "artifacts/headroom-active-integration-notes.md"
     ],
-    "apply_command": "node C:\\Users\\acer\\.codex\\agentic-project-manager\\tools\\pm-headroom-status.mjs && node C:\\Users\\acer\\.codex\\agentic-project-manager\\tools\\pm-headroom-context.mjs --file <path> --mode analyze",
+    "apply_command": "node C:\\Users\\acer\\.codex\\agentic-project-manager\\tools\\pm-headroom-status.mjs && node C:\\Users\\acer\\.codex\\agentic-project-manager\\tools\\pm-headroom-context.mjs --file <path> --mode analyze && node C:\\Users\\acer\\.codex\\agentic-project-manager\\tools\\pm-headroom-context.mjs --file <path> --mode simulate --timeout-ms 30000",
     "apply_commands": [
       "node C:\\Users\\acer\\.codex\\agentic-project-manager\\tools\\pm-headroom-status.mjs",
-      "node C:\\Users\\acer\\.codex\\agentic-project-manager\\tools\\pm-headroom-context.mjs --file <path> --mode analyze"
+      "node C:\\Users\\acer\\.codex\\agentic-project-manager\\tools\\pm-headroom-context.mjs --file <path> --mode analyze",
+      "node C:\\Users\\acer\\.codex\\agentic-project-manager\\tools\\pm-headroom-context.mjs --file <path> --mode simulate --timeout-ms 30000"
     ],
-    "verification_method": "Run pm-headroom-status.mjs; run pm-headroom-context.mjs --file <safe-test-file> --mode analyze; index/search Headroom global context layer.",
+    "verification_method": "Run pm-headroom-status.mjs; run pm-headroom-context.mjs --file <safe-test-file> --mode simulate --timeout-ms 30000; index/search Headroom global context layer.",
     "safe_to_sync": true,
     "file_path": "C:\\Users\\acer\\.codex\\agentic-project-manager\\knowledge-packs\\project_manager.context.headroom-compression-evaluation\\pack.yaml",
     "last_verified": "2026-06-06",
-    "notes": "Active global context layer approved by user. Use SDK/tool mode automatically for large context/log/tool-output/repo-absorption/research-artifact analysis. Raw source paths remain canonical. MCP/service/proxy/wrapper/headroom_learn remain pending. Do not use on secret-looking files without explicit approval and --force.",
+    "notes": "Active global context layer approved by user. Use SDK/tool mode automatically for large context/log/tool-output/repo-absorption/research-artifact analysis. Local service mode is active when pm-headroom-status.mjs reports service health. Raw source paths remain canonical. MCP/proxy/wrapper/headroom_learn remain pending. Do not use on secret-looking files without explicit approval and --force.",
     "pack_id": "project_manager.context.headroom-compression-evaluation",
     "pack_path": "C:\\Users\\acer\\.codex\\agentic-project-manager\\knowledge-packs\\project_manager.context.headroom-compression-evaluation",
     "source_ledger_path": "C:\\Users\\acer\\.codex\\agentic-project-manager\\knowledge-packs\\project_manager.context.headroom-compression-evaluation\\source-ledger.md",
@@ -1922,11 +1923,11 @@
       "large_log_analysis",
       "tool_output_analysis",
       "repo_absorption_context_analysis",
-      "research_artifact_context_analysis"
+      "research_artifact_context_analysis",
+      "service"
     ],
     "pending_modes": [
       "mcp",
-      "service",
       "proxy",
       "wrapper",
       "headroom_learn"

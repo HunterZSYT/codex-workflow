@@ -13,7 +13,7 @@ import {
 import { arg, ensureAiTask } from "./pm-lib.mjs";
 
 function usage() {
-  console.error("Usage: pm-headroom-context.mjs --file <path> [--mode analyze|simulate|compress] [--model gpt-4o] [--token-budget 4000] [--force] [--json]");
+  console.error("Usage: pm-headroom-context.mjs --file <path> [--mode analyze|simulate|compress] [--model gpt-4o] [--token-budget 4000] [--timeout-ms 5000] [--force] [--json]");
 }
 
 function roughTokens(text) {
@@ -90,6 +90,7 @@ const textArg = arg("text");
 const mode = arg("mode", "analyze");
 const model = arg("model", "gpt-4o");
 const tokenBudget = Number(arg("token-budget", "4000"));
+const timeoutMs = Number(arg("timeout-ms", "5000"));
 const jsonOnly = process.argv.includes("--json");
 const force = process.argv.includes("--force");
 
@@ -144,6 +145,11 @@ const analysis = {
     largeEnoughForCompression: roughTokens(text) >= 1200
   },
   serviceResult: null,
+  serviceOptions: mode === "analyze" ? null : {
+    model,
+    tokenBudget,
+    timeoutMs
+  },
   recommendation: "Use Headroom as a context optimization layer only when it reduces large context without replacing raw source paths."
 };
 
@@ -152,7 +158,7 @@ try {
     analysis.serviceResult = await simulate(messages, {
       model,
       tokenBudget,
-      timeout: 5000,
+      timeout: timeoutMs,
       fallback: true,
       stack: "codex_project_manager"
     });
@@ -160,7 +166,7 @@ try {
     analysis.serviceResult = await compress(messages, {
       model,
       tokenBudget,
-      timeout: 5000,
+      timeout: timeoutMs,
       fallback: true,
       stack: "codex_project_manager"
     });
@@ -179,6 +185,8 @@ try {
 
 if (analysis.serviceResult?.tokensSaved > 0) {
   analysis.recommendation = "Headroom service reported token savings; compare compressed output against source before using it in a task.";
+} else if (analysis.serviceResult?.tokensBefore !== undefined || analysis.serviceResult?.compressed === true) {
+  analysis.recommendation = "Headroom service responded successfully, but this input was not reduced; preserve the raw source path and use local summarization if needed.";
 } else if (!analysis.serviceResult?.available && mode !== "analyze") {
   analysis.recommendation = "Service-backed compression is not active; keep using local retrieval and summarize large outputs manually.";
 } else if (analysis.localSignals.largeEnoughForCompression || analysis.localSignals.repeatedLines.repeatedLineGroups > 0 || analysis.localSignals.json.likelyCompressible) {

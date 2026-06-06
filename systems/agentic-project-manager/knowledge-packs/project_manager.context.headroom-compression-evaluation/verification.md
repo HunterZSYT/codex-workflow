@@ -1,6 +1,6 @@
 # Verification
 
-This pack is active as a global context layer in SDK/tool mode. Verification proves routing, local analysis behavior, service state reporting, and export safety.
+This pack is active as a global context layer in SDK/tool mode and local service mode. Verification proves routing, local analysis behavior, service state reporting, and export safety.
 
 ## Required Validation
 
@@ -14,12 +14,13 @@ This pack is active as a global context layer in SDK/tool mode. Verification pro
 - Run `pm-pack-audit.mjs --id project_manager.context.headroom-compression-evaluation`.
 - Run `pm-headroom-status.mjs`.
 - Run `pm-headroom-context.mjs --file <safe-test-file> --mode analyze`.
+- Run `pm-headroom-context.mjs --file <safe-test-file> --mode simulate --timeout-ms 30000` when service health is green.
 - Run `project-manager-health-check.mjs`.
 - Run `sync-from-local.ps1`, `validate-export.ps1`, and `redact-scan.ps1` before committing to `codex-workflow`.
 
 ## Pending Mode Verification
 
-Do not enable MCP/service/proxy/wrapper/headroom_learn without separate safety review. If later approved, evaluate on sanitized fixtures:
+Do not enable MCP, Codex provider proxy/wrapper, persistent memory, or headroom_learn without separate safety review. If later approved, evaluate on sanitized fixtures:
 
 - large JSON/API output
 - build/test log with one failure
