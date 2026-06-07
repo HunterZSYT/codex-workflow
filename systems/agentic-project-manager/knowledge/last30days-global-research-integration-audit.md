@@ -8,7 +8,7 @@ Target system: agentic-project-manager
 
 - Local retrieval already routes through `pm-knowledge-search.mjs`, `pm-knowledge-sufficiency.mjs`, `ecosystem-scout-policy.md`, `ecosystem-scout-workflow.md`, `repo-absorption-workflow.md`, and source ledger templates.
 - Ecosystem Scout already requires reuse-first discovery across official docs, official repos, GitHub discovery, package registries, component registries, MCP ecosystems, starters, templates, and safe public examples.
-- Repo absorption already requires local retrieval, license/source review, generated report, source ledger, architecture mapping, and approval before activation.
+- Repo absorption already requires local retrieval, license/source review, generated report, source ledger, architecture mapping, AI audit, and auto-activation of safe knowledge while keeping risky execution actions approval-gated.
 - Knowledge Sufficiency Gate already detects external tool/library/MCP tasks, repo absorption, missing active knowledge, candidate-only knowledge, high-risk work, and activation/enrichment routing.
 - Current HTML/report handling exists only as generic artifact behavior; there is no active current-community-signal layer for recent social/source research.
 

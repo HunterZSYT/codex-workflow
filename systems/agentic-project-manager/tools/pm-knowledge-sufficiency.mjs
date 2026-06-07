@@ -58,7 +58,10 @@ const REPO_ABSORPTION_TERMS = [
   "mine this repo", "learn from repo", "learn from this repo", "open source reference",
   "open-source reference", "source repo", "copy useful patterns", "extract workflow",
   "extract patterns", "source system", "absorb into our system", "use this repo as source",
-  "add this repo to our system"
+  "add this repo to our system", "add this repo", "use this tool in our system",
+  "enrich our knowledgebase with this", "improve the system from this",
+  "integrate this knowledge", "update our workflow from this repo",
+  "add this tool", "absorb this tool", "absorb this library", "absorb this system"
 ];
 
 function detectEcosystemScout(text) {
@@ -75,13 +78,40 @@ function detectRepoAbsorption(text) {
   const t = lower(text);
   const triggers = REPO_ABSORPTION_TERMS.filter(term => t.includes(lower(term)));
   const sourceRepoUrl = extractRepoUrl(text);
-  const hasRepoSignal = Boolean(sourceRepoUrl) || /\brepo\b|\brepository\b|open source|open-source|github\.com/.test(t);
+  const hasRepoSignal = Boolean(sourceRepoUrl) || /\brepo\b|\brepository\b|\btool\b|\blibrary\b|skill system|design system|research source|workflow source|open source|open-source|github\.com/.test(t);
   const hasAbsorptionSignal = /absorb|absorption|mine|strip|learn from|extract|copy useful|source reference|source system/.test(t);
+  const hasSystemUpdateSignal = /add this|use this .* system|enrich .*knowledgebase|improve .*system|integrate .*knowledge|update .*workflow/.test(t);
   return {
-    required: hasRepoSignal && (hasAbsorptionSignal || triggers.length > 0),
+    required: hasRepoSignal && (hasAbsorptionSignal || hasSystemUpdateSignal || triggers.length > 0),
     triggers,
     sourceRepoUrl
   };
+}
+
+function manualApprovalReasonFor(text, repoAbsorptionRequired) {
+  const t = lower(text);
+  const reasons = [];
+  const checks = [
+    [/install|dependency|package|global tool/, "installing packages or tools"],
+    [/configure|mcp|server config|config change/, "configuring MCPs or tools"],
+    [/api key|token|session cookie|credential|secret/, "adding keys, tokens, cookies, or credentials"],
+    [/paid api|billing|paid source/, "enabling paid APIs"],
+    [/browser session|account-based|login|authenticated source/, "enabling browser-session or account-based sources"],
+    [/stealth|anti-detect|bypass/, "enabling stealth, anti-detect, or bypass behavior"],
+    [/clone|cloning/, "cloning repos, especially large repos"],
+    [/copy source|copy code|source code|asset/, "copying external source code or assets"],
+    [/apply external|apply code|use repo code/, "applying external repo code"],
+    [/model download|download model|heavy model/, "downloading heavy models"],
+    [/ocr|private document/, "running OCR on private documents"],
+    [/proxy|wrapper|service/, "enabling services, proxies, or wrappers"],
+    [/agents\.md/, "writing AGENTS.md"],
+    [/offensive|exploit|payload|malware|phishing|privilege escalation/, "importing offensive cybersecurity procedures"],
+    [/production|database|sql|server|vps|deploy|auth|payment/, "changing production, server, database, auth, payment, or deployment behavior"],
+    [/auto-sync|one-way sync/, "changing auto-sync or one-way sync behavior"]
+  ];
+  for (const [pattern, reason] of checks) if (pattern.test(t)) reasons.push(reason);
+  if (!reasons.length && repoAbsorptionRequired) return "";
+  return [...new Set(reasons)].join("; ");
 }
 
 function sourceCategoriesFor(text) {
@@ -287,7 +317,7 @@ if (ecosystemScoutRequired) {
 }
 if (repoAbsorptionRequired) {
   decision = decision === "proceed" ? "ecosystem_scout_required" : decision;
-  reasons.push("repo absorption requires local retrieval, license check, absorption report, and approval before activation");
+  reasons.push("repo absorption requires local retrieval, license check, absorption report, AI audit, and auto-activation of safe knowledge");
 }
 if (externalWithoutActiveSource.length) {
   decision = decision === "stop_and_research" || decision === "ecosystem_scout_required" ? decision : "fill_knowledgebase_first";
@@ -325,9 +355,11 @@ if (verificationGaps.length && decision === "proceed") {
   decision = "proceed_with_warning";
   reasons.push("verification method is incomplete");
 }
-if (/install|dependency|server|database|sql|vps|deploy|auth|payment|config/i.test(task) && decision === "proceed") {
+const manualApprovalReason = manualApprovalReasonFor(task, repoAbsorptionRequired);
+const manualApprovalRequired = Boolean(manualApprovalReason);
+if (manualApprovalRequired && decision === "proceed") {
   decision = "ask_user_approval";
-  reasons.push("approval needed before install/config/risky change");
+  reasons.push(`approval needed before ${manualApprovalReason}`);
 }
 if (/quick fix|just quick/i.test(task) && !classification.backendDatabaseSafetyGatesNeeded && missing.length === 0) {
   decision = decision === "fill_knowledgebase_first" ? "proceed_with_warning" : decision;
@@ -370,7 +402,17 @@ const result = {
   source_repo_url: repoAbsorption.sourceRepoUrl,
   license_check_required: repoAbsorptionRequired,
   absorption_report_required: repoAbsorptionRequired,
-  activation_approval_required: repoAbsorptionRequired,
+  auto_absorption_allowed: repoAbsorptionRequired && !manualApprovalRequired,
+  ai_audit_required: repoAbsorptionRequired || activationRequest || enrichmentRequest || taskErrorEnrichmentSignal,
+  auto_activation_allowed: repoAbsorptionRequired && !manualApprovalRequired,
+  manual_approval_required: manualApprovalRequired,
+  manual_approval_reason: manualApprovalReason,
+  recommended_absorption_action: repoAbsorptionRequired
+    ? manualApprovalRequired
+      ? "run_repo_absorption_ai_audit_and_keep_risky_actions_approval_gated"
+      : "run_repo_absorption_ai_audit_and_auto_activate_safe_knowledge"
+    : "none",
+  activation_approval_required: false,
   suggested_source_categories: sourceCategoriesFor(task),
   existing_local_coverage: existingLocalCoverage,
   external_discovery_needed: ecosystemScoutRequired || externalWithoutActiveSource.length > 0,
@@ -409,7 +451,12 @@ if (jsonOnly) {
   if (result.source_repo_url) console.log(`Source repo: ${result.source_repo_url}`);
   console.log(`License check required: ${result.license_check_required ? "yes" : "no"}`);
   console.log(`Absorption report required: ${result.absorption_report_required ? "yes" : "no"}`);
-  console.log(`Activation approval required: ${result.activation_approval_required ? "yes" : "no"}`);
+  console.log(`Auto absorption allowed: ${result.auto_absorption_allowed ? "yes" : "no"}`);
+  console.log(`AI audit required: ${result.ai_audit_required ? "yes" : "no"}`);
+  console.log(`Auto activation allowed: ${result.auto_activation_allowed ? "yes" : "no"}`);
+  console.log(`Manual approval required: ${result.manual_approval_required ? "yes" : "no"}`);
+  if (result.manual_approval_reason) console.log(`Manual approval reason: ${result.manual_approval_reason}`);
+  console.log(`Recommended absorption action: ${result.recommended_absorption_action}`);
   console.log(`Suggested sources: ${result.suggested_source_categories.join(", ")}`);
   console.log(`External discovery needed: ${result.external_discovery_needed ? "yes" : "no"}`);
   console.log(`Candidate pack needed: ${result.candidate_pack_needed ? "yes" : "no"}`);

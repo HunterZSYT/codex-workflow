@@ -35,8 +35,10 @@ Before creating a new blob, pack, script, MCP config, skill, or custom implement
 2. Scout external ecosystems for reusable tools and sources.
 3. Compare options with the ecosystem option scorecard.
 4. Decide placement in the Codex Workflow architecture.
-5. Stage candidate knowledge with a source ledger.
-6. Ask for activation or implementation approval when needed.
+5. Create or update knowledge with a source ledger.
+6. AI-audit the result.
+7. Auto-activate safe source-backed knowledge when validation and redaction pass.
+8. Ask for implementation or integration approval when risky execution is involved.
 
 ## Example
 
@@ -65,4 +67,5 @@ Also scout:
 - Do not create custom crawlers in this pass.
 - Do not copy proprietary code, assets, or layouts.
 - Public examples are leads and pattern references only.
-- Candidate knowledge stays candidate until approved.
+- Safe source-backed knowledge may auto-activate after AI audit.
+- Weak, unclear, risky, install-dependent, or approval-dependent knowledge stays candidate.

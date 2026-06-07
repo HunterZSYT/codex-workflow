@@ -99,6 +99,11 @@ if (blockers.length) recommendation = "enrich_first";
 if (status === "active" && blockers.length) recommendation = "mark_stale";
 if (status === "deprecated") recommendation = "keep_candidate";
 if (!ownerSkill || registryCompleteness === "missing") recommendation = "enrich_first";
+const aiAuditDecision = recommendation === "ready_to_promote"
+  ? "auto_activate"
+  : /security|offensive|unsafe|license/i.test(blockers.join(" "))
+    ? "keep_candidate_due_to_risk"
+    : "keep_candidate_due_to_weak_sources";
 
 console.log([
   `Pack: ${id}`,
@@ -121,6 +126,7 @@ console.log([
   `Verification ready: ${verificationReady ? "yes" : "no"}`,
   `Promotion readiness: ${blockers.length ? "not ready" : "ready for approval review"}`,
   `Promotion recommendation: ${recommendation}`,
+  `AI audit decision: ${aiAuditDecision}`,
   ...(blockers.length ? ["Blockers:", ...blockers.map(b => `- ${b}`)] : [])
 ].join("\n"));
 

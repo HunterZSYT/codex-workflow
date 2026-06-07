@@ -113,6 +113,7 @@ function Export-System {
     "skill-prompts/*.md",
     "knowledge/*.md",
     "knowledge/*.json",
+    "knowledge/templates/*.md",
     "knowledge/capability-orchestration/*.md",
     "knowledge/repo-absorption-reports/*.md",
     "knowledge/routing/*.md",

@@ -74,9 +74,9 @@ Before creating a new blob, pack, artifact, script, skill, MCP note, or doc:
 4. Check candidate/stale entries.
 5. Decide whether to use, update, cross-reference, create candidate, create artifact, or do nothing.
 
-New packs start as `draft` or `candidate`.
+New packs start as `draft` or `candidate` until they pass source, spec, artifact, verification, registry, and safety review.
 
-Activation requires approval or AI-audited activation requested by the user. Do not mark a pack `active` unless promotion checks pass.
+Activation requires user approval or an AI-audited absorption/activation/enrichment request from the user. When the user asks Codex to absorb, add, enrich, update, or improve the system from a safe source, Codex may mark safe knowledge `active` after AI audit and passing validation/redaction. Do not mark a pack `active` unless promotion checks pass.
 
 Activation is not finalization. `active` means approved usable baseline that remains open to enrichment. Future errors, source discoveries, repo absorption, user corrections, outdated docs, better tools, and ecosystem changes should create enrichment candidates against the active item instead of silently rewriting it or creating duplicate skills.
 
@@ -119,7 +119,7 @@ Do not create vague names like `modern-ui`, `cool-layout`, or `premium-design` u
 
 ## Open-Source Repository Absorption
 
-Public repositories may be used as source references, pattern sources, tool candidates, script ideas, or candidate capability-pack inputs. They are not automatically reusable artifacts.
+Public repositories may be used as source references, pattern sources, tool candidates, script ideas, or capability-pack inputs. They are not automatically reusable source code or assets.
 
 Before absorbing anything from a repository:
 
@@ -128,6 +128,8 @@ Before absorbing anything from a repository:
 3. Create a repo absorption report and source absorption ledger entry.
 4. Preserve attribution and license boundaries.
 5. Extract abstract patterns instead of copying raw source or assets.
-6. Keep all outputs candidate until explicit approval.
+6. AI-audit the derived knowledge product.
+7. Auto-activate safe knowledge when source confidence, license boundary, specs, artifacts, verification, registry metadata, validation, redaction, and safety checks pass.
+8. Keep risky or unclear outputs candidate until the exact blocker is resolved.
 
-Do not copy full source files, visual assets, cloned repos, generated graphs, caches, dashboards, logs, screenshots, or dependency folders into synced workflow assets. Do not install, activate, or promote repo-derived knowledge without approval.
+Do not copy full source files, visual assets, cloned repos, generated graphs, caches, dashboards, logs, screenshots, or dependency folders into synced workflow assets. Do not install or configure tools, enable paid/session/account sources, import offensive procedures, apply external code, or change production/server/database/auth/deployment behavior without explicit approval.

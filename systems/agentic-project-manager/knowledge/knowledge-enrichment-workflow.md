@@ -39,12 +39,17 @@ Use for prompts like:
    - risk
    - verification
 7. If target is candidate:
-   - keep candidate unless activation is explicitly requested and audit passes.
+   - enrich it
+   - AI-audit it
+   - promote to active automatically if safe
+   - keep candidate only when audit fails or manual approval is required
 8. If target is active:
-   - stage enrichment candidate first unless the change is tiny, source-safe, and explicitly requested as an update.
-   - do not silently downgrade confidence.
-   - if source conflict appears, mark as needs-review/stale.
-9. Rebuild index and sync safely if requested.
+   - apply safe enrichment directly after AI audit
+   - preserve enrichment history
+   - do not silently downgrade confidence
+   - mark stale/needs-review only when source conflict or risk appears
+9. Do not leave safe enrichment as candidate by default.
+10. Rebuild index, validate, redact, sync, commit, and push if safe.
 
 ## Enrichment History Format
 
@@ -59,4 +64,3 @@ Each target pack may have `enrichment-history.md`:
 - Status after change
 - Verification
 - Commit hash if synced
-

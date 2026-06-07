@@ -7,7 +7,7 @@
 - Date:
 - Target Codex system:
 - Target namespace/capability:
-- Verdict: skip | docs only | update existing skill | create blob | create candidate pack | create script candidate | tool/MCP evaluation | needs approval
+- Verdict: skip | docs only | auto_activate_safe_blob | auto_activate_safe_pack | auto_enrich_active | keep_candidate_due_to_weak_sources | keep_candidate_due_to_risk | create script candidate | tool/MCP evaluation | require_user_approval_for_install_or_execution | reject_or_restrict
 
 ## Local Retrieval First
 
@@ -28,9 +28,9 @@
 
 ## Useful Concepts
 
-| Concept | Why useful | Local target | Copy risk | Approval needed |
-| --- | --- | --- | --- | --- |
-|  |  |  |  |  |
+| Concept | Why useful | Local target | Copy risk | AI audit decision | Approval needed |
+| --- | --- | --- | --- | --- | --- |
+|  |  |  |  |  |  |
 
 ## What Not To Absorb
 
@@ -40,10 +40,20 @@
 
 - Existing skill/router to update:
 - Existing tool/script to update:
-- Knowledge blob candidate:
-- Capability pack candidate:
+- Knowledge blob:
+- Capability pack:
 - MCP/config note:
 - Docs update:
+
+## AI Audit
+
+- Source confidence:
+- License boundary:
+- Copied-content risk:
+- Specs/artifacts/verification:
+- Registry/routing fit:
+- Safety boundary:
+- Decision: auto_activate | auto_enrich_active | keep_candidate_due_to_weak_sources | keep_candidate_due_to_risk | require_user_approval_for_install_or_execution | reject_or_restrict
 
 ## Safety And Sync
 
@@ -56,5 +66,8 @@
 ## Recommended Next Action
 
 - Recommendation:
+- Auto-activated:
+- Kept candidate:
+- Rejected/restricted:
 - Approval required before:
 - Verification plan:

@@ -58,17 +58,17 @@ For each candidate, decide:
 - docs only
 - skip
 
-## 6. Candidate Knowledge Staging
+## 6. Knowledge Product Update
 
 Create or update source ledger, research notes, decisions, specs, artifacts, and checklists if appropriate.
 
-Do not mark active automatically.
+AI-audit the result. Auto-activate safe source-backed knowledge when validation and redaction pass. Keep candidate only when sources are weak, license is unclear, facts conflict, artifacts/specs/verification are missing, or manual approval is required.
 
-## 7. Activation Gate
+## 7. Approval Gate
 
-Do not activate without approval.
+Ask approval before installs, MCP configuration, paid/API/session/account sources, stealth/anti-detect browsing, large clones, external source/assets, model downloads, private-document OCR, services/proxies/wrappers, AGENTS.md writes, offensive procedures, or production/server/database/auth/deployment behavior changes.
 
-Do not implement unless Knowledge Sufficiency Gate says proceed or the user explicitly approves candidate use.
+Do not implement risky candidate use unless Knowledge Sufficiency Gate says proceed or the user explicitly approves the risky action.
 
 ## 8. Sync
 

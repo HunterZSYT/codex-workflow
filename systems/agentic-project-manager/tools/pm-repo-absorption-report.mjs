@@ -12,7 +12,7 @@ if (!repo || process.argv.includes("--help") || process.argv.includes("-h")) {
 node pm-repo-absorption-report.mjs --repo "https://github.com/owner/repo" --id "project_manager.example" [--target "agentic-project-manager"]
 
 Creates a task-local repo absorption report skeleton under .ai-task/.
-This helper does not clone, fetch, install, inspect, or activate the source repository.`);
+This helper does not clone, fetch, install, inspect, or execute the source repository. Safe knowledge still requires AI audit before activation.`);
   process.exit(repo ? 0 : 2);
 }
 
@@ -29,7 +29,7 @@ const md = `# Repo Absorption Report
 - Date: ${now}
 - Target Codex system: ${target || "TBD"}
 - Target namespace/capability: ${id}
-- Verdict: needs review
+- Verdict: needs_ai_audit
 
 ## Local Retrieval First
 
@@ -50,9 +50,9 @@ const md = `# Repo Absorption Report
 
 ## Useful Concepts
 
-| Concept | Why useful | Local target | Copy risk | Approval needed |
-| --- | --- | --- | --- | --- |
-|  |  |  |  |  |
+| Concept | Why useful | Local target | Copy risk | AI audit decision | Approval needed |
+| --- | --- | --- | --- | --- | --- |
+|  |  |  |  |  |  |
 
 ## What Not To Absorb
 
@@ -62,10 +62,20 @@ const md = `# Repo Absorption Report
 
 - Existing skill/router to update:
 - Existing tool/script to update:
-- Knowledge blob candidate:
-- Capability pack candidate:
+- Knowledge blob:
+- Capability pack:
 - MCP/config note:
 - Docs update:
+
+## AI Audit
+
+- Source confidence:
+- License boundary:
+- Copied-content risk:
+- Specs/artifacts/verification:
+- Registry/routing fit:
+- Safety boundary:
+- Decision: auto_activate | auto_enrich_active | keep_candidate_due_to_weak_sources | keep_candidate_due_to_risk | require_user_approval_for_install_or_execution | reject_or_restrict
 
 ## Source Absorption Ledger
 
@@ -78,8 +88,8 @@ Reviewed files/docs:
 Useful ideas:
 Rejected ideas:
 Local architecture target:
-Candidate artifact:
-Approval status: not approved
+Candidate or active artifact:
+Approval status:
 Attribution required:
 Generated/local-only artifacts:
 Safety notes:
@@ -96,6 +106,9 @@ Verification:
 ## Recommended Next Action
 
 - Recommendation:
+- Auto-activated:
+- Kept candidate:
+- Rejected/restricted:
 - Approval required before:
 - Verification plan:
 `;

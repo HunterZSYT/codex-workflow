@@ -27,6 +27,6 @@ Rules:
 - Repo absorption is discovery, not proof. Verify source repo URL, docs, license, maintenance signal, generated artifact behavior, and local architecture fit before recommending any workflow change.
 - WordPress/WooCommerce verification must include project type detection, PHP syntax checks when PHP changes, WordPress debug/log review when available, enqueue verification, rendered front-end checks, editor/front-end parity for block themes, and storefront/checkout flow checks for WooCommerce.
 - Candidate packs/blobs from ecosystem scouting are not active implementation rules until approved.
-- Repo-derived reports, ledgers, blobs, packs, scripts, and docs remain candidate until explicit approval. Redaction scan and sync safety checks are required before publishing sanitized workflow updates.
+- Repo-derived reports, ledgers, blobs, packs, scripts, and docs require AI audit before activation. Safe source-backed knowledge may auto-activate after validation and redaction; risky installs/configs/execution, unclear sources/licenses, copied source/assets, and sensitive behavior remain approval-gated.
 - Do not use heavy recon tools as verification for tiny localized edits.
 - Keep `.codegraph/`, `.understand-anything/`, generated indexes, caches, and graph databases local-only and uncommitted.

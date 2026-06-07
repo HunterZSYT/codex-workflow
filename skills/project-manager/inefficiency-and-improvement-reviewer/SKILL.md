@@ -9,9 +9,9 @@ Capability precision failures:
 - Vague generation from broad AI memory is a knowledge sufficiency failure.
 - Custom generation before scouting official docs, repositories, registries, component sources, MCPs, starter kits, or existing ecosystem tools counts as an ecosystem scout failure.
 - Researching only the user-named tool when adjacent ecosystem options are clearly relevant counts as an ecosystem scout failure.
-- Installing, cloning, copying, or activating a public repo from an "absorb this" request without a repo absorption report, license check, source absorption ledger, and approval counts as a source absorption failure.
+- Installing, cloning large repos, copying source/assets, configuring risky integrations, or changing execution behavior from an "absorb this" request without a repo absorption report, license check, source absorption ledger, AI audit, and required approval counts as a source absorption failure.
 - Implementing WordPress/WooCommerce/theme.json/GSAP-Lenis WordPress work without checking the candidate WordPress packs or current official docs counts as a knowledge sufficiency failure.
-- Treating a repo absorption report as active knowledge before approval counts as a knowledge product failure.
+- Treating a repo absorption report as active knowledge before AI audit counts as a knowledge product failure. Leaving safe source-backed absorption output candidate by default after a passing AI audit also counts as a lifecycle failure.
 - Repeated "need package/tool" answers without owner skill, active knowledge blob, docs source, and verification method should propose a knowledge blob update.
 - Repeated missing knowledge proposes a blob/pack update, not a random new skill.
 - Repeated retrieval failures propose alias/trigger/index metadata updates.
