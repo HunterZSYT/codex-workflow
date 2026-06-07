@@ -1,0 +1,43 @@
+id: project_manager.codebase.codebase-intelligence-tooling
+title: Codebase Intelligence Tooling
+status: active
+lifecycle_status: active
+approval_status: ai_reviewed_approved
+activation_mode: ai_reviewed_auto_absorption
+maturity: artifact_backed
+source_confidence: sourced
+owner_skill: codebase-recon-orchestrator
+last_verified: 2026-06-07
+activation_review_path: activation-review.md
+enrichment_history_path: enrichment-history.md
+aliases:
+  - Understand Anything
+  - CodeGraph
+  - codebase graph
+  - knowledge graph
+  - architecture understanding
+trigger_terms:
+  - Understand Anything
+  - .understand-anything
+  - codebase graph
+  - knowledge graph
+  - codebase intelligence
+  - architecture understanding
+  - domain understanding
+  - diff impact analysis
+  - CodeGraph
+external_libraries:
+  - Understand Anything
+docs_sources:
+  - https://github.com/Lum1104/Understand-Anything
+  - https://github.com/Lum1104/Understand-Anything/blob/main/README.md
+  - https://understand-anything.com/
+artifacts_count: 5
+artifact_paths:
+  - artifacts/codebase-intelligence-tool-comparison.md
+  - artifacts/understand-anything-use-cases.md
+  - artifacts/generated-knowledge-graph-sync-policy.md
+  - artifacts/architecture-understanding-workflow.md
+  - artifacts/codebase-tool-current-signal-notes.md
+verification_method: "Use routing artifacts to choose Understand Anything, CodeGraph, project scans, or grep/read loops; generated graph artifacts stay local-only unless explicitly approved."
+notes: "Active routing/docs only. Installing or running Understand Anything on a real project remains approval-gated unless already available and explicitly requested."

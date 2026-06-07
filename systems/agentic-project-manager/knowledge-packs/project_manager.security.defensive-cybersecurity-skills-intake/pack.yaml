@@ -1,0 +1,49 @@
+id: project_manager.security.defensive-cybersecurity-skills-intake
+title: Defensive Cybersecurity Skills Intake
+status: active
+lifecycle_status: active
+approval_status: ai_reviewed_approved
+activation_mode: ai_reviewed_auto_absorption
+maturity: artifact_backed
+source_confidence: sourced
+owner_skill: security-env-secrets-gate
+last_verified: 2026-06-07
+activation_review_path: activation-review.md
+enrichment_history_path: enrichment-history.md
+aliases:
+  - Anthropic Cybersecurity Skills
+  - defensive cyber skills
+  - MITRE NIST D3FEND intake
+  - AI security risk review
+trigger_terms:
+  - cybersecurity skills
+  - defensive security skills
+  - MITRE ATT&CK
+  - NIST CSF
+  - D3FEND
+  - MITRE ATLAS
+  - NIST AI RMF
+  - AI security review
+  - prompt injection
+  - untrusted skill
+external_libraries:
+  - Anthropic-Cybersecurity-Skills
+docs_sources:
+  - https://github.com/mukul975/Anthropic-Cybersecurity-Skills
+  - https://github.com/mukul975/Anthropic-Cybersecurity-Skills/blob/main/README.md
+  - https://github.com/mukul975/Anthropic-Cybersecurity-Skills/blob/main/index.json
+  - https://attack.mitre.org
+  - https://www.nist.gov/cyberframework
+  - https://atlas.mitre.org
+  - https://d3fend.mitre.org
+  - https://airc.nist.gov/AI_RMF
+artifacts_count: 6
+artifact_paths:
+  - artifacts/defensive-security-skill-intake-policy.md
+  - artifacts/cyber-skill-safety-filter.md
+  - artifacts/framework-mapping-use-cases.md
+  - artifacts/secure-coding-review-enrichment-checklist.md
+  - artifacts/ai-security-risk-review-checklist.md
+  - artifacts/what-not-to-import.md
+verification_method: "Use intake filter before absorbing any security skill; reject offensive operational procedures and preserve defensive-only mapping."
+notes: "Active defensive-only intake policy. Does not import external skills or offensive procedures."

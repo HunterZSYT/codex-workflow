@@ -1,0 +1,47 @@
+id: project_manager.browser.browser-automation-safety-and-tool-selection
+title: Browser Automation Safety and Tool Selection
+status: active
+lifecycle_status: active
+approval_status: ai_reviewed_approved
+activation_mode: ai_reviewed_auto_absorption
+maturity: artifact_backed
+source_confidence: sourced
+owner_skill: task-routing-and-skill-selection
+last_verified: 2026-06-07
+activation_review_path: activation-review.md
+enrichment_history_path: enrichment-history.md
+aliases:
+  - CloakBrowser
+  - stealth browser
+  - anti-detect browser
+  - browser automation safety
+  - Playwright DevTools browser choice
+trigger_terms:
+  - CloakBrowser
+  - stealth browser
+  - anti-detect browser
+  - bot detection
+  - browser automation
+  - Playwright
+  - Puppeteer
+  - Chrome DevTools
+  - browser profile
+  - proxy browser
+external_libraries:
+  - CloakBrowser
+  - Playwright
+  - Puppeteer
+docs_sources:
+  - https://github.com/CloakHQ/CloakBrowser
+  - https://github.com/CloakHQ/CloakBrowser/blob/main/README.md
+  - https://github.com/CloakHQ/CloakBrowser/blob/main/CHANGELOG.md
+  - https://github.com/CloakHQ/CloakBrowser/blob/main/BINARY-LICENSE.md
+artifacts_count: 5
+artifact_paths:
+  - artifacts/browser-tool-decision-tree.md
+  - artifacts/normal-browser-vs-devtools-vs-playwright.md
+  - artifacts/restricted-stealth-browser-policy.md
+  - artifacts/browser-profile-cookie-sync-exclusion.md
+  - artifacts/current-browser-tool-signal-notes.md
+verification_method: "Use source-ledger and artifacts to enforce normal-tools-first routing; approval required before restricted browser install/use."
+notes: "Active safety policy only. CloakBrowser install/use remains approval-gated."

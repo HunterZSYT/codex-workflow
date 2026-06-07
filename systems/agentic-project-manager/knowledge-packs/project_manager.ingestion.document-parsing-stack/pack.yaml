@@ -1,0 +1,54 @@
+id: project_manager.ingestion.document-parsing-stack
+title: Document Parsing Stack
+status: active
+lifecycle_status: active
+approval_status: ai_reviewed_approved
+activation_mode: ai_reviewed_auto_absorption
+maturity: artifact_backed
+source_confidence: sourced
+owner_skill: task-routing-and-skill-selection
+last_verified: 2026-06-07
+activation_review_path: activation-review.md
+enrichment_history_path: enrichment-history.md
+aliases:
+  - LiteParse
+  - PaddleOCR
+  - MarkItDown
+  - PDF parser
+  - OCR backend
+  - document ingestion
+trigger_terms:
+  - LiteParse
+  - PDF parser
+  - spatial text parsing
+  - document parser
+  - PaddleOCR
+  - OCR backend
+  - document OCR
+  - source ingestion
+  - MarkItDown
+  - extracted text trust boundary
+external_libraries:
+  - LiteParse
+  - PaddleOCR
+  - MarkItDown
+docs_sources:
+  - https://github.com/run-llama/liteparse
+  - https://github.com/run-llama/liteparse/blob/main/README.md
+  - https://github.com/run-llama/liteparse/blob/main/packages/wasm/README.md
+  - https://github.com/PaddlePaddle/PaddleOCR
+  - https://github.com/PaddlePaddle/PaddleOCR/blob/main/docs/version3.x/installation.en.md
+  - https://github.com/PaddlePaddle/PaddleOCR/blob/main/docs/update/update.en.md
+  - Context7:/paddlepaddle/paddleocr
+artifacts_count: 8
+artifact_paths:
+  - artifacts/document-ingestion-tool-decision-tree.md
+  - artifacts/markitdown-vs-liteparse-vs-paddleocr.md
+  - artifacts/local-pdf-parsing-checklist.md
+  - artifacts/ocr-backend-selection.md
+  - artifacts/source-ingestion-verification-checklist.md
+  - artifacts/parsing-output-trust-boundary.md
+  - artifacts/sync-ignore-for-document-ingestion.md
+  - artifacts/document-parser-current-signal-notes.md
+verification_method: "Use decision tree before selecting parser/OCR; installs, model downloads, and private OCR remain approval-gated."
+notes: "Active decision rules only. LiteParse/PaddleOCR install and private document processing remain approval-gated."
