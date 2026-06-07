@@ -1,0 +1,80 @@
+id: project_manager.cloud.vps-deployment-inspection-operations
+title: Cloud/VPS Deployment Inspection Operations
+namespace: project_manager
+owner_system: agentic-project-manager
+owner_skill: task-routing-and-skill-selection
+status: active
+lifecycle_status: active
+approval_status: ai_reviewed_approved
+activation_mode: ai_reviewed_auto_workflow_pack
+maturity: artifact_backed
+source_confidence: internal
+integration_mode: dynamic_cloud_operations_workflow
+secondary_owners:
+  - project-manager-execution-ledger
+  - verification-gate-controller
+  - backend-database-tool-orchestrator
+  - vps-ssh-operations-gate
+  - database-safety-orchestrator
+  - security-env-secrets-gate
+  - deployment-readiness-gate
+  - frontend-tool-orchestrator
+  - frontend-inspection-discipline
+  - accessibility-gate
+  - performance-triage
+aliases:
+  - cloud VPS operations
+  - VPS deployment inspection
+  - online domain inspection
+  - public URL QA
+  - SSH deployment workflow
+  - cloud server inspection
+  - hosted website debugging
+  - WordPress VPS workflow
+  - domain cache CDN inspection
+  - cloud security inspection
+trigger_terms:
+  - VPS deployment
+  - cloud deployment
+  - SSH domain inspection
+  - public URL inspection
+  - online site QA
+  - hosted website debugging
+  - staging URL
+  - live domain
+  - WordPress VPS
+  - theme development on server
+  - inspect domain with SSH
+  - deploy to VPS
+  - server logs
+  - Nginx
+  - Apache
+  - OpenLiteSpeed
+  - SSL domain cache CDN
+  - cloud security inspection
+  - production-safe mode
+related_packs:
+  - project_manager.context.headroom-compression-evaluation
+  - project_manager.research.last30days-current-signal
+  - project_manager.security.defensive-cybersecurity-skills-intake
+  - backend.wordpress.theme-development
+  - backend.wordpress.woocommerce-theme-development
+  - frontend.wordpress.theme-design-system
+  - frontend.motion.gsap-lenis-wordpress
+artifact_paths:
+  - artifacts/dynamic-target-intake-form.md
+  - artifacts/cloud-vps-execution-modes.md
+  - artifacts/server-side-inspection-checklist.md
+  - artifacts/public-url-inspection-workflow.md
+  - artifacts/change-implementation-safety.md
+  - artifacts/cloud-security-inspection-checklist.md
+  - artifacts/domain-cache-cdn-inspection.md
+  - artifacts/cloud-vps-final-proof-report.md
+apply_commands: []
+verification_methods:
+  - Run pm-pack-audit.mjs for this pack.
+  - Run knowledge search tests for VPS deployment, domain SSH, public URL QA, cloud security, WordPress VPS, and cache/CDN/SSL inspection.
+  - For real tasks, verify with public URL tools, SSH read-only reports, logs, backups, rollback plan, and post-change proof appropriate to the approved mode.
+safe_to_sync: true
+last_verified: 2026-06-07
+notes: "Active orchestration workflow only. Server writes, deployments, restarts, SQL, firewall changes, cache clears, and private/admin inspection remain approval-gated."
