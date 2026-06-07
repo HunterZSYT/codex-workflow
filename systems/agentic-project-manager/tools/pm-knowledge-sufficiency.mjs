@@ -33,6 +33,10 @@ const CAPABILITY_TERMS = [
   { capability: "Visual media system", terms: ["visual media", "image ratio", "aspect ratio", "object-fit", "icon sizing", "responsive image", "hero image"], highRisk: false },
   { capability: "Form input system", terms: ["form input", "form validation", "label input", "helper text", "required field", "optional field", "submit loading"], highRisk: false },
   { capability: "Navigation system", terms: ["navigation", "navigation system", "nav active", "active route", "sticky nav", "sticky header", "mobile menu", "nav overflow"], highRisk: false }
+  ,{ capability: "Browser automation safety and tool selection", terms: ["cloakbrowser", "stealth browser", "anti-detect browser", "bot detection", "browser automation", "playwright", "puppeteer", "chrome devtools", "browser profile", "proxy browser"], external: true, highRisk: true }
+  ,{ capability: "Codebase intelligence tooling", terms: ["understand anything", ".understand-anything", "codebase graph", "knowledge graph", "architecture understanding", "codebase intelligence", "semantic codebase search", "domain flow", "onboarding guide"], external: true }
+  ,{ capability: "Defensive cybersecurity skills intake", terms: ["cybersecurity skills", "defensive security skills", "mitre attack", "mitre att&ck", "nist csf", "d3fend", "mitre d3fend", "nist ai rmf", "ai security risk", "secure coding review"], external: true, highRisk: true }
+  ,{ capability: "Document parsing and OCR ingestion stack", terms: ["liteparse", "pdf parser", "spatial text parsing", "document parser", "paddleocr", "ocr backend", "document ocr", "source ingestion", "document ingestion", "paddleocr-vl", "pp-ocr", "pp-structure"], external: true, highRisk: true }
   ,{ capability: "Headroom global context layer", terms: ["headroom", "context compression", "token compression", "context optimization", "compress tool outputs", "compress logs", "summarize logs", "analyze huge output", "huge output", "large context", "large logs", "large tool output", "long debugging output", "source ingestion", "knowledgebase fill", "too much raw text", "research artifact", "repo absorption context", "reversible compression", "ccr", "cross-agent memory", "headroom learn", "wrap codex", "proxy compression", "mcp compression"], external: true, highRisk: true }
   ,{ capability: "last30days current research signal", terms: ["last30days", "last 30 days", "current research", "recent community signal", "what people are saying", "trending tools", "latest ecosystem", "compare current tools", "social signal", "source discovery", "find current sources", "recent github activity", "recent complaints", "current best practice", "latest tool", "latest repo", "latest library", "latest mcp", "research brief"], external: true, highRisk: true }
 ];
@@ -47,6 +51,10 @@ const ECOSYSTEM_SCOUT_TERMS = [
   "fill knowledgebase", "add knowledge", "teach the system", "add integration knowledge",
   "use best tools", "build with existing tools", "don't generate from scratch",
   "research and add", "codebase intelligence tool",
+  "browser automation", "stealth browser", "anti-detect browser",
+  "codebase graph", "knowledge graph", "understand anything",
+  "defensive cybersecurity skills", "cybersecurity skills", "mitre attack", "nist csf", "d3fend",
+  "document parser", "pdf parser", "ocr backend", "document ocr", "liteparse", "paddleocr",
   "last30days", "last 30 days", "current research", "recent community signal",
   "what people are saying", "trending tools", "latest ecosystem", "compare current tools",
   "social signal", "source discovery", "find current sources", "recent github activity",

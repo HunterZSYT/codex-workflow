@@ -2400,5 +2400,296 @@
       "project_manager.routing.knowledge-blob-policy",
       "project_manager.routing.micro-update-policy"
     ]
+  },
+  {
+    "id": "pack.project_manager.browser.browser-automation-safety-and-tool-selection",
+    "blob_id": "browser-automation-safety-and-tool-selection",
+    "title": "Browser Automation Safety and Tool Selection",
+    "namespace": "project_manager",
+    "type": "capability_pack",
+    "product_type": "pack",
+    "capability": "Browser automation safety and tool selection",
+    "capability_class": "project_manager.browser",
+    "owner_system": "agentic-project-manager",
+    "owner_skill": "task-routing-and-skill-selection",
+    "status": "active",
+    "maturity": "artifact_backed",
+    "approval_status": "ai_reviewed_approved",
+    "promotion_status": "active_source_absorption_pack",
+    "pack_id": "project_manager.browser.browser-automation-safety-and-tool-selection",
+    "pack_path": "C:\\Users\\acer\\.codex\\agentic-project-manager\\knowledge-packs\\project_manager.browser.browser-automation-safety-and-tool-selection",
+    "file_path": "C:\\Users\\acer\\.codex\\agentic-project-manager\\knowledge-packs\\project_manager.browser.browser-automation-safety-and-tool-selection\\pack.yaml",
+    "source_ledger_path": "C:\\Users\\acer\\.codex\\agentic-project-manager\\knowledge-packs\\project_manager.browser.browser-automation-safety-and-tool-selection\\source-ledger.md",
+    "specs_path": "C:\\Users\\acer\\.codex\\agentic-project-manager\\knowledge-packs\\project_manager.browser.browser-automation-safety-and-tool-selection\\specs.md",
+    "trigger_terms": [
+      "CloakBrowser",
+      "stealth browser",
+      "anti-detect browser",
+      "bot detection",
+      "browser automation",
+      "Playwright",
+      "Puppeteer",
+      "Chrome DevTools",
+      "browser profile",
+      "proxy browser"
+    ],
+    "aliases": [
+      "CloakBrowser",
+      "stealth browser",
+      "anti-detect browser",
+      "browser automation safety",
+      "Playwright DevTools browser choice"
+    ],
+    "external_libraries": [
+      "CloakBrowser",
+      "Playwright",
+      "Puppeteer"
+    ],
+    "docs_sources": [
+      "https://github.com/CloakHQ/CloakBrowser",
+      "https://github.com/CloakHQ/CloakBrowser/blob/main/README.md",
+      "https://github.com/CloakHQ/CloakBrowser/blob/main/CHANGELOG.md",
+      "https://github.com/CloakHQ/CloakBrowser/blob/main/BINARY-LICENSE.md"
+    ],
+    "artifact_paths": [
+      "artifacts/browser-tool-decision-tree.md",
+      "artifacts/normal-browser-vs-devtools-vs-playwright.md",
+      "artifacts/restricted-stealth-browser-policy.md",
+      "artifacts/browser-profile-cookie-sync-exclusion.md",
+      "artifacts/current-browser-tool-signal-notes.md"
+    ],
+    "artifacts_count": 5,
+    "apply_command": "",
+    "apply_commands": [],
+    "verification_method": "Run pm-pack-audit.mjs --id project_manager.browser.browser-automation-safety-and-tool-selection and search routing terms.",
+    "safe_to_sync": true,
+    "last_verified": "2026-06-07",
+    "source_confidence": "sourced",
+    "notes": "Active safety and routing guidance only. Stealth browser install/use remains approval-gated.",
+    "related_items": [
+      "project_manager.research.last30days-current-signal",
+      "project_manager.context.headroom-compression-evaluation"
+    ],
+    "copied_from_external_source": false,
+    "copyright_risk": "none"
+  },
+  {
+    "id": "pack.project_manager.codebase.codebase-intelligence-tooling",
+    "blob_id": "codebase-intelligence-tooling",
+    "title": "Codebase Intelligence Tooling",
+    "namespace": "project_manager",
+    "type": "capability_pack",
+    "product_type": "pack",
+    "capability": "Codebase intelligence tooling",
+    "capability_class": "project_manager.codebase",
+    "owner_system": "agentic-project-manager",
+    "owner_skill": "task-routing-and-skill-selection",
+    "status": "active",
+    "maturity": "artifact_backed",
+    "approval_status": "ai_reviewed_approved",
+    "promotion_status": "active_source_absorption_pack",
+    "pack_id": "project_manager.codebase.codebase-intelligence-tooling",
+    "pack_path": "C:\\Users\\acer\\.codex\\agentic-project-manager\\knowledge-packs\\project_manager.codebase.codebase-intelligence-tooling",
+    "file_path": "C:\\Users\\acer\\.codex\\agentic-project-manager\\knowledge-packs\\project_manager.codebase.codebase-intelligence-tooling\\pack.yaml",
+    "source_ledger_path": "C:\\Users\\acer\\.codex\\agentic-project-manager\\knowledge-packs\\project_manager.codebase.codebase-intelligence-tooling\\source-ledger.md",
+    "specs_path": "C:\\Users\\acer\\.codex\\agentic-project-manager\\knowledge-packs\\project_manager.codebase.codebase-intelligence-tooling\\specs.md",
+    "trigger_terms": [
+      "Understand Anything",
+      ".understand-anything",
+      "codebase graph",
+      "knowledge graph",
+      "architecture understanding",
+      "codebase intelligence",
+      "domain flow",
+      "onboarding guide"
+    ],
+    "aliases": [
+      "Understand Anything",
+      "codebase graph",
+      "knowledge graph",
+      "architecture workflow",
+      "codebase intelligence tool comparison"
+    ],
+    "external_libraries": [
+      "Understand Anything",
+      "CodeGraph",
+      "Serena"
+    ],
+    "docs_sources": [
+      "https://github.com/Lum1104/Understand-Anything",
+      "https://github.com/Lum1104/Understand-Anything/blob/main/README.md"
+    ],
+    "artifact_paths": [
+      "artifacts/codebase-intelligence-tool-comparison.md",
+      "artifacts/understand-anything-use-cases.md",
+      "artifacts/generated-knowledge-graph-sync-policy.md",
+      "artifacts/architecture-understanding-workflow.md",
+      "artifacts/codebase-tool-current-signal-notes.md"
+    ],
+    "artifacts_count": 5,
+    "apply_command": "",
+    "apply_commands": [],
+    "verification_method": "Run pm-pack-audit.mjs --id project_manager.codebase.codebase-intelligence-tooling and search routing terms.",
+    "safe_to_sync": true,
+    "last_verified": "2026-06-07",
+    "source_confidence": "sourced",
+    "notes": "Active routing guidance for codebase intelligence. Installs and generated graph sync remain approval-gated.",
+    "related_items": [
+      "project_manager.research.last30days-current-signal",
+      "project_manager.context.headroom-compression-evaluation"
+    ],
+    "copied_from_external_source": false,
+    "copyright_risk": "none"
+  },
+  {
+    "id": "pack.project_manager.security.defensive-cybersecurity-skills-intake",
+    "blob_id": "defensive-cybersecurity-skills-intake",
+    "title": "Defensive Cybersecurity Skills Intake",
+    "namespace": "project_manager",
+    "type": "capability_pack",
+    "product_type": "pack",
+    "capability": "Defensive cybersecurity skills intake",
+    "capability_class": "project_manager.security",
+    "owner_system": "agentic-project-manager",
+    "owner_skill": "task-routing-and-skill-selection",
+    "status": "active",
+    "maturity": "artifact_backed",
+    "approval_status": "ai_reviewed_approved",
+    "promotion_status": "active_source_absorption_pack",
+    "pack_id": "project_manager.security.defensive-cybersecurity-skills-intake",
+    "pack_path": "C:\\Users\\acer\\.codex\\agentic-project-manager\\knowledge-packs\\project_manager.security.defensive-cybersecurity-skills-intake",
+    "file_path": "C:\\Users\\acer\\.codex\\agentic-project-manager\\knowledge-packs\\project_manager.security.defensive-cybersecurity-skills-intake\\pack.yaml",
+    "source_ledger_path": "C:\\Users\\acer\\.codex\\agentic-project-manager\\knowledge-packs\\project_manager.security.defensive-cybersecurity-skills-intake\\source-ledger.md",
+    "specs_path": "C:\\Users\\acer\\.codex\\agentic-project-manager\\knowledge-packs\\project_manager.security.defensive-cybersecurity-skills-intake\\specs.md",
+    "trigger_terms": [
+      "cybersecurity skills",
+      "defensive security skills",
+      "MITRE ATT&CK",
+      "NIST CSF",
+      "D3FEND",
+      "MITRE D3FEND",
+      "NIST AI RMF",
+      "AI security risk",
+      "secure coding review"
+    ],
+    "aliases": [
+      "Anthropic Cybersecurity Skills",
+      "defensive cybersecurity intake",
+      "MITRE NIST security mapping",
+      "cyber skill safety filter"
+    ],
+    "external_libraries": [
+      "Anthropic Cybersecurity Skills",
+      "MITRE ATT&CK",
+      "NIST CSF",
+      "MITRE D3FEND",
+      "NIST AI RMF"
+    ],
+    "docs_sources": [
+      "https://github.com/mukul975/Anthropic-Cybersecurity-Skills",
+      "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/blob/main/README.md"
+    ],
+    "artifact_paths": [
+      "artifacts/defensive-security-skill-intake-policy.md",
+      "artifacts/cyber-skill-safety-filter.md",
+      "artifacts/framework-mapping-use-cases.md",
+      "artifacts/secure-coding-review-enrichment-checklist.md",
+      "artifacts/ai-security-risk-review-checklist.md",
+      "artifacts/what-not-to-import.md"
+    ],
+    "artifacts_count": 6,
+    "apply_command": "",
+    "apply_commands": [],
+    "verification_method": "Run pm-pack-audit.mjs --id project_manager.security.defensive-cybersecurity-skills-intake and search routing terms.",
+    "safe_to_sync": true,
+    "last_verified": "2026-06-07",
+    "source_confidence": "sourced",
+    "notes": "Active defensive taxonomy/checklist guidance only. Offensive procedures and raw skill imports remain blocked or approval-gated.",
+    "related_items": [
+      "project_manager.research.last30days-current-signal",
+      "project_manager.context.headroom-compression-evaluation"
+    ],
+    "copied_from_external_source": false,
+    "copyright_risk": "none"
+  },
+  {
+    "id": "pack.project_manager.ingestion.document-parsing-stack",
+    "blob_id": "document-parsing-stack",
+    "title": "Document Parsing Stack",
+    "namespace": "project_manager",
+    "type": "capability_pack",
+    "product_type": "pack",
+    "capability": "Document parsing and OCR ingestion stack",
+    "capability_class": "project_manager.ingestion",
+    "owner_system": "agentic-project-manager",
+    "owner_skill": "task-routing-and-skill-selection",
+    "status": "active",
+    "maturity": "artifact_backed",
+    "approval_status": "ai_reviewed_approved",
+    "promotion_status": "active_source_absorption_pack",
+    "pack_id": "project_manager.ingestion.document-parsing-stack",
+    "pack_path": "C:\\Users\\acer\\.codex\\agentic-project-manager\\knowledge-packs\\project_manager.ingestion.document-parsing-stack",
+    "file_path": "C:\\Users\\acer\\.codex\\agentic-project-manager\\knowledge-packs\\project_manager.ingestion.document-parsing-stack\\pack.yaml",
+    "source_ledger_path": "C:\\Users\\acer\\.codex\\agentic-project-manager\\knowledge-packs\\project_manager.ingestion.document-parsing-stack\\source-ledger.md",
+    "specs_path": "C:\\Users\\acer\\.codex\\agentic-project-manager\\knowledge-packs\\project_manager.ingestion.document-parsing-stack\\specs.md",
+    "trigger_terms": [
+      "LiteParse",
+      "PDF parser",
+      "spatial text parsing",
+      "document parser",
+      "PaddleOCR",
+      "OCR backend",
+      "document OCR",
+      "source ingestion",
+      "document ingestion",
+      "PaddleOCR-VL",
+      "PP-OCR",
+      "PP-Structure"
+    ],
+    "aliases": [
+      "LiteParse",
+      "PaddleOCR",
+      "MarkItDown",
+      "PDF parser",
+      "OCR backend",
+      "document ingestion"
+    ],
+    "external_libraries": [
+      "LiteParse",
+      "PaddleOCR",
+      "MarkItDown"
+    ],
+    "docs_sources": [
+      "https://github.com/run-llama/liteparse",
+      "https://github.com/run-llama/liteparse/blob/main/README.md",
+      "https://github.com/PaddlePaddle/PaddleOCR",
+      "https://github.com/PaddlePaddle/PaddleOCR/blob/main/docs/version3.x/installation.en.md",
+      "https://github.com/PaddlePaddle/PaddleOCR/blob/main/docs/update/update.en.md",
+      "Context7:/paddlepaddle/paddleocr"
+    ],
+    "artifact_paths": [
+      "artifacts/document-ingestion-tool-decision-tree.md",
+      "artifacts/markitdown-vs-liteparse-vs-paddleocr.md",
+      "artifacts/local-pdf-parsing-checklist.md",
+      "artifacts/ocr-backend-selection.md",
+      "artifacts/source-ingestion-verification-checklist.md",
+      "artifacts/parsing-output-trust-boundary.md",
+      "artifacts/sync-ignore-for-document-ingestion.md",
+      "artifacts/document-parser-current-signal-notes.md"
+    ],
+    "artifacts_count": 8,
+    "apply_command": "",
+    "apply_commands": [],
+    "verification_method": "Run pm-pack-audit.mjs --id project_manager.ingestion.document-parsing-stack and search routing terms.",
+    "safe_to_sync": true,
+    "last_verified": "2026-06-07",
+    "source_confidence": "sourced",
+    "notes": "Active parser/OCR decision guidance only. Installs, model downloads, private OCR, and extracted-content sync remain approval-gated.",
+    "related_items": [
+      "project_manager.research.last30days-current-signal",
+      "project_manager.context.headroom-compression-evaluation"
+    ],
+    "copied_from_external_source": false,
+    "copyright_risk": "none"
   }
 ]
