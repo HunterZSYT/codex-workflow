@@ -33,10 +33,11 @@ artifact_paths:
   - artifacts/wordpress-typography-map.md
   - artifacts/block-pattern-design-checklist.md
   - artifacts/editor-frontend-parity-checklist.md
+  - artifacts/wordpress-ecommerce-theme-design-current-signal-2026-06.md
 apply_commands:
   []
 verification_methods:
   - Audit pack readiness before implementation.
 safe_to_sync: true
-last_verified: 2026-05-31
+last_verified: 2026-06-07
 approval_status: approved

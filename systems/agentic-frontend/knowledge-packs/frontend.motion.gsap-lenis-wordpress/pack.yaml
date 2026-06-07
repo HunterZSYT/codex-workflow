@@ -30,10 +30,11 @@ artifact_paths:
   - artifacts/wordpress-scroll-scene-verification-checklist.md
   - artifacts/reduced-motion-checklist.md
   - artifacts/animation-init-safety-checklist.md
+  - artifacts/gsap-lenis-wordpress-current-signal-2026-06.md
 apply_commands:
   []
 verification_methods:
   - Audit pack readiness before implementation.
 safe_to_sync: true
-last_verified: 2026-05-31
+last_verified: 2026-06-07
 approval_status: approved

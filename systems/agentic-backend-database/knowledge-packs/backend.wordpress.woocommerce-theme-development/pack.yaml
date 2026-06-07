@@ -12,6 +12,7 @@ aliases:
   - woocommerce child theme
   - woocommerce hooks
   - product template
+  - existing ecommerce theme edit
 trigger_terms:
   - WooCommerce theme
   - WooCommerce template override
@@ -21,6 +22,8 @@ trigger_terms:
   - archive product
   - checkout template
   - child theme override
+  - existing ecommerce theme edit
+  - existing WooCommerce theme edit
 related_blobs:
   []
 related_packs:
@@ -31,11 +34,12 @@ artifact_paths:
   - artifacts/woocommerce-child-theme-override-map.md
   - artifacts/woocommerce-page-verification-checklist.md
   - artifacts/woocommerce-gallery-carousel-reuse-scout.md
+  - artifacts/existing-ecommerce-theme-edit-current-signal-2026-06.md
 apply_commands:
   []
 verification_methods:
   - Audit pack readiness before implementation.
   - Verify template override version status, storefront archive/product/cart/checkout/account flows, logs, and rollback plan.
 safe_to_sync: true
-last_verified: 2026-05-31
+last_verified: 2026-06-07
 approval_status: approved

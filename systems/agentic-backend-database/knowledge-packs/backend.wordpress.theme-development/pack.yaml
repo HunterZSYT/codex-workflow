@@ -35,11 +35,12 @@ artifact_paths:
   - artifacts/asset-enqueue-checklist.md
   - artifacts/theme-verification-checklist.md
   - artifacts/local-dev-tooling-options.md
+  - artifacts/wordpress-theme-current-signal-2026-06.md
 apply_commands:
   []
 verification_methods:
   - Audit pack readiness before implementation.
   - Verify PHP syntax, WordPress debug logs, rendered frontend, editor/front-end parity, and asset enqueue output in a real project.
 safe_to_sync: true
-last_verified: 2026-05-31
+last_verified: 2026-06-07
 approval_status: approved
