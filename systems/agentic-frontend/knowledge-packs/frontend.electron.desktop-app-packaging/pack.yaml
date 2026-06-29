@@ -1,0 +1,51 @@
+id: frontend.electron.desktop-app-packaging
+title: Electron Desktop App Packaging
+namespace: frontend
+owner_system: agentic-frontend
+owner_skill: frontend-tool-orchestrator
+status: active
+maturity: researched
+source_confidence: sourced
+aliases:
+  - Electron Desktop App Packaging
+  - Electron Vite packaging
+  - Electron builder native modules
+  - Electron blank window debugging
+trigger_terms:
+  - Electron Desktop App Packaging
+  - Electron
+  - electron-builder
+  - packaged Electron app
+  - blank Electron window
+  - Vite Electron
+  - better-sqlite3 Electron
+  - native module ABI
+  - app.asar
+related_blobs:
+  - electron-packaged-renderer-verification
+  - vite-electron-file-assets
+  - electron-native-module-abi
+related_packs: []
+artifact_paths:
+  - artifacts/electron-packaging-verification-checklist.md
+  - artifacts/vite-electron-renderer-build-checklist.md
+  - artifacts/electron-native-modules-checklist.md
+  - artifacts/electron-packaged-app-debugging-playbook.md
+  - artifacts/electron-current-signal-2026-06.md
+apply_commands:
+  - npm run build
+  - npm run package
+  - npm run dist
+verification_methods:
+  - Verify dev renderer and packaged executable separately.
+  - Inspect packaged app window content, not only process existence.
+  - Check packaged HTML asset paths under file protocol.
+  - Check native .node modules are rebuilt for the target Electron ABI.
+  - Capture startup errors and renderer load failures.
+safe_to_sync: true
+last_verified: 2026-06-29
+approval_status: ai_reviewed_approved
+lifecycle_status: active
+activation_mode: ai_reviewed
+activation_review_path: activation-review.md
+enrichment_history_path: enrichment-history.md

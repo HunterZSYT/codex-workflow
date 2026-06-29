@@ -7,6 +7,8 @@ description: Use when starting work in an unknown project, preparing a project f
 
 Run `project-capability-scan`. Run `component-map` for frontend/component work. Run `mcp-status-check` if tool availability matters. Write findings to `.ai-task` inside projects. Recommend missing tools, but do not install project dependencies without need.
 
+If `package.json` or dependencies indicate Electron/electron-builder/native desktop packaging, record that the project needs `frontend.electron.desktop-app-packaging` verification: dev renderer proof, packaged executable proof, Vite file-asset check, and native module ABI check when `.node` dependencies are present.
+
 ## Tool Escalation Budget
 
 Start with the cheapest reliable method. For small tasks, use direct search/read only and do not run CodeGraph or Understand Anything unless direct search fails. For medium tasks, run capability scan first and use one intelligence tool if needed. For large/risky/unknown tasks, use Project Manager tracking, run capability scan, choose the best intelligence tool, and log why.

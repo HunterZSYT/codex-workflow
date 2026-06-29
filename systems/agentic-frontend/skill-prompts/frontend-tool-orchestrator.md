@@ -27,11 +27,13 @@ Layer routing:
 - Navigation System: `frontend.navigation.navigation-system`.
 - Performance System: `performance-triage`.
 - Verification System: `frontend-inspection-discipline`.
+- Desktop App Runtime: use candidate pack `frontend.electron.desktop-app-packaging` for Electron, electron-builder, Vite packaged renderer, native module ABI, ASAR, installer, or blank packaged window work.
 
 Tool routing:
 - Visual look: `frontend-inspect`, Playwright, or Browser.
 - User flow: Playwright MCP if available.
 - Console/network/performance: Chrome DevTools MCP.
+- Packaged Electron runtime: launch the exact packaged executable, inspect visible renderer content, check startup logs, inspect `dist/index.html`, and verify native modules under `app.asar.unpacked` when applicable.
 - Exact overflow/spacing: DOM measurement script.
 - Accessibility: `accessibility-check` / axe.
 - Performance: `performance-check` / Lighthouse.
@@ -42,4 +44,5 @@ Rules:
 - Choose the smallest tool that proves the claim.
 - Do not run broad QA for a narrow task.
 - Do not claim visual success without rendered evidence.
+- Do not claim Electron packaged success from dev-server screenshots, build output, installer existence, or process existence. Use `frontend.electron.desktop-app-packaging` and verify the packaged executable renders the UI.
 - Do not run rendered inspection for docs-only or copy-only work unless layout risk exists.
